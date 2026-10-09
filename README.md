@@ -2,7 +2,7 @@
 
 Kotlin K2 compiler plugin for generating value implementations of JVM component contracts.
 The namespace and Gradle plugin ID are `com.alexcawl.contract`.
-The plugin uses the Kotlin **2.4.20** compiler API and requires that compiler version.
+The plugin uses the Kotlin **2.3.20** compiler API and requires that compiler version.
 
 ## Usage
 
@@ -72,7 +72,7 @@ In its `build.gradle.kts`:
 
 ```kotlin
 plugins {
-    kotlin("jvm") version "2.4.20"
+    kotlin("jvm") version "2.3.20"
     id("com.alexcawl.contract")
 }
 repositories { mavenCentral() }

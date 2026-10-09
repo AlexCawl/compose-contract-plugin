@@ -187,5 +187,7 @@ class ContractDeclarationGenerator(session: FirSession) : FirDeclarationGenerati
         return listOf(function.symbol)
     }
 
-    object Key : GeneratedDeclarationKey()
+    object Key : GeneratedDeclarationKey() {
+        override fun toString(): String = "Key"
+    }
 }
