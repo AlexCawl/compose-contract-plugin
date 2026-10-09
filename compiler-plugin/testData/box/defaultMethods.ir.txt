@@ -1,0 +1,1112 @@
+FILE fqName:defaults fileName:/defaultMethods.kt
+  CLASS INTERFACE name:Formatter modality:ABSTRACT visibility:public superTypes:[kotlin.Any]
+    annotations:
+      GenerateContract
+    thisReceiver: VALUE_PARAMETER INSTANCE_RECEIVER kind:DispatchReceiver name:<this> type:defaults.Formatter
+    FUN FAKE_OVERRIDE name:equals visibility:public modality:OPEN returnType:kotlin.Boolean [fake_override,operator]
+      VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:kotlin.Any
+      VALUE_PARAMETER kind:Regular name:other index:1 type:kotlin.Any?
+      overridden:
+        public open fun equals (other: kotlin.Any?): kotlin.Boolean declared in kotlin.Any
+    FUN FAKE_OVERRIDE name:hashCode visibility:public modality:OPEN returnType:kotlin.Int [fake_override]
+      VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:kotlin.Any
+      overridden:
+        public open fun hashCode (): kotlin.Int declared in kotlin.Any
+    FUN FAKE_OVERRIDE name:toString visibility:public modality:OPEN returnType:kotlin.String [fake_override]
+      VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:kotlin.Any
+      overridden:
+        public open fun toString (): kotlin.String declared in kotlin.Any
+    FUN name:arguments visibility:public modality:OPEN returnType:kotlin.Int
+      VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:defaults.Formatter
+      VALUE_PARAMETER kind:Regular name:values index:1 type:kotlin.IntArray varargElementType:kotlin.Int [vararg]
+      BLOCK_BODY
+        RETURN type=kotlin.Nothing from='public open fun arguments (vararg values: kotlin.Int): kotlin.Int declared in defaults.Formatter'
+          CALL 'public final fun sum (<this>: kotlin.IntArray): kotlin.Int declared in kotlin.collections' type=kotlin.Int origin=null
+            ARG <this>: GET_VAR 'values: kotlin.IntArray declared in defaults.Formatter.arguments' type=kotlin.IntArray origin=null
+    FUN name:defaults visibility:public modality:OPEN returnType:kotlin.String
+      VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:defaults.Formatter
+      VALUE_PARAMETER kind:Regular name:a index:1 type:kotlin.Int
+        EXPRESSION_BODY
+          CALL 'public open fun <get-length> (): kotlin.Int declared in kotlin.String' type=kotlin.Int origin=GET_PROPERTY
+            ARG <this>: CALL 'public abstract fun <get-prefix> (): kotlin.String declared in defaults.Formatter' type=kotlin.String origin=GET_PROPERTY
+              ARG <this>: GET_VAR '<this>: defaults.Formatter declared in defaults.Formatter.defaults' type=defaults.Formatter origin=IMPLICIT_ARGUMENT
+      VALUE_PARAMETER kind:Regular name:b index:2 type:kotlin.Int
+        EXPRESSION_BODY
+          CALL 'public final fun plus (other: kotlin.Int): kotlin.Int declared in kotlin.Int' type=kotlin.Int origin=PLUS
+            ARG <this>: GET_VAR 'a: kotlin.Int declared in defaults.Formatter.defaults' type=kotlin.Int origin=null
+            ARG other: CONST Int type=kotlin.Int value=1
+      BLOCK_BODY
+        RETURN type=kotlin.Nothing from='public open fun defaults (a: kotlin.Int, b: kotlin.Int): kotlin.String declared in defaults.Formatter'
+          STRING_CONCATENATION type=kotlin.String
+            GET_VAR 'a: kotlin.Int declared in defaults.Formatter.defaults' type=kotlin.Int origin=null
+            CONST String type=kotlin.String value=":"
+            GET_VAR 'b: kotlin.Int declared in defaults.Formatter.defaults' type=kotlin.Int origin=null
+    FUN name:first visibility:public modality:ABSTRACT returnType:kotlin.String
+      VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:defaults.Formatter
+      VALUE_PARAMETER kind:Regular name:value index:1 type:kotlin.Int
+    FUN name:fromDefault visibility:public modality:OPEN returnType:kotlin.String
+      VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:defaults.Formatter
+      BLOCK_BODY
+        RETURN type=kotlin.Nothing from='public open fun fromDefault (): kotlin.String declared in defaults.Formatter'
+          CALL 'public open fun second (value: kotlin.Int): kotlin.String declared in defaults.Formatter' type=kotlin.String origin=null
+            ARG <this>: GET_VAR '<this>: defaults.Formatter declared in defaults.Formatter.fromDefault' type=defaults.Formatter origin=IMPLICIT_ARGUMENT
+    FUN name:fromParameters visibility:public modality:OPEN returnType:kotlin.String
+      VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:defaults.Formatter
+      BLOCK_BODY
+        RETURN type=kotlin.Nothing from='public open fun fromParameters (): kotlin.String declared in defaults.Formatter'
+          CALL 'public open fun defaults (a: kotlin.Int, b: kotlin.Int): kotlin.String declared in defaults.Formatter' type=kotlin.String origin=null
+            ARG <this>: GET_VAR '<this>: defaults.Formatter declared in defaults.Formatter.fromParameters' type=defaults.Formatter origin=IMPLICIT_ARGUMENT
+    FUN name:namedOrder visibility:public modality:OPEN returnType:kotlin.String
+      VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:defaults.Formatter
+      BLOCK_BODY
+        VAR name:value type:kotlin.Int [var]
+          CONST Int type=kotlin.Int value=0
+        RETURN type=kotlin.Nothing from='public open fun namedOrder (): kotlin.String declared in defaults.Formatter'
+          BLOCK type=kotlin.String origin=ARGUMENTS_REORDERING_FOR_CALL
+            VAR IR_TEMPORARY_VARIABLE name:tmp_0 type:kotlin.Int [val]
+              BLOCK type=kotlin.Int origin=PREFIX_INCR
+                SET_VAR 'var value: kotlin.Int declared in defaults.Formatter.namedOrder' type=kotlin.Unit origin=PREFIX_INCR
+                  CALL 'public final fun inc (): kotlin.Int declared in kotlin.Int' type=kotlin.Int origin=PREFIX_INCR
+                    ARG <this>: GET_VAR 'var value: kotlin.Int declared in defaults.Formatter.namedOrder' type=kotlin.Int origin=PREFIX_INCR
+                GET_VAR 'var value: kotlin.Int declared in defaults.Formatter.namedOrder' type=kotlin.Int origin=PREFIX_INCR
+            VAR IR_TEMPORARY_VARIABLE name:tmp_1 type:kotlin.Int [val]
+              BLOCK type=kotlin.Int origin=PREFIX_INCR
+                SET_VAR 'var value: kotlin.Int declared in defaults.Formatter.namedOrder' type=kotlin.Unit origin=PREFIX_INCR
+                  CALL 'public final fun inc (): kotlin.Int declared in kotlin.Int' type=kotlin.Int origin=PREFIX_INCR
+                    ARG <this>: GET_VAR 'var value: kotlin.Int declared in defaults.Formatter.namedOrder' type=kotlin.Int origin=PREFIX_INCR
+                GET_VAR 'var value: kotlin.Int declared in defaults.Formatter.namedOrder' type=kotlin.Int origin=PREFIX_INCR
+            CALL 'public open fun order (first: kotlin.Int, second: kotlin.Int): kotlin.String declared in defaults.Formatter' type=kotlin.String origin=null
+              ARG <this>: GET_VAR '<this>: defaults.Formatter declared in defaults.Formatter.namedOrder' type=defaults.Formatter origin=IMPLICIT_ARGUMENT
+              ARG first: GET_VAR 'val tmp_1: kotlin.Int declared in defaults.Formatter.namedOrder' type=kotlin.Int origin=null
+              ARG second: GET_VAR 'val tmp_0: kotlin.Int declared in defaults.Formatter.namedOrder' type=kotlin.Int origin=null
+    FUN name:order visibility:public modality:OPEN returnType:kotlin.String
+      VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:defaults.Formatter
+      VALUE_PARAMETER kind:Regular name:first index:1 type:kotlin.Int
+      VALUE_PARAMETER kind:Regular name:second index:2 type:kotlin.Int
+      BLOCK_BODY
+        RETURN type=kotlin.Nothing from='public open fun order (first: kotlin.Int, second: kotlin.Int): kotlin.String declared in defaults.Formatter'
+          STRING_CONCATENATION type=kotlin.String
+            GET_VAR 'first: kotlin.Int declared in defaults.Formatter.order' type=kotlin.Int origin=null
+            CONST String type=kotlin.String value=":"
+            GET_VAR 'second: kotlin.Int declared in defaults.Formatter.order' type=kotlin.Int origin=null
+    FUN name:second visibility:public modality:OPEN returnType:kotlin.String
+      VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:defaults.Formatter
+      VALUE_PARAMETER kind:Regular name:value index:1 type:kotlin.Int
+        EXPRESSION_BODY
+          CONST Int type=kotlin.Int value=4
+      BLOCK_BODY
+        RETURN type=kotlin.Nothing from='public open fun second (value: kotlin.Int): kotlin.String declared in defaults.Formatter'
+          CALL 'public final fun plus (other: kotlin.Any?): kotlin.String declared in kotlin.String' type=kotlin.String origin=PLUS
+            ARG <this>: CALL 'public abstract fun <get-prefix> (): kotlin.String declared in defaults.Formatter' type=kotlin.String origin=GET_PROPERTY
+              ARG <this>: GET_VAR '<this>: defaults.Formatter declared in defaults.Formatter.second' type=defaults.Formatter origin=IMPLICIT_ARGUMENT
+            ARG other: CALL 'public abstract fun first (value: kotlin.Int): kotlin.String declared in defaults.Formatter' type=kotlin.String origin=null
+              ARG <this>: GET_VAR '<this>: defaults.Formatter declared in defaults.Formatter.second' type=defaults.Formatter origin=IMPLICIT_ARGUMENT
+              ARG value: GET_VAR 'value: kotlin.Int declared in defaults.Formatter.second' type=kotlin.Int origin=null
+    FUN name:twice visibility:public modality:OPEN returnType:kotlin.String
+      VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:defaults.Formatter
+      VALUE_PARAMETER kind:Regular name:value index:1 type:kotlin.Int
+      BLOCK_BODY
+        VAR name:formatter type:kotlin.reflect.KFunction1<@[ParameterName(name = "value")] kotlin.Int, kotlin.String> [val]
+          FUNCTION_REFERENCE 'public open fun second (value: kotlin.Int): kotlin.String declared in defaults.Formatter' type=kotlin.reflect.KFunction1<@[ParameterName(name = "value")] kotlin.Int, kotlin.String> origin=null reflectionTarget=<same>
+            ARG <this>: GET_VAR '<this>: defaults.Formatter declared in defaults.Formatter.twice' type=defaults.Formatter origin=IMPLICIT_ARGUMENT
+        RETURN type=kotlin.Nothing from='public open fun twice (value: kotlin.Int): kotlin.String declared in defaults.Formatter'
+          CALL 'public final fun joinToString <T> (<this>: kotlin.collections.Iterable<T of kotlin.collections.joinToString>, separator: kotlin.CharSequence, prefix: kotlin.CharSequence, postfix: kotlin.CharSequence, limit: kotlin.Int, truncated: kotlin.CharSequence, transform: kotlin.Function1<T of kotlin.collections.joinToString, kotlin.CharSequence>?): kotlin.String declared in kotlin.collections' type=kotlin.String origin=null
+            TYPE_ARG T: kotlin.Int
+            ARG <this>: CALL 'public final fun rangeTo (other: kotlin.Int): kotlin.ranges.IntRange declared in kotlin.Int' type=kotlin.ranges.IntRange origin=RANGE
+              ARG <this>: CONST Int type=kotlin.Int value=1
+              ARG other: CONST Int type=kotlin.Int value=2
+            ARG transform: FUN_EXPR type=kotlin.Function1<kotlin.Int, kotlin.CharSequence> origin=LAMBDA
+              FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.CharSequence
+                VALUE_PARAMETER kind:Regular name:it index:0 type:kotlin.Int
+                BLOCK_BODY
+                  RETURN type=kotlin.Nothing from='local final fun <anonymous> (it: kotlin.Int): kotlin.CharSequence declared in defaults.Formatter.twice'
+                    CALL 'public abstract fun invoke (p1: P1 of kotlin.reflect.KFunction1): R of kotlin.reflect.KFunction1 declared in kotlin.reflect.KFunction1' type=kotlin.String origin=INVOKE
+                      ARG <this>: GET_VAR 'val formatter: kotlin.reflect.KFunction1<@[ParameterName(name = "value")] kotlin.Int, kotlin.String> declared in defaults.Formatter.twice' type=kotlin.reflect.KFunction1<@[ParameterName(name = "value")] kotlin.Int, kotlin.String> origin=VARIABLE_AS_FUNCTION
+                      ARG p1: GET_VAR 'value: kotlin.Int declared in defaults.Formatter.twice' type=kotlin.Int origin=null
+    PROPERTY name:prefix visibility:public modality:ABSTRACT [val]
+      FUN DEFAULT_PROPERTY_ACCESSOR name:<get-prefix> visibility:public modality:ABSTRACT returnType:kotlin.String
+        VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:defaults.Formatter
+        correspondingProperty: PROPERTY name:prefix visibility:public modality:ABSTRACT [val]
+  CLASS INTERFACE name:Getter modality:ABSTRACT visibility:public superTypes:[kotlin.Any]
+    annotations:
+      GenerateContract
+    thisReceiver: VALUE_PARAMETER INSTANCE_RECEIVER kind:DispatchReceiver name:<this> type:defaults.Getter
+    FUN FAKE_OVERRIDE name:equals visibility:public modality:OPEN returnType:kotlin.Boolean [fake_override,operator]
+      VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:kotlin.Any
+      VALUE_PARAMETER kind:Regular name:other index:1 type:kotlin.Any?
+      overridden:
+        public open fun equals (other: kotlin.Any?): kotlin.Boolean declared in kotlin.Any
+    FUN FAKE_OVERRIDE name:hashCode visibility:public modality:OPEN returnType:kotlin.Int [fake_override]
+      VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:kotlin.Any
+      overridden:
+        public open fun hashCode (): kotlin.Int declared in kotlin.Any
+    FUN FAKE_OVERRIDE name:toString visibility:public modality:OPEN returnType:kotlin.String [fake_override]
+      VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:kotlin.Any
+      overridden:
+        public open fun toString (): kotlin.String declared in kotlin.Any
+    FUN name:constant visibility:public modality:OPEN returnType:kotlin.Int
+      VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:defaults.Getter
+      BLOCK_BODY
+        RETURN type=kotlin.Nothing from='public open fun constant (): kotlin.Int declared in defaults.Getter'
+          CONST Int type=kotlin.Int value=42
+    FUN name:read visibility:public modality:OPEN returnType:kotlin.Int
+      VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:defaults.Getter
+      BLOCK_BODY
+        RETURN type=kotlin.Nothing from='public open fun read (): kotlin.Int declared in defaults.Getter'
+          CALL 'public open fun <get-value> (): kotlin.Int declared in defaults.Getter' type=kotlin.Int origin=GET_PROPERTY
+            ARG <this>: GET_VAR '<this>: defaults.Getter declared in defaults.Getter.read' type=defaults.Getter origin=IMPLICIT_ARGUMENT
+    PROPERTY name:value visibility:public modality:OPEN [val]
+      FUN name:<get-value> visibility:public modality:OPEN returnType:kotlin.Int
+        VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:defaults.Getter
+        correspondingProperty: PROPERTY name:value visibility:public modality:OPEN [val]
+        BLOCK_BODY
+          RETURN type=kotlin.Nothing from='public open fun <get-value> (): kotlin.Int declared in defaults.Getter'
+            CONST Int type=kotlin.Int value=100
+  FUN name:box visibility:public modality:FINAL returnType:kotlin.String
+    BLOCK_BODY
+      VAR name:formatter type:defaults.Formatter [val]
+        CALL 'public final fun Formatter (prefix: kotlin.String, first: kotlin.Function1<kotlin.Int, kotlin.String>, second: kotlin.Function1<kotlin.Int, kotlin.String>, fromDefault: kotlin.Function0<kotlin.String>, defaults: kotlin.Function2<kotlin.Int, kotlin.Int, kotlin.String>, fromParameters: kotlin.Function0<kotlin.String>, order: kotlin.Function2<kotlin.Int, kotlin.Int, kotlin.String>, namedOrder: kotlin.Function0<kotlin.String>, twice: kotlin.Function1<kotlin.Int, kotlin.String>, arguments: kotlin.Function1<kotlin.IntArray, kotlin.Int>): defaults.Formatter declared in defaults' type=defaults.Formatter origin=null
+          ARG prefix: CONST String type=kotlin.String value="prefix:"
+          ARG first: FUN_EXPR type=kotlin.Function1<kotlin.Int, kotlin.String> origin=LAMBDA
+            FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.String
+              VALUE_PARAMETER kind:Regular name:it index:0 type:kotlin.Int
+              BLOCK_BODY
+                RETURN type=kotlin.Nothing from='local final fun <anonymous> (it: kotlin.Int): kotlin.String declared in defaults.box'
+                  STRING_CONCATENATION type=kotlin.String
+                    CONST String type=kotlin.String value="value:"
+                    GET_VAR 'it: kotlin.Int declared in defaults.box.<anonymous>' type=kotlin.Int origin=null
+      CALL 'public final fun check (value: kotlin.Boolean): kotlin.Unit declared in kotlin' type=kotlin.Unit origin=null
+        ARG value: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+          ARG arg0: CALL 'public open fun second (value: kotlin.Int): kotlin.String declared in defaults.Formatter' type=kotlin.String origin=null
+            ARG <this>: GET_VAR 'val formatter: defaults.Formatter declared in defaults.box' type=defaults.Formatter origin=null
+          ARG arg1: CONST String type=kotlin.String value="prefix:value:4"
+      CALL 'public final fun check (value: kotlin.Boolean): kotlin.Unit declared in kotlin' type=kotlin.Unit origin=null
+        ARG value: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+          ARG arg0: CALL 'public open fun fromDefault (): kotlin.String declared in defaults.Formatter' type=kotlin.String origin=null
+            ARG <this>: GET_VAR 'val formatter: defaults.Formatter declared in defaults.box' type=defaults.Formatter origin=null
+          ARG arg1: CONST String type=kotlin.String value="prefix:value:4"
+      CALL 'public final fun check (value: kotlin.Boolean): kotlin.Unit declared in kotlin' type=kotlin.Unit origin=null
+        ARG value: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+          ARG arg0: CALL 'public open fun fromParameters (): kotlin.String declared in defaults.Formatter' type=kotlin.String origin=null
+            ARG <this>: GET_VAR 'val formatter: defaults.Formatter declared in defaults.box' type=defaults.Formatter origin=null
+          ARG arg1: CONST String type=kotlin.String value="7:8"
+      CALL 'public final fun check (value: kotlin.Boolean): kotlin.Unit declared in kotlin' type=kotlin.Unit origin=null
+        ARG value: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+          ARG arg0: CALL 'public open fun namedOrder (): kotlin.String declared in defaults.Formatter' type=kotlin.String origin=null
+            ARG <this>: GET_VAR 'val formatter: defaults.Formatter declared in defaults.box' type=defaults.Formatter origin=null
+          ARG arg1: CONST String type=kotlin.String value="2:1"
+      CALL 'public final fun check (value: kotlin.Boolean): kotlin.Unit declared in kotlin' type=kotlin.Unit origin=null
+        ARG value: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+          ARG arg0: CALL 'public open fun twice (value: kotlin.Int): kotlin.String declared in defaults.Formatter' type=kotlin.String origin=null
+            ARG <this>: GET_VAR 'val formatter: defaults.Formatter declared in defaults.box' type=defaults.Formatter origin=null
+            ARG value: CONST Int type=kotlin.Int value=3
+          ARG arg1: CONST String type=kotlin.String value="prefix:value:3, prefix:value:3"
+      CALL 'public final fun check (value: kotlin.Boolean): kotlin.Unit declared in kotlin' type=kotlin.Unit origin=null
+        ARG value: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+          ARG arg0: CALL 'public open fun arguments (vararg values: kotlin.Int): kotlin.Int declared in defaults.Formatter' type=kotlin.Int origin=null
+            ARG <this>: GET_VAR 'val formatter: defaults.Formatter declared in defaults.box' type=defaults.Formatter origin=null
+            ARG values: VARARG type=kotlin.IntArray varargElementType=kotlin.Int
+              CONST Int type=kotlin.Int value=1
+              CONST Int type=kotlin.Int value=2
+              CONST Int type=kotlin.Int value=3
+          ARG arg1: CONST Int type=kotlin.Int value=6
+      CALL 'public final fun check (value: kotlin.Boolean): kotlin.Unit declared in kotlin' type=kotlin.Unit origin=null
+        ARG value: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+          ARG arg0: CALL 'public open fun arguments (vararg values: kotlin.Int): kotlin.Int declared in defaults.Formatter' type=kotlin.Int origin=null
+            ARG <this>: CALL 'public final fun copy (<this>: defaults.Formatter, prefix: kotlin.String, first: kotlin.Function1<kotlin.Int, kotlin.String>, second: kotlin.Function1<kotlin.Int, kotlin.String>, fromDefault: kotlin.Function0<kotlin.String>, defaults: kotlin.Function2<kotlin.Int, kotlin.Int, kotlin.String>, fromParameters: kotlin.Function0<kotlin.String>, order: kotlin.Function2<kotlin.Int, kotlin.Int, kotlin.String>, namedOrder: kotlin.Function0<kotlin.String>, twice: kotlin.Function1<kotlin.Int, kotlin.String>, arguments: kotlin.Function1<kotlin.IntArray, kotlin.Int>): defaults.Formatter declared in defaults' type=defaults.Formatter origin=null
+              ARG <this>: GET_VAR 'val formatter: defaults.Formatter declared in defaults.box' type=defaults.Formatter origin=null
+            ARG values: VARARG type=kotlin.IntArray varargElementType=kotlin.Int
+              CONST Int type=kotlin.Int value=4
+              CONST Int type=kotlin.Int value=5
+          ARG arg1: CONST Int type=kotlin.Int value=9
+      CALL 'public final fun check (value: kotlin.Boolean): kotlin.Unit declared in kotlin' type=kotlin.Unit origin=null
+        ARG value: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+          ARG arg0: CALL 'public open fun read (): kotlin.Int declared in defaults.Getter' type=kotlin.Int origin=null
+            ARG <this>: CALL 'public final fun Getter (value: kotlin.Int, constant: kotlin.Function0<kotlin.Int>, read: kotlin.Function0<kotlin.Int>): defaults.Getter declared in defaults' type=defaults.Getter origin=null
+              ARG value: CONST Int type=kotlin.Int value=7
+          ARG arg1: CONST Int type=kotlin.Int value=7
+      CALL 'public final fun check (value: kotlin.Boolean): kotlin.Unit declared in kotlin' type=kotlin.Unit origin=null
+        ARG value: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+          ARG arg0: CALL 'public open fun constant (): kotlin.Int declared in defaults.Getter' type=kotlin.Int origin=null
+            ARG <this>: CALL 'public final fun Getter (value: kotlin.Int, constant: kotlin.Function0<kotlin.Int>, read: kotlin.Function0<kotlin.Int>): defaults.Getter declared in defaults' type=defaults.Getter origin=null
+              ARG value: CONST Int type=kotlin.Int value=7
+          ARG arg1: CONST Int type=kotlin.Int value=42
+      RETURN type=kotlin.Nothing from='public final fun box (): kotlin.String declared in defaults'
+        CONST String type=kotlin.String value="OK"
+FILE fqName:defaults fileName:defaults/FormatterContract.kt
+  FUN GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:Formatter visibility:public modality:FINAL returnType:defaults.Formatter
+    VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:prefix index:0 type:kotlin.String
+    VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:first index:1 type:kotlin.Function1<kotlin.Int, kotlin.String>
+    VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:second index:2 type:kotlin.Function1<kotlin.Int, kotlin.String>
+      EXPRESSION_BODY
+        FUN_EXPR type=kotlin.Function1<kotlin.Int, kotlin.String> origin=LAMBDA
+          FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.String
+            VALUE_PARAMETER kind:Regular name:value index:0 type:kotlin.Int
+            BLOCK_BODY
+              RETURN type=kotlin.Nothing from='local final fun <anonymous> (value: kotlin.Int): kotlin.String declared in defaults.Formatter'
+                CALL 'public final fun plus (other: kotlin.Any?): kotlin.String declared in kotlin.String' type=kotlin.String origin=PLUS
+                  ARG <this>: GET_VAR 'prefix: kotlin.String declared in defaults.Formatter' type=kotlin.String origin=null
+                  ARG other: BLOCK type=kotlin.String origin=null
+                    VAR IR_TEMPORARY_VARIABLE name:tmp_0 type:kotlin.Int [val]
+                      GET_VAR 'value: kotlin.Int declared in defaults.Formatter.<anonymous>' type=kotlin.Int origin=null
+                    CALL 'public abstract fun invoke (p1: P1 of kotlin.Function1): R of kotlin.Function1 declared in kotlin.Function1' type=kotlin.String origin=null
+                      ARG <this>: GET_VAR 'first: kotlin.Function1<kotlin.Int, kotlin.String> declared in defaults.Formatter' type=kotlin.Function1<kotlin.Int, kotlin.String> origin=null
+                      ARG p1: GET_VAR 'val tmp_0: kotlin.Int declared in defaults.Formatter.<anonymous>' type=kotlin.Int origin=null
+    VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:fromDefault index:3 type:kotlin.Function0<kotlin.String>
+      EXPRESSION_BODY
+        FUN_EXPR type=kotlin.Function0<kotlin.String> origin=LAMBDA
+          FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.String
+            BLOCK_BODY
+              RETURN type=kotlin.Nothing from='local final fun <anonymous> (): kotlin.String declared in defaults.Formatter'
+                BLOCK type=kotlin.String origin=null
+                  VAR IR_TEMPORARY_VARIABLE name:tmp_1 type:kotlin.Int [val]
+                    CONST Int type=kotlin.Int value=4
+                  CALL 'public abstract fun invoke (p1: P1 of kotlin.Function1): R of kotlin.Function1 declared in kotlin.Function1' type=kotlin.String origin=null
+                    ARG <this>: GET_VAR 'second: kotlin.Function1<kotlin.Int, kotlin.String> declared in defaults.Formatter' type=kotlin.Function1<kotlin.Int, kotlin.String> origin=null
+                    ARG p1: GET_VAR 'val tmp_1: kotlin.Int declared in defaults.Formatter.<anonymous>' type=kotlin.Int origin=null
+    VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:defaults index:4 type:kotlin.Function2<kotlin.Int, kotlin.Int, kotlin.String>
+      EXPRESSION_BODY
+        FUN_EXPR type=kotlin.Function2<kotlin.Int, kotlin.Int, kotlin.String> origin=LAMBDA
+          FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.String
+            VALUE_PARAMETER kind:Regular name:a index:0 type:kotlin.Int
+            VALUE_PARAMETER kind:Regular name:b index:1 type:kotlin.Int
+            BLOCK_BODY
+              RETURN type=kotlin.Nothing from='local final fun <anonymous> (a: kotlin.Int, b: kotlin.Int): kotlin.String declared in defaults.Formatter'
+                STRING_CONCATENATION type=kotlin.String
+                  GET_VAR 'a: kotlin.Int declared in defaults.Formatter.<anonymous>' type=kotlin.Int origin=null
+                  CONST String type=kotlin.String value=":"
+                  GET_VAR 'b: kotlin.Int declared in defaults.Formatter.<anonymous>' type=kotlin.Int origin=null
+    VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:fromParameters index:5 type:kotlin.Function0<kotlin.String>
+      EXPRESSION_BODY
+        FUN_EXPR type=kotlin.Function0<kotlin.String> origin=LAMBDA
+          FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.String
+            BLOCK_BODY
+              RETURN type=kotlin.Nothing from='local final fun <anonymous> (): kotlin.String declared in defaults.Formatter'
+                BLOCK type=kotlin.String origin=null
+                  VAR IR_TEMPORARY_VARIABLE name:tmp_2 type:kotlin.Int [val]
+                    CALL 'public open fun <get-length> (): kotlin.Int declared in kotlin.String' type=kotlin.Int origin=GET_PROPERTY
+                      ARG <this>: GET_VAR 'prefix: kotlin.String declared in defaults.Formatter' type=kotlin.String origin=null
+                  VAR IR_TEMPORARY_VARIABLE name:tmp_3 type:kotlin.Int [val]
+                    CALL 'public final fun plus (other: kotlin.Int): kotlin.Int declared in kotlin.Int' type=kotlin.Int origin=PLUS
+                      ARG <this>: GET_VAR 'val tmp_2: kotlin.Int declared in defaults.Formatter.<anonymous>' type=kotlin.Int origin=null
+                      ARG other: CONST Int type=kotlin.Int value=1
+                  CALL 'public abstract fun invoke (p1: P1 of kotlin.Function2, p2: P2 of kotlin.Function2): R of kotlin.Function2 declared in kotlin.Function2' type=kotlin.String origin=null
+                    ARG <this>: GET_VAR 'defaults: kotlin.Function2<kotlin.Int, kotlin.Int, kotlin.String> declared in defaults.Formatter' type=kotlin.Function2<kotlin.Int, kotlin.Int, kotlin.String> origin=null
+                    ARG p1: GET_VAR 'val tmp_2: kotlin.Int declared in defaults.Formatter.<anonymous>' type=kotlin.Int origin=null
+                    ARG p2: GET_VAR 'val tmp_3: kotlin.Int declared in defaults.Formatter.<anonymous>' type=kotlin.Int origin=null
+    VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:order index:6 type:kotlin.Function2<kotlin.Int, kotlin.Int, kotlin.String>
+      EXPRESSION_BODY
+        FUN_EXPR type=kotlin.Function2<kotlin.Int, kotlin.Int, kotlin.String> origin=LAMBDA
+          FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.String
+            VALUE_PARAMETER kind:Regular name:first index:0 type:kotlin.Int
+            VALUE_PARAMETER kind:Regular name:second index:1 type:kotlin.Int
+            BLOCK_BODY
+              RETURN type=kotlin.Nothing from='local final fun <anonymous> (first: kotlin.Int, second: kotlin.Int): kotlin.String declared in defaults.Formatter'
+                STRING_CONCATENATION type=kotlin.String
+                  GET_VAR 'first: kotlin.Int declared in defaults.Formatter.<anonymous>' type=kotlin.Int origin=null
+                  CONST String type=kotlin.String value=":"
+                  GET_VAR 'second: kotlin.Int declared in defaults.Formatter.<anonymous>' type=kotlin.Int origin=null
+    VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:namedOrder index:7 type:kotlin.Function0<kotlin.String>
+      EXPRESSION_BODY
+        FUN_EXPR type=kotlin.Function0<kotlin.String> origin=LAMBDA
+          FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.String
+            BLOCK_BODY
+              VAR name:value type:kotlin.Int [var]
+                CONST Int type=kotlin.Int value=0
+              RETURN type=kotlin.Nothing from='local final fun <anonymous> (): kotlin.String declared in defaults.Formatter'
+                BLOCK type=kotlin.String origin=ARGUMENTS_REORDERING_FOR_CALL
+                  VAR IR_TEMPORARY_VARIABLE name:tmp_4 type:kotlin.Int [val]
+                    BLOCK type=kotlin.Int origin=PREFIX_INCR
+                      SET_VAR 'var value: kotlin.Int declared in defaults.Formatter.<anonymous>' type=kotlin.Unit origin=PREFIX_INCR
+                        CALL 'public final fun inc (): kotlin.Int declared in kotlin.Int' type=kotlin.Int origin=PREFIX_INCR
+                          ARG <this>: GET_VAR 'var value: kotlin.Int declared in defaults.Formatter.<anonymous>' type=kotlin.Int origin=PREFIX_INCR
+                      GET_VAR 'var value: kotlin.Int declared in defaults.Formatter.<anonymous>' type=kotlin.Int origin=PREFIX_INCR
+                  VAR IR_TEMPORARY_VARIABLE name:tmp_5 type:kotlin.Int [val]
+                    BLOCK type=kotlin.Int origin=PREFIX_INCR
+                      SET_VAR 'var value: kotlin.Int declared in defaults.Formatter.<anonymous>' type=kotlin.Unit origin=PREFIX_INCR
+                        CALL 'public final fun inc (): kotlin.Int declared in kotlin.Int' type=kotlin.Int origin=PREFIX_INCR
+                          ARG <this>: GET_VAR 'var value: kotlin.Int declared in defaults.Formatter.<anonymous>' type=kotlin.Int origin=PREFIX_INCR
+                      GET_VAR 'var value: kotlin.Int declared in defaults.Formatter.<anonymous>' type=kotlin.Int origin=PREFIX_INCR
+                  BLOCK type=kotlin.String origin=null
+                    VAR IR_TEMPORARY_VARIABLE name:tmp_6 type:kotlin.Int [val]
+                      GET_VAR 'val tmp_5: kotlin.Int declared in defaults.Formatter.<anonymous>' type=kotlin.Int origin=null
+                    VAR IR_TEMPORARY_VARIABLE name:tmp_7 type:kotlin.Int [val]
+                      GET_VAR 'val tmp_4: kotlin.Int declared in defaults.Formatter.<anonymous>' type=kotlin.Int origin=null
+                    CALL 'public abstract fun invoke (p1: P1 of kotlin.Function2, p2: P2 of kotlin.Function2): R of kotlin.Function2 declared in kotlin.Function2' type=kotlin.String origin=null
+                      ARG <this>: GET_VAR 'order: kotlin.Function2<kotlin.Int, kotlin.Int, kotlin.String> declared in defaults.Formatter' type=kotlin.Function2<kotlin.Int, kotlin.Int, kotlin.String> origin=null
+                      ARG p1: GET_VAR 'val tmp_6: kotlin.Int declared in defaults.Formatter.<anonymous>' type=kotlin.Int origin=null
+                      ARG p2: GET_VAR 'val tmp_7: kotlin.Int declared in defaults.Formatter.<anonymous>' type=kotlin.Int origin=null
+    VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:twice index:8 type:kotlin.Function1<kotlin.Int, kotlin.String>
+      EXPRESSION_BODY
+        FUN_EXPR type=kotlin.Function1<kotlin.Int, kotlin.String> origin=LAMBDA
+          FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.String
+            VALUE_PARAMETER kind:Regular name:value index:0 type:kotlin.Int
+            BLOCK_BODY
+              VAR name:formatter type:kotlin.reflect.KFunction1<@[ParameterName(name = "value")] kotlin.Int, kotlin.String> [val]
+                FUNCTION_REFERENCE 'public abstract fun invoke (p1: P1 of kotlin.Function1): R of kotlin.Function1 declared in kotlin.Function1' type=kotlin.reflect.KFunction1<@[ParameterName(name = "value")] kotlin.Int, kotlin.String> origin=null reflectionTarget=<same>
+                  ARG <this>: GET_VAR 'second: kotlin.Function1<kotlin.Int, kotlin.String> declared in defaults.Formatter' type=kotlin.Function1<kotlin.Int, kotlin.String> origin=null
+              RETURN type=kotlin.Nothing from='local final fun <anonymous> (value: kotlin.Int): kotlin.String declared in defaults.Formatter'
+                CALL 'public final fun joinToString <T> (<this>: kotlin.collections.Iterable<T of kotlin.collections.joinToString>, separator: kotlin.CharSequence, prefix: kotlin.CharSequence, postfix: kotlin.CharSequence, limit: kotlin.Int, truncated: kotlin.CharSequence, transform: kotlin.Function1<T of kotlin.collections.joinToString, kotlin.CharSequence>?): kotlin.String declared in kotlin.collections' type=kotlin.String origin=null
+                  TYPE_ARG T: kotlin.Int
+                  ARG <this>: CALL 'public final fun rangeTo (other: kotlin.Int): kotlin.ranges.IntRange declared in kotlin.Int' type=kotlin.ranges.IntRange origin=RANGE
+                    ARG <this>: CONST Int type=kotlin.Int value=1
+                    ARG other: CONST Int type=kotlin.Int value=2
+                  ARG transform: FUN_EXPR type=kotlin.Function1<kotlin.Int, kotlin.CharSequence> origin=LAMBDA
+                    FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.CharSequence
+                      VALUE_PARAMETER kind:Regular name:it index:0 type:kotlin.Int
+                      BLOCK_BODY
+                        RETURN type=kotlin.Nothing from='local final fun <anonymous> (it: kotlin.Int): kotlin.CharSequence declared in defaults.Formatter.<anonymous>'
+                          CALL 'public abstract fun invoke (p1: P1 of kotlin.reflect.KFunction1): R of kotlin.reflect.KFunction1 declared in kotlin.reflect.KFunction1' type=kotlin.String origin=INVOKE
+                            ARG <this>: GET_VAR 'val formatter: kotlin.reflect.KFunction1<@[ParameterName(name = "value")] kotlin.Int, kotlin.String> declared in defaults.Formatter.<anonymous>' type=kotlin.reflect.KFunction1<@[ParameterName(name = "value")] kotlin.Int, kotlin.String> origin=VARIABLE_AS_FUNCTION
+                            ARG p1: GET_VAR 'value: kotlin.Int declared in defaults.Formatter.<anonymous>' type=kotlin.Int origin=null
+    VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:arguments index:9 type:kotlin.Function1<kotlin.IntArray, kotlin.Int>
+      EXPRESSION_BODY
+        FUN_EXPR type=kotlin.Function1<kotlin.IntArray, kotlin.Int> origin=LAMBDA
+          FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Int
+            VALUE_PARAMETER kind:Regular name:values index:0 type:kotlin.IntArray
+            BLOCK_BODY
+              RETURN type=kotlin.Nothing from='local final fun <anonymous> (values: kotlin.IntArray): kotlin.Int declared in defaults.Formatter'
+                CALL 'public final fun sum (<this>: kotlin.IntArray): kotlin.Int declared in kotlin.collections' type=kotlin.Int origin=null
+                  ARG <this>: GET_VAR 'values: kotlin.IntArray declared in defaults.Formatter.<anonymous>' type=kotlin.IntArray origin=null
+    annotations:
+      JvmOverloads
+    BLOCK_BODY
+      RETURN type=kotlin.Nothing from='public final fun Formatter (prefix: kotlin.String, first: kotlin.Function1<kotlin.Int, kotlin.String>, second: kotlin.Function1<kotlin.Int, kotlin.String>, fromDefault: kotlin.Function0<kotlin.String>, defaults: kotlin.Function2<kotlin.Int, kotlin.Int, kotlin.String>, fromParameters: kotlin.Function0<kotlin.String>, order: kotlin.Function2<kotlin.Int, kotlin.Int, kotlin.String>, namedOrder: kotlin.Function0<kotlin.String>, twice: kotlin.Function1<kotlin.Int, kotlin.String>, arguments: kotlin.Function1<kotlin.IntArray, kotlin.Int>): defaults.Formatter declared in defaults'
+        CONSTRUCTOR_CALL 'public constructor <init> (prefix: kotlin.String, first: kotlin.Function1<kotlin.Int, kotlin.String>, second: kotlin.Function1<kotlin.Int, kotlin.String>, fromDefault: kotlin.Function0<kotlin.String>, defaults: kotlin.Function2<kotlin.Int, kotlin.Int, kotlin.String>, fromParameters: kotlin.Function0<kotlin.String>, order: kotlin.Function2<kotlin.Int, kotlin.Int, kotlin.String>, namedOrder: kotlin.Function0<kotlin.String>, twice: kotlin.Function1<kotlin.Int, kotlin.String>, arguments: kotlin.Function1<kotlin.IntArray, kotlin.Int>) declared in defaults.FormatterImpl' type=defaults.FormatterImpl origin=null
+          ARG prefix: GET_VAR 'prefix: kotlin.String declared in defaults.Formatter' type=kotlin.String origin=null
+          ARG first: GET_VAR 'first: kotlin.Function1<kotlin.Int, kotlin.String> declared in defaults.Formatter' type=kotlin.Function1<kotlin.Int, kotlin.String> origin=null
+          ARG second: GET_VAR 'second: kotlin.Function1<kotlin.Int, kotlin.String> declared in defaults.Formatter' type=kotlin.Function1<kotlin.Int, kotlin.String> origin=null
+          ARG fromDefault: GET_VAR 'fromDefault: kotlin.Function0<kotlin.String> declared in defaults.Formatter' type=kotlin.Function0<kotlin.String> origin=null
+          ARG defaults: GET_VAR 'defaults: kotlin.Function2<kotlin.Int, kotlin.Int, kotlin.String> declared in defaults.Formatter' type=kotlin.Function2<kotlin.Int, kotlin.Int, kotlin.String> origin=null
+          ARG fromParameters: GET_VAR 'fromParameters: kotlin.Function0<kotlin.String> declared in defaults.Formatter' type=kotlin.Function0<kotlin.String> origin=null
+          ARG order: GET_VAR 'order: kotlin.Function2<kotlin.Int, kotlin.Int, kotlin.String> declared in defaults.Formatter' type=kotlin.Function2<kotlin.Int, kotlin.Int, kotlin.String> origin=null
+          ARG namedOrder: GET_VAR 'namedOrder: kotlin.Function0<kotlin.String> declared in defaults.Formatter' type=kotlin.Function0<kotlin.String> origin=null
+          ARG twice: GET_VAR 'twice: kotlin.Function1<kotlin.Int, kotlin.String> declared in defaults.Formatter' type=kotlin.Function1<kotlin.Int, kotlin.String> origin=null
+          ARG arguments: GET_VAR 'arguments: kotlin.Function1<kotlin.IntArray, kotlin.Int> declared in defaults.Formatter' type=kotlin.Function1<kotlin.IntArray, kotlin.Int> origin=null
+  FUN GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:copy visibility:public modality:FINAL returnType:defaults.Formatter
+    VALUE_PARAMETER kind:ExtensionReceiver name:<this> index:0 type:defaults.Formatter
+    VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:prefix index:1 type:kotlin.String
+      EXPRESSION_BODY
+        CALL 'public abstract fun <get-prefix> (): kotlin.String declared in defaults.Formatter' type=kotlin.String origin=null
+          ARG <this>: GET_VAR '<this>: defaults.Formatter declared in defaults.copy' type=defaults.Formatter origin=null
+    VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:first index:2 type:kotlin.Function1<kotlin.Int, kotlin.String>
+      EXPRESSION_BODY
+        FUNCTION_REFERENCE 'public abstract fun first (value: kotlin.Int): kotlin.String declared in defaults.Formatter' type=kotlin.Function1<kotlin.Int, kotlin.String> origin=null reflectionTarget=<same>
+          ARG <this>: GET_VAR '<this>: defaults.Formatter declared in defaults.copy' type=defaults.Formatter origin=null
+    VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:second index:3 type:kotlin.Function1<kotlin.Int, kotlin.String>
+      EXPRESSION_BODY
+        FUNCTION_REFERENCE 'public open fun second (value: kotlin.Int): kotlin.String declared in defaults.Formatter' type=kotlin.Function1<kotlin.Int, kotlin.String> origin=null reflectionTarget=<same>
+          ARG <this>: GET_VAR '<this>: defaults.Formatter declared in defaults.copy' type=defaults.Formatter origin=null
+    VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:fromDefault index:4 type:kotlin.Function0<kotlin.String>
+      EXPRESSION_BODY
+        FUNCTION_REFERENCE 'public open fun fromDefault (): kotlin.String declared in defaults.Formatter' type=kotlin.Function0<kotlin.String> origin=null reflectionTarget=<same>
+          ARG <this>: GET_VAR '<this>: defaults.Formatter declared in defaults.copy' type=defaults.Formatter origin=null
+    VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:defaults index:5 type:kotlin.Function2<kotlin.Int, kotlin.Int, kotlin.String>
+      EXPRESSION_BODY
+        FUNCTION_REFERENCE 'public open fun defaults (a: kotlin.Int, b: kotlin.Int): kotlin.String declared in defaults.Formatter' type=kotlin.Function2<kotlin.Int, kotlin.Int, kotlin.String> origin=null reflectionTarget=<same>
+          ARG <this>: GET_VAR '<this>: defaults.Formatter declared in defaults.copy' type=defaults.Formatter origin=null
+    VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:fromParameters index:6 type:kotlin.Function0<kotlin.String>
+      EXPRESSION_BODY
+        FUNCTION_REFERENCE 'public open fun fromParameters (): kotlin.String declared in defaults.Formatter' type=kotlin.Function0<kotlin.String> origin=null reflectionTarget=<same>
+          ARG <this>: GET_VAR '<this>: defaults.Formatter declared in defaults.copy' type=defaults.Formatter origin=null
+    VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:order index:7 type:kotlin.Function2<kotlin.Int, kotlin.Int, kotlin.String>
+      EXPRESSION_BODY
+        FUNCTION_REFERENCE 'public open fun order (first: kotlin.Int, second: kotlin.Int): kotlin.String declared in defaults.Formatter' type=kotlin.Function2<kotlin.Int, kotlin.Int, kotlin.String> origin=null reflectionTarget=<same>
+          ARG <this>: GET_VAR '<this>: defaults.Formatter declared in defaults.copy' type=defaults.Formatter origin=null
+    VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:namedOrder index:8 type:kotlin.Function0<kotlin.String>
+      EXPRESSION_BODY
+        FUNCTION_REFERENCE 'public open fun namedOrder (): kotlin.String declared in defaults.Formatter' type=kotlin.Function0<kotlin.String> origin=null reflectionTarget=<same>
+          ARG <this>: GET_VAR '<this>: defaults.Formatter declared in defaults.copy' type=defaults.Formatter origin=null
+    VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:twice index:9 type:kotlin.Function1<kotlin.Int, kotlin.String>
+      EXPRESSION_BODY
+        FUNCTION_REFERENCE 'public open fun twice (value: kotlin.Int): kotlin.String declared in defaults.Formatter' type=kotlin.Function1<kotlin.Int, kotlin.String> origin=null reflectionTarget=<same>
+          ARG <this>: GET_VAR '<this>: defaults.Formatter declared in defaults.copy' type=defaults.Formatter origin=null
+    VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:arguments index:10 type:kotlin.Function1<kotlin.IntArray, kotlin.Int>
+      EXPRESSION_BODY
+        FUNCTION_REFERENCE 'public open fun arguments (vararg values: kotlin.Int): kotlin.Int declared in defaults.Formatter' type=kotlin.Function1<kotlin.IntArray, kotlin.Int> origin=null reflectionTarget=<same>
+          ARG <this>: GET_VAR '<this>: defaults.Formatter declared in defaults.copy' type=defaults.Formatter origin=null
+    annotations:
+      JvmOverloads
+    BLOCK_BODY
+      RETURN type=kotlin.Nothing from='public final fun copy (<this>: defaults.Formatter, prefix: kotlin.String, first: kotlin.Function1<kotlin.Int, kotlin.String>, second: kotlin.Function1<kotlin.Int, kotlin.String>, fromDefault: kotlin.Function0<kotlin.String>, defaults: kotlin.Function2<kotlin.Int, kotlin.Int, kotlin.String>, fromParameters: kotlin.Function0<kotlin.String>, order: kotlin.Function2<kotlin.Int, kotlin.Int, kotlin.String>, namedOrder: kotlin.Function0<kotlin.String>, twice: kotlin.Function1<kotlin.Int, kotlin.String>, arguments: kotlin.Function1<kotlin.IntArray, kotlin.Int>): defaults.Formatter declared in defaults'
+        CONSTRUCTOR_CALL 'public constructor <init> (prefix: kotlin.String, first: kotlin.Function1<kotlin.Int, kotlin.String>, second: kotlin.Function1<kotlin.Int, kotlin.String>, fromDefault: kotlin.Function0<kotlin.String>, defaults: kotlin.Function2<kotlin.Int, kotlin.Int, kotlin.String>, fromParameters: kotlin.Function0<kotlin.String>, order: kotlin.Function2<kotlin.Int, kotlin.Int, kotlin.String>, namedOrder: kotlin.Function0<kotlin.String>, twice: kotlin.Function1<kotlin.Int, kotlin.String>, arguments: kotlin.Function1<kotlin.IntArray, kotlin.Int>) declared in defaults.FormatterImpl' type=defaults.FormatterImpl origin=null
+          ARG prefix: GET_VAR 'prefix: kotlin.String declared in defaults.copy' type=kotlin.String origin=null
+          ARG first: GET_VAR 'first: kotlin.Function1<kotlin.Int, kotlin.String> declared in defaults.copy' type=kotlin.Function1<kotlin.Int, kotlin.String> origin=null
+          ARG second: GET_VAR 'second: kotlin.Function1<kotlin.Int, kotlin.String> declared in defaults.copy' type=kotlin.Function1<kotlin.Int, kotlin.String> origin=null
+          ARG fromDefault: GET_VAR 'fromDefault: kotlin.Function0<kotlin.String> declared in defaults.copy' type=kotlin.Function0<kotlin.String> origin=null
+          ARG defaults: GET_VAR 'defaults: kotlin.Function2<kotlin.Int, kotlin.Int, kotlin.String> declared in defaults.copy' type=kotlin.Function2<kotlin.Int, kotlin.Int, kotlin.String> origin=null
+          ARG fromParameters: GET_VAR 'fromParameters: kotlin.Function0<kotlin.String> declared in defaults.copy' type=kotlin.Function0<kotlin.String> origin=null
+          ARG order: GET_VAR 'order: kotlin.Function2<kotlin.Int, kotlin.Int, kotlin.String> declared in defaults.copy' type=kotlin.Function2<kotlin.Int, kotlin.Int, kotlin.String> origin=null
+          ARG namedOrder: GET_VAR 'namedOrder: kotlin.Function0<kotlin.String> declared in defaults.copy' type=kotlin.Function0<kotlin.String> origin=null
+          ARG twice: GET_VAR 'twice: kotlin.Function1<kotlin.Int, kotlin.String> declared in defaults.copy' type=kotlin.Function1<kotlin.Int, kotlin.String> origin=null
+          ARG arguments: GET_VAR 'arguments: kotlin.Function1<kotlin.IntArray, kotlin.Int> declared in defaults.copy' type=kotlin.Function1<kotlin.IntArray, kotlin.Int> origin=null
+FILE fqName:defaults fileName:defaults/FormatterImpl.kt
+  CLASS GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] CLASS name:FormatterImpl modality:FINAL visibility:public superTypes:[defaults.Formatter]
+    thisReceiver: VALUE_PARAMETER INSTANCE_RECEIVER kind:DispatchReceiver name:<this> type:defaults.FormatterImpl
+    PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:prefix visibility:public modality:FINAL [val]
+      overridden:
+        public abstract prefix: kotlin.String declared in defaults.Formatter
+      FIELD PROPERTY_BACKING_FIELD name:prefix type:kotlin.String visibility:private [final]
+      FUN DEFAULT_PROPERTY_ACCESSOR name:<get-prefix> visibility:public modality:FINAL returnType:kotlin.String
+        VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:defaults.FormatterImpl
+        correspondingProperty: PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:prefix visibility:public modality:FINAL [val]
+        overridden:
+          public abstract fun <get-prefix> (): kotlin.String declared in defaults.Formatter
+        BLOCK_BODY
+          RETURN type=kotlin.Nothing from='public final fun <get-prefix> (): kotlin.String declared in defaults.FormatterImpl'
+            GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:prefix type:kotlin.String visibility:private [final]' type=kotlin.String origin=null
+              receiver: GET_VAR '<this>: defaults.FormatterImpl declared in defaults.FormatterImpl.<get-prefix>' type=defaults.FormatterImpl origin=null
+    PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:$contract$first visibility:private modality:FINAL [val]
+      FIELD PROPERTY_BACKING_FIELD name:$contract$first type:kotlin.Function1<kotlin.Int, kotlin.String> visibility:private [final]
+      FUN DEFAULT_PROPERTY_ACCESSOR name:<get-$contract$first> visibility:private modality:FINAL returnType:kotlin.Function1<kotlin.Int, kotlin.String>
+        VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:defaults.FormatterImpl
+        correspondingProperty: PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:$contract$first visibility:private modality:FINAL [val]
+        BLOCK_BODY
+          RETURN type=kotlin.Nothing from='private final fun <get-$contract$first> (): kotlin.Function1<kotlin.Int, kotlin.String> declared in defaults.FormatterImpl'
+            GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$first type:kotlin.Function1<kotlin.Int, kotlin.String> visibility:private [final]' type=kotlin.Function1<kotlin.Int, kotlin.String> origin=null
+              receiver: GET_VAR '<this>: defaults.FormatterImpl declared in defaults.FormatterImpl.<get-$contract$first>' type=defaults.FormatterImpl origin=null
+    PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:$contract$second visibility:private modality:FINAL [val]
+      FIELD PROPERTY_BACKING_FIELD name:$contract$second type:kotlin.Function1<kotlin.Int, kotlin.String> visibility:private [final]
+      FUN DEFAULT_PROPERTY_ACCESSOR name:<get-$contract$second> visibility:private modality:FINAL returnType:kotlin.Function1<kotlin.Int, kotlin.String>
+        VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:defaults.FormatterImpl
+        correspondingProperty: PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:$contract$second visibility:private modality:FINAL [val]
+        BLOCK_BODY
+          RETURN type=kotlin.Nothing from='private final fun <get-$contract$second> (): kotlin.Function1<kotlin.Int, kotlin.String> declared in defaults.FormatterImpl'
+            GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$second type:kotlin.Function1<kotlin.Int, kotlin.String> visibility:private [final]' type=kotlin.Function1<kotlin.Int, kotlin.String> origin=null
+              receiver: GET_VAR '<this>: defaults.FormatterImpl declared in defaults.FormatterImpl.<get-$contract$second>' type=defaults.FormatterImpl origin=null
+    PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:$contract$fromDefault visibility:private modality:FINAL [val]
+      FIELD PROPERTY_BACKING_FIELD name:$contract$fromDefault type:kotlin.Function0<kotlin.String> visibility:private [final]
+      FUN DEFAULT_PROPERTY_ACCESSOR name:<get-$contract$fromDefault> visibility:private modality:FINAL returnType:kotlin.Function0<kotlin.String>
+        VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:defaults.FormatterImpl
+        correspondingProperty: PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:$contract$fromDefault visibility:private modality:FINAL [val]
+        BLOCK_BODY
+          RETURN type=kotlin.Nothing from='private final fun <get-$contract$fromDefault> (): kotlin.Function0<kotlin.String> declared in defaults.FormatterImpl'
+            GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$fromDefault type:kotlin.Function0<kotlin.String> visibility:private [final]' type=kotlin.Function0<kotlin.String> origin=null
+              receiver: GET_VAR '<this>: defaults.FormatterImpl declared in defaults.FormatterImpl.<get-$contract$fromDefault>' type=defaults.FormatterImpl origin=null
+    PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:$contract$defaults visibility:private modality:FINAL [val]
+      FIELD PROPERTY_BACKING_FIELD name:$contract$defaults type:kotlin.Function2<kotlin.Int, kotlin.Int, kotlin.String> visibility:private [final]
+      FUN DEFAULT_PROPERTY_ACCESSOR name:<get-$contract$defaults> visibility:private modality:FINAL returnType:kotlin.Function2<kotlin.Int, kotlin.Int, kotlin.String>
+        VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:defaults.FormatterImpl
+        correspondingProperty: PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:$contract$defaults visibility:private modality:FINAL [val]
+        BLOCK_BODY
+          RETURN type=kotlin.Nothing from='private final fun <get-$contract$defaults> (): kotlin.Function2<kotlin.Int, kotlin.Int, kotlin.String> declared in defaults.FormatterImpl'
+            GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$defaults type:kotlin.Function2<kotlin.Int, kotlin.Int, kotlin.String> visibility:private [final]' type=kotlin.Function2<kotlin.Int, kotlin.Int, kotlin.String> origin=null
+              receiver: GET_VAR '<this>: defaults.FormatterImpl declared in defaults.FormatterImpl.<get-$contract$defaults>' type=defaults.FormatterImpl origin=null
+    PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:$contract$fromParameters visibility:private modality:FINAL [val]
+      FIELD PROPERTY_BACKING_FIELD name:$contract$fromParameters type:kotlin.Function0<kotlin.String> visibility:private [final]
+      FUN DEFAULT_PROPERTY_ACCESSOR name:<get-$contract$fromParameters> visibility:private modality:FINAL returnType:kotlin.Function0<kotlin.String>
+        VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:defaults.FormatterImpl
+        correspondingProperty: PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:$contract$fromParameters visibility:private modality:FINAL [val]
+        BLOCK_BODY
+          RETURN type=kotlin.Nothing from='private final fun <get-$contract$fromParameters> (): kotlin.Function0<kotlin.String> declared in defaults.FormatterImpl'
+            GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$fromParameters type:kotlin.Function0<kotlin.String> visibility:private [final]' type=kotlin.Function0<kotlin.String> origin=null
+              receiver: GET_VAR '<this>: defaults.FormatterImpl declared in defaults.FormatterImpl.<get-$contract$fromParameters>' type=defaults.FormatterImpl origin=null
+    PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:$contract$order visibility:private modality:FINAL [val]
+      FIELD PROPERTY_BACKING_FIELD name:$contract$order type:kotlin.Function2<kotlin.Int, kotlin.Int, kotlin.String> visibility:private [final]
+      FUN DEFAULT_PROPERTY_ACCESSOR name:<get-$contract$order> visibility:private modality:FINAL returnType:kotlin.Function2<kotlin.Int, kotlin.Int, kotlin.String>
+        VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:defaults.FormatterImpl
+        correspondingProperty: PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:$contract$order visibility:private modality:FINAL [val]
+        BLOCK_BODY
+          RETURN type=kotlin.Nothing from='private final fun <get-$contract$order> (): kotlin.Function2<kotlin.Int, kotlin.Int, kotlin.String> declared in defaults.FormatterImpl'
+            GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$order type:kotlin.Function2<kotlin.Int, kotlin.Int, kotlin.String> visibility:private [final]' type=kotlin.Function2<kotlin.Int, kotlin.Int, kotlin.String> origin=null
+              receiver: GET_VAR '<this>: defaults.FormatterImpl declared in defaults.FormatterImpl.<get-$contract$order>' type=defaults.FormatterImpl origin=null
+    PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:$contract$namedOrder visibility:private modality:FINAL [val]
+      FIELD PROPERTY_BACKING_FIELD name:$contract$namedOrder type:kotlin.Function0<kotlin.String> visibility:private [final]
+      FUN DEFAULT_PROPERTY_ACCESSOR name:<get-$contract$namedOrder> visibility:private modality:FINAL returnType:kotlin.Function0<kotlin.String>
+        VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:defaults.FormatterImpl
+        correspondingProperty: PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:$contract$namedOrder visibility:private modality:FINAL [val]
+        BLOCK_BODY
+          RETURN type=kotlin.Nothing from='private final fun <get-$contract$namedOrder> (): kotlin.Function0<kotlin.String> declared in defaults.FormatterImpl'
+            GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$namedOrder type:kotlin.Function0<kotlin.String> visibility:private [final]' type=kotlin.Function0<kotlin.String> origin=null
+              receiver: GET_VAR '<this>: defaults.FormatterImpl declared in defaults.FormatterImpl.<get-$contract$namedOrder>' type=defaults.FormatterImpl origin=null
+    PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:$contract$twice visibility:private modality:FINAL [val]
+      FIELD PROPERTY_BACKING_FIELD name:$contract$twice type:kotlin.Function1<kotlin.Int, kotlin.String> visibility:private [final]
+      FUN DEFAULT_PROPERTY_ACCESSOR name:<get-$contract$twice> visibility:private modality:FINAL returnType:kotlin.Function1<kotlin.Int, kotlin.String>
+        VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:defaults.FormatterImpl
+        correspondingProperty: PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:$contract$twice visibility:private modality:FINAL [val]
+        BLOCK_BODY
+          RETURN type=kotlin.Nothing from='private final fun <get-$contract$twice> (): kotlin.Function1<kotlin.Int, kotlin.String> declared in defaults.FormatterImpl'
+            GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$twice type:kotlin.Function1<kotlin.Int, kotlin.String> visibility:private [final]' type=kotlin.Function1<kotlin.Int, kotlin.String> origin=null
+              receiver: GET_VAR '<this>: defaults.FormatterImpl declared in defaults.FormatterImpl.<get-$contract$twice>' type=defaults.FormatterImpl origin=null
+    PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:$contract$arguments visibility:private modality:FINAL [val]
+      FIELD PROPERTY_BACKING_FIELD name:$contract$arguments type:kotlin.Function1<kotlin.IntArray, kotlin.Int> visibility:private [final]
+      FUN DEFAULT_PROPERTY_ACCESSOR name:<get-$contract$arguments> visibility:private modality:FINAL returnType:kotlin.Function1<kotlin.IntArray, kotlin.Int>
+        VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:defaults.FormatterImpl
+        correspondingProperty: PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:$contract$arguments visibility:private modality:FINAL [val]
+        BLOCK_BODY
+          RETURN type=kotlin.Nothing from='private final fun <get-$contract$arguments> (): kotlin.Function1<kotlin.IntArray, kotlin.Int> declared in defaults.FormatterImpl'
+            GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$arguments type:kotlin.Function1<kotlin.IntArray, kotlin.Int> visibility:private [final]' type=kotlin.Function1<kotlin.IntArray, kotlin.Int> origin=null
+              receiver: GET_VAR '<this>: defaults.FormatterImpl declared in defaults.FormatterImpl.<get-$contract$arguments>' type=defaults.FormatterImpl origin=null
+    CONSTRUCTOR GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] visibility:public returnType:defaults.FormatterImpl [primary]
+      VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:prefix index:0 type:kotlin.String
+      VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:first index:1 type:kotlin.Function1<kotlin.Int, kotlin.String>
+      VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:second index:2 type:kotlin.Function1<kotlin.Int, kotlin.String>
+      VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:fromDefault index:3 type:kotlin.Function0<kotlin.String>
+      VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:defaults index:4 type:kotlin.Function2<kotlin.Int, kotlin.Int, kotlin.String>
+      VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:fromParameters index:5 type:kotlin.Function0<kotlin.String>
+      VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:order index:6 type:kotlin.Function2<kotlin.Int, kotlin.Int, kotlin.String>
+      VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:namedOrder index:7 type:kotlin.Function0<kotlin.String>
+      VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:twice index:8 type:kotlin.Function1<kotlin.Int, kotlin.String>
+      VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:arguments index:9 type:kotlin.Function1<kotlin.IntArray, kotlin.Int>
+      BLOCK_BODY
+        DELEGATING_CONSTRUCTOR_CALL 'public constructor <init> () declared in kotlin.Any'
+        SET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:prefix type:kotlin.String visibility:private [final]' type=kotlin.Unit origin=null
+          receiver: GET_VAR '<this>: defaults.FormatterImpl declared in defaults.FormatterImpl' type=defaults.FormatterImpl origin=null
+          value: GET_VAR 'prefix: kotlin.String declared in defaults.FormatterImpl.<init>' type=kotlin.String origin=null
+        SET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$first type:kotlin.Function1<kotlin.Int, kotlin.String> visibility:private [final]' type=kotlin.Unit origin=null
+          receiver: GET_VAR '<this>: defaults.FormatterImpl declared in defaults.FormatterImpl' type=defaults.FormatterImpl origin=null
+          value: GET_VAR 'first: kotlin.Function1<kotlin.Int, kotlin.String> declared in defaults.FormatterImpl.<init>' type=kotlin.Function1<kotlin.Int, kotlin.String> origin=null
+        SET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$second type:kotlin.Function1<kotlin.Int, kotlin.String> visibility:private [final]' type=kotlin.Unit origin=null
+          receiver: GET_VAR '<this>: defaults.FormatterImpl declared in defaults.FormatterImpl' type=defaults.FormatterImpl origin=null
+          value: GET_VAR 'second: kotlin.Function1<kotlin.Int, kotlin.String> declared in defaults.FormatterImpl.<init>' type=kotlin.Function1<kotlin.Int, kotlin.String> origin=null
+        SET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$fromDefault type:kotlin.Function0<kotlin.String> visibility:private [final]' type=kotlin.Unit origin=null
+          receiver: GET_VAR '<this>: defaults.FormatterImpl declared in defaults.FormatterImpl' type=defaults.FormatterImpl origin=null
+          value: GET_VAR 'fromDefault: kotlin.Function0<kotlin.String> declared in defaults.FormatterImpl.<init>' type=kotlin.Function0<kotlin.String> origin=null
+        SET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$defaults type:kotlin.Function2<kotlin.Int, kotlin.Int, kotlin.String> visibility:private [final]' type=kotlin.Unit origin=null
+          receiver: GET_VAR '<this>: defaults.FormatterImpl declared in defaults.FormatterImpl' type=defaults.FormatterImpl origin=null
+          value: GET_VAR 'defaults: kotlin.Function2<kotlin.Int, kotlin.Int, kotlin.String> declared in defaults.FormatterImpl.<init>' type=kotlin.Function2<kotlin.Int, kotlin.Int, kotlin.String> origin=null
+        SET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$fromParameters type:kotlin.Function0<kotlin.String> visibility:private [final]' type=kotlin.Unit origin=null
+          receiver: GET_VAR '<this>: defaults.FormatterImpl declared in defaults.FormatterImpl' type=defaults.FormatterImpl origin=null
+          value: GET_VAR 'fromParameters: kotlin.Function0<kotlin.String> declared in defaults.FormatterImpl.<init>' type=kotlin.Function0<kotlin.String> origin=null
+        SET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$order type:kotlin.Function2<kotlin.Int, kotlin.Int, kotlin.String> visibility:private [final]' type=kotlin.Unit origin=null
+          receiver: GET_VAR '<this>: defaults.FormatterImpl declared in defaults.FormatterImpl' type=defaults.FormatterImpl origin=null
+          value: GET_VAR 'order: kotlin.Function2<kotlin.Int, kotlin.Int, kotlin.String> declared in defaults.FormatterImpl.<init>' type=kotlin.Function2<kotlin.Int, kotlin.Int, kotlin.String> origin=null
+        SET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$namedOrder type:kotlin.Function0<kotlin.String> visibility:private [final]' type=kotlin.Unit origin=null
+          receiver: GET_VAR '<this>: defaults.FormatterImpl declared in defaults.FormatterImpl' type=defaults.FormatterImpl origin=null
+          value: GET_VAR 'namedOrder: kotlin.Function0<kotlin.String> declared in defaults.FormatterImpl.<init>' type=kotlin.Function0<kotlin.String> origin=null
+        SET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$twice type:kotlin.Function1<kotlin.Int, kotlin.String> visibility:private [final]' type=kotlin.Unit origin=null
+          receiver: GET_VAR '<this>: defaults.FormatterImpl declared in defaults.FormatterImpl' type=defaults.FormatterImpl origin=null
+          value: GET_VAR 'twice: kotlin.Function1<kotlin.Int, kotlin.String> declared in defaults.FormatterImpl.<init>' type=kotlin.Function1<kotlin.Int, kotlin.String> origin=null
+        SET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$arguments type:kotlin.Function1<kotlin.IntArray, kotlin.Int> visibility:private [final]' type=kotlin.Unit origin=null
+          receiver: GET_VAR '<this>: defaults.FormatterImpl declared in defaults.FormatterImpl' type=defaults.FormatterImpl origin=null
+          value: GET_VAR 'arguments: kotlin.Function1<kotlin.IntArray, kotlin.Int> declared in defaults.FormatterImpl.<init>' type=kotlin.Function1<kotlin.IntArray, kotlin.Int> origin=null
+        INSTANCE_INITIALIZER_CALL classDescriptor='CLASS GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] CLASS name:FormatterImpl modality:FINAL visibility:public superTypes:[defaults.Formatter]' type=kotlin.Unit
+    FUN FAKE_OVERRIDE name:toString visibility:public modality:OPEN returnType:kotlin.String [fake_override]
+      VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:kotlin.Any
+      overridden:
+        public open fun toString (): kotlin.String declared in defaults.Formatter
+    FUN GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:arguments visibility:public modality:FINAL returnType:kotlin.Int
+      VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:defaults.FormatterImpl
+      VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:values index:1 type:kotlin.IntArray varargElementType:kotlin.Int [vararg]
+      overridden:
+        public open fun arguments (vararg values: kotlin.Int): kotlin.Int declared in defaults.Formatter
+      BLOCK_BODY
+        RETURN type=kotlin.Nothing from='public final fun arguments (vararg values: kotlin.Int): kotlin.Int declared in defaults.FormatterImpl'
+          CALL 'public abstract fun invoke (p1: P1 of kotlin.Function1): R of kotlin.Function1 declared in kotlin.Function1' type=kotlin.Int origin=null
+            ARG <this>: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$arguments type:kotlin.Function1<kotlin.IntArray, kotlin.Int> visibility:private [final]' type=kotlin.Function1<kotlin.IntArray, kotlin.Int> origin=null
+              receiver: GET_VAR '<this>: defaults.FormatterImpl declared in defaults.FormatterImpl.arguments' type=defaults.FormatterImpl origin=null
+            ARG p1: GET_VAR 'values: kotlin.IntArray declared in defaults.FormatterImpl.arguments' type=kotlin.IntArray origin=null
+    FUN GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:defaults visibility:public modality:FINAL returnType:kotlin.String
+      VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:defaults.FormatterImpl
+      VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:a index:1 type:kotlin.Int
+      VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:b index:2 type:kotlin.Int
+      overridden:
+        public open fun defaults (a: kotlin.Int, b: kotlin.Int): kotlin.String declared in defaults.Formatter
+      BLOCK_BODY
+        RETURN type=kotlin.Nothing from='public final fun defaults (a: kotlin.Int, b: kotlin.Int): kotlin.String declared in defaults.FormatterImpl'
+          CALL 'public abstract fun invoke (p1: P1 of kotlin.Function2, p2: P2 of kotlin.Function2): R of kotlin.Function2 declared in kotlin.Function2' type=kotlin.String origin=null
+            ARG <this>: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$defaults type:kotlin.Function2<kotlin.Int, kotlin.Int, kotlin.String> visibility:private [final]' type=kotlin.Function2<kotlin.Int, kotlin.Int, kotlin.String> origin=null
+              receiver: GET_VAR '<this>: defaults.FormatterImpl declared in defaults.FormatterImpl.defaults' type=defaults.FormatterImpl origin=null
+            ARG p1: GET_VAR 'a: kotlin.Int declared in defaults.FormatterImpl.defaults' type=kotlin.Int origin=null
+            ARG p2: GET_VAR 'b: kotlin.Int declared in defaults.FormatterImpl.defaults' type=kotlin.Int origin=null
+    FUN GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:equals visibility:public modality:FINAL returnType:kotlin.Boolean
+      VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:defaults.FormatterImpl
+      VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:other index:1 type:kotlin.Any?
+      overridden:
+        public open fun equals (other: kotlin.Any?): kotlin.Boolean declared in defaults.Formatter
+      BLOCK_BODY
+        WHEN type=kotlin.Unit origin=null
+          BRANCH
+            if: CALL 'public final fun EQEQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQEQ
+              ARG arg0: GET_VAR '<this>: defaults.FormatterImpl declared in defaults.FormatterImpl.equals' type=defaults.FormatterImpl origin=null
+              ARG arg1: GET_VAR 'other: kotlin.Any? declared in defaults.FormatterImpl.equals' type=kotlin.Any? origin=null
+            then: RETURN type=kotlin.Nothing from='public final fun equals (other: kotlin.Any?): kotlin.Boolean declared in defaults.FormatterImpl'
+              CONST Boolean type=kotlin.Boolean value=true
+        WHEN type=kotlin.Unit origin=null
+          BRANCH
+            if: TYPE_OP type=kotlin.Boolean origin=NOT_INSTANCEOF typeOperand=defaults.FormatterImpl
+              GET_VAR 'other: kotlin.Any? declared in defaults.FormatterImpl.equals' type=kotlin.Any? origin=null
+            then: RETURN type=kotlin.Nothing from='public final fun equals (other: kotlin.Any?): kotlin.Boolean declared in defaults.FormatterImpl'
+              CONST Boolean type=kotlin.Boolean value=false
+        VAR IR_TEMPORARY_VARIABLE name:tmp_0 type:defaults.FormatterImpl [val]
+          TYPE_OP type=defaults.FormatterImpl origin=CAST typeOperand=defaults.FormatterImpl
+            GET_VAR 'other: kotlin.Any? declared in defaults.FormatterImpl.equals' type=kotlin.Any? origin=null
+        WHEN type=kotlin.Unit origin=null
+          BRANCH
+            if: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+              ARG arg0: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+                ARG arg0: TYPE_OP type=kotlin.Any? origin=IMPLICIT_CAST typeOperand=kotlin.Any?
+                  GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:prefix type:kotlin.String visibility:private [final]' type=kotlin.String origin=null
+                    receiver: GET_VAR '<this>: defaults.FormatterImpl declared in defaults.FormatterImpl.equals' type=defaults.FormatterImpl origin=null
+                ARG arg1: TYPE_OP type=kotlin.Any? origin=IMPLICIT_CAST typeOperand=kotlin.Any?
+                  GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:prefix type:kotlin.String visibility:private [final]' type=kotlin.String origin=null
+                    receiver: GET_VAR 'val tmp_0: defaults.FormatterImpl declared in defaults.FormatterImpl.equals' type=defaults.FormatterImpl origin=null
+              ARG arg1: CONST Boolean type=kotlin.Boolean value=false
+            then: RETURN type=kotlin.Nothing from='public final fun equals (other: kotlin.Any?): kotlin.Boolean declared in defaults.FormatterImpl'
+              CONST Boolean type=kotlin.Boolean value=false
+        WHEN type=kotlin.Unit origin=null
+          BRANCH
+            if: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+              ARG arg0: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+                ARG arg0: TYPE_OP type=kotlin.Any? origin=IMPLICIT_CAST typeOperand=kotlin.Any?
+                  GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$first type:kotlin.Function1<kotlin.Int, kotlin.String> visibility:private [final]' type=kotlin.Function1<kotlin.Int, kotlin.String> origin=null
+                    receiver: GET_VAR '<this>: defaults.FormatterImpl declared in defaults.FormatterImpl.equals' type=defaults.FormatterImpl origin=null
+                ARG arg1: TYPE_OP type=kotlin.Any? origin=IMPLICIT_CAST typeOperand=kotlin.Any?
+                  GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$first type:kotlin.Function1<kotlin.Int, kotlin.String> visibility:private [final]' type=kotlin.Function1<kotlin.Int, kotlin.String> origin=null
+                    receiver: GET_VAR 'val tmp_0: defaults.FormatterImpl declared in defaults.FormatterImpl.equals' type=defaults.FormatterImpl origin=null
+              ARG arg1: CONST Boolean type=kotlin.Boolean value=false
+            then: RETURN type=kotlin.Nothing from='public final fun equals (other: kotlin.Any?): kotlin.Boolean declared in defaults.FormatterImpl'
+              CONST Boolean type=kotlin.Boolean value=false
+        WHEN type=kotlin.Unit origin=null
+          BRANCH
+            if: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+              ARG arg0: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+                ARG arg0: TYPE_OP type=kotlin.Any? origin=IMPLICIT_CAST typeOperand=kotlin.Any?
+                  GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$second type:kotlin.Function1<kotlin.Int, kotlin.String> visibility:private [final]' type=kotlin.Function1<kotlin.Int, kotlin.String> origin=null
+                    receiver: GET_VAR '<this>: defaults.FormatterImpl declared in defaults.FormatterImpl.equals' type=defaults.FormatterImpl origin=null
+                ARG arg1: TYPE_OP type=kotlin.Any? origin=IMPLICIT_CAST typeOperand=kotlin.Any?
+                  GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$second type:kotlin.Function1<kotlin.Int, kotlin.String> visibility:private [final]' type=kotlin.Function1<kotlin.Int, kotlin.String> origin=null
+                    receiver: GET_VAR 'val tmp_0: defaults.FormatterImpl declared in defaults.FormatterImpl.equals' type=defaults.FormatterImpl origin=null
+              ARG arg1: CONST Boolean type=kotlin.Boolean value=false
+            then: RETURN type=kotlin.Nothing from='public final fun equals (other: kotlin.Any?): kotlin.Boolean declared in defaults.FormatterImpl'
+              CONST Boolean type=kotlin.Boolean value=false
+        WHEN type=kotlin.Unit origin=null
+          BRANCH
+            if: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+              ARG arg0: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+                ARG arg0: TYPE_OP type=kotlin.Any? origin=IMPLICIT_CAST typeOperand=kotlin.Any?
+                  GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$fromDefault type:kotlin.Function0<kotlin.String> visibility:private [final]' type=kotlin.Function0<kotlin.String> origin=null
+                    receiver: GET_VAR '<this>: defaults.FormatterImpl declared in defaults.FormatterImpl.equals' type=defaults.FormatterImpl origin=null
+                ARG arg1: TYPE_OP type=kotlin.Any? origin=IMPLICIT_CAST typeOperand=kotlin.Any?
+                  GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$fromDefault type:kotlin.Function0<kotlin.String> visibility:private [final]' type=kotlin.Function0<kotlin.String> origin=null
+                    receiver: GET_VAR 'val tmp_0: defaults.FormatterImpl declared in defaults.FormatterImpl.equals' type=defaults.FormatterImpl origin=null
+              ARG arg1: CONST Boolean type=kotlin.Boolean value=false
+            then: RETURN type=kotlin.Nothing from='public final fun equals (other: kotlin.Any?): kotlin.Boolean declared in defaults.FormatterImpl'
+              CONST Boolean type=kotlin.Boolean value=false
+        WHEN type=kotlin.Unit origin=null
+          BRANCH
+            if: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+              ARG arg0: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+                ARG arg0: TYPE_OP type=kotlin.Any? origin=IMPLICIT_CAST typeOperand=kotlin.Any?
+                  GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$defaults type:kotlin.Function2<kotlin.Int, kotlin.Int, kotlin.String> visibility:private [final]' type=kotlin.Function2<kotlin.Int, kotlin.Int, kotlin.String> origin=null
+                    receiver: GET_VAR '<this>: defaults.FormatterImpl declared in defaults.FormatterImpl.equals' type=defaults.FormatterImpl origin=null
+                ARG arg1: TYPE_OP type=kotlin.Any? origin=IMPLICIT_CAST typeOperand=kotlin.Any?
+                  GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$defaults type:kotlin.Function2<kotlin.Int, kotlin.Int, kotlin.String> visibility:private [final]' type=kotlin.Function2<kotlin.Int, kotlin.Int, kotlin.String> origin=null
+                    receiver: GET_VAR 'val tmp_0: defaults.FormatterImpl declared in defaults.FormatterImpl.equals' type=defaults.FormatterImpl origin=null
+              ARG arg1: CONST Boolean type=kotlin.Boolean value=false
+            then: RETURN type=kotlin.Nothing from='public final fun equals (other: kotlin.Any?): kotlin.Boolean declared in defaults.FormatterImpl'
+              CONST Boolean type=kotlin.Boolean value=false
+        WHEN type=kotlin.Unit origin=null
+          BRANCH
+            if: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+              ARG arg0: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+                ARG arg0: TYPE_OP type=kotlin.Any? origin=IMPLICIT_CAST typeOperand=kotlin.Any?
+                  GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$fromParameters type:kotlin.Function0<kotlin.String> visibility:private [final]' type=kotlin.Function0<kotlin.String> origin=null
+                    receiver: GET_VAR '<this>: defaults.FormatterImpl declared in defaults.FormatterImpl.equals' type=defaults.FormatterImpl origin=null
+                ARG arg1: TYPE_OP type=kotlin.Any? origin=IMPLICIT_CAST typeOperand=kotlin.Any?
+                  GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$fromParameters type:kotlin.Function0<kotlin.String> visibility:private [final]' type=kotlin.Function0<kotlin.String> origin=null
+                    receiver: GET_VAR 'val tmp_0: defaults.FormatterImpl declared in defaults.FormatterImpl.equals' type=defaults.FormatterImpl origin=null
+              ARG arg1: CONST Boolean type=kotlin.Boolean value=false
+            then: RETURN type=kotlin.Nothing from='public final fun equals (other: kotlin.Any?): kotlin.Boolean declared in defaults.FormatterImpl'
+              CONST Boolean type=kotlin.Boolean value=false
+        WHEN type=kotlin.Unit origin=null
+          BRANCH
+            if: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+              ARG arg0: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+                ARG arg0: TYPE_OP type=kotlin.Any? origin=IMPLICIT_CAST typeOperand=kotlin.Any?
+                  GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$order type:kotlin.Function2<kotlin.Int, kotlin.Int, kotlin.String> visibility:private [final]' type=kotlin.Function2<kotlin.Int, kotlin.Int, kotlin.String> origin=null
+                    receiver: GET_VAR '<this>: defaults.FormatterImpl declared in defaults.FormatterImpl.equals' type=defaults.FormatterImpl origin=null
+                ARG arg1: TYPE_OP type=kotlin.Any? origin=IMPLICIT_CAST typeOperand=kotlin.Any?
+                  GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$order type:kotlin.Function2<kotlin.Int, kotlin.Int, kotlin.String> visibility:private [final]' type=kotlin.Function2<kotlin.Int, kotlin.Int, kotlin.String> origin=null
+                    receiver: GET_VAR 'val tmp_0: defaults.FormatterImpl declared in defaults.FormatterImpl.equals' type=defaults.FormatterImpl origin=null
+              ARG arg1: CONST Boolean type=kotlin.Boolean value=false
+            then: RETURN type=kotlin.Nothing from='public final fun equals (other: kotlin.Any?): kotlin.Boolean declared in defaults.FormatterImpl'
+              CONST Boolean type=kotlin.Boolean value=false
+        WHEN type=kotlin.Unit origin=null
+          BRANCH
+            if: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+              ARG arg0: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+                ARG arg0: TYPE_OP type=kotlin.Any? origin=IMPLICIT_CAST typeOperand=kotlin.Any?
+                  GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$namedOrder type:kotlin.Function0<kotlin.String> visibility:private [final]' type=kotlin.Function0<kotlin.String> origin=null
+                    receiver: GET_VAR '<this>: defaults.FormatterImpl declared in defaults.FormatterImpl.equals' type=defaults.FormatterImpl origin=null
+                ARG arg1: TYPE_OP type=kotlin.Any? origin=IMPLICIT_CAST typeOperand=kotlin.Any?
+                  GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$namedOrder type:kotlin.Function0<kotlin.String> visibility:private [final]' type=kotlin.Function0<kotlin.String> origin=null
+                    receiver: GET_VAR 'val tmp_0: defaults.FormatterImpl declared in defaults.FormatterImpl.equals' type=defaults.FormatterImpl origin=null
+              ARG arg1: CONST Boolean type=kotlin.Boolean value=false
+            then: RETURN type=kotlin.Nothing from='public final fun equals (other: kotlin.Any?): kotlin.Boolean declared in defaults.FormatterImpl'
+              CONST Boolean type=kotlin.Boolean value=false
+        WHEN type=kotlin.Unit origin=null
+          BRANCH
+            if: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+              ARG arg0: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+                ARG arg0: TYPE_OP type=kotlin.Any? origin=IMPLICIT_CAST typeOperand=kotlin.Any?
+                  GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$twice type:kotlin.Function1<kotlin.Int, kotlin.String> visibility:private [final]' type=kotlin.Function1<kotlin.Int, kotlin.String> origin=null
+                    receiver: GET_VAR '<this>: defaults.FormatterImpl declared in defaults.FormatterImpl.equals' type=defaults.FormatterImpl origin=null
+                ARG arg1: TYPE_OP type=kotlin.Any? origin=IMPLICIT_CAST typeOperand=kotlin.Any?
+                  GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$twice type:kotlin.Function1<kotlin.Int, kotlin.String> visibility:private [final]' type=kotlin.Function1<kotlin.Int, kotlin.String> origin=null
+                    receiver: GET_VAR 'val tmp_0: defaults.FormatterImpl declared in defaults.FormatterImpl.equals' type=defaults.FormatterImpl origin=null
+              ARG arg1: CONST Boolean type=kotlin.Boolean value=false
+            then: RETURN type=kotlin.Nothing from='public final fun equals (other: kotlin.Any?): kotlin.Boolean declared in defaults.FormatterImpl'
+              CONST Boolean type=kotlin.Boolean value=false
+        WHEN type=kotlin.Unit origin=null
+          BRANCH
+            if: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+              ARG arg0: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+                ARG arg0: TYPE_OP type=kotlin.Any? origin=IMPLICIT_CAST typeOperand=kotlin.Any?
+                  GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$arguments type:kotlin.Function1<kotlin.IntArray, kotlin.Int> visibility:private [final]' type=kotlin.Function1<kotlin.IntArray, kotlin.Int> origin=null
+                    receiver: GET_VAR '<this>: defaults.FormatterImpl declared in defaults.FormatterImpl.equals' type=defaults.FormatterImpl origin=null
+                ARG arg1: TYPE_OP type=kotlin.Any? origin=IMPLICIT_CAST typeOperand=kotlin.Any?
+                  GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$arguments type:kotlin.Function1<kotlin.IntArray, kotlin.Int> visibility:private [final]' type=kotlin.Function1<kotlin.IntArray, kotlin.Int> origin=null
+                    receiver: GET_VAR 'val tmp_0: defaults.FormatterImpl declared in defaults.FormatterImpl.equals' type=defaults.FormatterImpl origin=null
+              ARG arg1: CONST Boolean type=kotlin.Boolean value=false
+            then: RETURN type=kotlin.Nothing from='public final fun equals (other: kotlin.Any?): kotlin.Boolean declared in defaults.FormatterImpl'
+              CONST Boolean type=kotlin.Boolean value=false
+        RETURN type=kotlin.Nothing from='public final fun equals (other: kotlin.Any?): kotlin.Boolean declared in defaults.FormatterImpl'
+          CONST Boolean type=kotlin.Boolean value=true
+    FUN GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:first visibility:public modality:FINAL returnType:kotlin.String
+      VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:defaults.FormatterImpl
+      VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:value index:1 type:kotlin.Int
+      overridden:
+        public abstract fun first (value: kotlin.Int): kotlin.String declared in defaults.Formatter
+      BLOCK_BODY
+        RETURN type=kotlin.Nothing from='public final fun first (value: kotlin.Int): kotlin.String declared in defaults.FormatterImpl'
+          CALL 'public abstract fun invoke (p1: P1 of kotlin.Function1): R of kotlin.Function1 declared in kotlin.Function1' type=kotlin.String origin=null
+            ARG <this>: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$first type:kotlin.Function1<kotlin.Int, kotlin.String> visibility:private [final]' type=kotlin.Function1<kotlin.Int, kotlin.String> origin=null
+              receiver: GET_VAR '<this>: defaults.FormatterImpl declared in defaults.FormatterImpl.first' type=defaults.FormatterImpl origin=null
+            ARG p1: GET_VAR 'value: kotlin.Int declared in defaults.FormatterImpl.first' type=kotlin.Int origin=null
+    FUN GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:fromDefault visibility:public modality:FINAL returnType:kotlin.String
+      VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:defaults.FormatterImpl
+      overridden:
+        public open fun fromDefault (): kotlin.String declared in defaults.Formatter
+      BLOCK_BODY
+        RETURN type=kotlin.Nothing from='public final fun fromDefault (): kotlin.String declared in defaults.FormatterImpl'
+          CALL 'public abstract fun invoke (): R of kotlin.Function0 declared in kotlin.Function0' type=kotlin.String origin=null
+            ARG <this>: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$fromDefault type:kotlin.Function0<kotlin.String> visibility:private [final]' type=kotlin.Function0<kotlin.String> origin=null
+              receiver: GET_VAR '<this>: defaults.FormatterImpl declared in defaults.FormatterImpl.fromDefault' type=defaults.FormatterImpl origin=null
+    FUN GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:fromParameters visibility:public modality:FINAL returnType:kotlin.String
+      VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:defaults.FormatterImpl
+      overridden:
+        public open fun fromParameters (): kotlin.String declared in defaults.Formatter
+      BLOCK_BODY
+        RETURN type=kotlin.Nothing from='public final fun fromParameters (): kotlin.String declared in defaults.FormatterImpl'
+          CALL 'public abstract fun invoke (): R of kotlin.Function0 declared in kotlin.Function0' type=kotlin.String origin=null
+            ARG <this>: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$fromParameters type:kotlin.Function0<kotlin.String> visibility:private [final]' type=kotlin.Function0<kotlin.String> origin=null
+              receiver: GET_VAR '<this>: defaults.FormatterImpl declared in defaults.FormatterImpl.fromParameters' type=defaults.FormatterImpl origin=null
+    FUN GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:hashCode visibility:public modality:FINAL returnType:kotlin.Int
+      VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:defaults.FormatterImpl
+      overridden:
+        public open fun hashCode (): kotlin.Int declared in defaults.Formatter
+      BLOCK_BODY
+        RETURN type=kotlin.Nothing from='public final fun hashCode (): kotlin.Int declared in defaults.FormatterImpl'
+          CALL 'public final fun plus (other: kotlin.Int): kotlin.Int declared in kotlin.Int' type=kotlin.Int origin=null
+            ARG <this>: CALL 'public final fun times (other: kotlin.Int): kotlin.Int declared in kotlin.Int' type=kotlin.Int origin=null
+              ARG <this>: CALL 'public final fun plus (other: kotlin.Int): kotlin.Int declared in kotlin.Int' type=kotlin.Int origin=null
+                ARG <this>: CALL 'public final fun times (other: kotlin.Int): kotlin.Int declared in kotlin.Int' type=kotlin.Int origin=null
+                  ARG <this>: CALL 'public final fun plus (other: kotlin.Int): kotlin.Int declared in kotlin.Int' type=kotlin.Int origin=null
+                    ARG <this>: CALL 'public final fun times (other: kotlin.Int): kotlin.Int declared in kotlin.Int' type=kotlin.Int origin=null
+                      ARG <this>: CALL 'public final fun plus (other: kotlin.Int): kotlin.Int declared in kotlin.Int' type=kotlin.Int origin=null
+                        ARG <this>: CALL 'public final fun times (other: kotlin.Int): kotlin.Int declared in kotlin.Int' type=kotlin.Int origin=null
+                          ARG <this>: CALL 'public final fun plus (other: kotlin.Int): kotlin.Int declared in kotlin.Int' type=kotlin.Int origin=null
+                            ARG <this>: CALL 'public final fun times (other: kotlin.Int): kotlin.Int declared in kotlin.Int' type=kotlin.Int origin=null
+                              ARG <this>: CALL 'public final fun plus (other: kotlin.Int): kotlin.Int declared in kotlin.Int' type=kotlin.Int origin=null
+                                ARG <this>: CALL 'public final fun times (other: kotlin.Int): kotlin.Int declared in kotlin.Int' type=kotlin.Int origin=null
+                                  ARG <this>: CALL 'public final fun plus (other: kotlin.Int): kotlin.Int declared in kotlin.Int' type=kotlin.Int origin=null
+                                    ARG <this>: CALL 'public final fun times (other: kotlin.Int): kotlin.Int declared in kotlin.Int' type=kotlin.Int origin=null
+                                      ARG <this>: CALL 'public final fun plus (other: kotlin.Int): kotlin.Int declared in kotlin.Int' type=kotlin.Int origin=null
+                                        ARG <this>: CALL 'public final fun times (other: kotlin.Int): kotlin.Int declared in kotlin.Int' type=kotlin.Int origin=null
+                                          ARG <this>: CALL 'public final fun plus (other: kotlin.Int): kotlin.Int declared in kotlin.Int' type=kotlin.Int origin=null
+                                            ARG <this>: CALL 'public final fun times (other: kotlin.Int): kotlin.Int declared in kotlin.Int' type=kotlin.Int origin=null
+                                              ARG <this>: CALL 'public final fun plus (other: kotlin.Int): kotlin.Int declared in kotlin.Int' type=kotlin.Int origin=null
+                                                ARG <this>: CALL 'public final fun times (other: kotlin.Int): kotlin.Int declared in kotlin.Int' type=kotlin.Int origin=null
+                                                  ARG <this>: CONST Int type=kotlin.Int value=0
+                                                  ARG other: CONST Int type=kotlin.Int value=31
+                                                ARG other: CALL 'public open fun hashCode (): kotlin.Int declared in kotlin.Any' type=kotlin.Int origin=null
+                                                  ARG <this>: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:prefix type:kotlin.String visibility:private [final]' type=kotlin.String origin=null
+                                                    receiver: GET_VAR '<this>: defaults.FormatterImpl declared in defaults.FormatterImpl.hashCode' type=defaults.FormatterImpl origin=null
+                                              ARG other: CONST Int type=kotlin.Int value=31
+                                            ARG other: CALL 'public open fun hashCode (): kotlin.Int declared in kotlin.Any' type=kotlin.Int origin=null
+                                              ARG <this>: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$first type:kotlin.Function1<kotlin.Int, kotlin.String> visibility:private [final]' type=kotlin.Function1<kotlin.Int, kotlin.String> origin=null
+                                                receiver: GET_VAR '<this>: defaults.FormatterImpl declared in defaults.FormatterImpl.hashCode' type=defaults.FormatterImpl origin=null
+                                          ARG other: CONST Int type=kotlin.Int value=31
+                                        ARG other: CALL 'public open fun hashCode (): kotlin.Int declared in kotlin.Any' type=kotlin.Int origin=null
+                                          ARG <this>: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$second type:kotlin.Function1<kotlin.Int, kotlin.String> visibility:private [final]' type=kotlin.Function1<kotlin.Int, kotlin.String> origin=null
+                                            receiver: GET_VAR '<this>: defaults.FormatterImpl declared in defaults.FormatterImpl.hashCode' type=defaults.FormatterImpl origin=null
+                                      ARG other: CONST Int type=kotlin.Int value=31
+                                    ARG other: CALL 'public open fun hashCode (): kotlin.Int declared in kotlin.Any' type=kotlin.Int origin=null
+                                      ARG <this>: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$fromDefault type:kotlin.Function0<kotlin.String> visibility:private [final]' type=kotlin.Function0<kotlin.String> origin=null
+                                        receiver: GET_VAR '<this>: defaults.FormatterImpl declared in defaults.FormatterImpl.hashCode' type=defaults.FormatterImpl origin=null
+                                  ARG other: CONST Int type=kotlin.Int value=31
+                                ARG other: CALL 'public open fun hashCode (): kotlin.Int declared in kotlin.Any' type=kotlin.Int origin=null
+                                  ARG <this>: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$defaults type:kotlin.Function2<kotlin.Int, kotlin.Int, kotlin.String> visibility:private [final]' type=kotlin.Function2<kotlin.Int, kotlin.Int, kotlin.String> origin=null
+                                    receiver: GET_VAR '<this>: defaults.FormatterImpl declared in defaults.FormatterImpl.hashCode' type=defaults.FormatterImpl origin=null
+                              ARG other: CONST Int type=kotlin.Int value=31
+                            ARG other: CALL 'public open fun hashCode (): kotlin.Int declared in kotlin.Any' type=kotlin.Int origin=null
+                              ARG <this>: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$fromParameters type:kotlin.Function0<kotlin.String> visibility:private [final]' type=kotlin.Function0<kotlin.String> origin=null
+                                receiver: GET_VAR '<this>: defaults.FormatterImpl declared in defaults.FormatterImpl.hashCode' type=defaults.FormatterImpl origin=null
+                          ARG other: CONST Int type=kotlin.Int value=31
+                        ARG other: CALL 'public open fun hashCode (): kotlin.Int declared in kotlin.Any' type=kotlin.Int origin=null
+                          ARG <this>: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$order type:kotlin.Function2<kotlin.Int, kotlin.Int, kotlin.String> visibility:private [final]' type=kotlin.Function2<kotlin.Int, kotlin.Int, kotlin.String> origin=null
+                            receiver: GET_VAR '<this>: defaults.FormatterImpl declared in defaults.FormatterImpl.hashCode' type=defaults.FormatterImpl origin=null
+                      ARG other: CONST Int type=kotlin.Int value=31
+                    ARG other: CALL 'public open fun hashCode (): kotlin.Int declared in kotlin.Any' type=kotlin.Int origin=null
+                      ARG <this>: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$namedOrder type:kotlin.Function0<kotlin.String> visibility:private [final]' type=kotlin.Function0<kotlin.String> origin=null
+                        receiver: GET_VAR '<this>: defaults.FormatterImpl declared in defaults.FormatterImpl.hashCode' type=defaults.FormatterImpl origin=null
+                  ARG other: CONST Int type=kotlin.Int value=31
+                ARG other: CALL 'public open fun hashCode (): kotlin.Int declared in kotlin.Any' type=kotlin.Int origin=null
+                  ARG <this>: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$twice type:kotlin.Function1<kotlin.Int, kotlin.String> visibility:private [final]' type=kotlin.Function1<kotlin.Int, kotlin.String> origin=null
+                    receiver: GET_VAR '<this>: defaults.FormatterImpl declared in defaults.FormatterImpl.hashCode' type=defaults.FormatterImpl origin=null
+              ARG other: CONST Int type=kotlin.Int value=31
+            ARG other: CALL 'public open fun hashCode (): kotlin.Int declared in kotlin.Any' type=kotlin.Int origin=null
+              ARG <this>: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$arguments type:kotlin.Function1<kotlin.IntArray, kotlin.Int> visibility:private [final]' type=kotlin.Function1<kotlin.IntArray, kotlin.Int> origin=null
+                receiver: GET_VAR '<this>: defaults.FormatterImpl declared in defaults.FormatterImpl.hashCode' type=defaults.FormatterImpl origin=null
+    FUN GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:namedOrder visibility:public modality:FINAL returnType:kotlin.String
+      VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:defaults.FormatterImpl
+      overridden:
+        public open fun namedOrder (): kotlin.String declared in defaults.Formatter
+      BLOCK_BODY
+        RETURN type=kotlin.Nothing from='public final fun namedOrder (): kotlin.String declared in defaults.FormatterImpl'
+          CALL 'public abstract fun invoke (): R of kotlin.Function0 declared in kotlin.Function0' type=kotlin.String origin=null
+            ARG <this>: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$namedOrder type:kotlin.Function0<kotlin.String> visibility:private [final]' type=kotlin.Function0<kotlin.String> origin=null
+              receiver: GET_VAR '<this>: defaults.FormatterImpl declared in defaults.FormatterImpl.namedOrder' type=defaults.FormatterImpl origin=null
+    FUN GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:order visibility:public modality:FINAL returnType:kotlin.String
+      VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:defaults.FormatterImpl
+      VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:first index:1 type:kotlin.Int
+      VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:second index:2 type:kotlin.Int
+      overridden:
+        public open fun order (first: kotlin.Int, second: kotlin.Int): kotlin.String declared in defaults.Formatter
+      BLOCK_BODY
+        RETURN type=kotlin.Nothing from='public final fun order (first: kotlin.Int, second: kotlin.Int): kotlin.String declared in defaults.FormatterImpl'
+          CALL 'public abstract fun invoke (p1: P1 of kotlin.Function2, p2: P2 of kotlin.Function2): R of kotlin.Function2 declared in kotlin.Function2' type=kotlin.String origin=null
+            ARG <this>: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$order type:kotlin.Function2<kotlin.Int, kotlin.Int, kotlin.String> visibility:private [final]' type=kotlin.Function2<kotlin.Int, kotlin.Int, kotlin.String> origin=null
+              receiver: GET_VAR '<this>: defaults.FormatterImpl declared in defaults.FormatterImpl.order' type=defaults.FormatterImpl origin=null
+            ARG p1: GET_VAR 'first: kotlin.Int declared in defaults.FormatterImpl.order' type=kotlin.Int origin=null
+            ARG p2: GET_VAR 'second: kotlin.Int declared in defaults.FormatterImpl.order' type=kotlin.Int origin=null
+    FUN GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:second visibility:public modality:FINAL returnType:kotlin.String
+      VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:defaults.FormatterImpl
+      VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:value index:1 type:kotlin.Int
+      overridden:
+        public open fun second (value: kotlin.Int): kotlin.String declared in defaults.Formatter
+      BLOCK_BODY
+        RETURN type=kotlin.Nothing from='public final fun second (value: kotlin.Int): kotlin.String declared in defaults.FormatterImpl'
+          CALL 'public abstract fun invoke (p1: P1 of kotlin.Function1): R of kotlin.Function1 declared in kotlin.Function1' type=kotlin.String origin=null
+            ARG <this>: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$second type:kotlin.Function1<kotlin.Int, kotlin.String> visibility:private [final]' type=kotlin.Function1<kotlin.Int, kotlin.String> origin=null
+              receiver: GET_VAR '<this>: defaults.FormatterImpl declared in defaults.FormatterImpl.second' type=defaults.FormatterImpl origin=null
+            ARG p1: GET_VAR 'value: kotlin.Int declared in defaults.FormatterImpl.second' type=kotlin.Int origin=null
+    FUN GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:twice visibility:public modality:FINAL returnType:kotlin.String
+      VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:defaults.FormatterImpl
+      VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:value index:1 type:kotlin.Int
+      overridden:
+        public open fun twice (value: kotlin.Int): kotlin.String declared in defaults.Formatter
+      BLOCK_BODY
+        RETURN type=kotlin.Nothing from='public final fun twice (value: kotlin.Int): kotlin.String declared in defaults.FormatterImpl'
+          CALL 'public abstract fun invoke (p1: P1 of kotlin.Function1): R of kotlin.Function1 declared in kotlin.Function1' type=kotlin.String origin=null
+            ARG <this>: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$twice type:kotlin.Function1<kotlin.Int, kotlin.String> visibility:private [final]' type=kotlin.Function1<kotlin.Int, kotlin.String> origin=null
+              receiver: GET_VAR '<this>: defaults.FormatterImpl declared in defaults.FormatterImpl.twice' type=defaults.FormatterImpl origin=null
+            ARG p1: GET_VAR 'value: kotlin.Int declared in defaults.FormatterImpl.twice' type=kotlin.Int origin=null
+FILE fqName:defaults fileName:defaults/GetterContract.kt
+  FUN GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:Getter visibility:public modality:FINAL returnType:defaults.Getter
+    VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:value index:0 type:kotlin.Int
+    VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:constant index:1 type:kotlin.Function0<kotlin.Int>
+      EXPRESSION_BODY
+        FUN_EXPR type=kotlin.Function0<kotlin.Int> origin=LAMBDA
+          FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Int
+            BLOCK_BODY
+              RETURN type=kotlin.Nothing from='local final fun <anonymous> (): kotlin.Int declared in defaults.Getter'
+                CONST Int type=kotlin.Int value=42
+    VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:read index:2 type:kotlin.Function0<kotlin.Int>
+      EXPRESSION_BODY
+        FUN_EXPR type=kotlin.Function0<kotlin.Int> origin=LAMBDA
+          FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Int
+            BLOCK_BODY
+              RETURN type=kotlin.Nothing from='local final fun <anonymous> (): kotlin.Int declared in defaults.Getter'
+                GET_VAR 'value: kotlin.Int declared in defaults.Getter' type=kotlin.Int origin=null
+    annotations:
+      JvmOverloads
+    BLOCK_BODY
+      RETURN type=kotlin.Nothing from='public final fun Getter (value: kotlin.Int, constant: kotlin.Function0<kotlin.Int>, read: kotlin.Function0<kotlin.Int>): defaults.Getter declared in defaults'
+        CONSTRUCTOR_CALL 'public constructor <init> (value: kotlin.Int, constant: kotlin.Function0<kotlin.Int>, read: kotlin.Function0<kotlin.Int>) declared in defaults.GetterImpl' type=defaults.GetterImpl origin=null
+          ARG value: GET_VAR 'value: kotlin.Int declared in defaults.Getter' type=kotlin.Int origin=null
+          ARG constant: GET_VAR 'constant: kotlin.Function0<kotlin.Int> declared in defaults.Getter' type=kotlin.Function0<kotlin.Int> origin=null
+          ARG read: GET_VAR 'read: kotlin.Function0<kotlin.Int> declared in defaults.Getter' type=kotlin.Function0<kotlin.Int> origin=null
+  FUN GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:copy visibility:public modality:FINAL returnType:defaults.Getter
+    VALUE_PARAMETER kind:ExtensionReceiver name:<this> index:0 type:defaults.Getter
+    VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:value index:1 type:kotlin.Int
+      EXPRESSION_BODY
+        CALL 'public open fun <get-value> (): kotlin.Int declared in defaults.Getter' type=kotlin.Int origin=null
+          ARG <this>: GET_VAR '<this>: defaults.Getter declared in defaults.copy' type=defaults.Getter origin=null
+    VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:constant index:2 type:kotlin.Function0<kotlin.Int>
+      EXPRESSION_BODY
+        FUNCTION_REFERENCE 'public open fun constant (): kotlin.Int declared in defaults.Getter' type=kotlin.Function0<kotlin.Int> origin=null reflectionTarget=<same>
+          ARG <this>: GET_VAR '<this>: defaults.Getter declared in defaults.copy' type=defaults.Getter origin=null
+    VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:read index:3 type:kotlin.Function0<kotlin.Int>
+      EXPRESSION_BODY
+        FUNCTION_REFERENCE 'public open fun read (): kotlin.Int declared in defaults.Getter' type=kotlin.Function0<kotlin.Int> origin=null reflectionTarget=<same>
+          ARG <this>: GET_VAR '<this>: defaults.Getter declared in defaults.copy' type=defaults.Getter origin=null
+    annotations:
+      JvmOverloads
+    BLOCK_BODY
+      RETURN type=kotlin.Nothing from='public final fun copy (<this>: defaults.Getter, value: kotlin.Int, constant: kotlin.Function0<kotlin.Int>, read: kotlin.Function0<kotlin.Int>): defaults.Getter declared in defaults'
+        CONSTRUCTOR_CALL 'public constructor <init> (value: kotlin.Int, constant: kotlin.Function0<kotlin.Int>, read: kotlin.Function0<kotlin.Int>) declared in defaults.GetterImpl' type=defaults.GetterImpl origin=null
+          ARG value: GET_VAR 'value: kotlin.Int declared in defaults.copy' type=kotlin.Int origin=null
+          ARG constant: GET_VAR 'constant: kotlin.Function0<kotlin.Int> declared in defaults.copy' type=kotlin.Function0<kotlin.Int> origin=null
+          ARG read: GET_VAR 'read: kotlin.Function0<kotlin.Int> declared in defaults.copy' type=kotlin.Function0<kotlin.Int> origin=null
+FILE fqName:defaults fileName:defaults/GetterImpl.kt
+  CLASS GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] CLASS name:GetterImpl modality:FINAL visibility:public superTypes:[defaults.Getter]
+    thisReceiver: VALUE_PARAMETER INSTANCE_RECEIVER kind:DispatchReceiver name:<this> type:defaults.GetterImpl
+    PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:value visibility:public modality:FINAL [val]
+      overridden:
+        public open value: kotlin.Int declared in defaults.Getter
+      FIELD PROPERTY_BACKING_FIELD name:value type:kotlin.Int visibility:private [final]
+      FUN DEFAULT_PROPERTY_ACCESSOR name:<get-value> visibility:public modality:FINAL returnType:kotlin.Int
+        VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:defaults.GetterImpl
+        correspondingProperty: PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:value visibility:public modality:FINAL [val]
+        overridden:
+          public open fun <get-value> (): kotlin.Int declared in defaults.Getter
+        BLOCK_BODY
+          RETURN type=kotlin.Nothing from='public final fun <get-value> (): kotlin.Int declared in defaults.GetterImpl'
+            GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:value type:kotlin.Int visibility:private [final]' type=kotlin.Int origin=null
+              receiver: GET_VAR '<this>: defaults.GetterImpl declared in defaults.GetterImpl.<get-value>' type=defaults.GetterImpl origin=null
+    PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:$contract$constant visibility:private modality:FINAL [val]
+      FIELD PROPERTY_BACKING_FIELD name:$contract$constant type:kotlin.Function0<kotlin.Int> visibility:private [final]
+      FUN DEFAULT_PROPERTY_ACCESSOR name:<get-$contract$constant> visibility:private modality:FINAL returnType:kotlin.Function0<kotlin.Int>
+        VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:defaults.GetterImpl
+        correspondingProperty: PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:$contract$constant visibility:private modality:FINAL [val]
+        BLOCK_BODY
+          RETURN type=kotlin.Nothing from='private final fun <get-$contract$constant> (): kotlin.Function0<kotlin.Int> declared in defaults.GetterImpl'
+            GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$constant type:kotlin.Function0<kotlin.Int> visibility:private [final]' type=kotlin.Function0<kotlin.Int> origin=null
+              receiver: GET_VAR '<this>: defaults.GetterImpl declared in defaults.GetterImpl.<get-$contract$constant>' type=defaults.GetterImpl origin=null
+    PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:$contract$read visibility:private modality:FINAL [val]
+      FIELD PROPERTY_BACKING_FIELD name:$contract$read type:kotlin.Function0<kotlin.Int> visibility:private [final]
+      FUN DEFAULT_PROPERTY_ACCESSOR name:<get-$contract$read> visibility:private modality:FINAL returnType:kotlin.Function0<kotlin.Int>
+        VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:defaults.GetterImpl
+        correspondingProperty: PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:$contract$read visibility:private modality:FINAL [val]
+        BLOCK_BODY
+          RETURN type=kotlin.Nothing from='private final fun <get-$contract$read> (): kotlin.Function0<kotlin.Int> declared in defaults.GetterImpl'
+            GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$read type:kotlin.Function0<kotlin.Int> visibility:private [final]' type=kotlin.Function0<kotlin.Int> origin=null
+              receiver: GET_VAR '<this>: defaults.GetterImpl declared in defaults.GetterImpl.<get-$contract$read>' type=defaults.GetterImpl origin=null
+    CONSTRUCTOR GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] visibility:public returnType:defaults.GetterImpl [primary]
+      VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:value index:0 type:kotlin.Int
+      VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:constant index:1 type:kotlin.Function0<kotlin.Int>
+      VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:read index:2 type:kotlin.Function0<kotlin.Int>
+      BLOCK_BODY
+        DELEGATING_CONSTRUCTOR_CALL 'public constructor <init> () declared in kotlin.Any'
+        SET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:value type:kotlin.Int visibility:private [final]' type=kotlin.Unit origin=null
+          receiver: GET_VAR '<this>: defaults.GetterImpl declared in defaults.GetterImpl' type=defaults.GetterImpl origin=null
+          value: GET_VAR 'value: kotlin.Int declared in defaults.GetterImpl.<init>' type=kotlin.Int origin=null
+        SET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$constant type:kotlin.Function0<kotlin.Int> visibility:private [final]' type=kotlin.Unit origin=null
+          receiver: GET_VAR '<this>: defaults.GetterImpl declared in defaults.GetterImpl' type=defaults.GetterImpl origin=null
+          value: GET_VAR 'constant: kotlin.Function0<kotlin.Int> declared in defaults.GetterImpl.<init>' type=kotlin.Function0<kotlin.Int> origin=null
+        SET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$read type:kotlin.Function0<kotlin.Int> visibility:private [final]' type=kotlin.Unit origin=null
+          receiver: GET_VAR '<this>: defaults.GetterImpl declared in defaults.GetterImpl' type=defaults.GetterImpl origin=null
+          value: GET_VAR 'read: kotlin.Function0<kotlin.Int> declared in defaults.GetterImpl.<init>' type=kotlin.Function0<kotlin.Int> origin=null
+        INSTANCE_INITIALIZER_CALL classDescriptor='CLASS GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] CLASS name:GetterImpl modality:FINAL visibility:public superTypes:[defaults.Getter]' type=kotlin.Unit
+    FUN FAKE_OVERRIDE name:toString visibility:public modality:OPEN returnType:kotlin.String [fake_override]
+      VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:kotlin.Any
+      overridden:
+        public open fun toString (): kotlin.String declared in defaults.Getter
+    FUN GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:constant visibility:public modality:FINAL returnType:kotlin.Int
+      VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:defaults.GetterImpl
+      overridden:
+        public open fun constant (): kotlin.Int declared in defaults.Getter
+      BLOCK_BODY
+        RETURN type=kotlin.Nothing from='public final fun constant (): kotlin.Int declared in defaults.GetterImpl'
+          CALL 'public abstract fun invoke (): R of kotlin.Function0 declared in kotlin.Function0' type=kotlin.Int origin=null
+            ARG <this>: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$constant type:kotlin.Function0<kotlin.Int> visibility:private [final]' type=kotlin.Function0<kotlin.Int> origin=null
+              receiver: GET_VAR '<this>: defaults.GetterImpl declared in defaults.GetterImpl.constant' type=defaults.GetterImpl origin=null
+    FUN GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:equals visibility:public modality:FINAL returnType:kotlin.Boolean
+      VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:defaults.GetterImpl
+      VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:other index:1 type:kotlin.Any?
+      overridden:
+        public open fun equals (other: kotlin.Any?): kotlin.Boolean declared in defaults.Getter
+      BLOCK_BODY
+        WHEN type=kotlin.Unit origin=null
+          BRANCH
+            if: CALL 'public final fun EQEQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQEQ
+              ARG arg0: GET_VAR '<this>: defaults.GetterImpl declared in defaults.GetterImpl.equals' type=defaults.GetterImpl origin=null
+              ARG arg1: GET_VAR 'other: kotlin.Any? declared in defaults.GetterImpl.equals' type=kotlin.Any? origin=null
+            then: RETURN type=kotlin.Nothing from='public final fun equals (other: kotlin.Any?): kotlin.Boolean declared in defaults.GetterImpl'
+              CONST Boolean type=kotlin.Boolean value=true
+        WHEN type=kotlin.Unit origin=null
+          BRANCH
+            if: TYPE_OP type=kotlin.Boolean origin=NOT_INSTANCEOF typeOperand=defaults.GetterImpl
+              GET_VAR 'other: kotlin.Any? declared in defaults.GetterImpl.equals' type=kotlin.Any? origin=null
+            then: RETURN type=kotlin.Nothing from='public final fun equals (other: kotlin.Any?): kotlin.Boolean declared in defaults.GetterImpl'
+              CONST Boolean type=kotlin.Boolean value=false
+        VAR IR_TEMPORARY_VARIABLE name:tmp_0 type:defaults.GetterImpl [val]
+          TYPE_OP type=defaults.GetterImpl origin=CAST typeOperand=defaults.GetterImpl
+            GET_VAR 'other: kotlin.Any? declared in defaults.GetterImpl.equals' type=kotlin.Any? origin=null
+        WHEN type=kotlin.Unit origin=null
+          BRANCH
+            if: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+              ARG arg0: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+                ARG arg0: TYPE_OP type=kotlin.Any? origin=IMPLICIT_CAST typeOperand=kotlin.Any?
+                  GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:value type:kotlin.Int visibility:private [final]' type=kotlin.Int origin=null
+                    receiver: GET_VAR '<this>: defaults.GetterImpl declared in defaults.GetterImpl.equals' type=defaults.GetterImpl origin=null
+                ARG arg1: TYPE_OP type=kotlin.Any? origin=IMPLICIT_CAST typeOperand=kotlin.Any?
+                  GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:value type:kotlin.Int visibility:private [final]' type=kotlin.Int origin=null
+                    receiver: GET_VAR 'val tmp_0: defaults.GetterImpl declared in defaults.GetterImpl.equals' type=defaults.GetterImpl origin=null
+              ARG arg1: CONST Boolean type=kotlin.Boolean value=false
+            then: RETURN type=kotlin.Nothing from='public final fun equals (other: kotlin.Any?): kotlin.Boolean declared in defaults.GetterImpl'
+              CONST Boolean type=kotlin.Boolean value=false
+        WHEN type=kotlin.Unit origin=null
+          BRANCH
+            if: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+              ARG arg0: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+                ARG arg0: TYPE_OP type=kotlin.Any? origin=IMPLICIT_CAST typeOperand=kotlin.Any?
+                  GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$constant type:kotlin.Function0<kotlin.Int> visibility:private [final]' type=kotlin.Function0<kotlin.Int> origin=null
+                    receiver: GET_VAR '<this>: defaults.GetterImpl declared in defaults.GetterImpl.equals' type=defaults.GetterImpl origin=null
+                ARG arg1: TYPE_OP type=kotlin.Any? origin=IMPLICIT_CAST typeOperand=kotlin.Any?
+                  GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$constant type:kotlin.Function0<kotlin.Int> visibility:private [final]' type=kotlin.Function0<kotlin.Int> origin=null
+                    receiver: GET_VAR 'val tmp_0: defaults.GetterImpl declared in defaults.GetterImpl.equals' type=defaults.GetterImpl origin=null
+              ARG arg1: CONST Boolean type=kotlin.Boolean value=false
+            then: RETURN type=kotlin.Nothing from='public final fun equals (other: kotlin.Any?): kotlin.Boolean declared in defaults.GetterImpl'
+              CONST Boolean type=kotlin.Boolean value=false
+        WHEN type=kotlin.Unit origin=null
+          BRANCH
+            if: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+              ARG arg0: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+                ARG arg0: TYPE_OP type=kotlin.Any? origin=IMPLICIT_CAST typeOperand=kotlin.Any?
+                  GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$read type:kotlin.Function0<kotlin.Int> visibility:private [final]' type=kotlin.Function0<kotlin.Int> origin=null
+                    receiver: GET_VAR '<this>: defaults.GetterImpl declared in defaults.GetterImpl.equals' type=defaults.GetterImpl origin=null
+                ARG arg1: TYPE_OP type=kotlin.Any? origin=IMPLICIT_CAST typeOperand=kotlin.Any?
+                  GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$read type:kotlin.Function0<kotlin.Int> visibility:private [final]' type=kotlin.Function0<kotlin.Int> origin=null
+                    receiver: GET_VAR 'val tmp_0: defaults.GetterImpl declared in defaults.GetterImpl.equals' type=defaults.GetterImpl origin=null
+              ARG arg1: CONST Boolean type=kotlin.Boolean value=false
+            then: RETURN type=kotlin.Nothing from='public final fun equals (other: kotlin.Any?): kotlin.Boolean declared in defaults.GetterImpl'
+              CONST Boolean type=kotlin.Boolean value=false
+        RETURN type=kotlin.Nothing from='public final fun equals (other: kotlin.Any?): kotlin.Boolean declared in defaults.GetterImpl'
+          CONST Boolean type=kotlin.Boolean value=true
+    FUN GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:hashCode visibility:public modality:FINAL returnType:kotlin.Int
+      VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:defaults.GetterImpl
+      overridden:
+        public open fun hashCode (): kotlin.Int declared in defaults.Getter
+      BLOCK_BODY
+        RETURN type=kotlin.Nothing from='public final fun hashCode (): kotlin.Int declared in defaults.GetterImpl'
+          CALL 'public final fun plus (other: kotlin.Int): kotlin.Int declared in kotlin.Int' type=kotlin.Int origin=null
+            ARG <this>: CALL 'public final fun times (other: kotlin.Int): kotlin.Int declared in kotlin.Int' type=kotlin.Int origin=null
+              ARG <this>: CALL 'public final fun plus (other: kotlin.Int): kotlin.Int declared in kotlin.Int' type=kotlin.Int origin=null
+                ARG <this>: CALL 'public final fun times (other: kotlin.Int): kotlin.Int declared in kotlin.Int' type=kotlin.Int origin=null
+                  ARG <this>: CALL 'public final fun plus (other: kotlin.Int): kotlin.Int declared in kotlin.Int' type=kotlin.Int origin=null
+                    ARG <this>: CALL 'public final fun times (other: kotlin.Int): kotlin.Int declared in kotlin.Int' type=kotlin.Int origin=null
+                      ARG <this>: CONST Int type=kotlin.Int value=0
+                      ARG other: CONST Int type=kotlin.Int value=31
+                    ARG other: CALL 'public open fun hashCode (): kotlin.Int declared in kotlin.Any' type=kotlin.Int origin=null
+                      ARG <this>: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:value type:kotlin.Int visibility:private [final]' type=kotlin.Int origin=null
+                        receiver: GET_VAR '<this>: defaults.GetterImpl declared in defaults.GetterImpl.hashCode' type=defaults.GetterImpl origin=null
+                  ARG other: CONST Int type=kotlin.Int value=31
+                ARG other: CALL 'public open fun hashCode (): kotlin.Int declared in kotlin.Any' type=kotlin.Int origin=null
+                  ARG <this>: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$constant type:kotlin.Function0<kotlin.Int> visibility:private [final]' type=kotlin.Function0<kotlin.Int> origin=null
+                    receiver: GET_VAR '<this>: defaults.GetterImpl declared in defaults.GetterImpl.hashCode' type=defaults.GetterImpl origin=null
+              ARG other: CONST Int type=kotlin.Int value=31
+            ARG other: CALL 'public open fun hashCode (): kotlin.Int declared in kotlin.Any' type=kotlin.Int origin=null
+              ARG <this>: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$read type:kotlin.Function0<kotlin.Int> visibility:private [final]' type=kotlin.Function0<kotlin.Int> origin=null
+                receiver: GET_VAR '<this>: defaults.GetterImpl declared in defaults.GetterImpl.hashCode' type=defaults.GetterImpl origin=null
+    FUN GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:read visibility:public modality:FINAL returnType:kotlin.Int
+      VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:defaults.GetterImpl
+      overridden:
+        public open fun read (): kotlin.Int declared in defaults.Getter
+      BLOCK_BODY
+        RETURN type=kotlin.Nothing from='public final fun read (): kotlin.Int declared in defaults.GetterImpl'
+          CALL 'public abstract fun invoke (): R of kotlin.Function0 declared in kotlin.Function0' type=kotlin.Int origin=null
+            ARG <this>: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$read type:kotlin.Function0<kotlin.Int> visibility:private [final]' type=kotlin.Function0<kotlin.Int> origin=null
+              receiver: GET_VAR '<this>: defaults.GetterImpl declared in defaults.GetterImpl.read' type=defaults.GetterImpl origin=null

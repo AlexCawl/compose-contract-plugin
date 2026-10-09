@@ -40,11 +40,11 @@ buildConfig {
 
 gradlePlugin {
     plugins {
-        create("SimplePlugin") {
+        create("ContractPlugin") {
             id = rootProject.group.toString()
-            displayName = "SimplePlugin"
-            description = "SimplePlugin"
-            implementationClass = "org.jetbrains.kotlin.compiler.plugin.template.SimpleGradlePlugin"
+            displayName = "Compose Contract"
+            description = "Generates value implementations, factories, and copy extensions for contracts"
+            implementationClass = "com.alexcawl.contract.ContractGradlePlugin"
         }
     }
 }

@@ -1,0 +1,154 @@
+FILE: contracts.kt
+    package sample
+
+    @R|com/alexcawl/contract/GenerateContract|() public abstract interface Appearance : R|kotlin/Any| {
+        public abstract val width: R|kotlin/Int|
+            public get(): R|kotlin/Int|
+
+        public abstract val label: R|kotlin/String?|
+            public get(): R|kotlin/String?|
+
+        public abstract fun onClick(value: R|kotlin/Int|): R|kotlin/String|
+
+        public open fun describe(prefix: R|kotlin/String|): R|kotlin/String| {
+            ^describe <strcat>(R|<local>/prefix|, this@R|sample/Appearance|.R|sample/Appearance.label|, String(:), this@R|sample/Appearance|.R|sample/Appearance.width|)
+        }
+
+    }
+    @R|com/alexcawl/contract/GenerateContract|() public abstract interface Size : R|kotlin/Any| {
+        public abstract val width: R|kotlin/Int|
+            public get(): R|kotlin/Int|
+
+        public abstract val height: R|kotlin/Int|
+            public get(): R|kotlin/Int|
+
+    }
+    @R|com/alexcawl/contract/GenerateContract|() public abstract interface Empty : R|kotlin/Any| {
+    }
+    public final fun box(): R|kotlin/String| {
+        lval click: R|(kotlin/Int) -> kotlin/String| = fun <anonymous>(it: R|kotlin/Int|): R|kotlin/String| <inline=NoInline>  {
+            ^ <strcat>(String(click:), R|<local>/it|)
+        }
+
+        lval description: R|(kotlin/String) -> kotlin/String| = fun <anonymous>(it: R|kotlin/String|): R|kotlin/String| <inline=NoInline>  {
+            ^ <strcat>(String(description:), R|<local>/it|)
+        }
+
+        lval a: R|sample/Appearance| = R|sample/Appearance|(Int(10), Null(null), R|<local>/click|, R|<local>/description|)
+        lval b: R|sample/AppearanceImpl| = R|sample/AppearanceImpl|(Int(10), Null(null), R|<local>/click|, R|<local>/description|)
+        R|kotlin/check|(==(R|<local>/a|, R|<local>/b|))
+        R|kotlin/check|(==(R|<local>/a|.R|kotlin/Any.hashCode|(), R|<local>/b|.R|sample/AppearanceImpl.hashCode|()))
+        R|kotlin/check|(!=(R|<local>/a|, R|sample/Appearance|(Int(11), Null(null), R|<local>/click|, R|<local>/description|)))
+        R|kotlin/check|(!=(R|<local>/a|, R|sample/Appearance|(Int(10), String(label), R|<local>/click|, R|<local>/description|)))
+        R|kotlin/check|(!=(R|<local>/a|, R|sample/Appearance|(Int(10), Null(null), Appearance@fun <anonymous>(it: R|kotlin/Int|): R|kotlin/String| <inline=NoInline>  {
+            ^ <strcat>(String(other:), R|<local>/it|)
+        }
+        , R|<local>/description|)))
+        R|kotlin/check|(R|<local>/a|.R|kotlin/Any.equals|(Null(null)).R|kotlin/Boolean.not|())
+        R|kotlin/check|(R|<local>/a|.R|kotlin/Any.equals|(String(other)).R|kotlin/Boolean.not|())
+        R|kotlin/check|(==(R|<local>/a|.R|sample/Appearance.onClick|(Int(2)), String(click:2)))
+        R|kotlin/check|(==(R|<local>/a|.R|sample/Appearance.describe|(String(test)), String(description:test)))
+        lval defaults: R|sample/Appearance| = R|sample/Appearance|(Int(20), String(name), R|<local>/click|)
+        R|kotlin/check|(==(R|<local>/defaults|.R|sample/Appearance.describe|(String(test:)), String(test:name:20)))
+        lval copy: R|sample/Appearance| = R|<local>/defaults|.R|sample/copy|(Int(30))
+        R|kotlin/check|(==(R|<local>/copy|.R|sample/Appearance.width|, Int(30)))
+        R|kotlin/check|(==(R|<local>/copy|.R|sample/Appearance.label|, String(name)))
+        R|kotlin/check|(==(R|<local>/copy|.R|sample/Appearance.onClick|(Int(3)), String(click:3)))
+        R|kotlin/check|(==(R|<local>/copy|.R|sample/Appearance.describe|(String(copy:)), String(copy:name:20)))
+        R|kotlin/check|(!=(R|<local>/copy|, R|<local>/defaults|))
+        R|kotlin/check|(==(R|<local>/a|.R|sample/copy|(R|<local>/click|, R|<local>/description|), R|<local>/a|))
+        lval custom: R|sample/<anonymous>| = object : R|sample/Appearance| {
+            private constructor(): R|sample/<anonymous>| {
+                super<R|kotlin/Any|>()
+            }
+
+            public open override val width: R|kotlin/Int| = Int(5)
+                public get(): R|kotlin/Int|
+
+            public open override val label: R|kotlin/String| = String(custom)
+                public get(): R|kotlin/String|
+
+            public open override fun onClick(value: R|kotlin/Int|): R|kotlin/String| {
+                ^onClick <strcat>(this@R|sample/<anonymous>|.R|sample/<anonymous>.label|, String(:), R|<local>/value|)
+            }
+
+        }
+
+        R|kotlin/check|(==(R|<local>/custom|.R|sample/copy|().R|sample/Appearance.describe|(String(test:)), String(test:custom:5)))
+        lval size: R|sample/Size| = R|sample/Size|(Int(1), Int(2))
+        R|kotlin/check|(==(R|<local>/size|.R|sample/copy|(), R|<local>/size|))
+        R|kotlin/check|(==(R|<local>/size|.R|sample/copy|(Int(3)), R|sample/SizeImpl|(Int(1), Int(3))))
+        R|kotlin/check|(==(R|sample/Empty|(), R|sample/EmptyImpl|()))
+        R|kotlin/check|(==(R|sample/Empty|().R|kotlin/Any.hashCode|(), R|sample/EmptyImpl|().R|sample/EmptyImpl.hashCode|()))
+        ^box String(OK)
+    }
+FILE: sample/AppearanceImpl.kt
+    package sample
+
+    public final class AppearanceImpl : R|sample/Appearance| {
+        public final override fun equals(other: R|kotlin/Any?|): R|kotlin/Boolean|
+
+        public final override fun hashCode(): R|kotlin/Int|
+
+        public final override val width: R|kotlin/Int|
+            public get(): R|kotlin/Int|
+
+        public final override val label: R|kotlin/String?|
+            public get(): R|kotlin/String?|
+
+        public final override fun onClick(value: R|kotlin/Int|): R|kotlin/String|
+
+        private final val $contract$onClick: R|(kotlin/Int) -> kotlin/String|
+            private get(): R|(kotlin/Int) -> kotlin/String|
+
+        public final override fun describe(prefix: R|kotlin/String|): R|kotlin/String|
+
+        private final val $contract$describe: R|(kotlin/String) -> kotlin/String|
+            private get(): R|(kotlin/String) -> kotlin/String|
+
+        public constructor(width: R|kotlin/Int|, label: R|kotlin/String?|, onClick: R|(kotlin/Int) -> kotlin/String|, describe: R|(kotlin/String) -> kotlin/String|): R|sample/AppearanceImpl|
+
+    }
+FILE: sample/SizeImpl.kt
+    package sample
+
+    public final class SizeImpl : R|sample/Size| {
+        public final override fun equals(other: R|kotlin/Any?|): R|kotlin/Boolean|
+
+        public final override fun hashCode(): R|kotlin/Int|
+
+        public final override val width: R|kotlin/Int|
+            public get(): R|kotlin/Int|
+
+        public final override val height: R|kotlin/Int|
+            public get(): R|kotlin/Int|
+
+        public constructor(width: R|kotlin/Int|, height: R|kotlin/Int|): R|sample/SizeImpl|
+
+    }
+FILE: sample/EmptyImpl.kt
+    package sample
+
+    public final class EmptyImpl : R|sample/Empty| {
+        public final override fun equals(other: R|kotlin/Any?|): R|kotlin/Boolean|
+
+        public final override fun hashCode(): R|kotlin/Int|
+
+        public constructor(): R|sample/EmptyImpl|
+
+    }
+FILE: sample/AppearanceContract.kt
+    package sample
+
+    @R|kotlin/jvm/JvmOverloads|() public final fun Appearance(width: R|kotlin/Int|, label: R|kotlin/String?|, onClick: R|(kotlin/Int) -> kotlin/String|, describe: R|(kotlin/String) -> kotlin/String| = throw R|kotlin/Throwable.Throwable|(String(Stub for declaration generated by Plugin[Key]))): R|sample/Appearance|
+    @R|kotlin/jvm/JvmOverloads|() public final fun R|sample/Appearance|.copy(width: R|kotlin/Int| = throw R|kotlin/Throwable.Throwable|(String(Stub for declaration generated by Plugin[Key])), label: R|kotlin/String?| = throw R|kotlin/Throwable.Throwable|(String(Stub for declaration generated by Plugin[Key])), onClick: R|(kotlin/Int) -> kotlin/String| = throw R|kotlin/Throwable.Throwable|(String(Stub for declaration generated by Plugin[Key])), describe: R|(kotlin/String) -> kotlin/String| = throw R|kotlin/Throwable.Throwable|(String(Stub for declaration generated by Plugin[Key]))): R|sample/Appearance|
+FILE: sample/SizeContract.kt
+    package sample
+
+    @R|kotlin/jvm/JvmOverloads|() public final fun R|sample/Size|.copy(width: R|kotlin/Int| = throw R|kotlin/Throwable.Throwable|(String(Stub for declaration generated by Plugin[Key])), height: R|kotlin/Int| = throw R|kotlin/Throwable.Throwable|(String(Stub for declaration generated by Plugin[Key]))): R|sample/Size|
+    @R|kotlin/jvm/JvmOverloads|() public final fun Size(width: R|kotlin/Int|, height: R|kotlin/Int|): R|sample/Size|
+FILE: sample/EmptyContract.kt
+    package sample
+
+    @R|kotlin/jvm/JvmOverloads|() public final fun R|sample/Empty|.copy(): R|sample/Empty|
+    @R|kotlin/jvm/JvmOverloads|() public final fun Empty(): R|sample/Empty|

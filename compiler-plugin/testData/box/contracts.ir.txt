@@ -1,0 +1,799 @@
+FILE fqName:sample fileName:/contracts.kt
+  CLASS INTERFACE name:Appearance modality:ABSTRACT visibility:public superTypes:[kotlin.Any]
+    annotations:
+      GenerateContract
+    thisReceiver: VALUE_PARAMETER INSTANCE_RECEIVER kind:DispatchReceiver name:<this> type:sample.Appearance
+    FUN FAKE_OVERRIDE name:equals visibility:public modality:OPEN returnType:kotlin.Boolean [fake_override,operator]
+      VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:kotlin.Any
+      VALUE_PARAMETER kind:Regular name:other index:1 type:kotlin.Any?
+      overridden:
+        public open fun equals (other: kotlin.Any?): kotlin.Boolean declared in kotlin.Any
+    FUN FAKE_OVERRIDE name:hashCode visibility:public modality:OPEN returnType:kotlin.Int [fake_override]
+      VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:kotlin.Any
+      overridden:
+        public open fun hashCode (): kotlin.Int declared in kotlin.Any
+    FUN FAKE_OVERRIDE name:toString visibility:public modality:OPEN returnType:kotlin.String [fake_override]
+      VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:kotlin.Any
+      overridden:
+        public open fun toString (): kotlin.String declared in kotlin.Any
+    FUN name:describe visibility:public modality:OPEN returnType:kotlin.String
+      VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:sample.Appearance
+      VALUE_PARAMETER kind:Regular name:prefix index:1 type:kotlin.String
+      BLOCK_BODY
+        RETURN type=kotlin.Nothing from='public open fun describe (prefix: kotlin.String): kotlin.String declared in sample.Appearance'
+          STRING_CONCATENATION type=kotlin.String
+            GET_VAR 'prefix: kotlin.String declared in sample.Appearance.describe' type=kotlin.String origin=null
+            CALL 'public abstract fun <get-label> (): kotlin.String? declared in sample.Appearance' type=kotlin.String? origin=GET_PROPERTY
+              ARG <this>: GET_VAR '<this>: sample.Appearance declared in sample.Appearance.describe' type=sample.Appearance origin=IMPLICIT_ARGUMENT
+            CONST String type=kotlin.String value=":"
+            CALL 'public abstract fun <get-width> (): kotlin.Int declared in sample.Appearance' type=kotlin.Int origin=GET_PROPERTY
+              ARG <this>: GET_VAR '<this>: sample.Appearance declared in sample.Appearance.describe' type=sample.Appearance origin=IMPLICIT_ARGUMENT
+    FUN name:onClick visibility:public modality:ABSTRACT returnType:kotlin.String
+      VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:sample.Appearance
+      VALUE_PARAMETER kind:Regular name:value index:1 type:kotlin.Int
+    PROPERTY name:label visibility:public modality:ABSTRACT [val]
+      FUN DEFAULT_PROPERTY_ACCESSOR name:<get-label> visibility:public modality:ABSTRACT returnType:kotlin.String?
+        VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:sample.Appearance
+        correspondingProperty: PROPERTY name:label visibility:public modality:ABSTRACT [val]
+    PROPERTY name:width visibility:public modality:ABSTRACT [val]
+      FUN DEFAULT_PROPERTY_ACCESSOR name:<get-width> visibility:public modality:ABSTRACT returnType:kotlin.Int
+        VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:sample.Appearance
+        correspondingProperty: PROPERTY name:width visibility:public modality:ABSTRACT [val]
+  CLASS INTERFACE name:Empty modality:ABSTRACT visibility:public superTypes:[kotlin.Any]
+    annotations:
+      GenerateContract
+    thisReceiver: VALUE_PARAMETER INSTANCE_RECEIVER kind:DispatchReceiver name:<this> type:sample.Empty
+    FUN FAKE_OVERRIDE name:equals visibility:public modality:OPEN returnType:kotlin.Boolean [fake_override,operator]
+      VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:kotlin.Any
+      VALUE_PARAMETER kind:Regular name:other index:1 type:kotlin.Any?
+      overridden:
+        public open fun equals (other: kotlin.Any?): kotlin.Boolean declared in kotlin.Any
+    FUN FAKE_OVERRIDE name:hashCode visibility:public modality:OPEN returnType:kotlin.Int [fake_override]
+      VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:kotlin.Any
+      overridden:
+        public open fun hashCode (): kotlin.Int declared in kotlin.Any
+    FUN FAKE_OVERRIDE name:toString visibility:public modality:OPEN returnType:kotlin.String [fake_override]
+      VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:kotlin.Any
+      overridden:
+        public open fun toString (): kotlin.String declared in kotlin.Any
+  CLASS INTERFACE name:Size modality:ABSTRACT visibility:public superTypes:[kotlin.Any]
+    annotations:
+      GenerateContract
+    thisReceiver: VALUE_PARAMETER INSTANCE_RECEIVER kind:DispatchReceiver name:<this> type:sample.Size
+    FUN FAKE_OVERRIDE name:equals visibility:public modality:OPEN returnType:kotlin.Boolean [fake_override,operator]
+      VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:kotlin.Any
+      VALUE_PARAMETER kind:Regular name:other index:1 type:kotlin.Any?
+      overridden:
+        public open fun equals (other: kotlin.Any?): kotlin.Boolean declared in kotlin.Any
+    FUN FAKE_OVERRIDE name:hashCode visibility:public modality:OPEN returnType:kotlin.Int [fake_override]
+      VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:kotlin.Any
+      overridden:
+        public open fun hashCode (): kotlin.Int declared in kotlin.Any
+    FUN FAKE_OVERRIDE name:toString visibility:public modality:OPEN returnType:kotlin.String [fake_override]
+      VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:kotlin.Any
+      overridden:
+        public open fun toString (): kotlin.String declared in kotlin.Any
+    PROPERTY name:height visibility:public modality:ABSTRACT [val]
+      FUN DEFAULT_PROPERTY_ACCESSOR name:<get-height> visibility:public modality:ABSTRACT returnType:kotlin.Int
+        VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:sample.Size
+        correspondingProperty: PROPERTY name:height visibility:public modality:ABSTRACT [val]
+    PROPERTY name:width visibility:public modality:ABSTRACT [val]
+      FUN DEFAULT_PROPERTY_ACCESSOR name:<get-width> visibility:public modality:ABSTRACT returnType:kotlin.Int
+        VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:sample.Size
+        correspondingProperty: PROPERTY name:width visibility:public modality:ABSTRACT [val]
+  FUN name:box visibility:public modality:FINAL returnType:kotlin.String
+    BLOCK_BODY
+      VAR name:click type:kotlin.Function1<kotlin.Int, kotlin.String> [val]
+        FUN_EXPR type=kotlin.Function1<kotlin.Int, kotlin.String> origin=LAMBDA
+          FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.String
+            VALUE_PARAMETER kind:Regular name:it index:0 type:kotlin.Int
+            BLOCK_BODY
+              RETURN type=kotlin.Nothing from='local final fun <anonymous> (it: kotlin.Int): kotlin.String declared in sample.box'
+                STRING_CONCATENATION type=kotlin.String
+                  CONST String type=kotlin.String value="click:"
+                  GET_VAR 'it: kotlin.Int declared in sample.box.<anonymous>' type=kotlin.Int origin=null
+      VAR name:description type:kotlin.Function1<kotlin.String, kotlin.String> [val]
+        FUN_EXPR type=kotlin.Function1<kotlin.String, kotlin.String> origin=LAMBDA
+          FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.String
+            VALUE_PARAMETER kind:Regular name:it index:0 type:kotlin.String
+            BLOCK_BODY
+              RETURN type=kotlin.Nothing from='local final fun <anonymous> (it: kotlin.String): kotlin.String declared in sample.box'
+                STRING_CONCATENATION type=kotlin.String
+                  CONST String type=kotlin.String value="description:"
+                  GET_VAR 'it: kotlin.String declared in sample.box.<anonymous>' type=kotlin.String origin=null
+      VAR name:a type:sample.Appearance [val]
+        CALL 'public final fun Appearance (width: kotlin.Int, label: kotlin.String?, onClick: kotlin.Function1<kotlin.Int, kotlin.String>, describe: kotlin.Function1<kotlin.String, kotlin.String>): sample.Appearance declared in sample' type=sample.Appearance origin=null
+          ARG width: CONST Int type=kotlin.Int value=10
+          ARG label: CONST Null type=kotlin.Nothing? value=null
+          ARG onClick: GET_VAR 'val click: kotlin.Function1<kotlin.Int, kotlin.String> declared in sample.box' type=kotlin.Function1<kotlin.Int, kotlin.String> origin=null
+          ARG describe: GET_VAR 'val description: kotlin.Function1<kotlin.String, kotlin.String> declared in sample.box' type=kotlin.Function1<kotlin.String, kotlin.String> origin=null
+      VAR name:b type:sample.AppearanceImpl [val]
+        CONSTRUCTOR_CALL 'public constructor <init> (width: kotlin.Int, label: kotlin.String?, onClick: kotlin.Function1<kotlin.Int, kotlin.String>, describe: kotlin.Function1<kotlin.String, kotlin.String>) declared in sample.AppearanceImpl' type=sample.AppearanceImpl origin=null
+          ARG width: CONST Int type=kotlin.Int value=10
+          ARG label: CONST Null type=kotlin.Nothing? value=null
+          ARG onClick: GET_VAR 'val click: kotlin.Function1<kotlin.Int, kotlin.String> declared in sample.box' type=kotlin.Function1<kotlin.Int, kotlin.String> origin=null
+          ARG describe: GET_VAR 'val description: kotlin.Function1<kotlin.String, kotlin.String> declared in sample.box' type=kotlin.Function1<kotlin.String, kotlin.String> origin=null
+      CALL 'public final fun check (value: kotlin.Boolean): kotlin.Unit declared in kotlin' type=kotlin.Unit origin=null
+        ARG value: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+          ARG arg0: GET_VAR 'val a: sample.Appearance declared in sample.box' type=sample.Appearance origin=null
+          ARG arg1: GET_VAR 'val b: sample.AppearanceImpl declared in sample.box' type=sample.AppearanceImpl origin=null
+      CALL 'public final fun check (value: kotlin.Boolean): kotlin.Unit declared in kotlin' type=kotlin.Unit origin=null
+        ARG value: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+          ARG arg0: CALL 'public open fun hashCode (): kotlin.Int declared in sample.Appearance' type=kotlin.Int origin=null
+            ARG <this>: TYPE_OP type=kotlin.Any origin=IMPLICIT_CAST typeOperand=kotlin.Any
+              GET_VAR 'val a: sample.Appearance declared in sample.box' type=sample.Appearance origin=null
+          ARG arg1: CALL 'public final fun hashCode (): kotlin.Int declared in sample.AppearanceImpl' type=kotlin.Int origin=null
+            ARG <this>: GET_VAR 'val b: sample.AppearanceImpl declared in sample.box' type=sample.AppearanceImpl origin=null
+      CALL 'public final fun check (value: kotlin.Boolean): kotlin.Unit declared in kotlin' type=kotlin.Unit origin=null
+        ARG value: CALL 'public final fun not (): kotlin.Boolean declared in kotlin.Boolean' type=kotlin.Boolean origin=EXCLEQ
+          ARG <this>: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EXCLEQ
+            ARG arg0: GET_VAR 'val a: sample.Appearance declared in sample.box' type=sample.Appearance origin=null
+            ARG arg1: CALL 'public final fun Appearance (width: kotlin.Int, label: kotlin.String?, onClick: kotlin.Function1<kotlin.Int, kotlin.String>, describe: kotlin.Function1<kotlin.String, kotlin.String>): sample.Appearance declared in sample' type=sample.Appearance origin=null
+              ARG width: CONST Int type=kotlin.Int value=11
+              ARG label: CONST Null type=kotlin.Nothing? value=null
+              ARG onClick: GET_VAR 'val click: kotlin.Function1<kotlin.Int, kotlin.String> declared in sample.box' type=kotlin.Function1<kotlin.Int, kotlin.String> origin=null
+              ARG describe: GET_VAR 'val description: kotlin.Function1<kotlin.String, kotlin.String> declared in sample.box' type=kotlin.Function1<kotlin.String, kotlin.String> origin=null
+      CALL 'public final fun check (value: kotlin.Boolean): kotlin.Unit declared in kotlin' type=kotlin.Unit origin=null
+        ARG value: CALL 'public final fun not (): kotlin.Boolean declared in kotlin.Boolean' type=kotlin.Boolean origin=EXCLEQ
+          ARG <this>: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EXCLEQ
+            ARG arg0: GET_VAR 'val a: sample.Appearance declared in sample.box' type=sample.Appearance origin=null
+            ARG arg1: CALL 'public final fun Appearance (width: kotlin.Int, label: kotlin.String?, onClick: kotlin.Function1<kotlin.Int, kotlin.String>, describe: kotlin.Function1<kotlin.String, kotlin.String>): sample.Appearance declared in sample' type=sample.Appearance origin=null
+              ARG width: CONST Int type=kotlin.Int value=10
+              ARG label: CONST String type=kotlin.String value="label"
+              ARG onClick: GET_VAR 'val click: kotlin.Function1<kotlin.Int, kotlin.String> declared in sample.box' type=kotlin.Function1<kotlin.Int, kotlin.String> origin=null
+              ARG describe: GET_VAR 'val description: kotlin.Function1<kotlin.String, kotlin.String> declared in sample.box' type=kotlin.Function1<kotlin.String, kotlin.String> origin=null
+      CALL 'public final fun check (value: kotlin.Boolean): kotlin.Unit declared in kotlin' type=kotlin.Unit origin=null
+        ARG value: CALL 'public final fun not (): kotlin.Boolean declared in kotlin.Boolean' type=kotlin.Boolean origin=EXCLEQ
+          ARG <this>: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EXCLEQ
+            ARG arg0: GET_VAR 'val a: sample.Appearance declared in sample.box' type=sample.Appearance origin=null
+            ARG arg1: CALL 'public final fun Appearance (width: kotlin.Int, label: kotlin.String?, onClick: kotlin.Function1<kotlin.Int, kotlin.String>, describe: kotlin.Function1<kotlin.String, kotlin.String>): sample.Appearance declared in sample' type=sample.Appearance origin=null
+              ARG width: CONST Int type=kotlin.Int value=10
+              ARG label: CONST Null type=kotlin.Nothing? value=null
+              ARG onClick: FUN_EXPR type=kotlin.Function1<kotlin.Int, kotlin.String> origin=LAMBDA
+                FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.String
+                  VALUE_PARAMETER kind:Regular name:it index:0 type:kotlin.Int
+                  BLOCK_BODY
+                    RETURN type=kotlin.Nothing from='local final fun <anonymous> (it: kotlin.Int): kotlin.String declared in sample.box'
+                      STRING_CONCATENATION type=kotlin.String
+                        CONST String type=kotlin.String value="other:"
+                        GET_VAR 'it: kotlin.Int declared in sample.box.<anonymous>' type=kotlin.Int origin=null
+              ARG describe: GET_VAR 'val description: kotlin.Function1<kotlin.String, kotlin.String> declared in sample.box' type=kotlin.Function1<kotlin.String, kotlin.String> origin=null
+      CALL 'public final fun check (value: kotlin.Boolean): kotlin.Unit declared in kotlin' type=kotlin.Unit origin=null
+        ARG value: CALL 'public final fun not (): kotlin.Boolean declared in kotlin.Boolean' type=kotlin.Boolean origin=null
+          ARG <this>: CALL 'public open fun equals (other: kotlin.Any?): kotlin.Boolean declared in sample.Appearance' type=kotlin.Boolean origin=null
+            ARG <this>: TYPE_OP type=kotlin.Any origin=IMPLICIT_CAST typeOperand=kotlin.Any
+              GET_VAR 'val a: sample.Appearance declared in sample.box' type=sample.Appearance origin=null
+            ARG other: CONST Null type=kotlin.Nothing? value=null
+      CALL 'public final fun check (value: kotlin.Boolean): kotlin.Unit declared in kotlin' type=kotlin.Unit origin=null
+        ARG value: CALL 'public final fun not (): kotlin.Boolean declared in kotlin.Boolean' type=kotlin.Boolean origin=null
+          ARG <this>: CALL 'public open fun equals (other: kotlin.Any?): kotlin.Boolean declared in sample.Appearance' type=kotlin.Boolean origin=null
+            ARG <this>: TYPE_OP type=kotlin.Any origin=IMPLICIT_CAST typeOperand=kotlin.Any
+              GET_VAR 'val a: sample.Appearance declared in sample.box' type=sample.Appearance origin=null
+            ARG other: CONST String type=kotlin.String value="other"
+      CALL 'public final fun check (value: kotlin.Boolean): kotlin.Unit declared in kotlin' type=kotlin.Unit origin=null
+        ARG value: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+          ARG arg0: CALL 'public abstract fun onClick (value: kotlin.Int): kotlin.String declared in sample.Appearance' type=kotlin.String origin=null
+            ARG <this>: GET_VAR 'val a: sample.Appearance declared in sample.box' type=sample.Appearance origin=null
+            ARG value: CONST Int type=kotlin.Int value=2
+          ARG arg1: CONST String type=kotlin.String value="click:2"
+      CALL 'public final fun check (value: kotlin.Boolean): kotlin.Unit declared in kotlin' type=kotlin.Unit origin=null
+        ARG value: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+          ARG arg0: CALL 'public open fun describe (prefix: kotlin.String): kotlin.String declared in sample.Appearance' type=kotlin.String origin=null
+            ARG <this>: GET_VAR 'val a: sample.Appearance declared in sample.box' type=sample.Appearance origin=null
+            ARG prefix: CONST String type=kotlin.String value="test"
+          ARG arg1: CONST String type=kotlin.String value="description:test"
+      VAR name:defaults type:sample.Appearance [val]
+        CALL 'public final fun Appearance (width: kotlin.Int, label: kotlin.String?, onClick: kotlin.Function1<kotlin.Int, kotlin.String>, describe: kotlin.Function1<kotlin.String, kotlin.String>): sample.Appearance declared in sample' type=sample.Appearance origin=null
+          ARG width: CONST Int type=kotlin.Int value=20
+          ARG label: CONST String type=kotlin.String value="name"
+          ARG onClick: GET_VAR 'val click: kotlin.Function1<kotlin.Int, kotlin.String> declared in sample.box' type=kotlin.Function1<kotlin.Int, kotlin.String> origin=null
+      CALL 'public final fun check (value: kotlin.Boolean): kotlin.Unit declared in kotlin' type=kotlin.Unit origin=null
+        ARG value: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+          ARG arg0: CALL 'public open fun describe (prefix: kotlin.String): kotlin.String declared in sample.Appearance' type=kotlin.String origin=null
+            ARG <this>: GET_VAR 'val defaults: sample.Appearance declared in sample.box' type=sample.Appearance origin=null
+            ARG prefix: CONST String type=kotlin.String value="test:"
+          ARG arg1: CONST String type=kotlin.String value="test:name:20"
+      VAR name:copy type:sample.Appearance [val]
+        CALL 'public final fun copy (<this>: sample.Appearance, width: kotlin.Int, label: kotlin.String?, onClick: kotlin.Function1<kotlin.Int, kotlin.String>, describe: kotlin.Function1<kotlin.String, kotlin.String>): sample.Appearance declared in sample' type=sample.Appearance origin=null
+          ARG <this>: GET_VAR 'val defaults: sample.Appearance declared in sample.box' type=sample.Appearance origin=null
+          ARG width: CONST Int type=kotlin.Int value=30
+      CALL 'public final fun check (value: kotlin.Boolean): kotlin.Unit declared in kotlin' type=kotlin.Unit origin=null
+        ARG value: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+          ARG arg0: CALL 'public abstract fun <get-width> (): kotlin.Int declared in sample.Appearance' type=kotlin.Int origin=GET_PROPERTY
+            ARG <this>: GET_VAR 'val copy: sample.Appearance declared in sample.box' type=sample.Appearance origin=null
+          ARG arg1: CONST Int type=kotlin.Int value=30
+      CALL 'public final fun check (value: kotlin.Boolean): kotlin.Unit declared in kotlin' type=kotlin.Unit origin=null
+        ARG value: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+          ARG arg0: CALL 'public abstract fun <get-label> (): kotlin.String? declared in sample.Appearance' type=kotlin.String? origin=GET_PROPERTY
+            ARG <this>: GET_VAR 'val copy: sample.Appearance declared in sample.box' type=sample.Appearance origin=null
+          ARG arg1: CONST String type=kotlin.String value="name"
+      CALL 'public final fun check (value: kotlin.Boolean): kotlin.Unit declared in kotlin' type=kotlin.Unit origin=null
+        ARG value: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+          ARG arg0: CALL 'public abstract fun onClick (value: kotlin.Int): kotlin.String declared in sample.Appearance' type=kotlin.String origin=null
+            ARG <this>: GET_VAR 'val copy: sample.Appearance declared in sample.box' type=sample.Appearance origin=null
+            ARG value: CONST Int type=kotlin.Int value=3
+          ARG arg1: CONST String type=kotlin.String value="click:3"
+      CALL 'public final fun check (value: kotlin.Boolean): kotlin.Unit declared in kotlin' type=kotlin.Unit origin=null
+        ARG value: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+          ARG arg0: CALL 'public open fun describe (prefix: kotlin.String): kotlin.String declared in sample.Appearance' type=kotlin.String origin=null
+            ARG <this>: GET_VAR 'val copy: sample.Appearance declared in sample.box' type=sample.Appearance origin=null
+            ARG prefix: CONST String type=kotlin.String value="copy:"
+          ARG arg1: CONST String type=kotlin.String value="copy:name:20"
+      CALL 'public final fun check (value: kotlin.Boolean): kotlin.Unit declared in kotlin' type=kotlin.Unit origin=null
+        ARG value: CALL 'public final fun not (): kotlin.Boolean declared in kotlin.Boolean' type=kotlin.Boolean origin=EXCLEQ
+          ARG <this>: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EXCLEQ
+            ARG arg0: GET_VAR 'val copy: sample.Appearance declared in sample.box' type=sample.Appearance origin=null
+            ARG arg1: GET_VAR 'val defaults: sample.Appearance declared in sample.box' type=sample.Appearance origin=null
+      CALL 'public final fun check (value: kotlin.Boolean): kotlin.Unit declared in kotlin' type=kotlin.Unit origin=null
+        ARG value: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+          ARG arg0: CALL 'public final fun copy (<this>: sample.Appearance, width: kotlin.Int, label: kotlin.String?, onClick: kotlin.Function1<kotlin.Int, kotlin.String>, describe: kotlin.Function1<kotlin.String, kotlin.String>): sample.Appearance declared in sample' type=sample.Appearance origin=null
+            ARG <this>: GET_VAR 'val a: sample.Appearance declared in sample.box' type=sample.Appearance origin=null
+            ARG onClick: GET_VAR 'val click: kotlin.Function1<kotlin.Int, kotlin.String> declared in sample.box' type=kotlin.Function1<kotlin.Int, kotlin.String> origin=null
+            ARG describe: GET_VAR 'val description: kotlin.Function1<kotlin.String, kotlin.String> declared in sample.box' type=kotlin.Function1<kotlin.String, kotlin.String> origin=null
+          ARG arg1: GET_VAR 'val a: sample.Appearance declared in sample.box' type=sample.Appearance origin=null
+      VAR name:custom type:sample.box.<no name provided> [val]
+        BLOCK type=sample.box.<no name provided> origin=OBJECT_LITERAL
+          CLASS CLASS name:<no name provided> modality:FINAL visibility:local superTypes:[sample.Appearance]
+            thisReceiver: VALUE_PARAMETER INSTANCE_RECEIVER kind:DispatchReceiver name:<this> type:sample.box.<no name provided>
+            PROPERTY name:width visibility:public modality:OPEN [val]
+              overridden:
+                public abstract width: kotlin.Int declared in sample.Appearance
+              FIELD PROPERTY_BACKING_FIELD name:width type:kotlin.Int visibility:private [final]
+                EXPRESSION_BODY
+                  CONST Int type=kotlin.Int value=5
+              FUN DEFAULT_PROPERTY_ACCESSOR name:<get-width> visibility:public modality:OPEN returnType:kotlin.Int
+                VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:sample.box.<no name provided>
+                correspondingProperty: PROPERTY name:width visibility:public modality:OPEN [val]
+                overridden:
+                  public abstract fun <get-width> (): kotlin.Int declared in sample.Appearance
+                BLOCK_BODY
+                  RETURN type=kotlin.Nothing from='public open fun <get-width> (): kotlin.Int declared in sample.box.<no name provided>'
+                    GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:width type:kotlin.Int visibility:private [final]' type=kotlin.Int origin=null
+                      receiver: GET_VAR '<this>: sample.box.<no name provided> declared in sample.box.<no name provided>.<get-width>' type=sample.box.<no name provided> origin=null
+            PROPERTY name:label visibility:public modality:OPEN [val]
+              overridden:
+                public abstract label: kotlin.String? declared in sample.Appearance
+              FIELD PROPERTY_BACKING_FIELD name:label type:kotlin.String visibility:private [final]
+                EXPRESSION_BODY
+                  CONST String type=kotlin.String value="custom"
+              FUN DEFAULT_PROPERTY_ACCESSOR name:<get-label> visibility:public modality:OPEN returnType:kotlin.String
+                VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:sample.box.<no name provided>
+                correspondingProperty: PROPERTY name:label visibility:public modality:OPEN [val]
+                overridden:
+                  public abstract fun <get-label> (): kotlin.String? declared in sample.Appearance
+                BLOCK_BODY
+                  RETURN type=kotlin.Nothing from='public open fun <get-label> (): kotlin.String declared in sample.box.<no name provided>'
+                    GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:label type:kotlin.String visibility:private [final]' type=kotlin.String origin=null
+                      receiver: GET_VAR '<this>: sample.box.<no name provided> declared in sample.box.<no name provided>.<get-label>' type=sample.box.<no name provided> origin=null
+            CONSTRUCTOR visibility:public returnType:sample.box.<no name provided> [primary]
+              BLOCK_BODY
+                DELEGATING_CONSTRUCTOR_CALL 'public constructor <init> () declared in kotlin.Any'
+                INSTANCE_INITIALIZER_CALL classDescriptor='CLASS CLASS name:<no name provided> modality:FINAL visibility:local superTypes:[sample.Appearance]' type=kotlin.Unit
+            FUN FAKE_OVERRIDE name:describe visibility:public modality:OPEN returnType:kotlin.String [fake_override]
+              VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:sample.Appearance
+              VALUE_PARAMETER kind:Regular name:prefix index:1 type:kotlin.String
+              overridden:
+                public open fun describe (prefix: kotlin.String): kotlin.String declared in sample.Appearance
+            FUN FAKE_OVERRIDE name:equals visibility:public modality:OPEN returnType:kotlin.Boolean [fake_override,operator]
+              VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:kotlin.Any
+              VALUE_PARAMETER kind:Regular name:other index:1 type:kotlin.Any?
+              overridden:
+                public open fun equals (other: kotlin.Any?): kotlin.Boolean declared in sample.Appearance
+            FUN FAKE_OVERRIDE name:hashCode visibility:public modality:OPEN returnType:kotlin.Int [fake_override]
+              VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:kotlin.Any
+              overridden:
+                public open fun hashCode (): kotlin.Int declared in sample.Appearance
+            FUN FAKE_OVERRIDE name:toString visibility:public modality:OPEN returnType:kotlin.String [fake_override]
+              VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:kotlin.Any
+              overridden:
+                public open fun toString (): kotlin.String declared in sample.Appearance
+            FUN name:onClick visibility:public modality:OPEN returnType:kotlin.String
+              VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:sample.box.<no name provided>
+              VALUE_PARAMETER kind:Regular name:value index:1 type:kotlin.Int
+              overridden:
+                public abstract fun onClick (value: kotlin.Int): kotlin.String declared in sample.Appearance
+              BLOCK_BODY
+                RETURN type=kotlin.Nothing from='public open fun onClick (value: kotlin.Int): kotlin.String declared in sample.box.<no name provided>'
+                  STRING_CONCATENATION type=kotlin.String
+                    CALL 'public open fun <get-label> (): kotlin.String declared in sample.box.<no name provided>' type=kotlin.String origin=GET_PROPERTY
+                      ARG <this>: GET_VAR '<this>: sample.box.<no name provided> declared in sample.box.<no name provided>.onClick' type=sample.box.<no name provided> origin=IMPLICIT_ARGUMENT
+                    CONST String type=kotlin.String value=":"
+                    GET_VAR 'value: kotlin.Int declared in sample.box.<no name provided>.onClick' type=kotlin.Int origin=null
+          CONSTRUCTOR_CALL 'public constructor <init> () declared in sample.box.<no name provided>' type=sample.box.<no name provided> origin=OBJECT_LITERAL
+      CALL 'public final fun check (value: kotlin.Boolean): kotlin.Unit declared in kotlin' type=kotlin.Unit origin=null
+        ARG value: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+          ARG arg0: CALL 'public open fun describe (prefix: kotlin.String): kotlin.String declared in sample.Appearance' type=kotlin.String origin=null
+            ARG <this>: CALL 'public final fun copy (<this>: sample.Appearance, width: kotlin.Int, label: kotlin.String?, onClick: kotlin.Function1<kotlin.Int, kotlin.String>, describe: kotlin.Function1<kotlin.String, kotlin.String>): sample.Appearance declared in sample' type=sample.Appearance origin=null
+              ARG <this>: GET_VAR 'val custom: sample.box.<no name provided> declared in sample.box' type=sample.box.<no name provided> origin=null
+            ARG prefix: CONST String type=kotlin.String value="test:"
+          ARG arg1: CONST String type=kotlin.String value="test:custom:5"
+      VAR name:size type:sample.Size [val]
+        CALL 'public final fun Size (width: kotlin.Int, height: kotlin.Int): sample.Size declared in sample' type=sample.Size origin=null
+          ARG width: CONST Int type=kotlin.Int value=1
+          ARG height: CONST Int type=kotlin.Int value=2
+      CALL 'public final fun check (value: kotlin.Boolean): kotlin.Unit declared in kotlin' type=kotlin.Unit origin=null
+        ARG value: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+          ARG arg0: CALL 'public final fun copy (<this>: sample.Size, width: kotlin.Int, height: kotlin.Int): sample.Size declared in sample' type=sample.Size origin=null
+            ARG <this>: GET_VAR 'val size: sample.Size declared in sample.box' type=sample.Size origin=null
+          ARG arg1: GET_VAR 'val size: sample.Size declared in sample.box' type=sample.Size origin=null
+      CALL 'public final fun check (value: kotlin.Boolean): kotlin.Unit declared in kotlin' type=kotlin.Unit origin=null
+        ARG value: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+          ARG arg0: CALL 'public final fun copy (<this>: sample.Size, width: kotlin.Int, height: kotlin.Int): sample.Size declared in sample' type=sample.Size origin=null
+            ARG <this>: GET_VAR 'val size: sample.Size declared in sample.box' type=sample.Size origin=null
+            ARG height: CONST Int type=kotlin.Int value=3
+          ARG arg1: CONSTRUCTOR_CALL 'public constructor <init> (width: kotlin.Int, height: kotlin.Int) declared in sample.SizeImpl' type=sample.SizeImpl origin=null
+            ARG width: CONST Int type=kotlin.Int value=1
+            ARG height: CONST Int type=kotlin.Int value=3
+      CALL 'public final fun check (value: kotlin.Boolean): kotlin.Unit declared in kotlin' type=kotlin.Unit origin=null
+        ARG value: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+          ARG arg0: CALL 'public final fun Empty (): sample.Empty declared in sample' type=sample.Empty origin=null
+          ARG arg1: CONSTRUCTOR_CALL 'public constructor <init> () declared in sample.EmptyImpl' type=sample.EmptyImpl origin=null
+      CALL 'public final fun check (value: kotlin.Boolean): kotlin.Unit declared in kotlin' type=kotlin.Unit origin=null
+        ARG value: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+          ARG arg0: CALL 'public open fun hashCode (): kotlin.Int declared in sample.Empty' type=kotlin.Int origin=null
+            ARG <this>: TYPE_OP type=kotlin.Any origin=IMPLICIT_CAST typeOperand=kotlin.Any
+              CALL 'public final fun Empty (): sample.Empty declared in sample' type=sample.Empty origin=null
+          ARG arg1: CALL 'public final fun hashCode (): kotlin.Int declared in sample.EmptyImpl' type=kotlin.Int origin=null
+            ARG <this>: CONSTRUCTOR_CALL 'public constructor <init> () declared in sample.EmptyImpl' type=sample.EmptyImpl origin=null
+      RETURN type=kotlin.Nothing from='public final fun box (): kotlin.String declared in sample'
+        CONST String type=kotlin.String value="OK"
+FILE fqName:sample fileName:sample/AppearanceContract.kt
+  FUN GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:Appearance visibility:public modality:FINAL returnType:sample.Appearance
+    VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:width index:0 type:kotlin.Int
+    VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:label index:1 type:kotlin.String?
+    VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:onClick index:2 type:kotlin.Function1<kotlin.Int, kotlin.String>
+    VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:describe index:3 type:kotlin.Function1<kotlin.String, kotlin.String>
+      EXPRESSION_BODY
+        FUN_EXPR type=kotlin.Function1<kotlin.String, kotlin.String> origin=LAMBDA
+          FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.String
+            VALUE_PARAMETER kind:Regular name:prefix index:0 type:kotlin.String
+            BLOCK_BODY
+              RETURN type=kotlin.Nothing from='local final fun <anonymous> (prefix: kotlin.String): kotlin.String declared in sample.Appearance'
+                STRING_CONCATENATION type=kotlin.String
+                  GET_VAR 'prefix: kotlin.String declared in sample.Appearance.<anonymous>' type=kotlin.String origin=null
+                  GET_VAR 'label: kotlin.String? declared in sample.Appearance' type=kotlin.String? origin=null
+                  CONST String type=kotlin.String value=":"
+                  GET_VAR 'width: kotlin.Int declared in sample.Appearance' type=kotlin.Int origin=null
+    annotations:
+      JvmOverloads
+    BLOCK_BODY
+      RETURN type=kotlin.Nothing from='public final fun Appearance (width: kotlin.Int, label: kotlin.String?, onClick: kotlin.Function1<kotlin.Int, kotlin.String>, describe: kotlin.Function1<kotlin.String, kotlin.String>): sample.Appearance declared in sample'
+        CONSTRUCTOR_CALL 'public constructor <init> (width: kotlin.Int, label: kotlin.String?, onClick: kotlin.Function1<kotlin.Int, kotlin.String>, describe: kotlin.Function1<kotlin.String, kotlin.String>) declared in sample.AppearanceImpl' type=sample.AppearanceImpl origin=null
+          ARG width: GET_VAR 'width: kotlin.Int declared in sample.Appearance' type=kotlin.Int origin=null
+          ARG label: GET_VAR 'label: kotlin.String? declared in sample.Appearance' type=kotlin.String? origin=null
+          ARG onClick: GET_VAR 'onClick: kotlin.Function1<kotlin.Int, kotlin.String> declared in sample.Appearance' type=kotlin.Function1<kotlin.Int, kotlin.String> origin=null
+          ARG describe: GET_VAR 'describe: kotlin.Function1<kotlin.String, kotlin.String> declared in sample.Appearance' type=kotlin.Function1<kotlin.String, kotlin.String> origin=null
+  FUN GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:copy visibility:public modality:FINAL returnType:sample.Appearance
+    VALUE_PARAMETER kind:ExtensionReceiver name:<this> index:0 type:sample.Appearance
+    VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:width index:1 type:kotlin.Int
+      EXPRESSION_BODY
+        CALL 'public abstract fun <get-width> (): kotlin.Int declared in sample.Appearance' type=kotlin.Int origin=null
+          ARG <this>: GET_VAR '<this>: sample.Appearance declared in sample.copy' type=sample.Appearance origin=null
+    VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:label index:2 type:kotlin.String?
+      EXPRESSION_BODY
+        CALL 'public abstract fun <get-label> (): kotlin.String? declared in sample.Appearance' type=kotlin.String? origin=null
+          ARG <this>: GET_VAR '<this>: sample.Appearance declared in sample.copy' type=sample.Appearance origin=null
+    VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:onClick index:3 type:kotlin.Function1<kotlin.Int, kotlin.String>
+      EXPRESSION_BODY
+        FUNCTION_REFERENCE 'public abstract fun onClick (value: kotlin.Int): kotlin.String declared in sample.Appearance' type=kotlin.Function1<kotlin.Int, kotlin.String> origin=null reflectionTarget=<same>
+          ARG <this>: GET_VAR '<this>: sample.Appearance declared in sample.copy' type=sample.Appearance origin=null
+    VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:describe index:4 type:kotlin.Function1<kotlin.String, kotlin.String>
+      EXPRESSION_BODY
+        FUNCTION_REFERENCE 'public open fun describe (prefix: kotlin.String): kotlin.String declared in sample.Appearance' type=kotlin.Function1<kotlin.String, kotlin.String> origin=null reflectionTarget=<same>
+          ARG <this>: GET_VAR '<this>: sample.Appearance declared in sample.copy' type=sample.Appearance origin=null
+    annotations:
+      JvmOverloads
+    BLOCK_BODY
+      RETURN type=kotlin.Nothing from='public final fun copy (<this>: sample.Appearance, width: kotlin.Int, label: kotlin.String?, onClick: kotlin.Function1<kotlin.Int, kotlin.String>, describe: kotlin.Function1<kotlin.String, kotlin.String>): sample.Appearance declared in sample'
+        CONSTRUCTOR_CALL 'public constructor <init> (width: kotlin.Int, label: kotlin.String?, onClick: kotlin.Function1<kotlin.Int, kotlin.String>, describe: kotlin.Function1<kotlin.String, kotlin.String>) declared in sample.AppearanceImpl' type=sample.AppearanceImpl origin=null
+          ARG width: GET_VAR 'width: kotlin.Int declared in sample.copy' type=kotlin.Int origin=null
+          ARG label: GET_VAR 'label: kotlin.String? declared in sample.copy' type=kotlin.String? origin=null
+          ARG onClick: GET_VAR 'onClick: kotlin.Function1<kotlin.Int, kotlin.String> declared in sample.copy' type=kotlin.Function1<kotlin.Int, kotlin.String> origin=null
+          ARG describe: GET_VAR 'describe: kotlin.Function1<kotlin.String, kotlin.String> declared in sample.copy' type=kotlin.Function1<kotlin.String, kotlin.String> origin=null
+FILE fqName:sample fileName:sample/AppearanceImpl.kt
+  CLASS GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] CLASS name:AppearanceImpl modality:FINAL visibility:public superTypes:[sample.Appearance]
+    thisReceiver: VALUE_PARAMETER INSTANCE_RECEIVER kind:DispatchReceiver name:<this> type:sample.AppearanceImpl
+    PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:width visibility:public modality:FINAL [val]
+      overridden:
+        public abstract width: kotlin.Int declared in sample.Appearance
+      FIELD PROPERTY_BACKING_FIELD name:width type:kotlin.Int visibility:private [final]
+      FUN DEFAULT_PROPERTY_ACCESSOR name:<get-width> visibility:public modality:FINAL returnType:kotlin.Int
+        VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:sample.AppearanceImpl
+        correspondingProperty: PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:width visibility:public modality:FINAL [val]
+        overridden:
+          public abstract fun <get-width> (): kotlin.Int declared in sample.Appearance
+        BLOCK_BODY
+          RETURN type=kotlin.Nothing from='public final fun <get-width> (): kotlin.Int declared in sample.AppearanceImpl'
+            GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:width type:kotlin.Int visibility:private [final]' type=kotlin.Int origin=null
+              receiver: GET_VAR '<this>: sample.AppearanceImpl declared in sample.AppearanceImpl.<get-width>' type=sample.AppearanceImpl origin=null
+    PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:label visibility:public modality:FINAL [val]
+      overridden:
+        public abstract label: kotlin.String? declared in sample.Appearance
+      FIELD PROPERTY_BACKING_FIELD name:label type:kotlin.String? visibility:private [final]
+      FUN DEFAULT_PROPERTY_ACCESSOR name:<get-label> visibility:public modality:FINAL returnType:kotlin.String?
+        VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:sample.AppearanceImpl
+        correspondingProperty: PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:label visibility:public modality:FINAL [val]
+        overridden:
+          public abstract fun <get-label> (): kotlin.String? declared in sample.Appearance
+        BLOCK_BODY
+          RETURN type=kotlin.Nothing from='public final fun <get-label> (): kotlin.String? declared in sample.AppearanceImpl'
+            GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:label type:kotlin.String? visibility:private [final]' type=kotlin.String? origin=null
+              receiver: GET_VAR '<this>: sample.AppearanceImpl declared in sample.AppearanceImpl.<get-label>' type=sample.AppearanceImpl origin=null
+    PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:$contract$onClick visibility:private modality:FINAL [val]
+      FIELD PROPERTY_BACKING_FIELD name:$contract$onClick type:kotlin.Function1<kotlin.Int, kotlin.String> visibility:private [final]
+      FUN DEFAULT_PROPERTY_ACCESSOR name:<get-$contract$onClick> visibility:private modality:FINAL returnType:kotlin.Function1<kotlin.Int, kotlin.String>
+        VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:sample.AppearanceImpl
+        correspondingProperty: PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:$contract$onClick visibility:private modality:FINAL [val]
+        BLOCK_BODY
+          RETURN type=kotlin.Nothing from='private final fun <get-$contract$onClick> (): kotlin.Function1<kotlin.Int, kotlin.String> declared in sample.AppearanceImpl'
+            GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$onClick type:kotlin.Function1<kotlin.Int, kotlin.String> visibility:private [final]' type=kotlin.Function1<kotlin.Int, kotlin.String> origin=null
+              receiver: GET_VAR '<this>: sample.AppearanceImpl declared in sample.AppearanceImpl.<get-$contract$onClick>' type=sample.AppearanceImpl origin=null
+    PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:$contract$describe visibility:private modality:FINAL [val]
+      FIELD PROPERTY_BACKING_FIELD name:$contract$describe type:kotlin.Function1<kotlin.String, kotlin.String> visibility:private [final]
+      FUN DEFAULT_PROPERTY_ACCESSOR name:<get-$contract$describe> visibility:private modality:FINAL returnType:kotlin.Function1<kotlin.String, kotlin.String>
+        VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:sample.AppearanceImpl
+        correspondingProperty: PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:$contract$describe visibility:private modality:FINAL [val]
+        BLOCK_BODY
+          RETURN type=kotlin.Nothing from='private final fun <get-$contract$describe> (): kotlin.Function1<kotlin.String, kotlin.String> declared in sample.AppearanceImpl'
+            GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$describe type:kotlin.Function1<kotlin.String, kotlin.String> visibility:private [final]' type=kotlin.Function1<kotlin.String, kotlin.String> origin=null
+              receiver: GET_VAR '<this>: sample.AppearanceImpl declared in sample.AppearanceImpl.<get-$contract$describe>' type=sample.AppearanceImpl origin=null
+    CONSTRUCTOR GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] visibility:public returnType:sample.AppearanceImpl [primary]
+      VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:width index:0 type:kotlin.Int
+      VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:label index:1 type:kotlin.String?
+      VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:onClick index:2 type:kotlin.Function1<kotlin.Int, kotlin.String>
+      VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:describe index:3 type:kotlin.Function1<kotlin.String, kotlin.String>
+      BLOCK_BODY
+        DELEGATING_CONSTRUCTOR_CALL 'public constructor <init> () declared in kotlin.Any'
+        SET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:width type:kotlin.Int visibility:private [final]' type=kotlin.Unit origin=null
+          receiver: GET_VAR '<this>: sample.AppearanceImpl declared in sample.AppearanceImpl' type=sample.AppearanceImpl origin=null
+          value: GET_VAR 'width: kotlin.Int declared in sample.AppearanceImpl.<init>' type=kotlin.Int origin=null
+        SET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:label type:kotlin.String? visibility:private [final]' type=kotlin.Unit origin=null
+          receiver: GET_VAR '<this>: sample.AppearanceImpl declared in sample.AppearanceImpl' type=sample.AppearanceImpl origin=null
+          value: GET_VAR 'label: kotlin.String? declared in sample.AppearanceImpl.<init>' type=kotlin.String? origin=null
+        SET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$onClick type:kotlin.Function1<kotlin.Int, kotlin.String> visibility:private [final]' type=kotlin.Unit origin=null
+          receiver: GET_VAR '<this>: sample.AppearanceImpl declared in sample.AppearanceImpl' type=sample.AppearanceImpl origin=null
+          value: GET_VAR 'onClick: kotlin.Function1<kotlin.Int, kotlin.String> declared in sample.AppearanceImpl.<init>' type=kotlin.Function1<kotlin.Int, kotlin.String> origin=null
+        SET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$describe type:kotlin.Function1<kotlin.String, kotlin.String> visibility:private [final]' type=kotlin.Unit origin=null
+          receiver: GET_VAR '<this>: sample.AppearanceImpl declared in sample.AppearanceImpl' type=sample.AppearanceImpl origin=null
+          value: GET_VAR 'describe: kotlin.Function1<kotlin.String, kotlin.String> declared in sample.AppearanceImpl.<init>' type=kotlin.Function1<kotlin.String, kotlin.String> origin=null
+        INSTANCE_INITIALIZER_CALL classDescriptor='CLASS GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] CLASS name:AppearanceImpl modality:FINAL visibility:public superTypes:[sample.Appearance]' type=kotlin.Unit
+    FUN FAKE_OVERRIDE name:toString visibility:public modality:OPEN returnType:kotlin.String [fake_override]
+      VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:kotlin.Any
+      overridden:
+        public open fun toString (): kotlin.String declared in sample.Appearance
+    FUN GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:describe visibility:public modality:FINAL returnType:kotlin.String
+      VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:sample.AppearanceImpl
+      VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:prefix index:1 type:kotlin.String
+      overridden:
+        public open fun describe (prefix: kotlin.String): kotlin.String declared in sample.Appearance
+      BLOCK_BODY
+        RETURN type=kotlin.Nothing from='public final fun describe (prefix: kotlin.String): kotlin.String declared in sample.AppearanceImpl'
+          CALL 'public abstract fun invoke (p1: P1 of kotlin.Function1): R of kotlin.Function1 declared in kotlin.Function1' type=kotlin.String origin=null
+            ARG <this>: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$describe type:kotlin.Function1<kotlin.String, kotlin.String> visibility:private [final]' type=kotlin.Function1<kotlin.String, kotlin.String> origin=null
+              receiver: GET_VAR '<this>: sample.AppearanceImpl declared in sample.AppearanceImpl.describe' type=sample.AppearanceImpl origin=null
+            ARG p1: GET_VAR 'prefix: kotlin.String declared in sample.AppearanceImpl.describe' type=kotlin.String origin=null
+    FUN GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:equals visibility:public modality:FINAL returnType:kotlin.Boolean
+      VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:sample.AppearanceImpl
+      VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:other index:1 type:kotlin.Any?
+      overridden:
+        public open fun equals (other: kotlin.Any?): kotlin.Boolean declared in sample.Appearance
+      BLOCK_BODY
+        WHEN type=kotlin.Unit origin=null
+          BRANCH
+            if: CALL 'public final fun EQEQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQEQ
+              ARG arg0: GET_VAR '<this>: sample.AppearanceImpl declared in sample.AppearanceImpl.equals' type=sample.AppearanceImpl origin=null
+              ARG arg1: GET_VAR 'other: kotlin.Any? declared in sample.AppearanceImpl.equals' type=kotlin.Any? origin=null
+            then: RETURN type=kotlin.Nothing from='public final fun equals (other: kotlin.Any?): kotlin.Boolean declared in sample.AppearanceImpl'
+              CONST Boolean type=kotlin.Boolean value=true
+        WHEN type=kotlin.Unit origin=null
+          BRANCH
+            if: TYPE_OP type=kotlin.Boolean origin=NOT_INSTANCEOF typeOperand=sample.AppearanceImpl
+              GET_VAR 'other: kotlin.Any? declared in sample.AppearanceImpl.equals' type=kotlin.Any? origin=null
+            then: RETURN type=kotlin.Nothing from='public final fun equals (other: kotlin.Any?): kotlin.Boolean declared in sample.AppearanceImpl'
+              CONST Boolean type=kotlin.Boolean value=false
+        VAR IR_TEMPORARY_VARIABLE name:tmp_0 type:sample.AppearanceImpl [val]
+          TYPE_OP type=sample.AppearanceImpl origin=CAST typeOperand=sample.AppearanceImpl
+            GET_VAR 'other: kotlin.Any? declared in sample.AppearanceImpl.equals' type=kotlin.Any? origin=null
+        WHEN type=kotlin.Unit origin=null
+          BRANCH
+            if: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+              ARG arg0: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+                ARG arg0: TYPE_OP type=kotlin.Any? origin=IMPLICIT_CAST typeOperand=kotlin.Any?
+                  GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:width type:kotlin.Int visibility:private [final]' type=kotlin.Int origin=null
+                    receiver: GET_VAR '<this>: sample.AppearanceImpl declared in sample.AppearanceImpl.equals' type=sample.AppearanceImpl origin=null
+                ARG arg1: TYPE_OP type=kotlin.Any? origin=IMPLICIT_CAST typeOperand=kotlin.Any?
+                  GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:width type:kotlin.Int visibility:private [final]' type=kotlin.Int origin=null
+                    receiver: GET_VAR 'val tmp_0: sample.AppearanceImpl declared in sample.AppearanceImpl.equals' type=sample.AppearanceImpl origin=null
+              ARG arg1: CONST Boolean type=kotlin.Boolean value=false
+            then: RETURN type=kotlin.Nothing from='public final fun equals (other: kotlin.Any?): kotlin.Boolean declared in sample.AppearanceImpl'
+              CONST Boolean type=kotlin.Boolean value=false
+        WHEN type=kotlin.Unit origin=null
+          BRANCH
+            if: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+              ARG arg0: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+                ARG arg0: TYPE_OP type=kotlin.Any? origin=IMPLICIT_CAST typeOperand=kotlin.Any?
+                  GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:label type:kotlin.String? visibility:private [final]' type=kotlin.String? origin=null
+                    receiver: GET_VAR '<this>: sample.AppearanceImpl declared in sample.AppearanceImpl.equals' type=sample.AppearanceImpl origin=null
+                ARG arg1: TYPE_OP type=kotlin.Any? origin=IMPLICIT_CAST typeOperand=kotlin.Any?
+                  GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:label type:kotlin.String? visibility:private [final]' type=kotlin.String? origin=null
+                    receiver: GET_VAR 'val tmp_0: sample.AppearanceImpl declared in sample.AppearanceImpl.equals' type=sample.AppearanceImpl origin=null
+              ARG arg1: CONST Boolean type=kotlin.Boolean value=false
+            then: RETURN type=kotlin.Nothing from='public final fun equals (other: kotlin.Any?): kotlin.Boolean declared in sample.AppearanceImpl'
+              CONST Boolean type=kotlin.Boolean value=false
+        WHEN type=kotlin.Unit origin=null
+          BRANCH
+            if: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+              ARG arg0: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+                ARG arg0: TYPE_OP type=kotlin.Any? origin=IMPLICIT_CAST typeOperand=kotlin.Any?
+                  GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$onClick type:kotlin.Function1<kotlin.Int, kotlin.String> visibility:private [final]' type=kotlin.Function1<kotlin.Int, kotlin.String> origin=null
+                    receiver: GET_VAR '<this>: sample.AppearanceImpl declared in sample.AppearanceImpl.equals' type=sample.AppearanceImpl origin=null
+                ARG arg1: TYPE_OP type=kotlin.Any? origin=IMPLICIT_CAST typeOperand=kotlin.Any?
+                  GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$onClick type:kotlin.Function1<kotlin.Int, kotlin.String> visibility:private [final]' type=kotlin.Function1<kotlin.Int, kotlin.String> origin=null
+                    receiver: GET_VAR 'val tmp_0: sample.AppearanceImpl declared in sample.AppearanceImpl.equals' type=sample.AppearanceImpl origin=null
+              ARG arg1: CONST Boolean type=kotlin.Boolean value=false
+            then: RETURN type=kotlin.Nothing from='public final fun equals (other: kotlin.Any?): kotlin.Boolean declared in sample.AppearanceImpl'
+              CONST Boolean type=kotlin.Boolean value=false
+        WHEN type=kotlin.Unit origin=null
+          BRANCH
+            if: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+              ARG arg0: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+                ARG arg0: TYPE_OP type=kotlin.Any? origin=IMPLICIT_CAST typeOperand=kotlin.Any?
+                  GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$describe type:kotlin.Function1<kotlin.String, kotlin.String> visibility:private [final]' type=kotlin.Function1<kotlin.String, kotlin.String> origin=null
+                    receiver: GET_VAR '<this>: sample.AppearanceImpl declared in sample.AppearanceImpl.equals' type=sample.AppearanceImpl origin=null
+                ARG arg1: TYPE_OP type=kotlin.Any? origin=IMPLICIT_CAST typeOperand=kotlin.Any?
+                  GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$describe type:kotlin.Function1<kotlin.String, kotlin.String> visibility:private [final]' type=kotlin.Function1<kotlin.String, kotlin.String> origin=null
+                    receiver: GET_VAR 'val tmp_0: sample.AppearanceImpl declared in sample.AppearanceImpl.equals' type=sample.AppearanceImpl origin=null
+              ARG arg1: CONST Boolean type=kotlin.Boolean value=false
+            then: RETURN type=kotlin.Nothing from='public final fun equals (other: kotlin.Any?): kotlin.Boolean declared in sample.AppearanceImpl'
+              CONST Boolean type=kotlin.Boolean value=false
+        RETURN type=kotlin.Nothing from='public final fun equals (other: kotlin.Any?): kotlin.Boolean declared in sample.AppearanceImpl'
+          CONST Boolean type=kotlin.Boolean value=true
+    FUN GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:hashCode visibility:public modality:FINAL returnType:kotlin.Int
+      VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:sample.AppearanceImpl
+      overridden:
+        public open fun hashCode (): kotlin.Int declared in sample.Appearance
+      BLOCK_BODY
+        RETURN type=kotlin.Nothing from='public final fun hashCode (): kotlin.Int declared in sample.AppearanceImpl'
+          CALL 'public final fun plus (other: kotlin.Int): kotlin.Int declared in kotlin.Int' type=kotlin.Int origin=null
+            ARG <this>: CALL 'public final fun times (other: kotlin.Int): kotlin.Int declared in kotlin.Int' type=kotlin.Int origin=null
+              ARG <this>: CALL 'public final fun plus (other: kotlin.Int): kotlin.Int declared in kotlin.Int' type=kotlin.Int origin=null
+                ARG <this>: CALL 'public final fun times (other: kotlin.Int): kotlin.Int declared in kotlin.Int' type=kotlin.Int origin=null
+                  ARG <this>: CALL 'public final fun plus (other: kotlin.Int): kotlin.Int declared in kotlin.Int' type=kotlin.Int origin=null
+                    ARG <this>: CALL 'public final fun times (other: kotlin.Int): kotlin.Int declared in kotlin.Int' type=kotlin.Int origin=null
+                      ARG <this>: CALL 'public final fun plus (other: kotlin.Int): kotlin.Int declared in kotlin.Int' type=kotlin.Int origin=null
+                        ARG <this>: CALL 'public final fun times (other: kotlin.Int): kotlin.Int declared in kotlin.Int' type=kotlin.Int origin=null
+                          ARG <this>: CONST Int type=kotlin.Int value=0
+                          ARG other: CONST Int type=kotlin.Int value=31
+                        ARG other: CALL 'public open fun hashCode (): kotlin.Int declared in kotlin.Any' type=kotlin.Int origin=null
+                          ARG <this>: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:width type:kotlin.Int visibility:private [final]' type=kotlin.Int origin=null
+                            receiver: GET_VAR '<this>: sample.AppearanceImpl declared in sample.AppearanceImpl.hashCode' type=sample.AppearanceImpl origin=null
+                      ARG other: CONST Int type=kotlin.Int value=31
+                    ARG other: WHEN type=kotlin.Int origin=null
+                      BRANCH
+                        if: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+                          ARG arg0: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:label type:kotlin.String? visibility:private [final]' type=kotlin.String? origin=null
+                            receiver: GET_VAR '<this>: sample.AppearanceImpl declared in sample.AppearanceImpl.hashCode' type=sample.AppearanceImpl origin=null
+                          ARG arg1: CONST Null type=kotlin.Nothing? value=null
+                        then: CONST Int type=kotlin.Int value=0
+                      BRANCH
+                        if: CONST Boolean type=kotlin.Boolean value=true
+                        then: CALL 'public open fun hashCode (): kotlin.Int declared in kotlin.Any' type=kotlin.Int origin=null
+                          ARG <this>: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:label type:kotlin.String? visibility:private [final]' type=kotlin.String? origin=null
+                            receiver: GET_VAR '<this>: sample.AppearanceImpl declared in sample.AppearanceImpl.hashCode' type=sample.AppearanceImpl origin=null
+                  ARG other: CONST Int type=kotlin.Int value=31
+                ARG other: CALL 'public open fun hashCode (): kotlin.Int declared in kotlin.Any' type=kotlin.Int origin=null
+                  ARG <this>: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$onClick type:kotlin.Function1<kotlin.Int, kotlin.String> visibility:private [final]' type=kotlin.Function1<kotlin.Int, kotlin.String> origin=null
+                    receiver: GET_VAR '<this>: sample.AppearanceImpl declared in sample.AppearanceImpl.hashCode' type=sample.AppearanceImpl origin=null
+              ARG other: CONST Int type=kotlin.Int value=31
+            ARG other: CALL 'public open fun hashCode (): kotlin.Int declared in kotlin.Any' type=kotlin.Int origin=null
+              ARG <this>: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$describe type:kotlin.Function1<kotlin.String, kotlin.String> visibility:private [final]' type=kotlin.Function1<kotlin.String, kotlin.String> origin=null
+                receiver: GET_VAR '<this>: sample.AppearanceImpl declared in sample.AppearanceImpl.hashCode' type=sample.AppearanceImpl origin=null
+    FUN GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:onClick visibility:public modality:FINAL returnType:kotlin.String
+      VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:sample.AppearanceImpl
+      VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:value index:1 type:kotlin.Int
+      overridden:
+        public abstract fun onClick (value: kotlin.Int): kotlin.String declared in sample.Appearance
+      BLOCK_BODY
+        RETURN type=kotlin.Nothing from='public final fun onClick (value: kotlin.Int): kotlin.String declared in sample.AppearanceImpl'
+          CALL 'public abstract fun invoke (p1: P1 of kotlin.Function1): R of kotlin.Function1 declared in kotlin.Function1' type=kotlin.String origin=null
+            ARG <this>: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$onClick type:kotlin.Function1<kotlin.Int, kotlin.String> visibility:private [final]' type=kotlin.Function1<kotlin.Int, kotlin.String> origin=null
+              receiver: GET_VAR '<this>: sample.AppearanceImpl declared in sample.AppearanceImpl.onClick' type=sample.AppearanceImpl origin=null
+            ARG p1: GET_VAR 'value: kotlin.Int declared in sample.AppearanceImpl.onClick' type=kotlin.Int origin=null
+FILE fqName:sample fileName:sample/EmptyContract.kt
+  FUN GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:Empty visibility:public modality:FINAL returnType:sample.Empty
+    annotations:
+      JvmOverloads
+    BLOCK_BODY
+      RETURN type=kotlin.Nothing from='public final fun Empty (): sample.Empty declared in sample'
+        CONSTRUCTOR_CALL 'public constructor <init> () declared in sample.EmptyImpl' type=sample.EmptyImpl origin=null
+  FUN GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:copy visibility:public modality:FINAL returnType:sample.Empty
+    VALUE_PARAMETER kind:ExtensionReceiver name:<this> index:0 type:sample.Empty
+    annotations:
+      JvmOverloads
+    BLOCK_BODY
+      RETURN type=kotlin.Nothing from='public final fun copy (<this>: sample.Empty): sample.Empty declared in sample'
+        CONSTRUCTOR_CALL 'public constructor <init> () declared in sample.EmptyImpl' type=sample.EmptyImpl origin=null
+FILE fqName:sample fileName:sample/EmptyImpl.kt
+  CLASS GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] CLASS name:EmptyImpl modality:FINAL visibility:public superTypes:[sample.Empty]
+    thisReceiver: VALUE_PARAMETER INSTANCE_RECEIVER kind:DispatchReceiver name:<this> type:sample.EmptyImpl
+    CONSTRUCTOR GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] visibility:public returnType:sample.EmptyImpl [primary]
+      BLOCK_BODY
+        DELEGATING_CONSTRUCTOR_CALL 'public constructor <init> () declared in kotlin.Any'
+        INSTANCE_INITIALIZER_CALL classDescriptor='CLASS GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] CLASS name:EmptyImpl modality:FINAL visibility:public superTypes:[sample.Empty]' type=kotlin.Unit
+    FUN FAKE_OVERRIDE name:toString visibility:public modality:OPEN returnType:kotlin.String [fake_override]
+      VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:kotlin.Any
+      overridden:
+        public open fun toString (): kotlin.String declared in sample.Empty
+    FUN GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:equals visibility:public modality:FINAL returnType:kotlin.Boolean
+      VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:sample.EmptyImpl
+      VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:other index:1 type:kotlin.Any?
+      overridden:
+        public open fun equals (other: kotlin.Any?): kotlin.Boolean declared in sample.Empty
+      BLOCK_BODY
+        WHEN type=kotlin.Unit origin=null
+          BRANCH
+            if: CALL 'public final fun EQEQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQEQ
+              ARG arg0: GET_VAR '<this>: sample.EmptyImpl declared in sample.EmptyImpl.equals' type=sample.EmptyImpl origin=null
+              ARG arg1: GET_VAR 'other: kotlin.Any? declared in sample.EmptyImpl.equals' type=kotlin.Any? origin=null
+            then: RETURN type=kotlin.Nothing from='public final fun equals (other: kotlin.Any?): kotlin.Boolean declared in sample.EmptyImpl'
+              CONST Boolean type=kotlin.Boolean value=true
+        WHEN type=kotlin.Unit origin=null
+          BRANCH
+            if: TYPE_OP type=kotlin.Boolean origin=NOT_INSTANCEOF typeOperand=sample.EmptyImpl
+              GET_VAR 'other: kotlin.Any? declared in sample.EmptyImpl.equals' type=kotlin.Any? origin=null
+            then: RETURN type=kotlin.Nothing from='public final fun equals (other: kotlin.Any?): kotlin.Boolean declared in sample.EmptyImpl'
+              CONST Boolean type=kotlin.Boolean value=false
+        VAR IR_TEMPORARY_VARIABLE name:tmp_0 type:sample.EmptyImpl [val]
+          TYPE_OP type=sample.EmptyImpl origin=CAST typeOperand=sample.EmptyImpl
+            GET_VAR 'other: kotlin.Any? declared in sample.EmptyImpl.equals' type=kotlin.Any? origin=null
+        RETURN type=kotlin.Nothing from='public final fun equals (other: kotlin.Any?): kotlin.Boolean declared in sample.EmptyImpl'
+          CONST Boolean type=kotlin.Boolean value=true
+    FUN GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:hashCode visibility:public modality:FINAL returnType:kotlin.Int
+      VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:sample.EmptyImpl
+      overridden:
+        public open fun hashCode (): kotlin.Int declared in sample.Empty
+      BLOCK_BODY
+        RETURN type=kotlin.Nothing from='public final fun hashCode (): kotlin.Int declared in sample.EmptyImpl'
+          CONST Int type=kotlin.Int value=0
+FILE fqName:sample fileName:sample/SizeContract.kt
+  FUN GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:Size visibility:public modality:FINAL returnType:sample.Size
+    VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:width index:0 type:kotlin.Int
+    VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:height index:1 type:kotlin.Int
+    annotations:
+      JvmOverloads
+    BLOCK_BODY
+      RETURN type=kotlin.Nothing from='public final fun Size (width: kotlin.Int, height: kotlin.Int): sample.Size declared in sample'
+        CONSTRUCTOR_CALL 'public constructor <init> (width: kotlin.Int, height: kotlin.Int) declared in sample.SizeImpl' type=sample.SizeImpl origin=null
+          ARG width: GET_VAR 'width: kotlin.Int declared in sample.Size' type=kotlin.Int origin=null
+          ARG height: GET_VAR 'height: kotlin.Int declared in sample.Size' type=kotlin.Int origin=null
+  FUN GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:copy visibility:public modality:FINAL returnType:sample.Size
+    VALUE_PARAMETER kind:ExtensionReceiver name:<this> index:0 type:sample.Size
+    VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:width index:1 type:kotlin.Int
+      EXPRESSION_BODY
+        CALL 'public abstract fun <get-width> (): kotlin.Int declared in sample.Size' type=kotlin.Int origin=null
+          ARG <this>: GET_VAR '<this>: sample.Size declared in sample.copy' type=sample.Size origin=null
+    VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:height index:2 type:kotlin.Int
+      EXPRESSION_BODY
+        CALL 'public abstract fun <get-height> (): kotlin.Int declared in sample.Size' type=kotlin.Int origin=null
+          ARG <this>: GET_VAR '<this>: sample.Size declared in sample.copy' type=sample.Size origin=null
+    annotations:
+      JvmOverloads
+    BLOCK_BODY
+      RETURN type=kotlin.Nothing from='public final fun copy (<this>: sample.Size, width: kotlin.Int, height: kotlin.Int): sample.Size declared in sample'
+        CONSTRUCTOR_CALL 'public constructor <init> (width: kotlin.Int, height: kotlin.Int) declared in sample.SizeImpl' type=sample.SizeImpl origin=null
+          ARG width: GET_VAR 'width: kotlin.Int declared in sample.copy' type=kotlin.Int origin=null
+          ARG height: GET_VAR 'height: kotlin.Int declared in sample.copy' type=kotlin.Int origin=null
+FILE fqName:sample fileName:sample/SizeImpl.kt
+  CLASS GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] CLASS name:SizeImpl modality:FINAL visibility:public superTypes:[sample.Size]
+    thisReceiver: VALUE_PARAMETER INSTANCE_RECEIVER kind:DispatchReceiver name:<this> type:sample.SizeImpl
+    PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:width visibility:public modality:FINAL [val]
+      overridden:
+        public abstract width: kotlin.Int declared in sample.Size
+      FIELD PROPERTY_BACKING_FIELD name:width type:kotlin.Int visibility:private [final]
+      FUN DEFAULT_PROPERTY_ACCESSOR name:<get-width> visibility:public modality:FINAL returnType:kotlin.Int
+        VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:sample.SizeImpl
+        correspondingProperty: PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:width visibility:public modality:FINAL [val]
+        overridden:
+          public abstract fun <get-width> (): kotlin.Int declared in sample.Size
+        BLOCK_BODY
+          RETURN type=kotlin.Nothing from='public final fun <get-width> (): kotlin.Int declared in sample.SizeImpl'
+            GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:width type:kotlin.Int visibility:private [final]' type=kotlin.Int origin=null
+              receiver: GET_VAR '<this>: sample.SizeImpl declared in sample.SizeImpl.<get-width>' type=sample.SizeImpl origin=null
+    PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:height visibility:public modality:FINAL [val]
+      overridden:
+        public abstract height: kotlin.Int declared in sample.Size
+      FIELD PROPERTY_BACKING_FIELD name:height type:kotlin.Int visibility:private [final]
+      FUN DEFAULT_PROPERTY_ACCESSOR name:<get-height> visibility:public modality:FINAL returnType:kotlin.Int
+        VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:sample.SizeImpl
+        correspondingProperty: PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:height visibility:public modality:FINAL [val]
+        overridden:
+          public abstract fun <get-height> (): kotlin.Int declared in sample.Size
+        BLOCK_BODY
+          RETURN type=kotlin.Nothing from='public final fun <get-height> (): kotlin.Int declared in sample.SizeImpl'
+            GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:height type:kotlin.Int visibility:private [final]' type=kotlin.Int origin=null
+              receiver: GET_VAR '<this>: sample.SizeImpl declared in sample.SizeImpl.<get-height>' type=sample.SizeImpl origin=null
+    CONSTRUCTOR GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] visibility:public returnType:sample.SizeImpl [primary]
+      VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:width index:0 type:kotlin.Int
+      VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:height index:1 type:kotlin.Int
+      BLOCK_BODY
+        DELEGATING_CONSTRUCTOR_CALL 'public constructor <init> () declared in kotlin.Any'
+        SET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:width type:kotlin.Int visibility:private [final]' type=kotlin.Unit origin=null
+          receiver: GET_VAR '<this>: sample.SizeImpl declared in sample.SizeImpl' type=sample.SizeImpl origin=null
+          value: GET_VAR 'width: kotlin.Int declared in sample.SizeImpl.<init>' type=kotlin.Int origin=null
+        SET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:height type:kotlin.Int visibility:private [final]' type=kotlin.Unit origin=null
+          receiver: GET_VAR '<this>: sample.SizeImpl declared in sample.SizeImpl' type=sample.SizeImpl origin=null
+          value: GET_VAR 'height: kotlin.Int declared in sample.SizeImpl.<init>' type=kotlin.Int origin=null
+        INSTANCE_INITIALIZER_CALL classDescriptor='CLASS GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] CLASS name:SizeImpl modality:FINAL visibility:public superTypes:[sample.Size]' type=kotlin.Unit
+    FUN FAKE_OVERRIDE name:toString visibility:public modality:OPEN returnType:kotlin.String [fake_override]
+      VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:kotlin.Any
+      overridden:
+        public open fun toString (): kotlin.String declared in sample.Size
+    FUN GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:equals visibility:public modality:FINAL returnType:kotlin.Boolean
+      VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:sample.SizeImpl
+      VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:other index:1 type:kotlin.Any?
+      overridden:
+        public open fun equals (other: kotlin.Any?): kotlin.Boolean declared in sample.Size
+      BLOCK_BODY
+        WHEN type=kotlin.Unit origin=null
+          BRANCH
+            if: CALL 'public final fun EQEQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQEQ
+              ARG arg0: GET_VAR '<this>: sample.SizeImpl declared in sample.SizeImpl.equals' type=sample.SizeImpl origin=null
+              ARG arg1: GET_VAR 'other: kotlin.Any? declared in sample.SizeImpl.equals' type=kotlin.Any? origin=null
+            then: RETURN type=kotlin.Nothing from='public final fun equals (other: kotlin.Any?): kotlin.Boolean declared in sample.SizeImpl'
+              CONST Boolean type=kotlin.Boolean value=true
+        WHEN type=kotlin.Unit origin=null
+          BRANCH
+            if: TYPE_OP type=kotlin.Boolean origin=NOT_INSTANCEOF typeOperand=sample.SizeImpl
+              GET_VAR 'other: kotlin.Any? declared in sample.SizeImpl.equals' type=kotlin.Any? origin=null
+            then: RETURN type=kotlin.Nothing from='public final fun equals (other: kotlin.Any?): kotlin.Boolean declared in sample.SizeImpl'
+              CONST Boolean type=kotlin.Boolean value=false
+        VAR IR_TEMPORARY_VARIABLE name:tmp_0 type:sample.SizeImpl [val]
+          TYPE_OP type=sample.SizeImpl origin=CAST typeOperand=sample.SizeImpl
+            GET_VAR 'other: kotlin.Any? declared in sample.SizeImpl.equals' type=kotlin.Any? origin=null
+        WHEN type=kotlin.Unit origin=null
+          BRANCH
+            if: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+              ARG arg0: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+                ARG arg0: TYPE_OP type=kotlin.Any? origin=IMPLICIT_CAST typeOperand=kotlin.Any?
+                  GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:width type:kotlin.Int visibility:private [final]' type=kotlin.Int origin=null
+                    receiver: GET_VAR '<this>: sample.SizeImpl declared in sample.SizeImpl.equals' type=sample.SizeImpl origin=null
+                ARG arg1: TYPE_OP type=kotlin.Any? origin=IMPLICIT_CAST typeOperand=kotlin.Any?
+                  GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:width type:kotlin.Int visibility:private [final]' type=kotlin.Int origin=null
+                    receiver: GET_VAR 'val tmp_0: sample.SizeImpl declared in sample.SizeImpl.equals' type=sample.SizeImpl origin=null
+              ARG arg1: CONST Boolean type=kotlin.Boolean value=false
+            then: RETURN type=kotlin.Nothing from='public final fun equals (other: kotlin.Any?): kotlin.Boolean declared in sample.SizeImpl'
+              CONST Boolean type=kotlin.Boolean value=false
+        WHEN type=kotlin.Unit origin=null
+          BRANCH
+            if: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+              ARG arg0: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+                ARG arg0: TYPE_OP type=kotlin.Any? origin=IMPLICIT_CAST typeOperand=kotlin.Any?
+                  GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:height type:kotlin.Int visibility:private [final]' type=kotlin.Int origin=null
+                    receiver: GET_VAR '<this>: sample.SizeImpl declared in sample.SizeImpl.equals' type=sample.SizeImpl origin=null
+                ARG arg1: TYPE_OP type=kotlin.Any? origin=IMPLICIT_CAST typeOperand=kotlin.Any?
+                  GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:height type:kotlin.Int visibility:private [final]' type=kotlin.Int origin=null
+                    receiver: GET_VAR 'val tmp_0: sample.SizeImpl declared in sample.SizeImpl.equals' type=sample.SizeImpl origin=null
+              ARG arg1: CONST Boolean type=kotlin.Boolean value=false
+            then: RETURN type=kotlin.Nothing from='public final fun equals (other: kotlin.Any?): kotlin.Boolean declared in sample.SizeImpl'
+              CONST Boolean type=kotlin.Boolean value=false
+        RETURN type=kotlin.Nothing from='public final fun equals (other: kotlin.Any?): kotlin.Boolean declared in sample.SizeImpl'
+          CONST Boolean type=kotlin.Boolean value=true
+    FUN GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:hashCode visibility:public modality:FINAL returnType:kotlin.Int
+      VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:sample.SizeImpl
+      overridden:
+        public open fun hashCode (): kotlin.Int declared in sample.Size
+      BLOCK_BODY
+        RETURN type=kotlin.Nothing from='public final fun hashCode (): kotlin.Int declared in sample.SizeImpl'
+          CALL 'public final fun plus (other: kotlin.Int): kotlin.Int declared in kotlin.Int' type=kotlin.Int origin=null
+            ARG <this>: CALL 'public final fun times (other: kotlin.Int): kotlin.Int declared in kotlin.Int' type=kotlin.Int origin=null
+              ARG <this>: CALL 'public final fun plus (other: kotlin.Int): kotlin.Int declared in kotlin.Int' type=kotlin.Int origin=null
+                ARG <this>: CALL 'public final fun times (other: kotlin.Int): kotlin.Int declared in kotlin.Int' type=kotlin.Int origin=null
+                  ARG <this>: CONST Int type=kotlin.Int value=0
+                  ARG other: CONST Int type=kotlin.Int value=31
+                ARG other: CALL 'public open fun hashCode (): kotlin.Int declared in kotlin.Any' type=kotlin.Int origin=null
+                  ARG <this>: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:width type:kotlin.Int visibility:private [final]' type=kotlin.Int origin=null
+                    receiver: GET_VAR '<this>: sample.SizeImpl declared in sample.SizeImpl.hashCode' type=sample.SizeImpl origin=null
+              ARG other: CONST Int type=kotlin.Int value=31
+            ARG other: CALL 'public open fun hashCode (): kotlin.Int declared in kotlin.Any' type=kotlin.Int origin=null
+              ARG <this>: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:height type:kotlin.Int visibility:private [final]' type=kotlin.Int origin=null
+                receiver: GET_VAR '<this>: sample.SizeImpl declared in sample.SizeImpl.hashCode' type=sample.SizeImpl origin=null

@@ -12,7 +12,7 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "compiler-plugin-template"
+rootProject.name = "compose-contract-plugin"
 
 include("compiler-plugin")
 include("gradle-plugin")

@@ -1,0 +1,104 @@
+FILE: valueEquality.kt
+    package values
+
+    @R|com/alexcawl/contract/GenerateContract|() public abstract interface Values : R|kotlin/Any| {
+        public abstract val flag: R|kotlin/Boolean|
+            public get(): R|kotlin/Boolean|
+
+        public abstract val byte: R|kotlin/Byte|
+            public get(): R|kotlin/Byte|
+
+        public abstract val short: R|kotlin/Short|
+            public get(): R|kotlin/Short|
+
+        public abstract val int: R|kotlin/Int|
+            public get(): R|kotlin/Int|
+
+        public abstract val long: R|kotlin/Long|
+            public get(): R|kotlin/Long|
+
+        public abstract val char: R|kotlin/Char|
+            public get(): R|kotlin/Char|
+
+        public abstract val float: R|kotlin/Float|
+            public get(): R|kotlin/Float|
+
+        public abstract val double: R|kotlin/Double|
+            public get(): R|kotlin/Double|
+
+        public abstract val nullable: R|kotlin/Int?|
+            public get(): R|kotlin/Int?|
+
+        public abstract val list: R|kotlin/collections/List<kotlin/String>|
+            public get(): R|kotlin/collections/List<kotlin/String>|
+
+        public abstract val array: R|kotlin/IntArray|
+            public get(): R|kotlin/IntArray|
+
+    }
+    public final fun box(): R|kotlin/String| {
+        lval array: R|kotlin/IntArray| = R|kotlin/intArrayOf|(vararg(Int(1), Int(2)))
+        lval value: R|values/Values| = R|values/Values|(Boolean(true), Byte(1), Short(2), Int(3), Long(4), Char(x), Q|kotlin/Float|.R|kotlin/Float.Companion.NaN|, Q|kotlin/Double|.R|kotlin/Double.Companion.NaN|, Null(null), R|kotlin/collections/listOf|<R|kotlin/String|>(String(a)), R|<local>/array|)
+        R|kotlin/check|(==(R|<local>/value|, R|<local>/value|.R|values/copy|()))
+        R|kotlin/check|(==(R|<local>/value|.R|kotlin/Any.hashCode|(), R|<local>/value|.R|values/copy|().R|kotlin/Any.hashCode|()))
+        R|kotlin/check|(!=(R|<local>/value|, R|<local>/value|.R|values/copy|(R|kotlin/intArrayOf|(vararg(Int(1), Int(2))))))
+        R|kotlin/check|(!=(R|<local>/value|, R|<local>/value|.R|values/copy|(Int(0))))
+        lval positiveZero: R|values/Values| = R|<local>/value|.R|values/copy|(Float(0.0), Double(0.0))
+        lval negativeZero: R|values/Values| = R|<local>/value|.R|values/copy|(Float(0.0).R|kotlin/Float.unaryMinus|(), Double(0.0).R|kotlin/Double.unaryMinus|())
+        when () {
+            ==(R|<local>/positiveZero|, R|<local>/negativeZero|) ->  {
+                R|kotlin/check|(==(R|<local>/positiveZero|.R|kotlin/Any.hashCode|(), R|<local>/negativeZero|.R|kotlin/Any.hashCode|()))
+            }
+        }
+
+        ^box String(OK)
+    }
+FILE: values/ValuesImpl.kt
+    package values
+
+    public final class ValuesImpl : R|values/Values| {
+        public final override fun equals(other: R|kotlin/Any?|): R|kotlin/Boolean|
+
+        public final override fun hashCode(): R|kotlin/Int|
+
+        public final override val flag: R|kotlin/Boolean|
+            public get(): R|kotlin/Boolean|
+
+        public final override val byte: R|kotlin/Byte|
+            public get(): R|kotlin/Byte|
+
+        public final override val short: R|kotlin/Short|
+            public get(): R|kotlin/Short|
+
+        public final override val int: R|kotlin/Int|
+            public get(): R|kotlin/Int|
+
+        public final override val long: R|kotlin/Long|
+            public get(): R|kotlin/Long|
+
+        public final override val char: R|kotlin/Char|
+            public get(): R|kotlin/Char|
+
+        public final override val float: R|kotlin/Float|
+            public get(): R|kotlin/Float|
+
+        public final override val double: R|kotlin/Double|
+            public get(): R|kotlin/Double|
+
+        public final override val nullable: R|kotlin/Int?|
+            public get(): R|kotlin/Int?|
+
+        public final override val list: R|kotlin/collections/List<kotlin/String>|
+            public get(): R|kotlin/collections/List<kotlin/String>|
+
+        public final override val array: R|kotlin/IntArray|
+            public get(): R|kotlin/IntArray|
+
+        public constructor(flag: R|kotlin/Boolean|, byte: R|kotlin/Byte|, short: R|kotlin/Short|, int: R|kotlin/Int|, long: R|kotlin/Long|, char: R|kotlin/Char|, float: R|kotlin/Float|, double: R|kotlin/Double|, nullable: R|kotlin/Int?|, list: R|kotlin/collections/List<kotlin/String>|, array: R|kotlin/IntArray|): R|values/ValuesImpl|
+
+    }
+FILE: values/ValuesContract.kt
+    package values
+
+    public final fun Values(flag: R|kotlin/Boolean|, byte: R|kotlin/Byte|, short: R|kotlin/Short|, int: R|kotlin/Int|, long: R|kotlin/Long|, char: R|kotlin/Char|, float: R|kotlin/Float|, double: R|kotlin/Double|, nullable: R|kotlin/Int?|, list: R|kotlin/collections/List<kotlin/String>|, array: R|kotlin/IntArray|): R|values/Values|
+    public final fun R|values/Values|.copy(flag: R|kotlin/Boolean| = throw R|kotlin/Throwable.Throwable|(String(Stub for declaration generated by Plugin[Key])), byte: R|kotlin/Byte| = throw R|kotlin/Throwable.Throwable|(String(Stub for declaration generated by Plugin[Key])), short: R|kotlin/Short| = throw R|kotlin/Throwable.Throwable|(String(Stub for declaration generated by Plugin[Key])), int: R|kotlin/Int| = throw R|kotlin/Throwable.Throwable|(String(Stub for declaration generated by Plugin[Key])), long: R|kotlin/Long| = throw R|kotlin/Throwable.Throwable|(String(Stub for declaration generated by Plugin[Key])), char: R|kotlin/Char| = throw R|kotlin/Throwable.Throwable|(String(Stub for declaration generated by Plugin[Key])), float: R|kotlin/Float| = throw R|kotlin/Throwable.Throwable|(String(Stub for declaration generated by Plugin[Key])), double: R|kotlin/Double| = throw R|kotlin/Throwable.Throwable|(String(Stub for declaration generated by Plugin[Key])), nullable: R|kotlin/Int?| = throw R|kotlin/Throwable.Throwable|(String(Stub for declaration generated by Plugin[Key])), list: R|kotlin/collections/List<kotlin/String>| = throw R|kotlin/Throwable.Throwable|(String(Stub for declaration generated by Plugin[Key])), array: R|kotlin/IntArray| = throw R|kotlin/Throwable.Throwable|(String(Stub for declaration generated by Plugin[Key]))): R|values/Values|

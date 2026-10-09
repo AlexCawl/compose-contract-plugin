@@ -1,0 +1,239 @@
+FILE: invalidContracts.kt
+    package invalid
+
+    @R|com/alexcawl/contract/GenerateContract|() public final class NotAnInterface : R|kotlin/Any| {
+        public constructor(): R|invalid/NotAnInterface| {
+            super<R|kotlin/Any|>()
+        }
+
+    }
+    @R|com/alexcawl/contract/GenerateContract|() public abstract interface Generic<T> : R|kotlin/Any| {
+        public abstract val value: R|T|
+            public get(): R|T|
+
+    }
+    @R|com/alexcawl/contract/GenerateContract|() public abstract interface Mutable : R|kotlin/Any| {
+        public abstract var value: R|kotlin/Int|
+            public get(): R|kotlin/Int|
+            public set(value: R|kotlin/Int|): R|kotlin/Unit|
+
+    }
+    public abstract interface Base : R|kotlin/Any| {
+        public abstract val value: R|kotlin/Int|
+            public get(): R|kotlin/Int|
+
+    }
+    @R|com/alexcawl/contract/GenerateContract|() public abstract interface Inherited : R|invalid/Base| {
+    }
+    @R|com/alexcawl/contract/GenerateContract|() public abstract interface Overloaded : R|kotlin/Any| {
+        public abstract fun value(): R|kotlin/Int|
+
+        public abstract fun value(input: R|kotlin/Int|): R|kotlin/Int|
+
+    }
+    @R|com/alexcawl/contract/GenerateContract|() public abstract interface ForwardDefault : R|kotlin/Any| {
+        public open fun first(): R|kotlin/Int| {
+            ^first this@R|invalid/ForwardDefault|.R|invalid/ForwardDefault.second|()
+        }
+
+        public open fun second(): R|kotlin/Int| {
+            ^second Int(1)
+        }
+
+    }
+    @R|com/alexcawl/contract/GenerateContract|() public abstract interface RecursiveDefault : R|kotlin/Any| {
+        public open fun first(): R|kotlin/Int| {
+            ^first this@R|invalid/RecursiveDefault|.R|invalid/RecursiveDefault.first|()
+        }
+
+    }
+    @R|com/alexcawl/contract/GenerateContract|() public abstract interface StandaloneThis : R|kotlin/Any| {
+        public open fun identity(): R|kotlin/Any| {
+            ^identity this@R|invalid/StandaloneThis|
+        }
+
+    }
+    @R|com/alexcawl/contract/GenerateContract|() public abstract interface PropertyReference : R|kotlin/Any| {
+        public abstract val value: R|kotlin/Int|
+            public get(): R|kotlin/Int|
+
+        public open fun reference(): R|() -> kotlin/Int| {
+            ^reference ::R|invalid/PropertyReference.value|
+        }
+
+    }
+    @R|com/alexcawl/contract/GenerateContract|() public abstract interface DefaultArgumentReceiver : R|kotlin/Any| {
+        public open fun identity(value: R|kotlin/Any| = this@R|invalid/DefaultArgumentReceiver|): R|kotlin/Any| {
+            ^identity R|<local>/value|
+        }
+
+    }
+FILE: invalid/MutableImpl.kt
+    package invalid
+
+    public final class MutableImpl : R|invalid/Mutable| {
+        public final override fun equals(other: R|kotlin/Any?|): R|kotlin/Boolean|
+
+        public final override fun hashCode(): R|kotlin/Int|
+
+        public final override val value: R|kotlin/Int|
+            public get(): R|kotlin/Int|
+
+        public constructor(value: R|kotlin/Int|): R|invalid/MutableImpl|
+
+    }
+FILE: invalid/InheritedImpl.kt
+    package invalid
+
+    public final class InheritedImpl : R|invalid/Inherited| {
+        public final override fun equals(other: R|kotlin/Any?|): R|kotlin/Boolean|
+
+        public final override fun hashCode(): R|kotlin/Int|
+
+        public constructor(): R|invalid/InheritedImpl|
+
+    }
+FILE: invalid/OverloadedImpl.kt
+    package invalid
+
+    public final class OverloadedImpl : R|invalid/Overloaded| {
+        public final override fun equals(other: R|kotlin/Any?|): R|kotlin/Boolean|
+
+        public final override fun hashCode(): R|kotlin/Int|
+
+        public final override fun value(): R|kotlin/Int|
+
+        private final val $contract$value: R|() -> kotlin/Int|
+            private get(): R|() -> kotlin/Int|
+
+        public constructor(value: R|() -> kotlin/Int|, value: R|(kotlin/Int) -> kotlin/Int|): R|invalid/OverloadedImpl|
+
+    }
+FILE: invalid/ForwardDefaultImpl.kt
+    package invalid
+
+    public final class ForwardDefaultImpl : R|invalid/ForwardDefault| {
+        public final override fun equals(other: R|kotlin/Any?|): R|kotlin/Boolean|
+
+        public final override fun hashCode(): R|kotlin/Int|
+
+        public final override fun first(): R|kotlin/Int|
+
+        private final val $contract$first: R|() -> kotlin/Int|
+            private get(): R|() -> kotlin/Int|
+
+        public final override fun second(): R|kotlin/Int|
+
+        private final val $contract$second: R|() -> kotlin/Int|
+            private get(): R|() -> kotlin/Int|
+
+        public constructor(first: R|() -> kotlin/Int|, second: R|() -> kotlin/Int|): R|invalid/ForwardDefaultImpl|
+
+    }
+FILE: invalid/RecursiveDefaultImpl.kt
+    package invalid
+
+    public final class RecursiveDefaultImpl : R|invalid/RecursiveDefault| {
+        public final override fun equals(other: R|kotlin/Any?|): R|kotlin/Boolean|
+
+        public final override fun hashCode(): R|kotlin/Int|
+
+        public final override fun first(): R|kotlin/Int|
+
+        private final val $contract$first: R|() -> kotlin/Int|
+            private get(): R|() -> kotlin/Int|
+
+        public constructor(first: R|() -> kotlin/Int|): R|invalid/RecursiveDefaultImpl|
+
+    }
+FILE: invalid/StandaloneThisImpl.kt
+    package invalid
+
+    public final class StandaloneThisImpl : R|invalid/StandaloneThis| {
+        public final override fun equals(other: R|kotlin/Any?|): R|kotlin/Boolean|
+
+        public final override fun hashCode(): R|kotlin/Int|
+
+        public final override fun identity(): R|kotlin/Any|
+
+        private final val $contract$identity: R|() -> kotlin/Any|
+            private get(): R|() -> kotlin/Any|
+
+        public constructor(identity: R|() -> kotlin/Any|): R|invalid/StandaloneThisImpl|
+
+    }
+FILE: invalid/PropertyReferenceImpl.kt
+    package invalid
+
+    public final class PropertyReferenceImpl : R|invalid/PropertyReference| {
+        public final override fun equals(other: R|kotlin/Any?|): R|kotlin/Boolean|
+
+        public final override fun hashCode(): R|kotlin/Int|
+
+        public final override val value: R|kotlin/Int|
+            public get(): R|kotlin/Int|
+
+        public final override fun reference(): R|() -> kotlin/Int|
+
+        private final val $contract$reference: R|() -> () -> kotlin/Int|
+            private get(): R|() -> () -> kotlin/Int|
+
+        public constructor(value: R|kotlin/Int|, reference: R|() -> () -> kotlin/Int|): R|invalid/PropertyReferenceImpl|
+
+    }
+FILE: invalid/DefaultArgumentReceiverImpl.kt
+    package invalid
+
+    public final class DefaultArgumentReceiverImpl : R|invalid/DefaultArgumentReceiver| {
+        public final override fun equals(other: R|kotlin/Any?|): R|kotlin/Boolean|
+
+        public final override fun hashCode(): R|kotlin/Int|
+
+        public final override fun identity(value: R|kotlin/Any|): R|kotlin/Any|
+
+        private final val $contract$identity: R|(kotlin/Any) -> kotlin/Any|
+            private get(): R|(kotlin/Any) -> kotlin/Any|
+
+        public constructor(identity: R|(kotlin/Any) -> kotlin/Any|): R|invalid/DefaultArgumentReceiverImpl|
+
+    }
+FILE: invalid/MutableContract.kt
+    package invalid
+
+    public final fun Mutable(value: R|kotlin/Int|): R|invalid/Mutable|
+    public final fun R|invalid/Mutable|.copy(value: R|kotlin/Int| = throw R|kotlin/Throwable.Throwable|(String(Stub for declaration generated by Plugin[Key]))): R|invalid/Mutable|
+FILE: invalid/InheritedContract.kt
+    package invalid
+
+    public final fun R|invalid/Inherited|.copy(): R|invalid/Inherited|
+    public final fun Inherited(): R|invalid/Inherited|
+FILE: invalid/OverloadedContract.kt
+    package invalid
+
+    public final fun R|invalid/Overloaded|.copy(value: R|() -> kotlin/Int| = throw R|kotlin/Throwable.Throwable|(String(Stub for declaration generated by Plugin[Key])), value: R|(kotlin/Int) -> kotlin/Int| = throw R|kotlin/Throwable.Throwable|(String(Stub for declaration generated by Plugin[Key]))): R|invalid/Overloaded|
+    public final fun Overloaded(value: R|() -> kotlin/Int|, value: R|(kotlin/Int) -> kotlin/Int|): R|invalid/Overloaded|
+FILE: invalid/ForwardDefaultContract.kt
+    package invalid
+
+    public final fun R|invalid/ForwardDefault|.copy(first: R|() -> kotlin/Int| = throw R|kotlin/Throwable.Throwable|(String(Stub for declaration generated by Plugin[Key])), second: R|() -> kotlin/Int| = throw R|kotlin/Throwable.Throwable|(String(Stub for declaration generated by Plugin[Key]))): R|invalid/ForwardDefault|
+    public final fun ForwardDefault(first: R|() -> kotlin/Int| = throw R|kotlin/Throwable.Throwable|(String(Stub for declaration generated by Plugin[Key])), second: R|() -> kotlin/Int| = throw R|kotlin/Throwable.Throwable|(String(Stub for declaration generated by Plugin[Key]))): R|invalid/ForwardDefault|
+FILE: invalid/RecursiveDefaultContract.kt
+    package invalid
+
+    public final fun R|invalid/RecursiveDefault|.copy(first: R|() -> kotlin/Int| = throw R|kotlin/Throwable.Throwable|(String(Stub for declaration generated by Plugin[Key]))): R|invalid/RecursiveDefault|
+    public final fun RecursiveDefault(first: R|() -> kotlin/Int| = throw R|kotlin/Throwable.Throwable|(String(Stub for declaration generated by Plugin[Key]))): R|invalid/RecursiveDefault|
+FILE: invalid/StandaloneThisContract.kt
+    package invalid
+
+    public final fun R|invalid/StandaloneThis|.copy(identity: R|() -> kotlin/Any| = throw R|kotlin/Throwable.Throwable|(String(Stub for declaration generated by Plugin[Key]))): R|invalid/StandaloneThis|
+    public final fun StandaloneThis(identity: R|() -> kotlin/Any| = throw R|kotlin/Throwable.Throwable|(String(Stub for declaration generated by Plugin[Key]))): R|invalid/StandaloneThis|
+FILE: invalid/PropertyReferenceContract.kt
+    package invalid
+
+    public final fun R|invalid/PropertyReference|.copy(value: R|kotlin/Int| = throw R|kotlin/Throwable.Throwable|(String(Stub for declaration generated by Plugin[Key])), reference: R|() -> () -> kotlin/Int| = throw R|kotlin/Throwable.Throwable|(String(Stub for declaration generated by Plugin[Key]))): R|invalid/PropertyReference|
+    public final fun PropertyReference(value: R|kotlin/Int|, reference: R|() -> () -> kotlin/Int| = throw R|kotlin/Throwable.Throwable|(String(Stub for declaration generated by Plugin[Key]))): R|invalid/PropertyReference|
+FILE: invalid/DefaultArgumentReceiverContract.kt
+    package invalid
+
+    public final fun R|invalid/DefaultArgumentReceiver|.copy(identity: R|(kotlin/Any) -> kotlin/Any| = throw R|kotlin/Throwable.Throwable|(String(Stub for declaration generated by Plugin[Key]))): R|invalid/DefaultArgumentReceiver|
+    public final fun DefaultArgumentReceiver(identity: R|(kotlin/Any) -> kotlin/Any| = throw R|kotlin/Throwable.Throwable|(String(Stub for declaration generated by Plugin[Key]))): R|invalid/DefaultArgumentReceiver|

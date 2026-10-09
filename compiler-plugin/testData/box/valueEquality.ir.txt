@@ -1,0 +1,680 @@
+FILE fqName:values fileName:/valueEquality.kt
+  CLASS INTERFACE name:Values modality:ABSTRACT visibility:public superTypes:[kotlin.Any]
+    annotations:
+      GenerateContract
+    thisReceiver: VALUE_PARAMETER INSTANCE_RECEIVER kind:DispatchReceiver name:<this> type:values.Values
+    FUN FAKE_OVERRIDE name:equals visibility:public modality:OPEN returnType:kotlin.Boolean [fake_override,operator]
+      VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:kotlin.Any
+      VALUE_PARAMETER kind:Regular name:other index:1 type:kotlin.Any?
+      overridden:
+        public open fun equals (other: kotlin.Any?): kotlin.Boolean declared in kotlin.Any
+    FUN FAKE_OVERRIDE name:hashCode visibility:public modality:OPEN returnType:kotlin.Int [fake_override]
+      VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:kotlin.Any
+      overridden:
+        public open fun hashCode (): kotlin.Int declared in kotlin.Any
+    FUN FAKE_OVERRIDE name:toString visibility:public modality:OPEN returnType:kotlin.String [fake_override]
+      VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:kotlin.Any
+      overridden:
+        public open fun toString (): kotlin.String declared in kotlin.Any
+    PROPERTY name:array visibility:public modality:ABSTRACT [val]
+      FUN DEFAULT_PROPERTY_ACCESSOR name:<get-array> visibility:public modality:ABSTRACT returnType:kotlin.IntArray
+        VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:values.Values
+        correspondingProperty: PROPERTY name:array visibility:public modality:ABSTRACT [val]
+    PROPERTY name:byte visibility:public modality:ABSTRACT [val]
+      FUN DEFAULT_PROPERTY_ACCESSOR name:<get-byte> visibility:public modality:ABSTRACT returnType:kotlin.Byte
+        VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:values.Values
+        correspondingProperty: PROPERTY name:byte visibility:public modality:ABSTRACT [val]
+    PROPERTY name:char visibility:public modality:ABSTRACT [val]
+      FUN DEFAULT_PROPERTY_ACCESSOR name:<get-char> visibility:public modality:ABSTRACT returnType:kotlin.Char
+        VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:values.Values
+        correspondingProperty: PROPERTY name:char visibility:public modality:ABSTRACT [val]
+    PROPERTY name:double visibility:public modality:ABSTRACT [val]
+      FUN DEFAULT_PROPERTY_ACCESSOR name:<get-double> visibility:public modality:ABSTRACT returnType:kotlin.Double
+        VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:values.Values
+        correspondingProperty: PROPERTY name:double visibility:public modality:ABSTRACT [val]
+    PROPERTY name:flag visibility:public modality:ABSTRACT [val]
+      FUN DEFAULT_PROPERTY_ACCESSOR name:<get-flag> visibility:public modality:ABSTRACT returnType:kotlin.Boolean
+        VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:values.Values
+        correspondingProperty: PROPERTY name:flag visibility:public modality:ABSTRACT [val]
+    PROPERTY name:float visibility:public modality:ABSTRACT [val]
+      FUN DEFAULT_PROPERTY_ACCESSOR name:<get-float> visibility:public modality:ABSTRACT returnType:kotlin.Float
+        VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:values.Values
+        correspondingProperty: PROPERTY name:float visibility:public modality:ABSTRACT [val]
+    PROPERTY name:int visibility:public modality:ABSTRACT [val]
+      FUN DEFAULT_PROPERTY_ACCESSOR name:<get-int> visibility:public modality:ABSTRACT returnType:kotlin.Int
+        VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:values.Values
+        correspondingProperty: PROPERTY name:int visibility:public modality:ABSTRACT [val]
+    PROPERTY name:list visibility:public modality:ABSTRACT [val]
+      FUN DEFAULT_PROPERTY_ACCESSOR name:<get-list> visibility:public modality:ABSTRACT returnType:kotlin.collections.List<kotlin.String>
+        VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:values.Values
+        correspondingProperty: PROPERTY name:list visibility:public modality:ABSTRACT [val]
+    PROPERTY name:long visibility:public modality:ABSTRACT [val]
+      FUN DEFAULT_PROPERTY_ACCESSOR name:<get-long> visibility:public modality:ABSTRACT returnType:kotlin.Long
+        VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:values.Values
+        correspondingProperty: PROPERTY name:long visibility:public modality:ABSTRACT [val]
+    PROPERTY name:nullable visibility:public modality:ABSTRACT [val]
+      FUN DEFAULT_PROPERTY_ACCESSOR name:<get-nullable> visibility:public modality:ABSTRACT returnType:kotlin.Int?
+        VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:values.Values
+        correspondingProperty: PROPERTY name:nullable visibility:public modality:ABSTRACT [val]
+    PROPERTY name:short visibility:public modality:ABSTRACT [val]
+      FUN DEFAULT_PROPERTY_ACCESSOR name:<get-short> visibility:public modality:ABSTRACT returnType:kotlin.Short
+        VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:values.Values
+        correspondingProperty: PROPERTY name:short visibility:public modality:ABSTRACT [val]
+  FUN name:box visibility:public modality:FINAL returnType:kotlin.String
+    BLOCK_BODY
+      VAR name:array type:kotlin.IntArray [val]
+        CALL 'public final fun intArrayOf (vararg elements: kotlin.Int): kotlin.IntArray declared in kotlin' type=kotlin.IntArray origin=null
+          ARG elements: VARARG type=kotlin.IntArray varargElementType=kotlin.Int
+            CONST Int type=kotlin.Int value=1
+            CONST Int type=kotlin.Int value=2
+      VAR name:value type:values.Values [val]
+        CALL 'public final fun Values (flag: kotlin.Boolean, byte: kotlin.Byte, short: kotlin.Short, int: kotlin.Int, long: kotlin.Long, char: kotlin.Char, float: kotlin.Float, double: kotlin.Double, nullable: kotlin.Int?, list: kotlin.collections.List<kotlin.String>, array: kotlin.IntArray): values.Values declared in values' type=values.Values origin=null
+          ARG flag: CONST Boolean type=kotlin.Boolean value=true
+          ARG byte: CONST Byte type=kotlin.Byte value=1
+          ARG short: CONST Short type=kotlin.Short value=2
+          ARG int: CONST Int type=kotlin.Int value=3
+          ARG long: CONST Long type=kotlin.Long value=4
+          ARG char: CONST Char type=kotlin.Char value='x'
+          ARG float: CONST Float type=kotlin.Float value=NaN
+          ARG double: CONST Double type=kotlin.Double value=NaN
+          ARG nullable: CONST Null type=kotlin.Nothing? value=null
+          ARG list: CALL 'public final fun listOf <T> (element: T of kotlin.collections.listOf): kotlin.collections.List<T of kotlin.collections.listOf> declared in kotlin.collections' type=kotlin.collections.List<kotlin.String> origin=null
+            TYPE_ARG T: kotlin.String
+            ARG element: CONST String type=kotlin.String value="a"
+          ARG array: GET_VAR 'val array: kotlin.IntArray declared in values.box' type=kotlin.IntArray origin=null
+      CALL 'public final fun check (value: kotlin.Boolean): kotlin.Unit declared in kotlin' type=kotlin.Unit origin=null
+        ARG value: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+          ARG arg0: GET_VAR 'val value: values.Values declared in values.box' type=values.Values origin=null
+          ARG arg1: CALL 'public final fun copy (<this>: values.Values, flag: kotlin.Boolean, byte: kotlin.Byte, short: kotlin.Short, int: kotlin.Int, long: kotlin.Long, char: kotlin.Char, float: kotlin.Float, double: kotlin.Double, nullable: kotlin.Int?, list: kotlin.collections.List<kotlin.String>, array: kotlin.IntArray): values.Values declared in values' type=values.Values origin=null
+            ARG <this>: GET_VAR 'val value: values.Values declared in values.box' type=values.Values origin=null
+      CALL 'public final fun check (value: kotlin.Boolean): kotlin.Unit declared in kotlin' type=kotlin.Unit origin=null
+        ARG value: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+          ARG arg0: CALL 'public open fun hashCode (): kotlin.Int declared in values.Values' type=kotlin.Int origin=null
+            ARG <this>: TYPE_OP type=kotlin.Any origin=IMPLICIT_CAST typeOperand=kotlin.Any
+              GET_VAR 'val value: values.Values declared in values.box' type=values.Values origin=null
+          ARG arg1: CALL 'public open fun hashCode (): kotlin.Int declared in values.Values' type=kotlin.Int origin=null
+            ARG <this>: TYPE_OP type=kotlin.Any origin=IMPLICIT_CAST typeOperand=kotlin.Any
+              CALL 'public final fun copy (<this>: values.Values, flag: kotlin.Boolean, byte: kotlin.Byte, short: kotlin.Short, int: kotlin.Int, long: kotlin.Long, char: kotlin.Char, float: kotlin.Float, double: kotlin.Double, nullable: kotlin.Int?, list: kotlin.collections.List<kotlin.String>, array: kotlin.IntArray): values.Values declared in values' type=values.Values origin=null
+                ARG <this>: GET_VAR 'val value: values.Values declared in values.box' type=values.Values origin=null
+      CALL 'public final fun check (value: kotlin.Boolean): kotlin.Unit declared in kotlin' type=kotlin.Unit origin=null
+        ARG value: CALL 'public final fun not (): kotlin.Boolean declared in kotlin.Boolean' type=kotlin.Boolean origin=EXCLEQ
+          ARG <this>: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EXCLEQ
+            ARG arg0: GET_VAR 'val value: values.Values declared in values.box' type=values.Values origin=null
+            ARG arg1: CALL 'public final fun copy (<this>: values.Values, flag: kotlin.Boolean, byte: kotlin.Byte, short: kotlin.Short, int: kotlin.Int, long: kotlin.Long, char: kotlin.Char, float: kotlin.Float, double: kotlin.Double, nullable: kotlin.Int?, list: kotlin.collections.List<kotlin.String>, array: kotlin.IntArray): values.Values declared in values' type=values.Values origin=null
+              ARG <this>: GET_VAR 'val value: values.Values declared in values.box' type=values.Values origin=null
+              ARG array: CALL 'public final fun intArrayOf (vararg elements: kotlin.Int): kotlin.IntArray declared in kotlin' type=kotlin.IntArray origin=null
+                ARG elements: VARARG type=kotlin.IntArray varargElementType=kotlin.Int
+                  CONST Int type=kotlin.Int value=1
+                  CONST Int type=kotlin.Int value=2
+      CALL 'public final fun check (value: kotlin.Boolean): kotlin.Unit declared in kotlin' type=kotlin.Unit origin=null
+        ARG value: CALL 'public final fun not (): kotlin.Boolean declared in kotlin.Boolean' type=kotlin.Boolean origin=EXCLEQ
+          ARG <this>: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EXCLEQ
+            ARG arg0: GET_VAR 'val value: values.Values declared in values.box' type=values.Values origin=null
+            ARG arg1: CALL 'public final fun copy (<this>: values.Values, flag: kotlin.Boolean, byte: kotlin.Byte, short: kotlin.Short, int: kotlin.Int, long: kotlin.Long, char: kotlin.Char, float: kotlin.Float, double: kotlin.Double, nullable: kotlin.Int?, list: kotlin.collections.List<kotlin.String>, array: kotlin.IntArray): values.Values declared in values' type=values.Values origin=null
+              ARG <this>: GET_VAR 'val value: values.Values declared in values.box' type=values.Values origin=null
+              ARG nullable: CONST Int type=kotlin.Int value=0
+      VAR name:positiveZero type:values.Values [val]
+        CALL 'public final fun copy (<this>: values.Values, flag: kotlin.Boolean, byte: kotlin.Byte, short: kotlin.Short, int: kotlin.Int, long: kotlin.Long, char: kotlin.Char, float: kotlin.Float, double: kotlin.Double, nullable: kotlin.Int?, list: kotlin.collections.List<kotlin.String>, array: kotlin.IntArray): values.Values declared in values' type=values.Values origin=null
+          ARG <this>: GET_VAR 'val value: values.Values declared in values.box' type=values.Values origin=null
+          ARG float: CONST Float type=kotlin.Float value=0.0
+          ARG double: CONST Double type=kotlin.Double value=0.0
+      VAR name:negativeZero type:values.Values [val]
+        CALL 'public final fun copy (<this>: values.Values, flag: kotlin.Boolean, byte: kotlin.Byte, short: kotlin.Short, int: kotlin.Int, long: kotlin.Long, char: kotlin.Char, float: kotlin.Float, double: kotlin.Double, nullable: kotlin.Int?, list: kotlin.collections.List<kotlin.String>, array: kotlin.IntArray): values.Values declared in values' type=values.Values origin=null
+          ARG <this>: GET_VAR 'val value: values.Values declared in values.box' type=values.Values origin=null
+          ARG float: CALL 'public final fun unaryMinus (): kotlin.Float declared in kotlin.Float' type=kotlin.Float origin=null
+            ARG <this>: CONST Float type=kotlin.Float value=0.0
+          ARG double: CALL 'public final fun unaryMinus (): kotlin.Double declared in kotlin.Double' type=kotlin.Double origin=null
+            ARG <this>: CONST Double type=kotlin.Double value=0.0
+      WHEN type=kotlin.Unit origin=IF
+        BRANCH
+          if: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+            ARG arg0: GET_VAR 'val positiveZero: values.Values declared in values.box' type=values.Values origin=null
+            ARG arg1: GET_VAR 'val negativeZero: values.Values declared in values.box' type=values.Values origin=null
+          then: CALL 'public final fun check (value: kotlin.Boolean): kotlin.Unit declared in kotlin' type=kotlin.Unit origin=null
+            ARG value: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+              ARG arg0: CALL 'public open fun hashCode (): kotlin.Int declared in values.Values' type=kotlin.Int origin=null
+                ARG <this>: TYPE_OP type=kotlin.Any origin=IMPLICIT_CAST typeOperand=kotlin.Any
+                  GET_VAR 'val positiveZero: values.Values declared in values.box' type=values.Values origin=null
+              ARG arg1: CALL 'public open fun hashCode (): kotlin.Int declared in values.Values' type=kotlin.Int origin=null
+                ARG <this>: TYPE_OP type=kotlin.Any origin=IMPLICIT_CAST typeOperand=kotlin.Any
+                  GET_VAR 'val negativeZero: values.Values declared in values.box' type=values.Values origin=null
+      RETURN type=kotlin.Nothing from='public final fun box (): kotlin.String declared in values'
+        CONST String type=kotlin.String value="OK"
+FILE fqName:values fileName:values/ValuesContract.kt
+  FUN GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:Values visibility:public modality:FINAL returnType:values.Values
+    VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:flag index:0 type:kotlin.Boolean
+    VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:byte index:1 type:kotlin.Byte
+    VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:short index:2 type:kotlin.Short
+    VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:int index:3 type:kotlin.Int
+    VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:long index:4 type:kotlin.Long
+    VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:char index:5 type:kotlin.Char
+    VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:float index:6 type:kotlin.Float
+    VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:double index:7 type:kotlin.Double
+    VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:nullable index:8 type:kotlin.Int?
+    VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:list index:9 type:kotlin.collections.List<kotlin.String>
+    VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:array index:10 type:kotlin.IntArray
+    annotations:
+      JvmOverloads
+    BLOCK_BODY
+      RETURN type=kotlin.Nothing from='public final fun Values (flag: kotlin.Boolean, byte: kotlin.Byte, short: kotlin.Short, int: kotlin.Int, long: kotlin.Long, char: kotlin.Char, float: kotlin.Float, double: kotlin.Double, nullable: kotlin.Int?, list: kotlin.collections.List<kotlin.String>, array: kotlin.IntArray): values.Values declared in values'
+        CONSTRUCTOR_CALL 'public constructor <init> (flag: kotlin.Boolean, byte: kotlin.Byte, short: kotlin.Short, int: kotlin.Int, long: kotlin.Long, char: kotlin.Char, float: kotlin.Float, double: kotlin.Double, nullable: kotlin.Int?, list: kotlin.collections.List<kotlin.String>, array: kotlin.IntArray) declared in values.ValuesImpl' type=values.ValuesImpl origin=null
+          ARG flag: GET_VAR 'flag: kotlin.Boolean declared in values.Values' type=kotlin.Boolean origin=null
+          ARG byte: GET_VAR 'byte: kotlin.Byte declared in values.Values' type=kotlin.Byte origin=null
+          ARG short: GET_VAR 'short: kotlin.Short declared in values.Values' type=kotlin.Short origin=null
+          ARG int: GET_VAR 'int: kotlin.Int declared in values.Values' type=kotlin.Int origin=null
+          ARG long: GET_VAR 'long: kotlin.Long declared in values.Values' type=kotlin.Long origin=null
+          ARG char: GET_VAR 'char: kotlin.Char declared in values.Values' type=kotlin.Char origin=null
+          ARG float: GET_VAR 'float: kotlin.Float declared in values.Values' type=kotlin.Float origin=null
+          ARG double: GET_VAR 'double: kotlin.Double declared in values.Values' type=kotlin.Double origin=null
+          ARG nullable: GET_VAR 'nullable: kotlin.Int? declared in values.Values' type=kotlin.Int? origin=null
+          ARG list: GET_VAR 'list: kotlin.collections.List<kotlin.String> declared in values.Values' type=kotlin.collections.List<kotlin.String> origin=null
+          ARG array: GET_VAR 'array: kotlin.IntArray declared in values.Values' type=kotlin.IntArray origin=null
+  FUN GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:copy visibility:public modality:FINAL returnType:values.Values
+    VALUE_PARAMETER kind:ExtensionReceiver name:<this> index:0 type:values.Values
+    VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:flag index:1 type:kotlin.Boolean
+      EXPRESSION_BODY
+        CALL 'public abstract fun <get-flag> (): kotlin.Boolean declared in values.Values' type=kotlin.Boolean origin=null
+          ARG <this>: GET_VAR '<this>: values.Values declared in values.copy' type=values.Values origin=null
+    VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:byte index:2 type:kotlin.Byte
+      EXPRESSION_BODY
+        CALL 'public abstract fun <get-byte> (): kotlin.Byte declared in values.Values' type=kotlin.Byte origin=null
+          ARG <this>: GET_VAR '<this>: values.Values declared in values.copy' type=values.Values origin=null
+    VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:short index:3 type:kotlin.Short
+      EXPRESSION_BODY
+        CALL 'public abstract fun <get-short> (): kotlin.Short declared in values.Values' type=kotlin.Short origin=null
+          ARG <this>: GET_VAR '<this>: values.Values declared in values.copy' type=values.Values origin=null
+    VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:int index:4 type:kotlin.Int
+      EXPRESSION_BODY
+        CALL 'public abstract fun <get-int> (): kotlin.Int declared in values.Values' type=kotlin.Int origin=null
+          ARG <this>: GET_VAR '<this>: values.Values declared in values.copy' type=values.Values origin=null
+    VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:long index:5 type:kotlin.Long
+      EXPRESSION_BODY
+        CALL 'public abstract fun <get-long> (): kotlin.Long declared in values.Values' type=kotlin.Long origin=null
+          ARG <this>: GET_VAR '<this>: values.Values declared in values.copy' type=values.Values origin=null
+    VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:char index:6 type:kotlin.Char
+      EXPRESSION_BODY
+        CALL 'public abstract fun <get-char> (): kotlin.Char declared in values.Values' type=kotlin.Char origin=null
+          ARG <this>: GET_VAR '<this>: values.Values declared in values.copy' type=values.Values origin=null
+    VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:float index:7 type:kotlin.Float
+      EXPRESSION_BODY
+        CALL 'public abstract fun <get-float> (): kotlin.Float declared in values.Values' type=kotlin.Float origin=null
+          ARG <this>: GET_VAR '<this>: values.Values declared in values.copy' type=values.Values origin=null
+    VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:double index:8 type:kotlin.Double
+      EXPRESSION_BODY
+        CALL 'public abstract fun <get-double> (): kotlin.Double declared in values.Values' type=kotlin.Double origin=null
+          ARG <this>: GET_VAR '<this>: values.Values declared in values.copy' type=values.Values origin=null
+    VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:nullable index:9 type:kotlin.Int?
+      EXPRESSION_BODY
+        CALL 'public abstract fun <get-nullable> (): kotlin.Int? declared in values.Values' type=kotlin.Int? origin=null
+          ARG <this>: GET_VAR '<this>: values.Values declared in values.copy' type=values.Values origin=null
+    VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:list index:10 type:kotlin.collections.List<kotlin.String>
+      EXPRESSION_BODY
+        CALL 'public abstract fun <get-list> (): kotlin.collections.List<kotlin.String> declared in values.Values' type=kotlin.collections.List<kotlin.String> origin=null
+          ARG <this>: GET_VAR '<this>: values.Values declared in values.copy' type=values.Values origin=null
+    VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:array index:11 type:kotlin.IntArray
+      EXPRESSION_BODY
+        CALL 'public abstract fun <get-array> (): kotlin.IntArray declared in values.Values' type=kotlin.IntArray origin=null
+          ARG <this>: GET_VAR '<this>: values.Values declared in values.copy' type=values.Values origin=null
+    annotations:
+      JvmOverloads
+    BLOCK_BODY
+      RETURN type=kotlin.Nothing from='public final fun copy (<this>: values.Values, flag: kotlin.Boolean, byte: kotlin.Byte, short: kotlin.Short, int: kotlin.Int, long: kotlin.Long, char: kotlin.Char, float: kotlin.Float, double: kotlin.Double, nullable: kotlin.Int?, list: kotlin.collections.List<kotlin.String>, array: kotlin.IntArray): values.Values declared in values'
+        CONSTRUCTOR_CALL 'public constructor <init> (flag: kotlin.Boolean, byte: kotlin.Byte, short: kotlin.Short, int: kotlin.Int, long: kotlin.Long, char: kotlin.Char, float: kotlin.Float, double: kotlin.Double, nullable: kotlin.Int?, list: kotlin.collections.List<kotlin.String>, array: kotlin.IntArray) declared in values.ValuesImpl' type=values.ValuesImpl origin=null
+          ARG flag: GET_VAR 'flag: kotlin.Boolean declared in values.copy' type=kotlin.Boolean origin=null
+          ARG byte: GET_VAR 'byte: kotlin.Byte declared in values.copy' type=kotlin.Byte origin=null
+          ARG short: GET_VAR 'short: kotlin.Short declared in values.copy' type=kotlin.Short origin=null
+          ARG int: GET_VAR 'int: kotlin.Int declared in values.copy' type=kotlin.Int origin=null
+          ARG long: GET_VAR 'long: kotlin.Long declared in values.copy' type=kotlin.Long origin=null
+          ARG char: GET_VAR 'char: kotlin.Char declared in values.copy' type=kotlin.Char origin=null
+          ARG float: GET_VAR 'float: kotlin.Float declared in values.copy' type=kotlin.Float origin=null
+          ARG double: GET_VAR 'double: kotlin.Double declared in values.copy' type=kotlin.Double origin=null
+          ARG nullable: GET_VAR 'nullable: kotlin.Int? declared in values.copy' type=kotlin.Int? origin=null
+          ARG list: GET_VAR 'list: kotlin.collections.List<kotlin.String> declared in values.copy' type=kotlin.collections.List<kotlin.String> origin=null
+          ARG array: GET_VAR 'array: kotlin.IntArray declared in values.copy' type=kotlin.IntArray origin=null
+FILE fqName:values fileName:values/ValuesImpl.kt
+  CLASS GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] CLASS name:ValuesImpl modality:FINAL visibility:public superTypes:[values.Values]
+    thisReceiver: VALUE_PARAMETER INSTANCE_RECEIVER kind:DispatchReceiver name:<this> type:values.ValuesImpl
+    PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:flag visibility:public modality:FINAL [val]
+      overridden:
+        public abstract flag: kotlin.Boolean declared in values.Values
+      FIELD PROPERTY_BACKING_FIELD name:flag type:kotlin.Boolean visibility:private [final]
+      FUN DEFAULT_PROPERTY_ACCESSOR name:<get-flag> visibility:public modality:FINAL returnType:kotlin.Boolean
+        VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:values.ValuesImpl
+        correspondingProperty: PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:flag visibility:public modality:FINAL [val]
+        overridden:
+          public abstract fun <get-flag> (): kotlin.Boolean declared in values.Values
+        BLOCK_BODY
+          RETURN type=kotlin.Nothing from='public final fun <get-flag> (): kotlin.Boolean declared in values.ValuesImpl'
+            GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:flag type:kotlin.Boolean visibility:private [final]' type=kotlin.Boolean origin=null
+              receiver: GET_VAR '<this>: values.ValuesImpl declared in values.ValuesImpl.<get-flag>' type=values.ValuesImpl origin=null
+    PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:byte visibility:public modality:FINAL [val]
+      overridden:
+        public abstract byte: kotlin.Byte declared in values.Values
+      FIELD PROPERTY_BACKING_FIELD name:byte type:kotlin.Byte visibility:private [final]
+      FUN DEFAULT_PROPERTY_ACCESSOR name:<get-byte> visibility:public modality:FINAL returnType:kotlin.Byte
+        VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:values.ValuesImpl
+        correspondingProperty: PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:byte visibility:public modality:FINAL [val]
+        overridden:
+          public abstract fun <get-byte> (): kotlin.Byte declared in values.Values
+        BLOCK_BODY
+          RETURN type=kotlin.Nothing from='public final fun <get-byte> (): kotlin.Byte declared in values.ValuesImpl'
+            GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:byte type:kotlin.Byte visibility:private [final]' type=kotlin.Byte origin=null
+              receiver: GET_VAR '<this>: values.ValuesImpl declared in values.ValuesImpl.<get-byte>' type=values.ValuesImpl origin=null
+    PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:short visibility:public modality:FINAL [val]
+      overridden:
+        public abstract short: kotlin.Short declared in values.Values
+      FIELD PROPERTY_BACKING_FIELD name:short type:kotlin.Short visibility:private [final]
+      FUN DEFAULT_PROPERTY_ACCESSOR name:<get-short> visibility:public modality:FINAL returnType:kotlin.Short
+        VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:values.ValuesImpl
+        correspondingProperty: PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:short visibility:public modality:FINAL [val]
+        overridden:
+          public abstract fun <get-short> (): kotlin.Short declared in values.Values
+        BLOCK_BODY
+          RETURN type=kotlin.Nothing from='public final fun <get-short> (): kotlin.Short declared in values.ValuesImpl'
+            GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:short type:kotlin.Short visibility:private [final]' type=kotlin.Short origin=null
+              receiver: GET_VAR '<this>: values.ValuesImpl declared in values.ValuesImpl.<get-short>' type=values.ValuesImpl origin=null
+    PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:int visibility:public modality:FINAL [val]
+      overridden:
+        public abstract int: kotlin.Int declared in values.Values
+      FIELD PROPERTY_BACKING_FIELD name:int type:kotlin.Int visibility:private [final]
+      FUN DEFAULT_PROPERTY_ACCESSOR name:<get-int> visibility:public modality:FINAL returnType:kotlin.Int
+        VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:values.ValuesImpl
+        correspondingProperty: PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:int visibility:public modality:FINAL [val]
+        overridden:
+          public abstract fun <get-int> (): kotlin.Int declared in values.Values
+        BLOCK_BODY
+          RETURN type=kotlin.Nothing from='public final fun <get-int> (): kotlin.Int declared in values.ValuesImpl'
+            GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:int type:kotlin.Int visibility:private [final]' type=kotlin.Int origin=null
+              receiver: GET_VAR '<this>: values.ValuesImpl declared in values.ValuesImpl.<get-int>' type=values.ValuesImpl origin=null
+    PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:long visibility:public modality:FINAL [val]
+      overridden:
+        public abstract long: kotlin.Long declared in values.Values
+      FIELD PROPERTY_BACKING_FIELD name:long type:kotlin.Long visibility:private [final]
+      FUN DEFAULT_PROPERTY_ACCESSOR name:<get-long> visibility:public modality:FINAL returnType:kotlin.Long
+        VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:values.ValuesImpl
+        correspondingProperty: PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:long visibility:public modality:FINAL [val]
+        overridden:
+          public abstract fun <get-long> (): kotlin.Long declared in values.Values
+        BLOCK_BODY
+          RETURN type=kotlin.Nothing from='public final fun <get-long> (): kotlin.Long declared in values.ValuesImpl'
+            GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:long type:kotlin.Long visibility:private [final]' type=kotlin.Long origin=null
+              receiver: GET_VAR '<this>: values.ValuesImpl declared in values.ValuesImpl.<get-long>' type=values.ValuesImpl origin=null
+    PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:char visibility:public modality:FINAL [val]
+      overridden:
+        public abstract char: kotlin.Char declared in values.Values
+      FIELD PROPERTY_BACKING_FIELD name:char type:kotlin.Char visibility:private [final]
+      FUN DEFAULT_PROPERTY_ACCESSOR name:<get-char> visibility:public modality:FINAL returnType:kotlin.Char
+        VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:values.ValuesImpl
+        correspondingProperty: PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:char visibility:public modality:FINAL [val]
+        overridden:
+          public abstract fun <get-char> (): kotlin.Char declared in values.Values
+        BLOCK_BODY
+          RETURN type=kotlin.Nothing from='public final fun <get-char> (): kotlin.Char declared in values.ValuesImpl'
+            GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:char type:kotlin.Char visibility:private [final]' type=kotlin.Char origin=null
+              receiver: GET_VAR '<this>: values.ValuesImpl declared in values.ValuesImpl.<get-char>' type=values.ValuesImpl origin=null
+    PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:float visibility:public modality:FINAL [val]
+      overridden:
+        public abstract float: kotlin.Float declared in values.Values
+      FIELD PROPERTY_BACKING_FIELD name:float type:kotlin.Float visibility:private [final]
+      FUN DEFAULT_PROPERTY_ACCESSOR name:<get-float> visibility:public modality:FINAL returnType:kotlin.Float
+        VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:values.ValuesImpl
+        correspondingProperty: PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:float visibility:public modality:FINAL [val]
+        overridden:
+          public abstract fun <get-float> (): kotlin.Float declared in values.Values
+        BLOCK_BODY
+          RETURN type=kotlin.Nothing from='public final fun <get-float> (): kotlin.Float declared in values.ValuesImpl'
+            GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:float type:kotlin.Float visibility:private [final]' type=kotlin.Float origin=null
+              receiver: GET_VAR '<this>: values.ValuesImpl declared in values.ValuesImpl.<get-float>' type=values.ValuesImpl origin=null
+    PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:double visibility:public modality:FINAL [val]
+      overridden:
+        public abstract double: kotlin.Double declared in values.Values
+      FIELD PROPERTY_BACKING_FIELD name:double type:kotlin.Double visibility:private [final]
+      FUN DEFAULT_PROPERTY_ACCESSOR name:<get-double> visibility:public modality:FINAL returnType:kotlin.Double
+        VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:values.ValuesImpl
+        correspondingProperty: PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:double visibility:public modality:FINAL [val]
+        overridden:
+          public abstract fun <get-double> (): kotlin.Double declared in values.Values
+        BLOCK_BODY
+          RETURN type=kotlin.Nothing from='public final fun <get-double> (): kotlin.Double declared in values.ValuesImpl'
+            GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:double type:kotlin.Double visibility:private [final]' type=kotlin.Double origin=null
+              receiver: GET_VAR '<this>: values.ValuesImpl declared in values.ValuesImpl.<get-double>' type=values.ValuesImpl origin=null
+    PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:nullable visibility:public modality:FINAL [val]
+      overridden:
+        public abstract nullable: kotlin.Int? declared in values.Values
+      FIELD PROPERTY_BACKING_FIELD name:nullable type:kotlin.Int? visibility:private [final]
+      FUN DEFAULT_PROPERTY_ACCESSOR name:<get-nullable> visibility:public modality:FINAL returnType:kotlin.Int?
+        VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:values.ValuesImpl
+        correspondingProperty: PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:nullable visibility:public modality:FINAL [val]
+        overridden:
+          public abstract fun <get-nullable> (): kotlin.Int? declared in values.Values
+        BLOCK_BODY
+          RETURN type=kotlin.Nothing from='public final fun <get-nullable> (): kotlin.Int? declared in values.ValuesImpl'
+            GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:nullable type:kotlin.Int? visibility:private [final]' type=kotlin.Int? origin=null
+              receiver: GET_VAR '<this>: values.ValuesImpl declared in values.ValuesImpl.<get-nullable>' type=values.ValuesImpl origin=null
+    PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:list visibility:public modality:FINAL [val]
+      overridden:
+        public abstract list: kotlin.collections.List<kotlin.String> declared in values.Values
+      FIELD PROPERTY_BACKING_FIELD name:list type:kotlin.collections.List<kotlin.String> visibility:private [final]
+      FUN DEFAULT_PROPERTY_ACCESSOR name:<get-list> visibility:public modality:FINAL returnType:kotlin.collections.List<kotlin.String>
+        VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:values.ValuesImpl
+        correspondingProperty: PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:list visibility:public modality:FINAL [val]
+        overridden:
+          public abstract fun <get-list> (): kotlin.collections.List<kotlin.String> declared in values.Values
+        BLOCK_BODY
+          RETURN type=kotlin.Nothing from='public final fun <get-list> (): kotlin.collections.List<kotlin.String> declared in values.ValuesImpl'
+            GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:list type:kotlin.collections.List<kotlin.String> visibility:private [final]' type=kotlin.collections.List<kotlin.String> origin=null
+              receiver: GET_VAR '<this>: values.ValuesImpl declared in values.ValuesImpl.<get-list>' type=values.ValuesImpl origin=null
+    PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:array visibility:public modality:FINAL [val]
+      overridden:
+        public abstract array: kotlin.IntArray declared in values.Values
+      FIELD PROPERTY_BACKING_FIELD name:array type:kotlin.IntArray visibility:private [final]
+      FUN DEFAULT_PROPERTY_ACCESSOR name:<get-array> visibility:public modality:FINAL returnType:kotlin.IntArray
+        VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:values.ValuesImpl
+        correspondingProperty: PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:array visibility:public modality:FINAL [val]
+        overridden:
+          public abstract fun <get-array> (): kotlin.IntArray declared in values.Values
+        BLOCK_BODY
+          RETURN type=kotlin.Nothing from='public final fun <get-array> (): kotlin.IntArray declared in values.ValuesImpl'
+            GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:array type:kotlin.IntArray visibility:private [final]' type=kotlin.IntArray origin=null
+              receiver: GET_VAR '<this>: values.ValuesImpl declared in values.ValuesImpl.<get-array>' type=values.ValuesImpl origin=null
+    CONSTRUCTOR GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] visibility:public returnType:values.ValuesImpl [primary]
+      VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:flag index:0 type:kotlin.Boolean
+      VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:byte index:1 type:kotlin.Byte
+      VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:short index:2 type:kotlin.Short
+      VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:int index:3 type:kotlin.Int
+      VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:long index:4 type:kotlin.Long
+      VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:char index:5 type:kotlin.Char
+      VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:float index:6 type:kotlin.Float
+      VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:double index:7 type:kotlin.Double
+      VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:nullable index:8 type:kotlin.Int?
+      VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:list index:9 type:kotlin.collections.List<kotlin.String>
+      VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:array index:10 type:kotlin.IntArray
+      BLOCK_BODY
+        DELEGATING_CONSTRUCTOR_CALL 'public constructor <init> () declared in kotlin.Any'
+        SET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:flag type:kotlin.Boolean visibility:private [final]' type=kotlin.Unit origin=null
+          receiver: GET_VAR '<this>: values.ValuesImpl declared in values.ValuesImpl' type=values.ValuesImpl origin=null
+          value: GET_VAR 'flag: kotlin.Boolean declared in values.ValuesImpl.<init>' type=kotlin.Boolean origin=null
+        SET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:byte type:kotlin.Byte visibility:private [final]' type=kotlin.Unit origin=null
+          receiver: GET_VAR '<this>: values.ValuesImpl declared in values.ValuesImpl' type=values.ValuesImpl origin=null
+          value: GET_VAR 'byte: kotlin.Byte declared in values.ValuesImpl.<init>' type=kotlin.Byte origin=null
+        SET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:short type:kotlin.Short visibility:private [final]' type=kotlin.Unit origin=null
+          receiver: GET_VAR '<this>: values.ValuesImpl declared in values.ValuesImpl' type=values.ValuesImpl origin=null
+          value: GET_VAR 'short: kotlin.Short declared in values.ValuesImpl.<init>' type=kotlin.Short origin=null
+        SET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:int type:kotlin.Int visibility:private [final]' type=kotlin.Unit origin=null
+          receiver: GET_VAR '<this>: values.ValuesImpl declared in values.ValuesImpl' type=values.ValuesImpl origin=null
+          value: GET_VAR 'int: kotlin.Int declared in values.ValuesImpl.<init>' type=kotlin.Int origin=null
+        SET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:long type:kotlin.Long visibility:private [final]' type=kotlin.Unit origin=null
+          receiver: GET_VAR '<this>: values.ValuesImpl declared in values.ValuesImpl' type=values.ValuesImpl origin=null
+          value: GET_VAR 'long: kotlin.Long declared in values.ValuesImpl.<init>' type=kotlin.Long origin=null
+        SET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:char type:kotlin.Char visibility:private [final]' type=kotlin.Unit origin=null
+          receiver: GET_VAR '<this>: values.ValuesImpl declared in values.ValuesImpl' type=values.ValuesImpl origin=null
+          value: GET_VAR 'char: kotlin.Char declared in values.ValuesImpl.<init>' type=kotlin.Char origin=null
+        SET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:float type:kotlin.Float visibility:private [final]' type=kotlin.Unit origin=null
+          receiver: GET_VAR '<this>: values.ValuesImpl declared in values.ValuesImpl' type=values.ValuesImpl origin=null
+          value: GET_VAR 'float: kotlin.Float declared in values.ValuesImpl.<init>' type=kotlin.Float origin=null
+        SET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:double type:kotlin.Double visibility:private [final]' type=kotlin.Unit origin=null
+          receiver: GET_VAR '<this>: values.ValuesImpl declared in values.ValuesImpl' type=values.ValuesImpl origin=null
+          value: GET_VAR 'double: kotlin.Double declared in values.ValuesImpl.<init>' type=kotlin.Double origin=null
+        SET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:nullable type:kotlin.Int? visibility:private [final]' type=kotlin.Unit origin=null
+          receiver: GET_VAR '<this>: values.ValuesImpl declared in values.ValuesImpl' type=values.ValuesImpl origin=null
+          value: GET_VAR 'nullable: kotlin.Int? declared in values.ValuesImpl.<init>' type=kotlin.Int? origin=null
+        SET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:list type:kotlin.collections.List<kotlin.String> visibility:private [final]' type=kotlin.Unit origin=null
+          receiver: GET_VAR '<this>: values.ValuesImpl declared in values.ValuesImpl' type=values.ValuesImpl origin=null
+          value: GET_VAR 'list: kotlin.collections.List<kotlin.String> declared in values.ValuesImpl.<init>' type=kotlin.collections.List<kotlin.String> origin=null
+        SET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:array type:kotlin.IntArray visibility:private [final]' type=kotlin.Unit origin=null
+          receiver: GET_VAR '<this>: values.ValuesImpl declared in values.ValuesImpl' type=values.ValuesImpl origin=null
+          value: GET_VAR 'array: kotlin.IntArray declared in values.ValuesImpl.<init>' type=kotlin.IntArray origin=null
+        INSTANCE_INITIALIZER_CALL classDescriptor='CLASS GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] CLASS name:ValuesImpl modality:FINAL visibility:public superTypes:[values.Values]' type=kotlin.Unit
+    FUN FAKE_OVERRIDE name:toString visibility:public modality:OPEN returnType:kotlin.String [fake_override]
+      VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:kotlin.Any
+      overridden:
+        public open fun toString (): kotlin.String declared in values.Values
+    FUN GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:equals visibility:public modality:FINAL returnType:kotlin.Boolean
+      VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:values.ValuesImpl
+      VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:other index:1 type:kotlin.Any?
+      overridden:
+        public open fun equals (other: kotlin.Any?): kotlin.Boolean declared in values.Values
+      BLOCK_BODY
+        WHEN type=kotlin.Unit origin=null
+          BRANCH
+            if: CALL 'public final fun EQEQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQEQ
+              ARG arg0: GET_VAR '<this>: values.ValuesImpl declared in values.ValuesImpl.equals' type=values.ValuesImpl origin=null
+              ARG arg1: GET_VAR 'other: kotlin.Any? declared in values.ValuesImpl.equals' type=kotlin.Any? origin=null
+            then: RETURN type=kotlin.Nothing from='public final fun equals (other: kotlin.Any?): kotlin.Boolean declared in values.ValuesImpl'
+              CONST Boolean type=kotlin.Boolean value=true
+        WHEN type=kotlin.Unit origin=null
+          BRANCH
+            if: TYPE_OP type=kotlin.Boolean origin=NOT_INSTANCEOF typeOperand=values.ValuesImpl
+              GET_VAR 'other: kotlin.Any? declared in values.ValuesImpl.equals' type=kotlin.Any? origin=null
+            then: RETURN type=kotlin.Nothing from='public final fun equals (other: kotlin.Any?): kotlin.Boolean declared in values.ValuesImpl'
+              CONST Boolean type=kotlin.Boolean value=false
+        VAR IR_TEMPORARY_VARIABLE name:tmp_0 type:values.ValuesImpl [val]
+          TYPE_OP type=values.ValuesImpl origin=CAST typeOperand=values.ValuesImpl
+            GET_VAR 'other: kotlin.Any? declared in values.ValuesImpl.equals' type=kotlin.Any? origin=null
+        WHEN type=kotlin.Unit origin=null
+          BRANCH
+            if: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+              ARG arg0: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+                ARG arg0: TYPE_OP type=kotlin.Any? origin=IMPLICIT_CAST typeOperand=kotlin.Any?
+                  GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:flag type:kotlin.Boolean visibility:private [final]' type=kotlin.Boolean origin=null
+                    receiver: GET_VAR '<this>: values.ValuesImpl declared in values.ValuesImpl.equals' type=values.ValuesImpl origin=null
+                ARG arg1: TYPE_OP type=kotlin.Any? origin=IMPLICIT_CAST typeOperand=kotlin.Any?
+                  GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:flag type:kotlin.Boolean visibility:private [final]' type=kotlin.Boolean origin=null
+                    receiver: GET_VAR 'val tmp_0: values.ValuesImpl declared in values.ValuesImpl.equals' type=values.ValuesImpl origin=null
+              ARG arg1: CONST Boolean type=kotlin.Boolean value=false
+            then: RETURN type=kotlin.Nothing from='public final fun equals (other: kotlin.Any?): kotlin.Boolean declared in values.ValuesImpl'
+              CONST Boolean type=kotlin.Boolean value=false
+        WHEN type=kotlin.Unit origin=null
+          BRANCH
+            if: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+              ARG arg0: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+                ARG arg0: TYPE_OP type=kotlin.Any? origin=IMPLICIT_CAST typeOperand=kotlin.Any?
+                  GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:byte type:kotlin.Byte visibility:private [final]' type=kotlin.Byte origin=null
+                    receiver: GET_VAR '<this>: values.ValuesImpl declared in values.ValuesImpl.equals' type=values.ValuesImpl origin=null
+                ARG arg1: TYPE_OP type=kotlin.Any? origin=IMPLICIT_CAST typeOperand=kotlin.Any?
+                  GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:byte type:kotlin.Byte visibility:private [final]' type=kotlin.Byte origin=null
+                    receiver: GET_VAR 'val tmp_0: values.ValuesImpl declared in values.ValuesImpl.equals' type=values.ValuesImpl origin=null
+              ARG arg1: CONST Boolean type=kotlin.Boolean value=false
+            then: RETURN type=kotlin.Nothing from='public final fun equals (other: kotlin.Any?): kotlin.Boolean declared in values.ValuesImpl'
+              CONST Boolean type=kotlin.Boolean value=false
+        WHEN type=kotlin.Unit origin=null
+          BRANCH
+            if: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+              ARG arg0: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+                ARG arg0: TYPE_OP type=kotlin.Any? origin=IMPLICIT_CAST typeOperand=kotlin.Any?
+                  GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:short type:kotlin.Short visibility:private [final]' type=kotlin.Short origin=null
+                    receiver: GET_VAR '<this>: values.ValuesImpl declared in values.ValuesImpl.equals' type=values.ValuesImpl origin=null
+                ARG arg1: TYPE_OP type=kotlin.Any? origin=IMPLICIT_CAST typeOperand=kotlin.Any?
+                  GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:short type:kotlin.Short visibility:private [final]' type=kotlin.Short origin=null
+                    receiver: GET_VAR 'val tmp_0: values.ValuesImpl declared in values.ValuesImpl.equals' type=values.ValuesImpl origin=null
+              ARG arg1: CONST Boolean type=kotlin.Boolean value=false
+            then: RETURN type=kotlin.Nothing from='public final fun equals (other: kotlin.Any?): kotlin.Boolean declared in values.ValuesImpl'
+              CONST Boolean type=kotlin.Boolean value=false
+        WHEN type=kotlin.Unit origin=null
+          BRANCH
+            if: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+              ARG arg0: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+                ARG arg0: TYPE_OP type=kotlin.Any? origin=IMPLICIT_CAST typeOperand=kotlin.Any?
+                  GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:int type:kotlin.Int visibility:private [final]' type=kotlin.Int origin=null
+                    receiver: GET_VAR '<this>: values.ValuesImpl declared in values.ValuesImpl.equals' type=values.ValuesImpl origin=null
+                ARG arg1: TYPE_OP type=kotlin.Any? origin=IMPLICIT_CAST typeOperand=kotlin.Any?
+                  GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:int type:kotlin.Int visibility:private [final]' type=kotlin.Int origin=null
+                    receiver: GET_VAR 'val tmp_0: values.ValuesImpl declared in values.ValuesImpl.equals' type=values.ValuesImpl origin=null
+              ARG arg1: CONST Boolean type=kotlin.Boolean value=false
+            then: RETURN type=kotlin.Nothing from='public final fun equals (other: kotlin.Any?): kotlin.Boolean declared in values.ValuesImpl'
+              CONST Boolean type=kotlin.Boolean value=false
+        WHEN type=kotlin.Unit origin=null
+          BRANCH
+            if: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+              ARG arg0: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+                ARG arg0: TYPE_OP type=kotlin.Any? origin=IMPLICIT_CAST typeOperand=kotlin.Any?
+                  GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:long type:kotlin.Long visibility:private [final]' type=kotlin.Long origin=null
+                    receiver: GET_VAR '<this>: values.ValuesImpl declared in values.ValuesImpl.equals' type=values.ValuesImpl origin=null
+                ARG arg1: TYPE_OP type=kotlin.Any? origin=IMPLICIT_CAST typeOperand=kotlin.Any?
+                  GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:long type:kotlin.Long visibility:private [final]' type=kotlin.Long origin=null
+                    receiver: GET_VAR 'val tmp_0: values.ValuesImpl declared in values.ValuesImpl.equals' type=values.ValuesImpl origin=null
+              ARG arg1: CONST Boolean type=kotlin.Boolean value=false
+            then: RETURN type=kotlin.Nothing from='public final fun equals (other: kotlin.Any?): kotlin.Boolean declared in values.ValuesImpl'
+              CONST Boolean type=kotlin.Boolean value=false
+        WHEN type=kotlin.Unit origin=null
+          BRANCH
+            if: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+              ARG arg0: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+                ARG arg0: TYPE_OP type=kotlin.Any? origin=IMPLICIT_CAST typeOperand=kotlin.Any?
+                  GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:char type:kotlin.Char visibility:private [final]' type=kotlin.Char origin=null
+                    receiver: GET_VAR '<this>: values.ValuesImpl declared in values.ValuesImpl.equals' type=values.ValuesImpl origin=null
+                ARG arg1: TYPE_OP type=kotlin.Any? origin=IMPLICIT_CAST typeOperand=kotlin.Any?
+                  GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:char type:kotlin.Char visibility:private [final]' type=kotlin.Char origin=null
+                    receiver: GET_VAR 'val tmp_0: values.ValuesImpl declared in values.ValuesImpl.equals' type=values.ValuesImpl origin=null
+              ARG arg1: CONST Boolean type=kotlin.Boolean value=false
+            then: RETURN type=kotlin.Nothing from='public final fun equals (other: kotlin.Any?): kotlin.Boolean declared in values.ValuesImpl'
+              CONST Boolean type=kotlin.Boolean value=false
+        WHEN type=kotlin.Unit origin=null
+          BRANCH
+            if: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+              ARG arg0: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+                ARG arg0: TYPE_OP type=kotlin.Any? origin=IMPLICIT_CAST typeOperand=kotlin.Any?
+                  GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:float type:kotlin.Float visibility:private [final]' type=kotlin.Float origin=null
+                    receiver: GET_VAR '<this>: values.ValuesImpl declared in values.ValuesImpl.equals' type=values.ValuesImpl origin=null
+                ARG arg1: TYPE_OP type=kotlin.Any? origin=IMPLICIT_CAST typeOperand=kotlin.Any?
+                  GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:float type:kotlin.Float visibility:private [final]' type=kotlin.Float origin=null
+                    receiver: GET_VAR 'val tmp_0: values.ValuesImpl declared in values.ValuesImpl.equals' type=values.ValuesImpl origin=null
+              ARG arg1: CONST Boolean type=kotlin.Boolean value=false
+            then: RETURN type=kotlin.Nothing from='public final fun equals (other: kotlin.Any?): kotlin.Boolean declared in values.ValuesImpl'
+              CONST Boolean type=kotlin.Boolean value=false
+        WHEN type=kotlin.Unit origin=null
+          BRANCH
+            if: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+              ARG arg0: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+                ARG arg0: TYPE_OP type=kotlin.Any? origin=IMPLICIT_CAST typeOperand=kotlin.Any?
+                  GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:double type:kotlin.Double visibility:private [final]' type=kotlin.Double origin=null
+                    receiver: GET_VAR '<this>: values.ValuesImpl declared in values.ValuesImpl.equals' type=values.ValuesImpl origin=null
+                ARG arg1: TYPE_OP type=kotlin.Any? origin=IMPLICIT_CAST typeOperand=kotlin.Any?
+                  GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:double type:kotlin.Double visibility:private [final]' type=kotlin.Double origin=null
+                    receiver: GET_VAR 'val tmp_0: values.ValuesImpl declared in values.ValuesImpl.equals' type=values.ValuesImpl origin=null
+              ARG arg1: CONST Boolean type=kotlin.Boolean value=false
+            then: RETURN type=kotlin.Nothing from='public final fun equals (other: kotlin.Any?): kotlin.Boolean declared in values.ValuesImpl'
+              CONST Boolean type=kotlin.Boolean value=false
+        WHEN type=kotlin.Unit origin=null
+          BRANCH
+            if: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+              ARG arg0: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+                ARG arg0: TYPE_OP type=kotlin.Any? origin=IMPLICIT_CAST typeOperand=kotlin.Any?
+                  GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:nullable type:kotlin.Int? visibility:private [final]' type=kotlin.Int? origin=null
+                    receiver: GET_VAR '<this>: values.ValuesImpl declared in values.ValuesImpl.equals' type=values.ValuesImpl origin=null
+                ARG arg1: TYPE_OP type=kotlin.Any? origin=IMPLICIT_CAST typeOperand=kotlin.Any?
+                  GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:nullable type:kotlin.Int? visibility:private [final]' type=kotlin.Int? origin=null
+                    receiver: GET_VAR 'val tmp_0: values.ValuesImpl declared in values.ValuesImpl.equals' type=values.ValuesImpl origin=null
+              ARG arg1: CONST Boolean type=kotlin.Boolean value=false
+            then: RETURN type=kotlin.Nothing from='public final fun equals (other: kotlin.Any?): kotlin.Boolean declared in values.ValuesImpl'
+              CONST Boolean type=kotlin.Boolean value=false
+        WHEN type=kotlin.Unit origin=null
+          BRANCH
+            if: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+              ARG arg0: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+                ARG arg0: TYPE_OP type=kotlin.Any? origin=IMPLICIT_CAST typeOperand=kotlin.Any?
+                  GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:list type:kotlin.collections.List<kotlin.String> visibility:private [final]' type=kotlin.collections.List<kotlin.String> origin=null
+                    receiver: GET_VAR '<this>: values.ValuesImpl declared in values.ValuesImpl.equals' type=values.ValuesImpl origin=null
+                ARG arg1: TYPE_OP type=kotlin.Any? origin=IMPLICIT_CAST typeOperand=kotlin.Any?
+                  GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:list type:kotlin.collections.List<kotlin.String> visibility:private [final]' type=kotlin.collections.List<kotlin.String> origin=null
+                    receiver: GET_VAR 'val tmp_0: values.ValuesImpl declared in values.ValuesImpl.equals' type=values.ValuesImpl origin=null
+              ARG arg1: CONST Boolean type=kotlin.Boolean value=false
+            then: RETURN type=kotlin.Nothing from='public final fun equals (other: kotlin.Any?): kotlin.Boolean declared in values.ValuesImpl'
+              CONST Boolean type=kotlin.Boolean value=false
+        WHEN type=kotlin.Unit origin=null
+          BRANCH
+            if: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+              ARG arg0: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+                ARG arg0: TYPE_OP type=kotlin.Any? origin=IMPLICIT_CAST typeOperand=kotlin.Any?
+                  GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:array type:kotlin.IntArray visibility:private [final]' type=kotlin.IntArray origin=null
+                    receiver: GET_VAR '<this>: values.ValuesImpl declared in values.ValuesImpl.equals' type=values.ValuesImpl origin=null
+                ARG arg1: TYPE_OP type=kotlin.Any? origin=IMPLICIT_CAST typeOperand=kotlin.Any?
+                  GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:array type:kotlin.IntArray visibility:private [final]' type=kotlin.IntArray origin=null
+                    receiver: GET_VAR 'val tmp_0: values.ValuesImpl declared in values.ValuesImpl.equals' type=values.ValuesImpl origin=null
+              ARG arg1: CONST Boolean type=kotlin.Boolean value=false
+            then: RETURN type=kotlin.Nothing from='public final fun equals (other: kotlin.Any?): kotlin.Boolean declared in values.ValuesImpl'
+              CONST Boolean type=kotlin.Boolean value=false
+        RETURN type=kotlin.Nothing from='public final fun equals (other: kotlin.Any?): kotlin.Boolean declared in values.ValuesImpl'
+          CONST Boolean type=kotlin.Boolean value=true
+    FUN GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:hashCode visibility:public modality:FINAL returnType:kotlin.Int
+      VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:values.ValuesImpl
+      overridden:
+        public open fun hashCode (): kotlin.Int declared in values.Values
+      BLOCK_BODY
+        RETURN type=kotlin.Nothing from='public final fun hashCode (): kotlin.Int declared in values.ValuesImpl'
+          CALL 'public final fun plus (other: kotlin.Int): kotlin.Int declared in kotlin.Int' type=kotlin.Int origin=null
+            ARG <this>: CALL 'public final fun times (other: kotlin.Int): kotlin.Int declared in kotlin.Int' type=kotlin.Int origin=null
+              ARG <this>: CALL 'public final fun plus (other: kotlin.Int): kotlin.Int declared in kotlin.Int' type=kotlin.Int origin=null
+                ARG <this>: CALL 'public final fun times (other: kotlin.Int): kotlin.Int declared in kotlin.Int' type=kotlin.Int origin=null
+                  ARG <this>: CALL 'public final fun plus (other: kotlin.Int): kotlin.Int declared in kotlin.Int' type=kotlin.Int origin=null
+                    ARG <this>: CALL 'public final fun times (other: kotlin.Int): kotlin.Int declared in kotlin.Int' type=kotlin.Int origin=null
+                      ARG <this>: CALL 'public final fun plus (other: kotlin.Int): kotlin.Int declared in kotlin.Int' type=kotlin.Int origin=null
+                        ARG <this>: CALL 'public final fun times (other: kotlin.Int): kotlin.Int declared in kotlin.Int' type=kotlin.Int origin=null
+                          ARG <this>: CALL 'public final fun plus (other: kotlin.Int): kotlin.Int declared in kotlin.Int' type=kotlin.Int origin=null
+                            ARG <this>: CALL 'public final fun times (other: kotlin.Int): kotlin.Int declared in kotlin.Int' type=kotlin.Int origin=null
+                              ARG <this>: CALL 'public final fun plus (other: kotlin.Int): kotlin.Int declared in kotlin.Int' type=kotlin.Int origin=null
+                                ARG <this>: CALL 'public final fun times (other: kotlin.Int): kotlin.Int declared in kotlin.Int' type=kotlin.Int origin=null
+                                  ARG <this>: CALL 'public final fun plus (other: kotlin.Int): kotlin.Int declared in kotlin.Int' type=kotlin.Int origin=null
+                                    ARG <this>: CALL 'public final fun times (other: kotlin.Int): kotlin.Int declared in kotlin.Int' type=kotlin.Int origin=null
+                                      ARG <this>: CALL 'public final fun plus (other: kotlin.Int): kotlin.Int declared in kotlin.Int' type=kotlin.Int origin=null
+                                        ARG <this>: CALL 'public final fun times (other: kotlin.Int): kotlin.Int declared in kotlin.Int' type=kotlin.Int origin=null
+                                          ARG <this>: CALL 'public final fun plus (other: kotlin.Int): kotlin.Int declared in kotlin.Int' type=kotlin.Int origin=null
+                                            ARG <this>: CALL 'public final fun times (other: kotlin.Int): kotlin.Int declared in kotlin.Int' type=kotlin.Int origin=null
+                                              ARG <this>: CALL 'public final fun plus (other: kotlin.Int): kotlin.Int declared in kotlin.Int' type=kotlin.Int origin=null
+                                                ARG <this>: CALL 'public final fun times (other: kotlin.Int): kotlin.Int declared in kotlin.Int' type=kotlin.Int origin=null
+                                                  ARG <this>: CALL 'public final fun plus (other: kotlin.Int): kotlin.Int declared in kotlin.Int' type=kotlin.Int origin=null
+                                                    ARG <this>: CALL 'public final fun times (other: kotlin.Int): kotlin.Int declared in kotlin.Int' type=kotlin.Int origin=null
+                                                      ARG <this>: CONST Int type=kotlin.Int value=0
+                                                      ARG other: CONST Int type=kotlin.Int value=31
+                                                    ARG other: CALL 'public open fun hashCode (): kotlin.Int declared in kotlin.Any' type=kotlin.Int origin=null
+                                                      ARG <this>: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:flag type:kotlin.Boolean visibility:private [final]' type=kotlin.Boolean origin=null
+                                                        receiver: GET_VAR '<this>: values.ValuesImpl declared in values.ValuesImpl.hashCode' type=values.ValuesImpl origin=null
+                                                  ARG other: CONST Int type=kotlin.Int value=31
+                                                ARG other: CALL 'public open fun hashCode (): kotlin.Int declared in kotlin.Any' type=kotlin.Int origin=null
+                                                  ARG <this>: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:byte type:kotlin.Byte visibility:private [final]' type=kotlin.Byte origin=null
+                                                    receiver: GET_VAR '<this>: values.ValuesImpl declared in values.ValuesImpl.hashCode' type=values.ValuesImpl origin=null
+                                              ARG other: CONST Int type=kotlin.Int value=31
+                                            ARG other: CALL 'public open fun hashCode (): kotlin.Int declared in kotlin.Any' type=kotlin.Int origin=null
+                                              ARG <this>: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:short type:kotlin.Short visibility:private [final]' type=kotlin.Short origin=null
+                                                receiver: GET_VAR '<this>: values.ValuesImpl declared in values.ValuesImpl.hashCode' type=values.ValuesImpl origin=null
+                                          ARG other: CONST Int type=kotlin.Int value=31
+                                        ARG other: CALL 'public open fun hashCode (): kotlin.Int declared in kotlin.Any' type=kotlin.Int origin=null
+                                          ARG <this>: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:int type:kotlin.Int visibility:private [final]' type=kotlin.Int origin=null
+                                            receiver: GET_VAR '<this>: values.ValuesImpl declared in values.ValuesImpl.hashCode' type=values.ValuesImpl origin=null
+                                      ARG other: CONST Int type=kotlin.Int value=31
+                                    ARG other: CALL 'public open fun hashCode (): kotlin.Int declared in kotlin.Any' type=kotlin.Int origin=null
+                                      ARG <this>: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:long type:kotlin.Long visibility:private [final]' type=kotlin.Long origin=null
+                                        receiver: GET_VAR '<this>: values.ValuesImpl declared in values.ValuesImpl.hashCode' type=values.ValuesImpl origin=null
+                                  ARG other: CONST Int type=kotlin.Int value=31
+                                ARG other: CALL 'public open fun hashCode (): kotlin.Int declared in kotlin.Any' type=kotlin.Int origin=null
+                                  ARG <this>: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:char type:kotlin.Char visibility:private [final]' type=kotlin.Char origin=null
+                                    receiver: GET_VAR '<this>: values.ValuesImpl declared in values.ValuesImpl.hashCode' type=values.ValuesImpl origin=null
+                              ARG other: CONST Int type=kotlin.Int value=31
+                            ARG other: CALL 'public open fun hashCode (): kotlin.Int declared in kotlin.Any' type=kotlin.Int origin=null
+                              ARG <this>: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:float type:kotlin.Float visibility:private [final]' type=kotlin.Float origin=null
+                                receiver: GET_VAR '<this>: values.ValuesImpl declared in values.ValuesImpl.hashCode' type=values.ValuesImpl origin=null
+                          ARG other: CONST Int type=kotlin.Int value=31
+                        ARG other: CALL 'public open fun hashCode (): kotlin.Int declared in kotlin.Any' type=kotlin.Int origin=null
+                          ARG <this>: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:double type:kotlin.Double visibility:private [final]' type=kotlin.Double origin=null
+                            receiver: GET_VAR '<this>: values.ValuesImpl declared in values.ValuesImpl.hashCode' type=values.ValuesImpl origin=null
+                      ARG other: CONST Int type=kotlin.Int value=31
+                    ARG other: WHEN type=kotlin.Int origin=null
+                      BRANCH
+                        if: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+                          ARG arg0: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:nullable type:kotlin.Int? visibility:private [final]' type=kotlin.Int? origin=null
+                            receiver: GET_VAR '<this>: values.ValuesImpl declared in values.ValuesImpl.hashCode' type=values.ValuesImpl origin=null
+                          ARG arg1: CONST Null type=kotlin.Nothing? value=null
+                        then: CONST Int type=kotlin.Int value=0
+                      BRANCH
+                        if: CONST Boolean type=kotlin.Boolean value=true
+                        then: CALL 'public open fun hashCode (): kotlin.Int declared in kotlin.Any' type=kotlin.Int origin=null
+                          ARG <this>: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:nullable type:kotlin.Int? visibility:private [final]' type=kotlin.Int? origin=null
+                            receiver: GET_VAR '<this>: values.ValuesImpl declared in values.ValuesImpl.hashCode' type=values.ValuesImpl origin=null
+                  ARG other: CONST Int type=kotlin.Int value=31
+                ARG other: CALL 'public open fun hashCode (): kotlin.Int declared in kotlin.Any' type=kotlin.Int origin=null
+                  ARG <this>: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:list type:kotlin.collections.List<kotlin.String> visibility:private [final]' type=kotlin.collections.List<kotlin.String> origin=null
+                    receiver: GET_VAR '<this>: values.ValuesImpl declared in values.ValuesImpl.hashCode' type=values.ValuesImpl origin=null
+              ARG other: CONST Int type=kotlin.Int value=31
+            ARG other: CALL 'public open fun hashCode (): kotlin.Int declared in kotlin.Any' type=kotlin.Int origin=null
+              ARG <this>: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:array type:kotlin.IntArray visibility:private [final]' type=kotlin.IntArray origin=null
+                receiver: GET_VAR '<this>: values.ValuesImpl declared in values.ValuesImpl.hashCode' type=values.ValuesImpl origin=null
