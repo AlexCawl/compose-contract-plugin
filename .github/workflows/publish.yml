@@ -17,7 +17,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: ${{ github.event.release.tag_name }}
+          ref: refs/tags/${{ github.event.release.tag_name }}
       - uses: actions/setup-java@v4
         with:
           distribution: 'zulu'
