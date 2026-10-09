@@ -3,6 +3,19 @@ plugins {
     alias(libs.plugins.buildconfig)
     alias(libs.plugins.gradle.java.test.fixtures)
     alias(libs.plugins.gradle.idea)
+    `maven-publish`
+}
+
+val javaComponent = components["java"] as AdhocComponentWithVariants
+javaComponent.withVariantsFromConfiguration(configurations["testFixturesApiElements"]) { skip() }
+javaComponent.withVariantsFromConfiguration(configurations["testFixturesRuntimeElements"]) { skip() }
+
+publishing {
+    publications {
+        register<MavenPublication>("maven") {
+            from(javaComponent)
+        }
+    }
 }
 
 val testDataDir = layout.projectDirectory.dir("testData")

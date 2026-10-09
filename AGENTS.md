@@ -20,7 +20,7 @@ Use JDK 21, matching CI, and run the Gradle wrapper from the repository root:
 - `./gradlew :compiler-plugin:generateTests`: regenerate JUnit test classes; compilation also triggers this automatically.
 - `./gradlew :gradle-plugin:build`: build and validate Gradle integration.
 
-Only Kotlin/JVM and Android JVM compilations are supported, including JVM and Android JVM targets in consuming Multiplatform projects. CI runs on macOS. Initial builds may download dependencies; JS and Native tooling is not required.
+Only Kotlin/JVM and Android JVM compilations are supported, including JVM and Android JVM targets in consuming Multiplatform projects. CI runs on Linux. Initial builds may download dependencies; JS and Native tooling is not required.
 
 ## Coding Style & Naming Conventions
 
