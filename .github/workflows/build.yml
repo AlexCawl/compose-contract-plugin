@@ -10,6 +10,9 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      checks: write
 
     steps:
       - uses: actions/checkout@v4
@@ -29,3 +32,4 @@ jobs:
         if: success() || failure()
         with:
           report_paths: '**/build/test-results/**/TEST-*.xml'
+          annotate_only: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name != github.repository }}
