@@ -1,7 +1,5 @@
 package com.alexcawl.contract
 
-import com.alexcawl.contract.runners.AbstractJsBoxTest
-import com.alexcawl.contract.runners.AbstractJsDiagnosticTest
 import com.alexcawl.contract.runners.AbstractJvmBoxTest
 import com.alexcawl.contract.runners.AbstractJvmDiagnosticTest
 import org.jetbrains.kotlin.generators.dsl.junit5.generateTestGroupSuiteWithJUnit5
@@ -12,14 +10,8 @@ fun main(args: Array<String>) {
             testClass<AbstractJvmDiagnosticTest> {
                 model("diagnostics")
             }
-            testClass<AbstractJsDiagnosticTest> {
-                model("diagnostics")
-            }
 
             testClass<AbstractJvmBoxTest> {
-                model("box")
-            }
-            testClass<AbstractJsBoxTest> {
                 model("box")
             }
         }

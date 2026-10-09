@@ -2,11 +2,11 @@
 
 ## Project Structure & Module Organization
 
-This repository uses the Kotlin compiler plugin template with three Gradle modules:
+This repository uses the Kotlin compiler plugin template with three Kotlin/JVM Gradle modules:
 
 - `compiler-plugin/src/`: compiler implementation, with FIR extensions in `fir/` and IR transformations in `ir/`. Service registrations live in `compiler-plugin/resources/META-INF/services/`.
 - `gradle-plugin/src/`: Gradle integration that supplies the compiler plugin, annotation dependency, and plugin ordering before Compose.
-- `plugin-annotations/src/commonMain/kotlin/`: public multiplatform annotations; API baselines live in `plugin-annotations/api/`.
+- `plugin-annotations/src/main/kotlin/`: public JVM annotations; the JVM API baseline lives in `plugin-annotations/api/`.
 - `compiler-plugin/test-fixtures/`: test runners, services, and test generation. Input programs and expected dumps live in `compiler-plugin/testData/`.
 
 Dependency versions are centralized in `gradle/libs.versions.toml`.
@@ -16,11 +16,11 @@ Dependency versions are centralized in `gradle/libs.versions.toml`.
 Use JDK 21, matching CI, and run the Gradle wrapper from the repository root:
 
 - `./gradlew build --continue`: build modules and run verification; this is the CI command.
-- `./gradlew :compiler-plugin:test`: run compiler tests for JVM and JS.
+- `./gradlew :compiler-plugin:test`: run JVM compiler tests.
 - `./gradlew :compiler-plugin:generateTests`: regenerate JUnit test classes; compilation also triggers this automatically.
 - `./gradlew :gradle-plugin:build`: build and validate Gradle integration.
 
-Multiplatform verification depends on host-supported targets; CI runs on macOS. Initial builds may download dependencies and JavaScript tooling.
+Only Kotlin/JVM and Android JVM compilations are supported, including JVM and Android JVM targets in consuming Multiplatform projects. CI runs on macOS. Initial builds may download dependencies; JS and Native tooling is not required.
 
 ## Coding Style & Naming Conventions
 

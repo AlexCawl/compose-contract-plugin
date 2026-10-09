@@ -1,6 +1,6 @@
 # Compose Contract
 
-Kotlin K2 compiler plugin for generating value implementations of component contracts.
+Kotlin K2 compiler plugin for generating value implementations of JVM component contracts.
 The namespace and Gradle plugin ID are `com.alexcawl.contract`.
 The plugin uses the Kotlin **2.4.20** compiler API and requires that compiler version.
 
@@ -40,7 +40,7 @@ in the same package as the interface:
 Parameters are ordered by properties first, then methods, preserving declaration order
 within each group. Methods with parameters become corresponding function types; a `vararg`
 parameter becomes an array parameter in the callback. Both top-level functions have
-`@JvmOverloads` on JVM. Their Java facade is `AppearanceContractKt`.
+`@JvmOverloads`. Their Java facade is `AppearanceContractKt`.
 The generated implementation and functions preserve the interface's public/internal visibility.
 
 `equals` compares only instances of the same generated implementation and includes every
@@ -72,13 +72,17 @@ In its `build.gradle.kts`:
 
 ```kotlin
 plugins {
-    kotlin("jvm") version "2.4.20" // Or kotlin("multiplatform").
+    kotlin("jvm") version "2.4.20"
     id("com.alexcawl.contract")
 }
 repositories { mavenCentral() }
 ```
 
-The Gradle plugin adds the annotation dependency and orders this compiler plugin before Compose.
+The Gradle plugin applies only to Kotlin/JVM and Android JVM compilations, including JVM
+and Android JVM targets in Kotlin Multiplatform projects. Declare contracts in JVM or
+Android JVM source sets; shared and other platform source sets are unsupported. The plugin
+adds the annotation dependency and orders this compiler plugin before Compose for supported
+compilations.
 No artifacts are published to Maven by this repository yet.
 
 ## Compose
@@ -132,9 +136,6 @@ private interface Hidden // Use public or internal visibility.
 @GenerateContract
 sealed interface Closed // Sealed contracts are not supported.
 ```
-
-`@GenerateContract expect interface Expected` in common code and
-`@GenerateContract external interface External` in JS are also unsupported.
 
 Generic declarations and inheritance are not supported. Parameterized member types
 such as `val items: List<String>` are supported.
@@ -289,7 +290,7 @@ check(changed.describe("") == "Button:24") // describe is bound to original.
 
 The plugin does not infer equivalent lambda bodies, add Compose stability annotations,
 or preserve reflection identity when rewriting references to earlier methods in default bodies.
-`@JvmOverloads` generates Java overloads only on JVM; it does not add JS/Native overloads.
+`@JvmOverloads` generates Java overloads for the factory and copy extension.
 
 ## Development
 
@@ -303,9 +304,8 @@ Use JDK 21 and the Gradle wrapper:
 
 Compiler fixtures and FIR/IR expectations live in `compiler-plugin/testData`.
 JUnit suites are generated into `compiler-plugin/build/test-gen`; do not commit them.
-JVM and JS box tests cover generation, default bodies, copy semantics, equality/hashCode,
+JVM box tests cover generation, default bodies, copy semantics, equality/hashCode,
 JVM overloads, and consumption from another module. Diagnostics tests cover rejected contracts.
-JS FIR dumps have a separate classifier because `@JvmOverloads` is JVM-only.
 
 After an intentional annotation API change, run `./gradlew :plugin-annotations:updateKotlinAbi`
-and review `plugin-annotations/api`. Native verification downloads host toolchains on first use.
+and review `plugin-annotations/api`. The build and tests require no JS or Native tooling.
