@@ -1,6 +1,8 @@
 # Compose Contract
 
 Kotlin K2 compiler plugin for generating value implementations of JVM component contracts.
+Contracts describe a component's presentation: dimensions, colors, and values derived from
+display state. The screen owns state and actions; contract methods compute presentation values.
 The namespace and Gradle plugin ID are `com.alexcawl.contract`.
 The plugin uses the Kotlin **2.4.20** compiler API and requires that compiler version.
 
@@ -13,14 +15,14 @@ import com.alexcawl.contract.GenerateContract
 interface Appearance {
     val width: Int
     val label: String?
-    fun onClick(value: Int): Unit
+    fun foregroundColor(isSelected: Boolean): Long
     fun describe(prefix: String): String = "$prefix$label:$width"
 }
 
 val appearance: Appearance = Appearance(
     width = 24,
     label = "Button",
-    onClick = { println(it) },
+    foregroundColor = { selected -> if (selected) 0xFF6750A4 else 0xFFF3EDF7 },
 )
 val wider: Appearance = appearance.copy(width = 48)
 ```
@@ -29,12 +31,12 @@ Generation happens in the compiler; it does not write Kotlin source files. The d
 are available in Kotlin source and in compiled dependencies. All three declarations live
 in the same package as the interface:
 
-* `AppearanceImpl(width, label, onClick, describe)` implements the interface, stores its
+* `AppearanceImpl(width, label, foregroundColor, describe)` implements the interface, stores its
   values and callbacks, and overrides `equals` and `hashCode`.
-* `Appearance(width, label, onClick, describe = { prefix -> "$prefix$label:$width" })`
+* `Appearance(width, label, foregroundColor, describe = { prefix -> "$prefix$label:$width" })`
   returns `Appearance`, constructing `AppearanceImpl`. Default method bodies become
   default callback arguments. Properties remain required, including properties with getters.
-* `Appearance.copy(width = this.width, label = this.label, onClick = this::onClick,
+* `Appearance.copy(width = this.width, label = this.label, foregroundColor = this::foregroundColor,
   describe = this::describe)` returns a new `AppearanceImpl` through the interface type.
 
 Parameters are ordered by properties first, then methods, preserving declaration order
@@ -138,6 +140,8 @@ body delegates to the supplied callback's `invoke`; its reflection identity is n
 These snippets intentionally fail plugin validation. Import
 `com.alexcawl.contract.GenerateContract`; the Compose example also imports
 `androidx.compose.runtime.Composable`.
+The JVM demo keeps these restrictions as [commented Kotlin source examples](demo-jvm/src/main/kotlin/com/alexcawl/contract/demo/jvm/UnsupportedContracts.kt)
+so the application still compiles.
 
 The annotation only supports top-level public/internal interfaces:
 
@@ -300,7 +304,7 @@ val supplied = DefaultWidth(width = 48) // Supported; width is 48.
 
 ```kotlin
 // Uses Appearance from the Usage example.
-val original = Appearance(width = 24, label = "Button", onClick = {})
+val original = Appearance(width = 24, label = "Button", foregroundColor = { 0xFF6750A4 })
 val changed = original.copy(width = 48)
 
 check(changed.width == 48)
@@ -316,11 +320,36 @@ or preserve reflection identity when rewriting references to earlier methods in 
 
 The repository includes two independent applications:
 
-* `demo-jvm` shows the generated factory, a default method, and `copy` in a console application.
-  Its output also shows that copied callbacks remain bound to the original contract.
-* `demo-android` runs a Material 3 counter built with Compose. The component accepts a
-  `@Stable` contract with a title, a count, and an increment callback. The screen owns the
-  count with `rememberSaveable`; a Preview is included.
+* `demo-android` shows a selectable week built with [CalendarDay](demo-android/src/main/kotlin/com/alexcawl/contract/demo/android/CalendarDay.kt).
+  Size and appearance are separate contracts. Companion defaults use 48 dp minimum dimensions,
+  8 dp padding, and the current Material 3 colors and shapes. The weekend appearance uses
+  `CalendarDayAppearance.default.copy(foregroundColor = ...)`. The screen owns selection with
+  `rememberSaveable` and `Modifier.selectable`, and pairs text colors with `contentColorFor`.
+  Both system themes and light/dark Previews are included; the week scrolls on narrow screens.
+* `demo-jvm` is a runnable catalogue of presentation contracts at the supported boundaries.
+  It includes working examples, tests, and forbidden declarations left commented in source.
+
+The JVM catalogue covers:
+
+* [Compound values](demo-jvm/src/main/kotlin/com/alexcawl/contract/demo/jvm/ValueAppearance.kt):
+  primitives, nullable and inline values, nested collections, arrays, function properties,
+  an empty contract, and an internal contract. Arrays and functions retain ordinary Kotlin equality.
+* [Default methods](demo-jvm/src/main/kotlin/com/alexcawl/contract/demo/jvm/DefaultAppearance.kt):
+  earlier callbacks and callable references, parameter defaults, named argument evaluation,
+  varargs, and returned functions. A property getter still requires a factory argument.
+  Copied methods remain bound to the original instance.
+* [65-field palette](demo-jvm/src/main/kotlin/com/alexcawl/contract/demo/jvm/WidePalette.kt):
+  generated copy defaults cross the 32/33 and 64/65 parameter boundaries.
+* [High arity and JVM slots](demo-jvm/src/main/kotlin/com/alexcawl/contract/demo/jvm/ArityAppearance.kt):
+  a 23-argument method and a method with 127 `Long` parameters. The latter reaches the
+  [JVM limit of 255 parameter slots](https://docs.oracle.com/javase/specs/jvms/se7/html/jvms-4.html#jvms-4.3.3),
+  including `this`; the forbidden 128th parameter stays commented. Generated default helpers
+  also need slots for masks, receivers, and markers, so 255 slots does not mean 255 contract fields.
+* [Java interoperability](demo-jvm/src/test/java/com/alexcawl/contract/demo/jvm/JvmAppearanceInteropTest.java):
+  direct calls to generated factory and copy overloads from Java.
+* [Unsupported constructs](demo-jvm/src/main/kotlin/com/alexcawl/contract/demo/jvm/UnsupportedContracts.kt):
+  commented examples explain declaration, member, name, and default-expression restrictions.
+  Composable examples require no Compose dependency while commented.
 
 Both demos load `compiler-plugin` through `kotlinCompilerPluginClasspath` and depend directly
 on `plugin-annotations`, so no local Maven publication is needed. The Android demo orders
