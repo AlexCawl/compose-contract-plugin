@@ -292,9 +292,34 @@ The plugin does not infer equivalent lambda bodies, add Compose stability annota
 or preserve reflection identity when rewriting references to earlier methods in default bodies.
 `@JvmOverloads` generates Java overloads for the factory and copy extension.
 
+## Demos
+
+The repository includes two independent applications:
+
+* `demo-jvm` shows the generated factory, a default method, and `copy` in a console application.
+  Its output also shows that copied callbacks remain bound to the original contract.
+* `demo-android` runs a Material 3 counter built with Compose. The component accepts a
+  `@Stable` contract with a title, a count, and an increment callback. The screen owns the
+  count with `rememberSaveable`; a Preview is included.
+
+Both demos load `compiler-plugin` through `kotlinCompilerPluginClasspath` and depend directly
+on `plugin-annotations`, so no local Maven publication is needed. The Android demo orders
+the contract compiler plugin before Compose.
+
+Use JDK 21. Install Android SDK Platform 36 and Build Tools 36.0.0, then set `ANDROID_HOME`
+or create an ignored `local.properties` with `sdk.dir=/path/to/android/sdk`.
+
+```shell
+./gradlew :demo-jvm:run :demo-jvm:test
+./gradlew :demo-android:assembleDebug :demo-android:testDebugUnitTest :demo-android:lintDebug
+```
+
+The debug APK is written to `demo-android/build/outputs/apk/debug/demo-android-debug.apk`.
+Run `demo-android` from Android Studio on an emulator or device with API 23 or higher.
+
 ## Development
 
-Use JDK 21 and the Gradle wrapper:
+Use JDK 21, Android SDK Platform 36, and the Gradle wrapper:
 
 ```shell
 ./gradlew :compiler-plugin:test

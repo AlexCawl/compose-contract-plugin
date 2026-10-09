@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Contract demo</string>
+    <string name="counter_title">Compose contract</string>
+    <string name="counter_value">Count: %1$d</string>
+    <string name="increment">Increment</string>
+</resources>
