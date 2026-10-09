@@ -2,7 +2,7 @@
 
 Kotlin K2 compiler plugin for generating value implementations of JVM component contracts.
 The namespace and Gradle plugin ID are `com.alexcawl.contract`.
-The plugin uses the Kotlin **2.3.20** compiler API and requires that compiler version.
+The plugin uses the Kotlin **2.4.20** compiler API and requires that compiler version.
 
 ## Usage
 
@@ -72,7 +72,7 @@ In its `build.gradle.kts`:
 
 ```kotlin
 plugins {
-    kotlin("jvm") version "2.3.20"
+    kotlin("jvm") version "2.4.20"
     id("com.alexcawl.contract")
 }
 repositories { mavenCentral() }
@@ -84,6 +84,26 @@ Android JVM source sets; shared and other platform source sets are unsupported. 
 adds the annotation dependency and orders this compiler plugin before Compose for supported
 compilations.
 No artifacts are published to Maven by this repository yet.
+
+## Android Studio support
+
+Editor support targets **Android Studio Quail 4 | 2026.1.4 Patch 1**
+(build `261.26222.65.2614.16379836`). Keep Kotlin **2.4.20** in the consuming project
+and in this plugin's build. Studio uses its own Kotlin compiler for editor analysis.
+Other IDE versions are not covered by this compatibility target.
+
+No additional IDE plugin is required. Enable loading external compiler plugins in Studio:
+
+1. Open **Find Action** (`Cmd+Shift+A` on macOS) and select **Registry…**.
+2. Find `kotlin.k2.only.bundled.compiler.plugins.enabled` and uncheck **Value** (`false`).
+3. Build the compiler plugin with `./gradlew :compiler-plugin:jar` from this checkout.
+4. Sync the consuming project with Gradle and restart Studio to reload the plugin JAR.
+
+The editor should resolve the generated factory, implementation, and `copy` extension,
+including inferred types and named-argument completion. Gradle remains responsible for
+building and running the application with Kotlin 2.4.20. Rebuild the JAR, sync, and restart
+Studio after changing the compiler plugin itself; editing a contract should update analysis
+without a restart.
 
 ## Compose
 
@@ -304,7 +324,8 @@ The repository includes two independent applications:
 
 Both demos load `compiler-plugin` through `kotlinCompilerPluginClasspath` and depend directly
 on `plugin-annotations`, so no local Maven publication is needed. The Android demo orders
-the contract compiler plugin before Compose.
+the contract compiler plugin before Compose. It uses AGP 9.4.1 with built-in Kotlin support;
+the root Kotlin plugin declaration selects Kotlin 2.4.20 for all modules.
 
 Use JDK 21. Install Android SDK Platform 36 and Build Tools 36.0.0, then set `ANDROID_HOME`
 or create an ignored `local.properties` with `sdk.dir=/path/to/android/sdk`.
@@ -319,7 +340,7 @@ Run `demo-android` from Android Studio on an emulator or device with API 23 or h
 
 ## Development
 
-Use JDK 21, Android SDK Platform 36, and the Gradle wrapper:
+Use JDK 21, Android SDK Platform 36, and the Gradle 9.6.1 wrapper:
 
 ```shell
 ./gradlew :compiler-plugin:test
