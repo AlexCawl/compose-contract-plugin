@@ -7,5 +7,5 @@ plugins {
 
 allprojects {
     group = "com.alexcawl.contract"
-    version = "0.1.0-SNAPSHOT"
+    version = rootProject.libs.versions.kotlin.get()
 }
