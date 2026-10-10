@@ -1,0 +1,48 @@
+name: Publish to GitHub Packages
+
+on:
+  release:
+    types: [published]
+
+env:
+  GRADLE_OPTS: "-Dorg.gradle.jvmargs=-Xmx4g -Dorg.gradle.daemon=false -Dkotlin.incremental=false"
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: refs/tags/${{ github.event.release.tag_name }}
+      - uses: actions/setup-java@v4
+        with:
+          distribution: 'zulu'
+          java-version: 21
+
+      - uses: gradle/actions/setup-gradle@v4
+      - uses: android-actions/setup-android@v3
+        with:
+          packages: platform-tools
+      - run: sdkmanager "platforms;android-36" "build-tools;36.0.0"
+
+      - name: Check release tag
+        env:
+          RELEASE_TAG: ${{ github.event.release.tag_name }}
+        run: |
+          version=$(./gradlew -q :properties | sed -n 's/^version: //p')
+          if [ "$RELEASE_TAG" != "v$version" ]; then
+            echo "::error::Release tag must be v$version"
+            exit 1
+          fi
+
+      - name: Build and test
+        run: ./gradlew build --continue
+
+      - name: Publish packages
+        run: ./gradlew :plugin-annotations:publish :compiler-plugin:publish :gradle-plugin:publish
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -1,5 +1,14 @@
 plugins {
     alias(libs.plugins.kotlin.jvm)
+    `maven-publish`
+}
+
+publishing {
+    publications {
+        register<MavenPublication>("maven") {
+            from(components["java"])
+        }
+    }
 }
 
 kotlin {

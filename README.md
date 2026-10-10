@@ -54,6 +54,60 @@ bound to the original receiver: `wider.describe("")` above still uses width `24`
 Override the callback explicitly to change this behavior. A copy containing method references
 can compare unequal to its source, even when all property values are unchanged.
 
+## Connect GitHub Packages
+
+Published releases provide the Gradle plugin, compiler plugin, and annotations in
+[GitHub Packages](https://github.com/AlexCawl/compose-contract-plugin/packages).
+The Gradle plugin adds the compiler plugin and annotation dependency automatically.
+
+GitHub requires authentication even for public Maven packages. Create a personal access
+token **classic** with `read:packages`, and store your credentials in
+`~/.gradle/gradle.properties`, outside the consuming project's repository:
+
+```properties
+gpr.user=YOUR_GITHUB_USERNAME
+gpr.key=YOUR_PERSONAL_ACCESS_TOKEN
+```
+
+In the consuming project's `settings.gradle.kts`, configure both plugin and dependency
+repositories:
+
+```kotlin
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        mavenCentral()
+        maven("https://maven.pkg.github.com/alexcawl/compose-contract-plugin") {
+            credentials {
+                username = providers.gradleProperty("gpr.user").orNull
+                password = providers.gradleProperty("gpr.key").orNull
+            }
+        }
+    }
+}
+
+dependencyResolutionManagement {
+    repositories {
+        mavenCentral()
+        maven("https://maven.pkg.github.com/alexcawl/compose-contract-plugin") {
+            credentials {
+                username = providers.gradleProperty("gpr.user").orNull
+                password = providers.gradleProperty("gpr.key").orNull
+            }
+        }
+    }
+}
+```
+
+In its `build.gradle.kts`:
+
+```kotlin
+plugins {
+    kotlin("jvm") version "2.4.20"
+    id("com.alexcawl.contract") version "2.4.20-1"
+}
+```
+
 ## Connect a local checkout
 
 In the consuming project's `settings.gradle.kts`, register the checkout for plugin resolution
@@ -85,7 +139,29 @@ and Android JVM targets in Kotlin Multiplatform projects. Declare contracts in J
 Android JVM source sets; shared and other platform source sets are unsupported. The plugin
 adds the annotation dependency and orders this compiler plugin before Compose for supported
 compilations.
-No artifacts are published to Maven by this repository yet.
+
+## Publishing releases
+
+`group` and `version` are defined in `gradle.properties`. Versions have the form
+`<Kotlin version>-<positive revision>`, initially `2.4.20-1`. Increase the revision for
+plugin fixes. When updating Kotlin in `gradle/libs.versions.toml`, update the version's
+Kotlin prefix and reset the revision to `1`. Gradle rejects versions with a different
+Kotlin prefix or an invalid revision.
+
+After the Linux CI build succeeds for the release commit, publish a GitHub Release with
+the matching tag, initially `v2.4.20-1`. The publication workflow runs for published
+releases, including prereleases. It checks the tag, runs `./gradlew build --continue` on
+Linux with JDK 21, then publishes `compiler-plugin`, `gradle-plugin`, `plugin-annotations`,
+and the Gradle plugin marker. Demo modules and compiler test fixtures are not published.
+
+The workflow uses GitHub Actions' built-in `GITHUB_TOKEN` with `packages: write`; no
+additional publishing secret is required. Local builds do not require package credentials.
+See [GitHub's Gradle registry documentation](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-gradle-registry)
+for authentication details.
+
+Do not overwrite or delete published versions. Publish fixes under a new revision.
+A failed or partially completed upload fails the workflow; it does not delete packages
+or silently skip existing versions.
 
 ## Android Studio support
 
