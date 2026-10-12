@@ -71,6 +71,121 @@ FILE fqName:values fileName:/valueEquality.kt
     annotations:
       GenerateContract
     thisReceiver: VALUE_PARAMETER INSTANCE_RECEIVER kind:DispatchReceiver name:<this> type:values.Values
+    CLASS GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] CLASS name:Contract modality:FINAL visibility:public superTypes:[kotlin.Any]
+      thisReceiver: VALUE_PARAMETER INSTANCE_RECEIVER kind:DispatchReceiver name:<this> type:values.Values.Contract
+      PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:lineHeight visibility:public modality:FINAL [val]
+        FIELD PROPERTY_BACKING_FIELD name:lineHeight type:@[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels> visibility:private [final]
+        FUN DEFAULT_PROPERTY_ACCESSOR name:<get-lineHeight> visibility:public modality:FINAL returnType:@[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels>
+          VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:values.Values.Contract
+          correspondingProperty: PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:lineHeight visibility:public modality:FINAL [val]
+          BLOCK_BODY
+            RETURN type=kotlin.Nothing from='public final fun <get-lineHeight> (): @[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels> declared in values.Values.Contract'
+              GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:lineHeight type:@[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels> visibility:private [final]' type=@[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels> origin=null
+                receiver: GET_VAR '<this>: values.Values.Contract declared in values.Values.Contract.<get-lineHeight>' type=values.Values.Contract origin=null
+      PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:nullable visibility:public modality:FINAL [val]
+        FIELD PROPERTY_BACKING_FIELD name:nullable type:@[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels?> visibility:private [final]
+        FUN DEFAULT_PROPERTY_ACCESSOR name:<get-nullable> visibility:public modality:FINAL returnType:@[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels?>
+          VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:values.Values.Contract
+          correspondingProperty: PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:nullable visibility:public modality:FINAL [val]
+          BLOCK_BODY
+            RETURN type=kotlin.Nothing from='public final fun <get-nullable> (): @[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels?> declared in values.Values.Contract'
+              GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:nullable type:@[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels?> visibility:private [final]' type=@[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels?> origin=null
+                receiver: GET_VAR '<this>: values.Values.Contract declared in values.Values.Contract.<get-nullable>' type=values.Values.Contract origin=null
+      PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:list visibility:public modality:FINAL [val]
+        FIELD PROPERTY_BACKING_FIELD name:list type:@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.collections.List<kotlin.String>> visibility:private [final]
+        FUN DEFAULT_PROPERTY_ACCESSOR name:<get-list> visibility:public modality:FINAL returnType:@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.collections.List<kotlin.String>>
+          VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:values.Values.Contract
+          correspondingProperty: PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:list visibility:public modality:FINAL [val]
+          BLOCK_BODY
+            RETURN type=kotlin.Nothing from='public final fun <get-list> (): @[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.collections.List<kotlin.String>> declared in values.Values.Contract'
+              GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:list type:@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.collections.List<kotlin.String>> visibility:private [final]' type=@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.collections.List<kotlin.String>> origin=null
+                receiver: GET_VAR '<this>: values.Values.Contract declared in values.Values.Contract.<get-list>' type=values.Values.Contract origin=null
+      PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:array visibility:public modality:FINAL [val]
+        FIELD PROPERTY_BACKING_FIELD name:array type:@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.IntArray> visibility:private [final]
+        FUN DEFAULT_PROPERTY_ACCESSOR name:<get-array> visibility:public modality:FINAL returnType:@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.IntArray>
+          VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:values.Values.Contract
+          correspondingProperty: PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:array visibility:public modality:FINAL [val]
+          BLOCK_BODY
+            RETURN type=kotlin.Nothing from='public final fun <get-array> (): @[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.IntArray> declared in values.Values.Contract'
+              GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:array type:@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.IntArray> visibility:private [final]' type=@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.IntArray> origin=null
+                receiver: GET_VAR '<this>: values.Values.Contract declared in values.Values.Contract.<get-array>' type=values.Values.Contract origin=null
+      PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:transform visibility:public modality:FINAL [val]
+        FIELD PROPERTY_BACKING_FIELD name:transform type:@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Function1<kotlin.String, kotlin.String>> visibility:private [final]
+        FUN DEFAULT_PROPERTY_ACCESSOR name:<get-transform> visibility:public modality:FINAL returnType:@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Function1<kotlin.String, kotlin.String>>
+          VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:values.Values.Contract
+          correspondingProperty: PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:transform visibility:public modality:FINAL [val]
+          BLOCK_BODY
+            RETURN type=kotlin.Nothing from='public final fun <get-transform> (): @[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Function1<kotlin.String, kotlin.String>> declared in values.Values.Contract'
+              GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:transform type:@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Function1<kotlin.String, kotlin.String>> visibility:private [final]' type=@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Function1<kotlin.String, kotlin.String>> origin=null
+                receiver: GET_VAR '<this>: values.Values.Contract declared in values.Values.Contract.<get-transform>' type=values.Values.Contract origin=null
+      PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:float visibility:public modality:FINAL [val]
+        FIELD PROPERTY_BACKING_FIELD name:float type:@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Float>? visibility:private [final]
+        FUN DEFAULT_PROPERTY_ACCESSOR name:<get-float> visibility:public modality:FINAL returnType:@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Float>?
+          VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:values.Values.Contract
+          correspondingProperty: PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:float visibility:public modality:FINAL [val]
+          BLOCK_BODY
+            RETURN type=kotlin.Nothing from='public final fun <get-float> (): @[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Float>? declared in values.Values.Contract'
+              GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:float type:@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Float>? visibility:private [final]' type=@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Float>? origin=null
+                receiver: GET_VAR '<this>: values.Values.Contract declared in values.Values.Contract.<get-float>' type=values.Values.Contract origin=null
+      CONSTRUCTOR GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] visibility:public returnType:values.Values.Contract
+        VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:lineHeight index:0 type:@[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels>
+        VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:nullable index:1 type:@[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels?>
+        VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:list index:2 type:@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.collections.List<kotlin.String>>
+        VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:array index:3 type:@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.IntArray>
+        VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:transform index:4 type:@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Function1<kotlin.String, kotlin.String>>
+        annotations:
+          Deprecated(message = "Binary compatibility", replaceWith = <null>, level = DeprecationLevel.HIDDEN)
+        BLOCK_BODY
+          DELEGATING_CONSTRUCTOR_CALL 'public constructor <init> (lineHeight: @[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels>, nullable: @[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels?>, list: @[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.collections.List<kotlin.String>>, array: @[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.IntArray>, transform: @[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Function1<kotlin.String, kotlin.String>>, float: @[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Float>?) declared in values.Values.Contract'
+            ARG lineHeight: GET_VAR 'lineHeight: @[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels> declared in values.Values.Contract.<init>' type=@[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels> origin=null
+            ARG nullable: GET_VAR 'nullable: @[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels?> declared in values.Values.Contract.<init>' type=@[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels?> origin=null
+            ARG list: GET_VAR 'list: @[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.collections.List<kotlin.String>> declared in values.Values.Contract.<init>' type=@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.collections.List<kotlin.String>> origin=null
+            ARG array: GET_VAR 'array: @[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.IntArray> declared in values.Values.Contract.<init>' type=@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.IntArray> origin=null
+            ARG transform: GET_VAR 'transform: @[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Function1<kotlin.String, kotlin.String>> declared in values.Values.Contract.<init>' type=@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Function1<kotlin.String, kotlin.String>> origin=null
+            ARG float: CONST Null type=@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Float>? value=null
+      CONSTRUCTOR GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] visibility:public returnType:values.Values.Contract [primary]
+        VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:lineHeight index:0 type:@[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels>
+        VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:nullable index:1 type:@[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels?>
+        VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:list index:2 type:@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.collections.List<kotlin.String>>
+        VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:array index:3 type:@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.IntArray>
+        VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:transform index:4 type:@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Function1<kotlin.String, kotlin.String>>
+        VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:float index:5 type:@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Float>?
+          EXPRESSION_BODY
+            CONST Null type=@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Float>? value=null
+        BLOCK_BODY
+          DELEGATING_CONSTRUCTOR_CALL 'public constructor <init> () declared in kotlin.Any'
+          SET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:lineHeight type:@[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels> visibility:private [final]' type=kotlin.Unit origin=null
+            receiver: GET_VAR '<this>: values.Values.Contract declared in values.Values.Contract' type=values.Values.Contract origin=null
+            value: GET_VAR 'lineHeight: @[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels> declared in values.Values.Contract.<init>' type=@[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels> origin=null
+          SET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:nullable type:@[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels?> visibility:private [final]' type=kotlin.Unit origin=null
+            receiver: GET_VAR '<this>: values.Values.Contract declared in values.Values.Contract' type=values.Values.Contract origin=null
+            value: GET_VAR 'nullable: @[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels?> declared in values.Values.Contract.<init>' type=@[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels?> origin=null
+          SET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:list type:@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.collections.List<kotlin.String>> visibility:private [final]' type=kotlin.Unit origin=null
+            receiver: GET_VAR '<this>: values.Values.Contract declared in values.Values.Contract' type=values.Values.Contract origin=null
+            value: GET_VAR 'list: @[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.collections.List<kotlin.String>> declared in values.Values.Contract.<init>' type=@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.collections.List<kotlin.String>> origin=null
+          SET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:array type:@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.IntArray> visibility:private [final]' type=kotlin.Unit origin=null
+            receiver: GET_VAR '<this>: values.Values.Contract declared in values.Values.Contract' type=values.Values.Contract origin=null
+            value: GET_VAR 'array: @[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.IntArray> declared in values.Values.Contract.<init>' type=@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.IntArray> origin=null
+          SET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:transform type:@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Function1<kotlin.String, kotlin.String>> visibility:private [final]' type=kotlin.Unit origin=null
+            receiver: GET_VAR '<this>: values.Values.Contract declared in values.Values.Contract' type=values.Values.Contract origin=null
+            value: GET_VAR 'transform: @[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Function1<kotlin.String, kotlin.String>> declared in values.Values.Contract.<init>' type=@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Function1<kotlin.String, kotlin.String>> origin=null
+          SET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:float type:@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Float>? visibility:private [final]' type=kotlin.Unit origin=null
+            receiver: GET_VAR '<this>: values.Values.Contract declared in values.Values.Contract' type=values.Values.Contract origin=null
+            value: GET_VAR 'float: @[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Float>? declared in values.Values.Contract.<init>' type=@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Float>? origin=null
+          INSTANCE_INITIALIZER_CALL classDescriptor='CLASS GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] CLASS name:Contract modality:FINAL visibility:public superTypes:[kotlin.Any]' type=kotlin.Unit
+      FUN FAKE_OVERRIDE name:equals visibility:public modality:OPEN returnType:kotlin.Boolean [fake_override,operator]
+        VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:kotlin.Any
+        VALUE_PARAMETER kind:Regular name:other index:1 type:kotlin.Any?
+        overridden:
+          public open fun equals (other: kotlin.Any?): kotlin.Boolean declared in kotlin.Any
+      FUN FAKE_OVERRIDE name:hashCode visibility:public modality:OPEN returnType:kotlin.Int [fake_override]
+        VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:kotlin.Any
+        overridden:
+          public open fun hashCode (): kotlin.Int declared in kotlin.Any
+      FUN FAKE_OVERRIDE name:toString visibility:public modality:OPEN returnType:kotlin.String [fake_override]
+        VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:kotlin.Any
+        overridden:
+          public open fun toString (): kotlin.String declared in kotlin.Any
     FUN FAKE_OVERRIDE name:equals visibility:public modality:OPEN returnType:kotlin.Boolean [fake_override,operator]
       VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:kotlin.Any
       VALUE_PARAMETER kind:Regular name:other index:1 type:kotlin.Any?
@@ -84,7 +199,7 @@ FILE fqName:values fileName:/valueEquality.kt
       VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:kotlin.Any
       overridden:
         public open fun toString (): kotlin.String declared in kotlin.Any
-    FUN GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:contract visibility:public modality:ABSTRACT returnType:values.ValuesContract
+    FUN GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:contract visibility:public modality:ABSTRACT returnType:values.Values.Contract
       VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:values.Values
     FUN name:array visibility:public modality:ABSTRACT returnType:kotlin.IntArray
       VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:values.Values
@@ -336,13 +451,13 @@ FILE fqName:values fileName:values/ValuesConstructor.kt
               GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$array type:@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.IntArray> visibility:private [final]' type=@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.IntArray> origin=null
                 receiver: GET_VAR '<this>: values.ValuesImpl declared in values.ValuesImpl.array' type=values.ValuesImpl origin=null
             ARG p1: GET_VAR '<this>: values.ValuesImpl declared in values.ValuesImpl.array' type=values.ValuesImpl origin=null
-    FUN GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:contract visibility:public modality:FINAL returnType:values.ValuesContract
+    FUN GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:contract visibility:public modality:FINAL returnType:values.Values.Contract
       VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:values.ValuesImpl
       overridden:
-        public abstract fun contract (): values.ValuesContract declared in values.Values
+        public abstract fun contract (): values.Values.Contract declared in values.Values
       BLOCK_BODY
-        RETURN type=kotlin.Nothing from='public final fun contract (): values.ValuesContract declared in values.ValuesImpl'
-          CONSTRUCTOR_CALL 'public constructor <init> (lineHeight: @[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels>, nullable: @[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels?>, list: @[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.collections.List<kotlin.String>>, array: @[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.IntArray>, transform: @[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Function1<kotlin.String, kotlin.String>>, float: @[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Float>?) declared in values.ValuesContract' type=values.ValuesContract origin=null
+        RETURN type=kotlin.Nothing from='public final fun contract (): values.Values.Contract declared in values.ValuesImpl'
+          CONSTRUCTOR_CALL 'public constructor <init> (lineHeight: @[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels>, nullable: @[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels?>, list: @[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.collections.List<kotlin.String>>, array: @[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.IntArray>, transform: @[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Function1<kotlin.String, kotlin.String>>, float: @[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Float>?) declared in values.Values.Contract' type=values.Values.Contract origin=null
             ARG lineHeight: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$lineHeight type:@[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels> visibility:private [final]' type=@[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels> origin=null
               receiver: GET_VAR '<this>: values.ValuesImpl declared in values.ValuesImpl.contract' type=values.ValuesImpl origin=null
             ARG nullable: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$nullable type:@[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels?> visibility:private [final]' type=@[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels?> origin=null
@@ -609,122 +724,6 @@ FILE fqName:values fileName:values/ValuesConstructor.kt
           ARG array: GET_VAR 'array: @[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.IntArray> declared in values.Values' type=@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.IntArray> origin=null
           ARG transform: GET_VAR 'transform: @[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Function1<kotlin.String, kotlin.String>> declared in values.Values' type=@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Function1<kotlin.String, kotlin.String>> origin=null
           ARG float: GET_VAR 'float: @[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Float>? declared in values.Values' type=@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Float>? origin=null
-FILE fqName:values fileName:values/ValuesContract.kt
-  CLASS GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] CLASS name:ValuesContract modality:FINAL visibility:public superTypes:[kotlin.Any]
-    thisReceiver: VALUE_PARAMETER INSTANCE_RECEIVER kind:DispatchReceiver name:<this> type:values.ValuesContract
-    PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:lineHeight visibility:public modality:FINAL [val]
-      FIELD PROPERTY_BACKING_FIELD name:lineHeight type:@[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels> visibility:private [final]
-      FUN DEFAULT_PROPERTY_ACCESSOR name:<get-lineHeight> visibility:public modality:FINAL returnType:@[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels>
-        VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:values.ValuesContract
-        correspondingProperty: PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:lineHeight visibility:public modality:FINAL [val]
-        BLOCK_BODY
-          RETURN type=kotlin.Nothing from='public final fun <get-lineHeight> (): @[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels> declared in values.ValuesContract'
-            GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:lineHeight type:@[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels> visibility:private [final]' type=@[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels> origin=null
-              receiver: GET_VAR '<this>: values.ValuesContract declared in values.ValuesContract.<get-lineHeight>' type=values.ValuesContract origin=null
-    PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:nullable visibility:public modality:FINAL [val]
-      FIELD PROPERTY_BACKING_FIELD name:nullable type:@[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels?> visibility:private [final]
-      FUN DEFAULT_PROPERTY_ACCESSOR name:<get-nullable> visibility:public modality:FINAL returnType:@[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels?>
-        VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:values.ValuesContract
-        correspondingProperty: PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:nullable visibility:public modality:FINAL [val]
-        BLOCK_BODY
-          RETURN type=kotlin.Nothing from='public final fun <get-nullable> (): @[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels?> declared in values.ValuesContract'
-            GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:nullable type:@[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels?> visibility:private [final]' type=@[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels?> origin=null
-              receiver: GET_VAR '<this>: values.ValuesContract declared in values.ValuesContract.<get-nullable>' type=values.ValuesContract origin=null
-    PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:list visibility:public modality:FINAL [val]
-      FIELD PROPERTY_BACKING_FIELD name:list type:@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.collections.List<kotlin.String>> visibility:private [final]
-      FUN DEFAULT_PROPERTY_ACCESSOR name:<get-list> visibility:public modality:FINAL returnType:@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.collections.List<kotlin.String>>
-        VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:values.ValuesContract
-        correspondingProperty: PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:list visibility:public modality:FINAL [val]
-        BLOCK_BODY
-          RETURN type=kotlin.Nothing from='public final fun <get-list> (): @[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.collections.List<kotlin.String>> declared in values.ValuesContract'
-            GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:list type:@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.collections.List<kotlin.String>> visibility:private [final]' type=@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.collections.List<kotlin.String>> origin=null
-              receiver: GET_VAR '<this>: values.ValuesContract declared in values.ValuesContract.<get-list>' type=values.ValuesContract origin=null
-    PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:array visibility:public modality:FINAL [val]
-      FIELD PROPERTY_BACKING_FIELD name:array type:@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.IntArray> visibility:private [final]
-      FUN DEFAULT_PROPERTY_ACCESSOR name:<get-array> visibility:public modality:FINAL returnType:@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.IntArray>
-        VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:values.ValuesContract
-        correspondingProperty: PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:array visibility:public modality:FINAL [val]
-        BLOCK_BODY
-          RETURN type=kotlin.Nothing from='public final fun <get-array> (): @[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.IntArray> declared in values.ValuesContract'
-            GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:array type:@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.IntArray> visibility:private [final]' type=@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.IntArray> origin=null
-              receiver: GET_VAR '<this>: values.ValuesContract declared in values.ValuesContract.<get-array>' type=values.ValuesContract origin=null
-    PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:transform visibility:public modality:FINAL [val]
-      FIELD PROPERTY_BACKING_FIELD name:transform type:@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Function1<kotlin.String, kotlin.String>> visibility:private [final]
-      FUN DEFAULT_PROPERTY_ACCESSOR name:<get-transform> visibility:public modality:FINAL returnType:@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Function1<kotlin.String, kotlin.String>>
-        VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:values.ValuesContract
-        correspondingProperty: PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:transform visibility:public modality:FINAL [val]
-        BLOCK_BODY
-          RETURN type=kotlin.Nothing from='public final fun <get-transform> (): @[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Function1<kotlin.String, kotlin.String>> declared in values.ValuesContract'
-            GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:transform type:@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Function1<kotlin.String, kotlin.String>> visibility:private [final]' type=@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Function1<kotlin.String, kotlin.String>> origin=null
-              receiver: GET_VAR '<this>: values.ValuesContract declared in values.ValuesContract.<get-transform>' type=values.ValuesContract origin=null
-    PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:float visibility:public modality:FINAL [val]
-      FIELD PROPERTY_BACKING_FIELD name:float type:@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Float>? visibility:private [final]
-      FUN DEFAULT_PROPERTY_ACCESSOR name:<get-float> visibility:public modality:FINAL returnType:@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Float>?
-        VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:values.ValuesContract
-        correspondingProperty: PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:float visibility:public modality:FINAL [val]
-        BLOCK_BODY
-          RETURN type=kotlin.Nothing from='public final fun <get-float> (): @[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Float>? declared in values.ValuesContract'
-            GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:float type:@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Float>? visibility:private [final]' type=@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Float>? origin=null
-              receiver: GET_VAR '<this>: values.ValuesContract declared in values.ValuesContract.<get-float>' type=values.ValuesContract origin=null
-    CONSTRUCTOR GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] visibility:public returnType:values.ValuesContract
-      VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:lineHeight index:0 type:@[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels>
-      VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:nullable index:1 type:@[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels?>
-      VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:list index:2 type:@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.collections.List<kotlin.String>>
-      VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:array index:3 type:@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.IntArray>
-      VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:transform index:4 type:@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Function1<kotlin.String, kotlin.String>>
-      annotations:
-        Deprecated(message = "Binary compatibility", replaceWith = <null>, level = DeprecationLevel.HIDDEN)
-      BLOCK_BODY
-        DELEGATING_CONSTRUCTOR_CALL 'public constructor <init> (lineHeight: @[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels>, nullable: @[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels?>, list: @[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.collections.List<kotlin.String>>, array: @[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.IntArray>, transform: @[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Function1<kotlin.String, kotlin.String>>, float: @[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Float>?) declared in values.ValuesContract'
-          ARG lineHeight: GET_VAR 'lineHeight: @[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels> declared in values.ValuesContract.<init>' type=@[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels> origin=null
-          ARG nullable: GET_VAR 'nullable: @[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels?> declared in values.ValuesContract.<init>' type=@[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels?> origin=null
-          ARG list: GET_VAR 'list: @[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.collections.List<kotlin.String>> declared in values.ValuesContract.<init>' type=@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.collections.List<kotlin.String>> origin=null
-          ARG array: GET_VAR 'array: @[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.IntArray> declared in values.ValuesContract.<init>' type=@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.IntArray> origin=null
-          ARG transform: GET_VAR 'transform: @[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Function1<kotlin.String, kotlin.String>> declared in values.ValuesContract.<init>' type=@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Function1<kotlin.String, kotlin.String>> origin=null
-          ARG float: CONST Null type=@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Float>? value=null
-    CONSTRUCTOR GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] visibility:public returnType:values.ValuesContract [primary]
-      VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:lineHeight index:0 type:@[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels>
-      VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:nullable index:1 type:@[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels?>
-      VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:list index:2 type:@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.collections.List<kotlin.String>>
-      VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:array index:3 type:@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.IntArray>
-      VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:transform index:4 type:@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Function1<kotlin.String, kotlin.String>>
-      VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:float index:5 type:@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Float>?
-        EXPRESSION_BODY
-          CONST Null type=@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Float>? value=null
-      BLOCK_BODY
-        DELEGATING_CONSTRUCTOR_CALL 'public constructor <init> () declared in kotlin.Any'
-        SET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:lineHeight type:@[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels> visibility:private [final]' type=kotlin.Unit origin=null
-          receiver: GET_VAR '<this>: values.ValuesContract declared in values.ValuesContract' type=values.ValuesContract origin=null
-          value: GET_VAR 'lineHeight: @[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels> declared in values.ValuesContract.<init>' type=@[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels> origin=null
-        SET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:nullable type:@[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels?> visibility:private [final]' type=kotlin.Unit origin=null
-          receiver: GET_VAR '<this>: values.ValuesContract declared in values.ValuesContract' type=values.ValuesContract origin=null
-          value: GET_VAR 'nullable: @[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels?> declared in values.ValuesContract.<init>' type=@[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels?> origin=null
-        SET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:list type:@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.collections.List<kotlin.String>> visibility:private [final]' type=kotlin.Unit origin=null
-          receiver: GET_VAR '<this>: values.ValuesContract declared in values.ValuesContract' type=values.ValuesContract origin=null
-          value: GET_VAR 'list: @[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.collections.List<kotlin.String>> declared in values.ValuesContract.<init>' type=@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.collections.List<kotlin.String>> origin=null
-        SET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:array type:@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.IntArray> visibility:private [final]' type=kotlin.Unit origin=null
-          receiver: GET_VAR '<this>: values.ValuesContract declared in values.ValuesContract' type=values.ValuesContract origin=null
-          value: GET_VAR 'array: @[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.IntArray> declared in values.ValuesContract.<init>' type=@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.IntArray> origin=null
-        SET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:transform type:@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Function1<kotlin.String, kotlin.String>> visibility:private [final]' type=kotlin.Unit origin=null
-          receiver: GET_VAR '<this>: values.ValuesContract declared in values.ValuesContract' type=values.ValuesContract origin=null
-          value: GET_VAR 'transform: @[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Function1<kotlin.String, kotlin.String>> declared in values.ValuesContract.<init>' type=@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Function1<kotlin.String, kotlin.String>> origin=null
-        SET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:float type:@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Float>? visibility:private [final]' type=kotlin.Unit origin=null
-          receiver: GET_VAR '<this>: values.ValuesContract declared in values.ValuesContract' type=values.ValuesContract origin=null
-          value: GET_VAR 'float: @[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Float>? declared in values.ValuesContract.<init>' type=@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Float>? origin=null
-        INSTANCE_INITIALIZER_CALL classDescriptor='CLASS GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] CLASS name:ValuesContract modality:FINAL visibility:public superTypes:[kotlin.Any]' type=kotlin.Unit
-    FUN FAKE_OVERRIDE name:equals visibility:public modality:OPEN returnType:kotlin.Boolean [fake_override,operator]
-      VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:kotlin.Any
-      VALUE_PARAMETER kind:Regular name:other index:1 type:kotlin.Any?
-      overridden:
-        public open fun equals (other: kotlin.Any?): kotlin.Boolean declared in kotlin.Any
-    FUN FAKE_OVERRIDE name:hashCode visibility:public modality:OPEN returnType:kotlin.Int [fake_override]
-      VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:kotlin.Any
-      overridden:
-        public open fun hashCode (): kotlin.Int declared in kotlin.Any
-    FUN FAKE_OVERRIDE name:toString visibility:public modality:OPEN returnType:kotlin.String [fake_override]
-      VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:kotlin.Any
-      overridden:
-        public open fun toString (): kotlin.String declared in kotlin.Any
 FILE fqName:values fileName:values/ValuesCopy.kt
   FUN GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:copy visibility:public modality:FINAL returnType:values.Values
     VALUE_PARAMETER kind:ExtensionReceiver name:<this> index:0 type:values.Values
@@ -776,8 +775,8 @@ FILE fqName:values fileName:values/ValuesCopy.kt
       EXPRESSION_BODY
         CONST Null type=@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Float>? value=null
     BLOCK_BODY
-      VAR IR_TEMPORARY_VARIABLE name:tmp_0 type:values.ValuesContract [val]
-        CALL 'public abstract fun contract (): values.ValuesContract declared in values.Values' type=values.ValuesContract origin=null
+      VAR IR_TEMPORARY_VARIABLE name:tmp_0 type:values.Values.Contract [val]
+        CALL 'public abstract fun contract (): values.Values.Contract declared in values.Values' type=values.Values.Contract origin=null
           ARG <this>: GET_VAR '<this>: values.Values declared in values.copy' type=values.Values origin=null
       RETURN type=kotlin.Nothing from='public final fun copy (<this>: values.Values, lineHeight: @[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels>?, nullable: @[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels?>?, list: @[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.collections.List<kotlin.String>>?, array: @[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.IntArray>?, transform: @[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Function1<kotlin.String, kotlin.String>>?, float: @[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Float>?): values.Values declared in values'
         CALL 'public final fun Values (lineHeight: @[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels>, nullable: @[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels?>, list: @[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.collections.List<kotlin.String>>, array: @[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.IntArray>, transform: @[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Function1<kotlin.String, kotlin.String>>, float: @[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Float>?): values.Values declared in values' type=values.Values origin=null
@@ -786,8 +785,8 @@ FILE fqName:values fileName:values/ValuesCopy.kt
               if: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
                 ARG arg0: GET_VAR 'lineHeight: @[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels>? declared in values.copy' type=@[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels>? origin=null
                 ARG arg1: CONST Null type=kotlin.Nothing? value=null
-              then: CALL 'public final fun <get-lineHeight> (): @[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels> declared in values.ValuesContract' type=@[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels> origin=null
-                ARG <this>: GET_VAR 'val tmp_0: values.ValuesContract declared in values.copy' type=values.ValuesContract origin=null
+              then: CALL 'public final fun <get-lineHeight> (): @[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels> declared in values.Values.Contract' type=@[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels> origin=null
+                ARG <this>: GET_VAR 'val tmp_0: values.Values.Contract declared in values.copy' type=values.Values.Contract origin=null
             BRANCH
               if: CONST Boolean type=kotlin.Boolean value=true
               then: TYPE_OP type=@[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels> origin=IMPLICIT_CAST typeOperand=@[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels>
@@ -797,8 +796,8 @@ FILE fqName:values fileName:values/ValuesCopy.kt
               if: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
                 ARG arg0: GET_VAR 'nullable: @[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels?>? declared in values.copy' type=@[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels?>? origin=null
                 ARG arg1: CONST Null type=kotlin.Nothing? value=null
-              then: CALL 'public final fun <get-nullable> (): @[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels?> declared in values.ValuesContract' type=@[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels?> origin=null
-                ARG <this>: GET_VAR 'val tmp_0: values.ValuesContract declared in values.copy' type=values.ValuesContract origin=null
+              then: CALL 'public final fun <get-nullable> (): @[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels?> declared in values.Values.Contract' type=@[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels?> origin=null
+                ARG <this>: GET_VAR 'val tmp_0: values.Values.Contract declared in values.copy' type=values.Values.Contract origin=null
             BRANCH
               if: CONST Boolean type=kotlin.Boolean value=true
               then: TYPE_OP type=@[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels?> origin=IMPLICIT_CAST typeOperand=@[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels?>
@@ -808,8 +807,8 @@ FILE fqName:values fileName:values/ValuesCopy.kt
               if: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
                 ARG arg0: GET_VAR 'list: @[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.collections.List<kotlin.String>>? declared in values.copy' type=@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.collections.List<kotlin.String>>? origin=null
                 ARG arg1: CONST Null type=kotlin.Nothing? value=null
-              then: CALL 'public final fun <get-list> (): @[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.collections.List<kotlin.String>> declared in values.ValuesContract' type=@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.collections.List<kotlin.String>> origin=null
-                ARG <this>: GET_VAR 'val tmp_0: values.ValuesContract declared in values.copy' type=values.ValuesContract origin=null
+              then: CALL 'public final fun <get-list> (): @[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.collections.List<kotlin.String>> declared in values.Values.Contract' type=@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.collections.List<kotlin.String>> origin=null
+                ARG <this>: GET_VAR 'val tmp_0: values.Values.Contract declared in values.copy' type=values.Values.Contract origin=null
             BRANCH
               if: CONST Boolean type=kotlin.Boolean value=true
               then: TYPE_OP type=@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.collections.List<kotlin.String>> origin=IMPLICIT_CAST typeOperand=@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.collections.List<kotlin.String>>
@@ -819,8 +818,8 @@ FILE fqName:values fileName:values/ValuesCopy.kt
               if: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
                 ARG arg0: GET_VAR 'array: @[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.IntArray>? declared in values.copy' type=@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.IntArray>? origin=null
                 ARG arg1: CONST Null type=kotlin.Nothing? value=null
-              then: CALL 'public final fun <get-array> (): @[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.IntArray> declared in values.ValuesContract' type=@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.IntArray> origin=null
-                ARG <this>: GET_VAR 'val tmp_0: values.ValuesContract declared in values.copy' type=values.ValuesContract origin=null
+              then: CALL 'public final fun <get-array> (): @[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.IntArray> declared in values.Values.Contract' type=@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.IntArray> origin=null
+                ARG <this>: GET_VAR 'val tmp_0: values.Values.Contract declared in values.copy' type=values.Values.Contract origin=null
             BRANCH
               if: CONST Boolean type=kotlin.Boolean value=true
               then: TYPE_OP type=@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.IntArray> origin=IMPLICIT_CAST typeOperand=@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.IntArray>
@@ -830,8 +829,8 @@ FILE fqName:values fileName:values/ValuesCopy.kt
               if: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
                 ARG arg0: GET_VAR 'transform: @[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Function1<kotlin.String, kotlin.String>>? declared in values.copy' type=@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Function1<kotlin.String, kotlin.String>>? origin=null
                 ARG arg1: CONST Null type=kotlin.Nothing? value=null
-              then: CALL 'public final fun <get-transform> (): @[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Function1<kotlin.String, kotlin.String>> declared in values.ValuesContract' type=@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Function1<kotlin.String, kotlin.String>> origin=null
-                ARG <this>: GET_VAR 'val tmp_0: values.ValuesContract declared in values.copy' type=values.ValuesContract origin=null
+              then: CALL 'public final fun <get-transform> (): @[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Function1<kotlin.String, kotlin.String>> declared in values.Values.Contract' type=@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Function1<kotlin.String, kotlin.String>> origin=null
+                ARG <this>: GET_VAR 'val tmp_0: values.Values.Contract declared in values.copy' type=values.Values.Contract origin=null
             BRANCH
               if: CONST Boolean type=kotlin.Boolean value=true
               then: TYPE_OP type=@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Function1<kotlin.String, kotlin.String>> origin=IMPLICIT_CAST typeOperand=@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Function1<kotlin.String, kotlin.String>>
@@ -841,8 +840,8 @@ FILE fqName:values fileName:values/ValuesCopy.kt
               if: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
                 ARG arg0: GET_VAR 'float: @[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Float>? declared in values.copy' type=@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Float>? origin=null
                 ARG arg1: CONST Null type=kotlin.Nothing? value=null
-              then: CALL 'public final fun <get-float> (): @[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Float>? declared in values.ValuesContract' type=@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Float>? origin=null
-                ARG <this>: GET_VAR 'val tmp_0: values.ValuesContract declared in values.copy' type=values.ValuesContract origin=null
+              then: CALL 'public final fun <get-float> (): @[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Float>? declared in values.Values.Contract' type=@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Float>? origin=null
+                ARG <this>: GET_VAR 'val tmp_0: values.Values.Contract declared in values.copy' type=values.Values.Contract origin=null
             BRANCH
               if: CONST Boolean type=kotlin.Boolean value=true
               then: TYPE_OP type=@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Float>? origin=IMPLICIT_CAST typeOperand=@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Float>?

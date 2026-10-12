@@ -40,7 +40,7 @@ class ContractCatalogueTest {
         assertNotEquals(original, original.copy(width = { 48 }))
         assertEquals(original, original.copy(width = original.contract().width))
         assertNotSame(original.contract(), original.contract())
-        assertTrue(ValueAppearanceContract::class.java.declaredMethods.none { it.name == "equals" || it.name == "hashCode" })
+        assertTrue(ValueAppearance.Contract::class.java.declaredMethods.none { it.name == "equals" || it.name == "hashCode" })
     }
 
     @Test
@@ -65,7 +65,7 @@ class ContractCatalogueTest {
     fun copyAcceptsManualImplementationsWithExplicitContract() {
         val manual = object : JvmAppearance {
             override fun width() = 12
-            override fun contract() = JvmAppearanceContract(width = { 12 })
+            override fun contract() = JvmAppearance.Contract(width = { 12 })
         }
         val copied = manual.copy(width = { 24 })
         assertEquals(24, copied.width())
@@ -74,6 +74,7 @@ class ContractCatalogueTest {
 
     @Test
     fun emptyAndInternalContractsGenerateValueImplementations() {
+        assertEquals(InternalAppearance::class.java, InternalAppearance.Contract::class.java.enclosingClass)
         assertEquals(EmptyAppearance(), EmptyAppearance().copy())
         assertEquals(EmptyAppearance().hashCode(), EmptyAppearance().hashCode())
         assertEquals(8, InternalAppearance(inset = { 4 }).copy(inset = { 8 }).inset())

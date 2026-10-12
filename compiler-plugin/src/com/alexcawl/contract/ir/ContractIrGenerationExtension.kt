@@ -2,6 +2,7 @@ package com.alexcawl.contract.ir
 
 import com.alexcawl.contract.fir.ContractDeclarationGenerator
 import com.alexcawl.contract.fir.callbackName
+import com.alexcawl.contract.fir.containerName
 import com.alexcawl.contract.fir.generateContractId
 import org.jetbrains.kotlin.backend.common.extensions.IrGenerationExtension
 import org.jetbrains.kotlin.backend.common.extensions.IrPluginContext
@@ -36,7 +37,7 @@ private class ContractBodyGenerator(private val context: IrPluginContext) {
         for (contract in classes.filter { it.hasAnnotation(generateContractId.asSingleFqName()) }) {
             val generated = classes.filter { it.isGenerated() && it.packageFqName == contract.packageFqName }
             val implementation = generated.single { it.name.asString() == "${contract.name}Impl" }
-            val container = generated.single { it.name.asString() == "${contract.name}Contract" }
+            val container = contract.declarations.filterIsInstance<IrClass>().single { it.isGenerated() && it.name == containerName }
             val methods = contract.declarations.filterIsInstance<IrSimpleFunction>().filterNot { it.isGenerated() || it.isFakeOverride }
             val factories = functions.filter { it.returnType.classOrNull == contract.symbol && it.parameters.none { p -> p.kind == IrParameterKind.ExtensionReceiver } }
             val copies = functions.filter { it.returnType.classOrNull == contract.symbol && it.parameters.any { p -> p.kind == IrParameterKind.ExtensionReceiver } }

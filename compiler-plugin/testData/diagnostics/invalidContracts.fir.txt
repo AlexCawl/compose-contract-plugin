@@ -16,14 +16,24 @@ FILE: invalidContracts.kt
             public get(): R|kotlin/Int|
             public set(value: R|kotlin/Int|): R|kotlin/Unit|
 
-        public abstract fun contract(): R|invalid/MutableContract|
+        public abstract fun contract(): R|invalid/Mutable.Contract|
+
+        public final class Contract : R|kotlin/Any| {
+            public constructor(): R|invalid/Mutable.Contract|
+
+        }
 
     }
     @R|com/alexcawl/contract/GenerateContract|() public abstract interface Property : R|kotlin/Any| {
         public abstract val value: R|kotlin/Int|
             public get(): R|kotlin/Int|
 
-        public abstract fun contract(): R|invalid/PropertyContract|
+        public abstract fun contract(): R|invalid/Property.Contract|
+
+        public final class Contract : R|kotlin/Any| {
+            public constructor(): R|invalid/Property.Contract|
+
+        }
 
     }
     public abstract interface Base : R|kotlin/Any| {
@@ -31,7 +41,12 @@ FILE: invalidContracts.kt
 
     }
     @R|com/alexcawl/contract/GenerateContract|() public abstract interface Inherited : R|invalid/Base| {
-        public abstract fun contract(): R|invalid/InheritedContract|
+        public abstract fun contract(): R|invalid/Inherited.Contract|
+
+        public final class Contract : R|kotlin/Any| {
+            public constructor(): R|invalid/Inherited.Contract|
+
+        }
 
     }
     @R|com/alexcawl/contract/GenerateContract|() public abstract interface Overloaded : R|kotlin/Any| {
@@ -39,13 +54,29 @@ FILE: invalidContracts.kt
 
         public abstract fun value(input: R|kotlin/Int|): R|kotlin/Int|
 
-        public abstract fun contract(): R|invalid/OverloadedContract|
+        public abstract fun contract(): R|invalid/Overloaded.Contract|
+
+        public final class Contract : R|kotlin/Any| {
+            public final val value: R|invalid/Overloaded.() -> kotlin/Int|
+                public get(): R|invalid/Overloaded.() -> kotlin/Int|
+
+            public constructor(value: R|invalid/Overloaded.() -> kotlin/Int|, value: R|invalid/Overloaded.(kotlin/Int) -> kotlin/Int|): R|invalid/Overloaded.Contract|
+
+        }
 
     }
     @R|com/alexcawl/contract/GenerateContract|() public abstract interface Reserved : R|kotlin/Any| {
         public abstract fun contract(): R|kotlin/Int|
 
-        public abstract fun contract(): R|invalid/ReservedContract|
+        public abstract fun contract(): R|invalid/Reserved.Contract|
+
+        public final class Contract : R|kotlin/Any| {
+            public final val contract: R|invalid/Reserved.() -> kotlin/Int|
+                public get(): R|invalid/Reserved.() -> kotlin/Int|
+
+            public constructor(contract: R|invalid/Reserved.() -> kotlin/Int|): R|invalid/Reserved.Contract|
+
+        }
 
     }
     @R|com/alexcawl/contract/GenerateContract|() public abstract interface GetterCollision : R|kotlin/Any| {
@@ -53,30 +84,70 @@ FILE: invalidContracts.kt
 
         public abstract fun Foo(): R|kotlin/Int|
 
-        public abstract fun contract(): R|invalid/GetterCollisionContract|
+        public abstract fun contract(): R|invalid/GetterCollision.Contract|
+
+        public final class Contract : R|kotlin/Any| {
+            public final val foo: R|invalid/GetterCollision.() -> kotlin/Int|
+                public get(): R|invalid/GetterCollision.() -> kotlin/Int|
+
+            public final val Foo: R|invalid/GetterCollision.() -> kotlin/Int|
+                public get(): R|invalid/GetterCollision.() -> kotlin/Int|
+
+            public constructor(foo: R|invalid/GetterCollision.() -> kotlin/Int|, Foo: R|invalid/GetterCollision.() -> kotlin/Int|): R|invalid/GetterCollision.Contract|
+
+        }
 
     }
     @R|com/alexcawl/contract/GenerateContract|() public abstract interface ContainerCollision : R|kotlin/Any| {
         public abstract fun value(): R|kotlin/Int|
 
-        public abstract fun contract(): R|invalid/ContainerCollisionContract|
+        public final class Contract : R|kotlin/Any| {
+            public constructor(): R|invalid/ContainerCollision.Contract| {
+                super<R|kotlin/Any|>()
+            }
 
-    }
-    public final class ContainerCollisionContract : R|kotlin/Any| {
-        public constructor(): R|invalid/ContainerCollisionContract| {
-            super<R|kotlin/Any|>()
         }
 
-        public final val value: R|invalid/ContainerCollision.() -> kotlin/Int|
-            public get(): R|invalid/ContainerCollision.() -> kotlin/Int|
+        public abstract fun contract(): R|invalid/ContainerCollision.Contract|
 
-        public constructor(value: R|invalid/ContainerCollision.() -> kotlin/Int|): R|invalid/ContainerCollisionContract|
+    }
+    @R|com/alexcawl/contract/GenerateContract|() public abstract interface ObjectContainerCollision : R|kotlin/Any| {
+        public abstract fun value(): R|kotlin/Int|
 
+        public final object Contract : R|kotlin/Any| {
+            private constructor(): R|invalid/ObjectContainerCollision.Contract| {
+                super<R|kotlin/Any|>()
+            }
+
+        }
+
+        public abstract fun contract(): R|invalid/ObjectContainerCollision.Contract|
+
+    }
+    @R|com/alexcawl/contract/GenerateContract|() public abstract interface InterfaceContainerCollision : R|kotlin/Any| {
+        public abstract fun value(): R|kotlin/Int|
+
+        public abstract interface Contract : R|kotlin/Any| {
+        }
+
+        public abstract fun contract(): R|invalid/InterfaceContainerCollision.Contract|
+
+    }
+    public final fun collisionHasNoGeneratedMembers(contract: R|invalid/ContainerCollision.Contract|): R|kotlin/Unit| {
+        R|<local>/contract|.<Unresolved name: value>#
     }
     @R|com/alexcawl/contract/GenerateContract|() public abstract interface ImplementationCollision : R|kotlin/Any| {
         public abstract fun value(): R|kotlin/Int|
 
-        public abstract fun contract(): R|invalid/ImplementationCollisionContract|
+        public abstract fun contract(): R|invalid/ImplementationCollision.Contract|
+
+        public final class Contract : R|kotlin/Any| {
+            public final val value: R|invalid/ImplementationCollision.() -> kotlin/Int|
+                public get(): R|invalid/ImplementationCollision.() -> kotlin/Int|
+
+            public constructor(value: R|invalid/ImplementationCollision.() -> kotlin/Int|): R|invalid/ImplementationCollision.Contract|
+
+        }
 
     }
     public final class ImplementationCollisionImpl : R|kotlin/Any| {
@@ -84,24 +155,19 @@ FILE: invalidContracts.kt
             super<R|kotlin/Any|>()
         }
 
-        public final override fun equals(other: R|kotlin/Any?|): R|kotlin/Boolean|
-
-        public final override fun hashCode(): R|kotlin/Int|
-
-        public final override fun contract(): R|invalid/ImplementationCollisionContract|
-
-        public final override fun value(): R|kotlin/Int|
-
-        private final val $contract$value: R|invalid/ImplementationCollision.() -> kotlin/Int|
-            private get(): R|invalid/ImplementationCollision.() -> kotlin/Int|
-
-        public constructor(value: R|invalid/ImplementationCollision.() -> kotlin/Int|): R|invalid/ImplementationCollisionImpl|
-
     }
     @R|com/alexcawl/contract/GenerateContract|() public abstract interface ConstructorFacadeCollision : R|kotlin/Any| {
         public abstract fun value(): R|kotlin/Int|
 
-        public abstract fun contract(): R|invalid/ConstructorFacadeCollisionContract|
+        public abstract fun contract(): R|invalid/ConstructorFacadeCollision.Contract|
+
+        public final class Contract : R|kotlin/Any| {
+            public final val value: R|invalid/ConstructorFacadeCollision.() -> kotlin/Int|
+                public get(): R|invalid/ConstructorFacadeCollision.() -> kotlin/Int|
+
+            public constructor(value: R|invalid/ConstructorFacadeCollision.() -> kotlin/Int|): R|invalid/ConstructorFacadeCollision.Contract|
+
+        }
 
     }
     public final class ConstructorFacadeCollisionConstructorKt : R|kotlin/Any| {
@@ -113,7 +179,15 @@ FILE: invalidContracts.kt
     @R|com/alexcawl/contract/GenerateContract|() public abstract interface CopyFacadeCollision : R|kotlin/Any| {
         public abstract fun value(): R|kotlin/Int|
 
-        public abstract fun contract(): R|invalid/CopyFacadeCollisionContract|
+        public abstract fun contract(): R|invalid/CopyFacadeCollision.Contract|
+
+        public final class Contract : R|kotlin/Any| {
+            public final val value: R|invalid/CopyFacadeCollision.() -> kotlin/Int|
+                public get(): R|invalid/CopyFacadeCollision.() -> kotlin/Int|
+
+            public constructor(value: R|invalid/CopyFacadeCollision.() -> kotlin/Int|): R|invalid/CopyFacadeCollision.Contract|
+
+        }
 
     }
     public final class CopyFacadeCollisionCopyKt : R|kotlin/Any| {
@@ -129,12 +203,25 @@ FILE: invalidContracts.kt
             ^optional Int(0)
         }
 
-        public abstract fun contract(): R|invalid/RequiredContract|
+        public abstract fun contract(): R|invalid/Required.Contract|
+
+        public final class Contract : R|kotlin/Any| {
+            public final val value: R|invalid/Required.() -> kotlin/Int|
+                public get(): R|invalid/Required.() -> kotlin/Int|
+
+            public final val optional: R|(invalid/Required.() -> kotlin/Int)?|
+                public get(): R|(invalid/Required.() -> kotlin/Int)?|
+
+            @R|kotlin/Deprecated|(message = String(Binary compatibility), level = R|kotlin/DeprecationLevel.HIDDEN|) public constructor(value: R|invalid/Required.() -> kotlin/Int|): R|invalid/Required.Contract|
+
+            public constructor(value: R|invalid/Required.() -> kotlin/Int|, optional: R|(invalid/Required.() -> kotlin/Int)?| = throw R|kotlin/Throwable.Throwable|(String(Stub for declaration generated by Plugin[Contract]))): R|invalid/Required.Contract|
+
+        }
 
     }
     public final fun missing(): R|kotlin/Unit| {
         R|invalid/Required<Inapplicable(INAPPLICABLE_ARGUMENTS_MAPPING_ERROR): invalid/Required>#|()
-        R|invalid/RequiredContract<Inapplicable(INAPPLICABLE_ARGUMENTS_MAPPING_ERROR): invalid/RequiredContract>#|()
+        Q|invalid/Required|.R|invalid/Required.Contract<Inapplicable(INAPPLICABLE_ARGUMENTS_MAPPING_ERROR): invalid/Required.Contract>#|()
     }
 FILE: invalid/MutableImpl.kt
     package invalid
@@ -144,16 +231,9 @@ FILE: invalid/MutableImpl.kt
 
         public final override fun hashCode(): R|kotlin/Int|
 
-        public final override fun contract(): R|invalid/MutableContract|
+        public final override fun contract(): R|invalid/Mutable.Contract|
 
         public constructor(): R|invalid/MutableImpl|
-
-    }
-FILE: invalid/MutableContract.kt
-    package invalid
-
-    public final class MutableContract : R|kotlin/Any| {
-        public constructor(): R|invalid/MutableContract|
 
     }
 FILE: invalid/PropertyImpl.kt
@@ -164,16 +244,9 @@ FILE: invalid/PropertyImpl.kt
 
         public final override fun hashCode(): R|kotlin/Int|
 
-        public final override fun contract(): R|invalid/PropertyContract|
+        public final override fun contract(): R|invalid/Property.Contract|
 
         public constructor(): R|invalid/PropertyImpl|
-
-    }
-FILE: invalid/PropertyContract.kt
-    package invalid
-
-    public final class PropertyContract : R|kotlin/Any| {
-        public constructor(): R|invalid/PropertyContract|
 
     }
 FILE: invalid/InheritedImpl.kt
@@ -184,16 +257,9 @@ FILE: invalid/InheritedImpl.kt
 
         public final override fun hashCode(): R|kotlin/Int|
 
-        public final override fun contract(): R|invalid/InheritedContract|
+        public final override fun contract(): R|invalid/Inherited.Contract|
 
         public constructor(): R|invalid/InheritedImpl|
-
-    }
-FILE: invalid/InheritedContract.kt
-    package invalid
-
-    public final class InheritedContract : R|kotlin/Any| {
-        public constructor(): R|invalid/InheritedContract|
 
     }
 FILE: invalid/OverloadedImpl.kt
@@ -204,7 +270,7 @@ FILE: invalid/OverloadedImpl.kt
 
         public final override fun hashCode(): R|kotlin/Int|
 
-        public final override fun contract(): R|invalid/OverloadedContract|
+        public final override fun contract(): R|invalid/Overloaded.Contract|
 
         public final override fun value(): R|kotlin/Int|
 
@@ -212,16 +278,6 @@ FILE: invalid/OverloadedImpl.kt
             private get(): R|invalid/Overloaded.() -> kotlin/Int|
 
         public constructor(value: R|invalid/Overloaded.() -> kotlin/Int|, value: R|invalid/Overloaded.(kotlin/Int) -> kotlin/Int|): R|invalid/OverloadedImpl|
-
-    }
-FILE: invalid/OverloadedContract.kt
-    package invalid
-
-    public final class OverloadedContract : R|kotlin/Any| {
-        public final val value: R|invalid/Overloaded.() -> kotlin/Int|
-            public get(): R|invalid/Overloaded.() -> kotlin/Int|
-
-        public constructor(value: R|invalid/Overloaded.() -> kotlin/Int|, value: R|invalid/Overloaded.(kotlin/Int) -> kotlin/Int|): R|invalid/OverloadedContract|
 
     }
 FILE: invalid/ReservedImpl.kt
@@ -232,22 +288,12 @@ FILE: invalid/ReservedImpl.kt
 
         public final override fun hashCode(): R|kotlin/Int|
 
-        public final override fun contract(): R|invalid/ReservedContract|
+        public final override fun contract(): R|invalid/Reserved.Contract|
 
         private final val $contract$contract: R|invalid/Reserved.() -> kotlin/Int|
             private get(): R|invalid/Reserved.() -> kotlin/Int|
 
         public constructor(contract: R|invalid/Reserved.() -> kotlin/Int|): R|invalid/ReservedImpl|
-
-    }
-FILE: invalid/ReservedContract.kt
-    package invalid
-
-    public final class ReservedContract : R|kotlin/Any| {
-        public final val contract: R|invalid/Reserved.() -> kotlin/Int|
-            public get(): R|invalid/Reserved.() -> kotlin/Int|
-
-        public constructor(contract: R|invalid/Reserved.() -> kotlin/Int|): R|invalid/ReservedContract|
 
     }
 FILE: invalid/GetterCollisionImpl.kt
@@ -258,7 +304,7 @@ FILE: invalid/GetterCollisionImpl.kt
 
         public final override fun hashCode(): R|kotlin/Int|
 
-        public final override fun contract(): R|invalid/GetterCollisionContract|
+        public final override fun contract(): R|invalid/GetterCollision.Contract|
 
         public final override fun foo(): R|kotlin/Int|
 
@@ -273,19 +319,6 @@ FILE: invalid/GetterCollisionImpl.kt
         public constructor(foo: R|invalid/GetterCollision.() -> kotlin/Int|, Foo: R|invalid/GetterCollision.() -> kotlin/Int|): R|invalid/GetterCollisionImpl|
 
     }
-FILE: invalid/GetterCollisionContract.kt
-    package invalid
-
-    public final class GetterCollisionContract : R|kotlin/Any| {
-        public final val foo: R|invalid/GetterCollision.() -> kotlin/Int|
-            public get(): R|invalid/GetterCollision.() -> kotlin/Int|
-
-        public final val Foo: R|invalid/GetterCollision.() -> kotlin/Int|
-            public get(): R|invalid/GetterCollision.() -> kotlin/Int|
-
-        public constructor(foo: R|invalid/GetterCollision.() -> kotlin/Int|, Foo: R|invalid/GetterCollision.() -> kotlin/Int|): R|invalid/GetterCollisionContract|
-
-    }
 FILE: invalid/ContainerCollisionImpl.kt
     package invalid
 
@@ -294,7 +327,7 @@ FILE: invalid/ContainerCollisionImpl.kt
 
         public final override fun hashCode(): R|kotlin/Int|
 
-        public final override fun contract(): R|invalid/ContainerCollisionContract|
+        public final override fun contract(): R|invalid/ContainerCollision.Contract|
 
         public final override fun value(): R|kotlin/Int|
 
@@ -304,14 +337,40 @@ FILE: invalid/ContainerCollisionImpl.kt
         public constructor(value: R|invalid/ContainerCollision.() -> kotlin/Int|): R|invalid/ContainerCollisionImpl|
 
     }
-FILE: invalid/ContainerCollisionContract.kt
+FILE: invalid/ObjectContainerCollisionImpl.kt
     package invalid
 
-    public final class ContainerCollisionContract : R|kotlin/Any| {
-        public final val value: R|invalid/ContainerCollision.() -> kotlin/Int|
-            public get(): R|invalid/ContainerCollision.() -> kotlin/Int|
+    private final class ObjectContainerCollisionImpl : R|invalid/ObjectContainerCollision| {
+        public final override fun equals(other: R|kotlin/Any?|): R|kotlin/Boolean|
 
-        public constructor(value: R|invalid/ContainerCollision.() -> kotlin/Int|): R|invalid/ContainerCollisionContract|
+        public final override fun hashCode(): R|kotlin/Int|
+
+        public final override fun contract(): R|invalid/ObjectContainerCollision.Contract|
+
+        public final override fun value(): R|kotlin/Int|
+
+        private final val $contract$value: R|invalid/ObjectContainerCollision.() -> kotlin/Int|
+            private get(): R|invalid/ObjectContainerCollision.() -> kotlin/Int|
+
+        public constructor(value: R|invalid/ObjectContainerCollision.() -> kotlin/Int|): R|invalid/ObjectContainerCollisionImpl|
+
+    }
+FILE: invalid/InterfaceContainerCollisionImpl.kt
+    package invalid
+
+    private final class InterfaceContainerCollisionImpl : R|invalid/InterfaceContainerCollision| {
+        public final override fun equals(other: R|kotlin/Any?|): R|kotlin/Boolean|
+
+        public final override fun hashCode(): R|kotlin/Int|
+
+        public final override fun contract(): R|invalid/InterfaceContainerCollision.Contract|
+
+        public final override fun value(): R|kotlin/Int|
+
+        private final val $contract$value: R|invalid/InterfaceContainerCollision.() -> kotlin/Int|
+            private get(): R|invalid/InterfaceContainerCollision.() -> kotlin/Int|
+
+        public constructor(value: R|invalid/InterfaceContainerCollision.() -> kotlin/Int|): R|invalid/InterfaceContainerCollisionImpl|
 
     }
 FILE: invalid/ImplementationCollisionImpl.kt
@@ -322,7 +381,7 @@ FILE: invalid/ImplementationCollisionImpl.kt
 
         public final override fun hashCode(): R|kotlin/Int|
 
-        public final override fun contract(): R|invalid/ImplementationCollisionContract|
+        public final override fun contract(): R|invalid/ImplementationCollision.Contract|
 
         public final override fun value(): R|kotlin/Int|
 
@@ -330,16 +389,6 @@ FILE: invalid/ImplementationCollisionImpl.kt
             private get(): R|invalid/ImplementationCollision.() -> kotlin/Int|
 
         public constructor(value: R|invalid/ImplementationCollision.() -> kotlin/Int|): R|invalid/ImplementationCollisionImpl|
-
-    }
-FILE: invalid/ImplementationCollisionContract.kt
-    package invalid
-
-    public final class ImplementationCollisionContract : R|kotlin/Any| {
-        public final val value: R|invalid/ImplementationCollision.() -> kotlin/Int|
-            public get(): R|invalid/ImplementationCollision.() -> kotlin/Int|
-
-        public constructor(value: R|invalid/ImplementationCollision.() -> kotlin/Int|): R|invalid/ImplementationCollisionContract|
 
     }
 FILE: invalid/ConstructorFacadeCollisionImpl.kt
@@ -350,7 +399,7 @@ FILE: invalid/ConstructorFacadeCollisionImpl.kt
 
         public final override fun hashCode(): R|kotlin/Int|
 
-        public final override fun contract(): R|invalid/ConstructorFacadeCollisionContract|
+        public final override fun contract(): R|invalid/ConstructorFacadeCollision.Contract|
 
         public final override fun value(): R|kotlin/Int|
 
@@ -358,16 +407,6 @@ FILE: invalid/ConstructorFacadeCollisionImpl.kt
             private get(): R|invalid/ConstructorFacadeCollision.() -> kotlin/Int|
 
         public constructor(value: R|invalid/ConstructorFacadeCollision.() -> kotlin/Int|): R|invalid/ConstructorFacadeCollisionImpl|
-
-    }
-FILE: invalid/ConstructorFacadeCollisionContract.kt
-    package invalid
-
-    public final class ConstructorFacadeCollisionContract : R|kotlin/Any| {
-        public final val value: R|invalid/ConstructorFacadeCollision.() -> kotlin/Int|
-            public get(): R|invalid/ConstructorFacadeCollision.() -> kotlin/Int|
-
-        public constructor(value: R|invalid/ConstructorFacadeCollision.() -> kotlin/Int|): R|invalid/ConstructorFacadeCollisionContract|
 
     }
 FILE: invalid/CopyFacadeCollisionImpl.kt
@@ -378,7 +417,7 @@ FILE: invalid/CopyFacadeCollisionImpl.kt
 
         public final override fun hashCode(): R|kotlin/Int|
 
-        public final override fun contract(): R|invalid/CopyFacadeCollisionContract|
+        public final override fun contract(): R|invalid/CopyFacadeCollision.Contract|
 
         public final override fun value(): R|kotlin/Int|
 
@@ -386,16 +425,6 @@ FILE: invalid/CopyFacadeCollisionImpl.kt
             private get(): R|invalid/CopyFacadeCollision.() -> kotlin/Int|
 
         public constructor(value: R|invalid/CopyFacadeCollision.() -> kotlin/Int|): R|invalid/CopyFacadeCollisionImpl|
-
-    }
-FILE: invalid/CopyFacadeCollisionContract.kt
-    package invalid
-
-    public final class CopyFacadeCollisionContract : R|kotlin/Any| {
-        public final val value: R|invalid/CopyFacadeCollision.() -> kotlin/Int|
-            public get(): R|invalid/CopyFacadeCollision.() -> kotlin/Int|
-
-        public constructor(value: R|invalid/CopyFacadeCollision.() -> kotlin/Int|): R|invalid/CopyFacadeCollisionContract|
 
     }
 FILE: invalid/RequiredImpl.kt
@@ -406,7 +435,7 @@ FILE: invalid/RequiredImpl.kt
 
         public final override fun hashCode(): R|kotlin/Int|
 
-        public final override fun contract(): R|invalid/RequiredContract|
+        public final override fun contract(): R|invalid/Required.Contract|
 
         public final override fun value(): R|kotlin/Int|
 
@@ -419,21 +448,6 @@ FILE: invalid/RequiredImpl.kt
             private get(): R|(invalid/Required.() -> kotlin/Int)?|
 
         public constructor(value: R|invalid/Required.() -> kotlin/Int|, optional: R|(invalid/Required.() -> kotlin/Int)?|): R|invalid/RequiredImpl|
-
-    }
-FILE: invalid/RequiredContract.kt
-    package invalid
-
-    public final class RequiredContract : R|kotlin/Any| {
-        public final val value: R|invalid/Required.() -> kotlin/Int|
-            public get(): R|invalid/Required.() -> kotlin/Int|
-
-        public final val optional: R|(invalid/Required.() -> kotlin/Int)?|
-            public get(): R|(invalid/Required.() -> kotlin/Int)?|
-
-        @R|kotlin/Deprecated|(message = String(Binary compatibility), level = R|kotlin/DeprecationLevel.HIDDEN|) public constructor(value: R|invalid/Required.() -> kotlin/Int|): R|invalid/RequiredContract|
-
-        public constructor(value: R|invalid/Required.() -> kotlin/Int|, optional: R|(invalid/Required.() -> kotlin/Int)?| = throw R|kotlin/Throwable.Throwable|(String(Stub for declaration generated by Plugin[Contract]))): R|invalid/RequiredContract|
 
     }
 FILE: invalid/MutableConstructor.kt
@@ -468,6 +482,14 @@ FILE: invalid/ContainerCollisionCopy.kt
     package invalid
 
     public final fun R|invalid/ContainerCollision|.copy(value: R|(invalid/ContainerCollision.() -> kotlin/Int)?| = throw R|kotlin/Throwable.Throwable|(String(Stub for declaration generated by Plugin[Contract]))): R|invalid/ContainerCollision|
+FILE: invalid/ObjectContainerCollisionCopy.kt
+    package invalid
+
+    public final fun R|invalid/ObjectContainerCollision|.copy(value: R|(invalid/ObjectContainerCollision.() -> kotlin/Int)?| = throw R|kotlin/Throwable.Throwable|(String(Stub for declaration generated by Plugin[Contract]))): R|invalid/ObjectContainerCollision|
+FILE: invalid/InterfaceContainerCollisionCopy.kt
+    package invalid
+
+    public final fun R|invalid/InterfaceContainerCollision|.copy(value: R|(invalid/InterfaceContainerCollision.() -> kotlin/Int)?| = throw R|kotlin/Throwable.Throwable|(String(Stub for declaration generated by Plugin[Contract]))): R|invalid/InterfaceContainerCollision|
 FILE: invalid/ImplementationCollisionCopy.kt
     package invalid
 
@@ -509,6 +531,14 @@ FILE: invalid/ContainerCollisionConstructor.kt
     package invalid
 
     public final fun ContainerCollision(value: R|invalid/ContainerCollision.() -> kotlin/Int|): R|invalid/ContainerCollision|
+FILE: invalid/ObjectContainerCollisionConstructor.kt
+    package invalid
+
+    public final fun ObjectContainerCollision(value: R|invalid/ObjectContainerCollision.() -> kotlin/Int|): R|invalid/ObjectContainerCollision|
+FILE: invalid/InterfaceContainerCollisionConstructor.kt
+    package invalid
+
+    public final fun InterfaceContainerCollision(value: R|invalid/InterfaceContainerCollision.() -> kotlin/Int|): R|invalid/InterfaceContainerCollision|
 FILE: invalid/ImplementationCollisionConstructor.kt
     package invalid
 

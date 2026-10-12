@@ -48,7 +48,7 @@ private object ContractChecker : FirRegularClassChecker(MppCheckerKind.Common) {
         for (id in generatedIds) {
             val existing = context.session.symbolProvider.getClassLikeSymbolByClassId(id)
             if (existing != null && (existing.fir.origin as? FirDeclarationOrigin.Plugin)?.key != ContractDeclarationGenerator.Key) {
-                reporter.reportOn(annotation.source, FirErrors.UNSUPPORTED, "Generated class ${id.shortClassName} conflicts with an existing declaration")
+                reporter.reportOn(annotation.source, FirErrors.UNSUPPORTED, "Generated class ${id.relativeClassName} conflicts with an existing declaration")
             }
         }
         val composableId = ClassId.topLevel(FqName("androidx.compose.runtime.Composable"))

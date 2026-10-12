@@ -30,10 +30,11 @@ internal val generateContractId = ClassId.topLevel(FqName("com.alexcawl.contract
 internal val contractPredicate = LookupPredicate.create { annotated(generateContractId.asSingleFqName()) }
 internal val copyName = Name.identifier("copy")
 internal val contractName = Name.identifier("contract")
+internal val containerName = Name.identifier("Contract")
 internal fun implementationId(contract: ClassId): ClassId =
     ClassId(contract.packageFqName, Name.identifier("${contract.shortClassName}Impl"))
 internal fun containerId(contract: ClassId): ClassId =
-    ClassId(contract.packageFqName, Name.identifier("${contract.shortClassName}Contract"))
+    contract.createNestedClassId(containerName)
 internal fun callbackName(name: Name): Name = Name.identifier("\$contract\$${name.asString()}")
 
 internal fun FirRegularClass.sourceMembers(): List<FirCallableDeclaration> =
@@ -81,12 +82,15 @@ class ContractDeclarationGenerator(session: FirSession) : FirDeclarationGenerati
                     !it.fir.isLocal && it.typeParameterSymbols.isEmpty()
             }
 
-    private fun contractFor(owner: FirClassSymbol<*>): FirRegularClassSymbol? = contracts().firstOrNull {
-        implementationId(it.classId) == owner.classId || containerId(it.classId) == owner.classId
+    private fun contractFor(owner: FirClassSymbol<*>): FirRegularClassSymbol? {
+        if ((owner.fir.origin as? FirDeclarationOrigin.Plugin)?.key != Key) return null
+        return contracts().firstOrNull {
+            implementationId(it.classId) == owner.classId || containerId(it.classId) == owner.classId
+        }
     }
 
-    override fun getTopLevelClassIds(): Set<ClassId> = contracts().flatMapTo(mutableSetOf()) {
-        listOf(implementationId(it.classId), containerId(it.classId))
+    override fun getTopLevelClassIds(): Set<ClassId> = contracts().mapTo(mutableSetOf()) {
+        implementationId(it.classId)
     }
 
     override fun getTopLevelCallableIds(): Set<CallableId> = contracts().flatMapTo(mutableSetOf()) {
@@ -96,13 +100,26 @@ class ContractDeclarationGenerator(session: FirSession) : FirDeclarationGenerati
     override fun hasPackage(packageFqName: FqName): Boolean = contracts().any { it.classId.packageFqName == packageFqName }
 
     override fun generateTopLevelClassLikeDeclaration(classId: ClassId): FirClassLikeSymbol<*>? {
-        val contract = contracts().firstOrNull {
-            implementationId(it.classId) == classId || containerId(it.classId) == classId
-        } ?: return null
-        val implementation = classId == implementationId(contract.classId)
+        val contract = contracts().firstOrNull { implementationId(it.classId) == classId } ?: return null
         return createTopLevelClass(classId, Key) {
-            visibility = if (implementation) Visibilities.Private else contract.fir.status.visibility
-            if (implementation) superType(contract.defaultType())
+            visibility = Visibilities.Private
+            superType(contract.defaultType())
+        }.symbol
+    }
+
+    override fun getNestedClassifiersNames(classSymbol: FirClassSymbol<*>, context: NestedClassGenerationContext): Set<Name> =
+        if (contracts().any { it.classId == classSymbol.classId }) setOf(containerName) else emptySet()
+
+    override fun generateNestedClassLikeDeclaration(
+        owner: FirClassSymbol<*>, name: Name, context: NestedClassGenerationContext,
+    ): FirClassLikeSymbol<*>? {
+        if (name != containerName) return null
+        val contract = contracts().firstOrNull { it.classId == owner.classId } ?: return null
+        if (contract.fir.declarations.any {
+            it is FirClassLikeDeclaration && it.symbol.name == name && (it.origin as? FirDeclarationOrigin.Plugin)?.key != Key
+        }) return null
+        return createNestedClass(owner, name, Key) {
+            visibility = contract.fir.status.visibility
         }.symbol
     }
 

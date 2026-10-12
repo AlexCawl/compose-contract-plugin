@@ -17,7 +17,6 @@ interface Contract {
 package usage
 
 import published.Contract
-import published.ContractContract
 import published.copy
 
 fun box(): String {
@@ -27,7 +26,7 @@ fun box(): String {
     check(contract.copy(name = { "changed" }).text("copy:") == "copy:changed")
     val manual = object : Contract {
         override fun name() = "manual"
-        override fun contract() = ContractContract(name = { "manual" })
+        override fun contract() = Contract.Contract(name = { "manual" })
     }
     check(manual.copy(name = { "changed" }).text("manual:") == "manual:changed")
     return "OK"

@@ -77,7 +77,7 @@ import com.alexcawl.contract.GenerateContract
 
 // Required callbacks must be supplied to both the factory and the callback container.
 // val missingPrefix = DefaultAppearance(token = { "#$it" })
-// val missingToken = DefaultAppearanceContract(prefix = { "day:" })
+// val missingToken = DefaultAppearance.Contract(prefix = { "day:" })
 
 // SlotLimitAppearance keeps its forbidden 128th Long parameter commented beside the working 127-parameter method.
 // Default-argument masks, receivers, and markers also consume slots in generated JVM helpers.

@@ -21,8 +21,13 @@ fun box(): String {
     check(copyMethods.size == 2)
     check(copyMethods.single { it.parameterCount == 2 }.isSynthetic)
     check(!copyMethods.single { it.parameterCount == 3 }.isSynthetic)
-    check(JavaContractContract::class.java.declaredConstructors.single { it.parameterCount == 1 }.isSynthetic)
+    val hiddenConstructor = JavaContract.Contract::class.java.declaredConstructors.single { it.parameterCount == 1 }
+    check(hiddenConstructor.isSynthetic)
+    val value: JavaContract.() -> Int = { 8 }
+    val callbacks = hiddenConstructor.newInstance(value) as JavaContract.Contract
     val contract = JavaContract(value = { 7 })
+    check(callbacks.value(contract) == 8)
+    check(callbacks.format == null)
     check(contract.format("java:") == "java:7")
     check(contract.copy(value = { 9 }).format("copy:") == "copy:9")
     return "OK"

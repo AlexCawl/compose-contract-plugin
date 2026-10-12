@@ -47,8 +47,26 @@ interface GetterCollision {
 }
 
 <!UNSUPPORTED!>@GenerateContract<!>
-interface ContainerCollision { fun value(): Int }
-class ContainerCollisionContract
+interface ContainerCollision {
+    fun value(): Int
+    class Contract
+}
+
+<!UNSUPPORTED!>@GenerateContract<!>
+interface ObjectContainerCollision {
+    fun value(): Int
+    object Contract
+}
+
+<!UNSUPPORTED!>@GenerateContract<!>
+interface InterfaceContainerCollision {
+    fun value(): Int
+    interface Contract
+}
+
+fun collisionHasNoGeneratedMembers(contract: ContainerCollision.Contract) {
+    contract.<!UNRESOLVED_REFERENCE!>value<!>
+}
 
 <!UNSUPPORTED!>@GenerateContract<!>
 interface ImplementationCollision { fun value(): Int }
@@ -70,5 +88,5 @@ interface Required {
 
 fun missing() {
     <!NO_VALUE_FOR_PARAMETER!>Required<!>()
-    <!NO_VALUE_FOR_PARAMETER!>RequiredContract<!>()
+    Required.<!NO_VALUE_FOR_PARAMETER!>Contract<!>()
 }

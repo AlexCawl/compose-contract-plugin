@@ -42,10 +42,10 @@ in the interface and use normal virtual dispatch, including forward references, 
 captures another object still retains that capture.
 
 Generation happens in the compiler; physical Kotlin files are not written. The generated
-API lives in the interface's package:
+API includes a nested callback container and package-level factory and copy functions:
 
-* `AppearanceContract` is a final class with typed immutable callback properties. Its
-  constructor follows source method order. Required callbacks are non-null; default method
+* `Appearance.Contract` is a final class nested in the interface, with typed immutable callback
+  properties. Its constructor follows source method order. Required callbacks are non-null; default method
   callbacks are nullable with default `null`. It uses ordinary reference equality.
 * A private `AppearanceImpl` stores callbacks directly. Only this class gets generated
   `equals` and `hashCode`, comparing callbacks with ordinary Kotlin equality. Distinct lambdas
@@ -55,7 +55,7 @@ API lives in the interface's package:
 * `Appearance.copy(...)` returns `Appearance`. All callback arguments are nullable with default
   `null`, meaning preserve the previous callback. Its file and facade are `AppearanceCopy.kt`
   and `AppearanceCopyKt`. It calls `contract()` once, merges overrides, and invokes the factory.
-* The interface gains `fun contract(): AppearanceContract`. The generated implementation
+* The interface gains `fun contract(): Appearance.Contract`. The generated implementation
   constructs a fresh container on each call; it does not store or cache one.
 
 All constructors, factories, and copy functions use the original method order. Container and
@@ -70,7 +70,7 @@ class ManualAppearance : Appearance {
     override fun width() = 24
     override fun label() = "Manual"
     override fun foregroundColor(isSelected: Boolean) = 0xFF6750A4
-    override fun contract() = AppearanceContract(
+    override fun contract() = Appearance.Contract(
         width = { 24 },
         label = { "Manual" },
         foregroundColor = { 0xFF6750A4 },
@@ -84,6 +84,11 @@ Copying a manual implementation creates the generated implementation. The plugin
 casts the source to `AppearanceImpl` nor infers callbacks from a manual method's body.
 
 ## Evolving published contracts
+
+Moving `AppearanceContract` to `Appearance.Contract` changes its JVM name to
+`Appearance$Contract` and the return type of `contract()`. The old class is no longer
+generated. Update explicit container references and rebuild contract libraries and consumers;
+there is no compatibility alias or bridge for the old container API.
 
 After the initial migration, existing methods must retain their names, order, types,
 parameter names, default argument availability, and JVM owners. Add methods **only at the end,
@@ -280,6 +285,8 @@ and methods, interface inheritance, properties (`val` and `var`), overloads, sus
 extension/context/Composable methods, private members, and sealed/expect/external contracts
 are rejected with compiler diagnostics. `equals`, `hashCode`, `copy`, and `contract` are reserved.
 Generated class names and callback getter JVM signatures must not collide.
+The nested classifier name `Contract` is reserved. Unrelated package-level `<Name>Contract`
+declarations are allowed.
 
 A method's `vararg` becomes an array parameter in its callback. High arity callbacks are
 supported within JVM parameter-slot limits. Generated default helpers also require slots for

@@ -4,6 +4,61 @@ FILE fqName:published fileName:/contract.kt
     annotations:
       GenerateContract
     thisReceiver: VALUE_PARAMETER INSTANCE_RECEIVER kind:DispatchReceiver name:<this> type:published.Contract
+    CLASS GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] CLASS name:Contract modality:FINAL visibility:public superTypes:[kotlin.Any]
+      thisReceiver: VALUE_PARAMETER INSTANCE_RECEIVER kind:DispatchReceiver name:<this> type:published.Contract.Contract
+      PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:name visibility:public modality:FINAL [val]
+        FIELD PROPERTY_BACKING_FIELD name:name type:@[ExtensionFunctionType] kotlin.Function1<published.Contract, kotlin.String> visibility:private [final]
+        FUN DEFAULT_PROPERTY_ACCESSOR name:<get-name> visibility:public modality:FINAL returnType:@[ExtensionFunctionType] kotlin.Function1<published.Contract, kotlin.String>
+          VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:published.Contract.Contract
+          correspondingProperty: PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:name visibility:public modality:FINAL [val]
+          BLOCK_BODY
+            RETURN type=kotlin.Nothing from='public final fun <get-name> (): @[ExtensionFunctionType] kotlin.Function1<published.Contract, kotlin.String> declared in published.Contract.Contract'
+              GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:name type:@[ExtensionFunctionType] kotlin.Function1<published.Contract, kotlin.String> visibility:private [final]' type=@[ExtensionFunctionType] kotlin.Function1<published.Contract, kotlin.String> origin=null
+                receiver: GET_VAR '<this>: published.Contract.Contract declared in published.Contract.Contract.<get-name>' type=published.Contract.Contract origin=null
+      PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:text visibility:public modality:FINAL [val]
+        FIELD PROPERTY_BACKING_FIELD name:text type:@[ExtensionFunctionType] kotlin.Function2<published.Contract, kotlin.String, kotlin.String>? visibility:private [final]
+        FUN DEFAULT_PROPERTY_ACCESSOR name:<get-text> visibility:public modality:FINAL returnType:@[ExtensionFunctionType] kotlin.Function2<published.Contract, kotlin.String, kotlin.String>?
+          VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:published.Contract.Contract
+          correspondingProperty: PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:text visibility:public modality:FINAL [val]
+          BLOCK_BODY
+            RETURN type=kotlin.Nothing from='public final fun <get-text> (): @[ExtensionFunctionType] kotlin.Function2<published.Contract, kotlin.String, kotlin.String>? declared in published.Contract.Contract'
+              GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:text type:@[ExtensionFunctionType] kotlin.Function2<published.Contract, kotlin.String, kotlin.String>? visibility:private [final]' type=@[ExtensionFunctionType] kotlin.Function2<published.Contract, kotlin.String, kotlin.String>? origin=null
+                receiver: GET_VAR '<this>: published.Contract.Contract declared in published.Contract.Contract.<get-text>' type=published.Contract.Contract origin=null
+      CONSTRUCTOR GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] visibility:public returnType:published.Contract.Contract
+        VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:name index:0 type:@[ExtensionFunctionType] kotlin.Function1<published.Contract, kotlin.String>
+        annotations:
+          Deprecated(message = "Binary compatibility", replaceWith = <null>, level = DeprecationLevel.HIDDEN)
+        BLOCK_BODY
+          DELEGATING_CONSTRUCTOR_CALL 'public constructor <init> (name: @[ExtensionFunctionType] kotlin.Function1<published.Contract, kotlin.String>, text: @[ExtensionFunctionType] kotlin.Function2<published.Contract, kotlin.String, kotlin.String>?) declared in published.Contract.Contract'
+            ARG name: GET_VAR 'name: @[ExtensionFunctionType] kotlin.Function1<published.Contract, kotlin.String> declared in published.Contract.Contract.<init>' type=@[ExtensionFunctionType] kotlin.Function1<published.Contract, kotlin.String> origin=null
+            ARG text: CONST Null type=@[ExtensionFunctionType] kotlin.Function2<published.Contract, kotlin.String, kotlin.String>? value=null
+      CONSTRUCTOR GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] visibility:public returnType:published.Contract.Contract [primary]
+        VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:name index:0 type:@[ExtensionFunctionType] kotlin.Function1<published.Contract, kotlin.String>
+        VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:text index:1 type:@[ExtensionFunctionType] kotlin.Function2<published.Contract, kotlin.String, kotlin.String>?
+          EXPRESSION_BODY
+            CONST Null type=@[ExtensionFunctionType] kotlin.Function2<published.Contract, kotlin.String, kotlin.String>? value=null
+        BLOCK_BODY
+          DELEGATING_CONSTRUCTOR_CALL 'public constructor <init> () declared in kotlin.Any'
+          SET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:name type:@[ExtensionFunctionType] kotlin.Function1<published.Contract, kotlin.String> visibility:private [final]' type=kotlin.Unit origin=null
+            receiver: GET_VAR '<this>: published.Contract.Contract declared in published.Contract.Contract' type=published.Contract.Contract origin=null
+            value: GET_VAR 'name: @[ExtensionFunctionType] kotlin.Function1<published.Contract, kotlin.String> declared in published.Contract.Contract.<init>' type=@[ExtensionFunctionType] kotlin.Function1<published.Contract, kotlin.String> origin=null
+          SET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:text type:@[ExtensionFunctionType] kotlin.Function2<published.Contract, kotlin.String, kotlin.String>? visibility:private [final]' type=kotlin.Unit origin=null
+            receiver: GET_VAR '<this>: published.Contract.Contract declared in published.Contract.Contract' type=published.Contract.Contract origin=null
+            value: GET_VAR 'text: @[ExtensionFunctionType] kotlin.Function2<published.Contract, kotlin.String, kotlin.String>? declared in published.Contract.Contract.<init>' type=@[ExtensionFunctionType] kotlin.Function2<published.Contract, kotlin.String, kotlin.String>? origin=null
+          INSTANCE_INITIALIZER_CALL classDescriptor='CLASS GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] CLASS name:Contract modality:FINAL visibility:public superTypes:[kotlin.Any]' type=kotlin.Unit
+      FUN FAKE_OVERRIDE name:equals visibility:public modality:OPEN returnType:kotlin.Boolean [fake_override,operator]
+        VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:kotlin.Any
+        VALUE_PARAMETER kind:Regular name:other index:1 type:kotlin.Any?
+        overridden:
+          public open fun equals (other: kotlin.Any?): kotlin.Boolean declared in kotlin.Any
+      FUN FAKE_OVERRIDE name:hashCode visibility:public modality:OPEN returnType:kotlin.Int [fake_override]
+        VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:kotlin.Any
+        overridden:
+          public open fun hashCode (): kotlin.Int declared in kotlin.Any
+      FUN FAKE_OVERRIDE name:toString visibility:public modality:OPEN returnType:kotlin.String [fake_override]
+        VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:kotlin.Any
+        overridden:
+          public open fun toString (): kotlin.String declared in kotlin.Any
     FUN FAKE_OVERRIDE name:equals visibility:public modality:OPEN returnType:kotlin.Boolean [fake_override,operator]
       VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:kotlin.Any
       VALUE_PARAMETER kind:Regular name:other index:1 type:kotlin.Any?
@@ -17,7 +72,7 @@ FILE fqName:published fileName:/contract.kt
       VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:kotlin.Any
       overridden:
         public open fun toString (): kotlin.String declared in kotlin.Any
-    FUN GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:contract visibility:public modality:ABSTRACT returnType:published.ContractContract
+    FUN GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:contract visibility:public modality:ABSTRACT returnType:published.Contract.Contract
       VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:published.Contract
     FUN name:name visibility:public modality:ABSTRACT returnType:kotlin.String
       VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:published.Contract
@@ -67,13 +122,13 @@ FILE fqName:published fileName:published/ContractConstructor.kt
       VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:kotlin.Any
       overridden:
         public open fun toString (): kotlin.String declared in published.Contract
-    FUN GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:contract visibility:public modality:FINAL returnType:published.ContractContract
+    FUN GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:contract visibility:public modality:FINAL returnType:published.Contract.Contract
       VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:published.ContractImpl
       overridden:
-        public abstract fun contract (): published.ContractContract declared in published.Contract
+        public abstract fun contract (): published.Contract.Contract declared in published.Contract
       BLOCK_BODY
-        RETURN type=kotlin.Nothing from='public final fun contract (): published.ContractContract declared in published.ContractImpl'
-          CONSTRUCTOR_CALL 'public constructor <init> (name: @[ExtensionFunctionType] kotlin.Function1<published.Contract, kotlin.String>, text: @[ExtensionFunctionType] kotlin.Function2<published.Contract, kotlin.String, kotlin.String>?) declared in published.ContractContract' type=published.ContractContract origin=null
+        RETURN type=kotlin.Nothing from='public final fun contract (): published.Contract.Contract declared in published.ContractImpl'
+          CONSTRUCTOR_CALL 'public constructor <init> (name: @[ExtensionFunctionType] kotlin.Function1<published.Contract, kotlin.String>, text: @[ExtensionFunctionType] kotlin.Function2<published.Contract, kotlin.String, kotlin.String>?) declared in published.Contract.Contract' type=published.Contract.Contract origin=null
             ARG name: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$name type:@[ExtensionFunctionType] kotlin.Function1<published.Contract, kotlin.String> visibility:private [final]' type=@[ExtensionFunctionType] kotlin.Function1<published.Contract, kotlin.String> origin=null
               receiver: GET_VAR '<this>: published.ContractImpl declared in published.ContractImpl.contract' type=published.ContractImpl origin=null
             ARG text: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$text type:@[ExtensionFunctionType] kotlin.Function2<published.Contract, kotlin.String, kotlin.String>? visibility:private [final]' type=@[ExtensionFunctionType] kotlin.Function2<published.Contract, kotlin.String, kotlin.String>? origin=null
@@ -210,62 +265,6 @@ FILE fqName:published fileName:published/ContractConstructor.kt
         CONSTRUCTOR_CALL 'public constructor <init> (name: @[ExtensionFunctionType] kotlin.Function1<published.Contract, kotlin.String>, text: @[ExtensionFunctionType] kotlin.Function2<published.Contract, kotlin.String, kotlin.String>?) declared in published.ContractImpl' type=published.ContractImpl origin=null
           ARG name: GET_VAR 'name: @[ExtensionFunctionType] kotlin.Function1<published.Contract, kotlin.String> declared in published.Contract' type=@[ExtensionFunctionType] kotlin.Function1<published.Contract, kotlin.String> origin=null
           ARG text: GET_VAR 'text: @[ExtensionFunctionType] kotlin.Function2<published.Contract, kotlin.String, kotlin.String>? declared in published.Contract' type=@[ExtensionFunctionType] kotlin.Function2<published.Contract, kotlin.String, kotlin.String>? origin=null
-FILE fqName:published fileName:published/ContractContract.kt
-  CLASS GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] CLASS name:ContractContract modality:FINAL visibility:public superTypes:[kotlin.Any]
-    thisReceiver: VALUE_PARAMETER INSTANCE_RECEIVER kind:DispatchReceiver name:<this> type:published.ContractContract
-    PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:name visibility:public modality:FINAL [val]
-      FIELD PROPERTY_BACKING_FIELD name:name type:@[ExtensionFunctionType] kotlin.Function1<published.Contract, kotlin.String> visibility:private [final]
-      FUN DEFAULT_PROPERTY_ACCESSOR name:<get-name> visibility:public modality:FINAL returnType:@[ExtensionFunctionType] kotlin.Function1<published.Contract, kotlin.String>
-        VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:published.ContractContract
-        correspondingProperty: PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:name visibility:public modality:FINAL [val]
-        BLOCK_BODY
-          RETURN type=kotlin.Nothing from='public final fun <get-name> (): @[ExtensionFunctionType] kotlin.Function1<published.Contract, kotlin.String> declared in published.ContractContract'
-            GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:name type:@[ExtensionFunctionType] kotlin.Function1<published.Contract, kotlin.String> visibility:private [final]' type=@[ExtensionFunctionType] kotlin.Function1<published.Contract, kotlin.String> origin=null
-              receiver: GET_VAR '<this>: published.ContractContract declared in published.ContractContract.<get-name>' type=published.ContractContract origin=null
-    PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:text visibility:public modality:FINAL [val]
-      FIELD PROPERTY_BACKING_FIELD name:text type:@[ExtensionFunctionType] kotlin.Function2<published.Contract, kotlin.String, kotlin.String>? visibility:private [final]
-      FUN DEFAULT_PROPERTY_ACCESSOR name:<get-text> visibility:public modality:FINAL returnType:@[ExtensionFunctionType] kotlin.Function2<published.Contract, kotlin.String, kotlin.String>?
-        VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:published.ContractContract
-        correspondingProperty: PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:text visibility:public modality:FINAL [val]
-        BLOCK_BODY
-          RETURN type=kotlin.Nothing from='public final fun <get-text> (): @[ExtensionFunctionType] kotlin.Function2<published.Contract, kotlin.String, kotlin.String>? declared in published.ContractContract'
-            GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:text type:@[ExtensionFunctionType] kotlin.Function2<published.Contract, kotlin.String, kotlin.String>? visibility:private [final]' type=@[ExtensionFunctionType] kotlin.Function2<published.Contract, kotlin.String, kotlin.String>? origin=null
-              receiver: GET_VAR '<this>: published.ContractContract declared in published.ContractContract.<get-text>' type=published.ContractContract origin=null
-    CONSTRUCTOR GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] visibility:public returnType:published.ContractContract
-      VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:name index:0 type:@[ExtensionFunctionType] kotlin.Function1<published.Contract, kotlin.String>
-      annotations:
-        Deprecated(message = "Binary compatibility", replaceWith = <null>, level = DeprecationLevel.HIDDEN)
-      BLOCK_BODY
-        DELEGATING_CONSTRUCTOR_CALL 'public constructor <init> (name: @[ExtensionFunctionType] kotlin.Function1<published.Contract, kotlin.String>, text: @[ExtensionFunctionType] kotlin.Function2<published.Contract, kotlin.String, kotlin.String>?) declared in published.ContractContract'
-          ARG name: GET_VAR 'name: @[ExtensionFunctionType] kotlin.Function1<published.Contract, kotlin.String> declared in published.ContractContract.<init>' type=@[ExtensionFunctionType] kotlin.Function1<published.Contract, kotlin.String> origin=null
-          ARG text: CONST Null type=@[ExtensionFunctionType] kotlin.Function2<published.Contract, kotlin.String, kotlin.String>? value=null
-    CONSTRUCTOR GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] visibility:public returnType:published.ContractContract [primary]
-      VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:name index:0 type:@[ExtensionFunctionType] kotlin.Function1<published.Contract, kotlin.String>
-      VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:text index:1 type:@[ExtensionFunctionType] kotlin.Function2<published.Contract, kotlin.String, kotlin.String>?
-        EXPRESSION_BODY
-          CONST Null type=@[ExtensionFunctionType] kotlin.Function2<published.Contract, kotlin.String, kotlin.String>? value=null
-      BLOCK_BODY
-        DELEGATING_CONSTRUCTOR_CALL 'public constructor <init> () declared in kotlin.Any'
-        SET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:name type:@[ExtensionFunctionType] kotlin.Function1<published.Contract, kotlin.String> visibility:private [final]' type=kotlin.Unit origin=null
-          receiver: GET_VAR '<this>: published.ContractContract declared in published.ContractContract' type=published.ContractContract origin=null
-          value: GET_VAR 'name: @[ExtensionFunctionType] kotlin.Function1<published.Contract, kotlin.String> declared in published.ContractContract.<init>' type=@[ExtensionFunctionType] kotlin.Function1<published.Contract, kotlin.String> origin=null
-        SET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:text type:@[ExtensionFunctionType] kotlin.Function2<published.Contract, kotlin.String, kotlin.String>? visibility:private [final]' type=kotlin.Unit origin=null
-          receiver: GET_VAR '<this>: published.ContractContract declared in published.ContractContract' type=published.ContractContract origin=null
-          value: GET_VAR 'text: @[ExtensionFunctionType] kotlin.Function2<published.Contract, kotlin.String, kotlin.String>? declared in published.ContractContract.<init>' type=@[ExtensionFunctionType] kotlin.Function2<published.Contract, kotlin.String, kotlin.String>? origin=null
-        INSTANCE_INITIALIZER_CALL classDescriptor='CLASS GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] CLASS name:ContractContract modality:FINAL visibility:public superTypes:[kotlin.Any]' type=kotlin.Unit
-    FUN FAKE_OVERRIDE name:equals visibility:public modality:OPEN returnType:kotlin.Boolean [fake_override,operator]
-      VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:kotlin.Any
-      VALUE_PARAMETER kind:Regular name:other index:1 type:kotlin.Any?
-      overridden:
-        public open fun equals (other: kotlin.Any?): kotlin.Boolean declared in kotlin.Any
-    FUN FAKE_OVERRIDE name:hashCode visibility:public modality:OPEN returnType:kotlin.Int [fake_override]
-      VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:kotlin.Any
-      overridden:
-        public open fun hashCode (): kotlin.Int declared in kotlin.Any
-    FUN FAKE_OVERRIDE name:toString visibility:public modality:OPEN returnType:kotlin.String [fake_override]
-      VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:kotlin.Any
-      overridden:
-        public open fun toString (): kotlin.String declared in kotlin.Any
 FILE fqName:published fileName:published/ContractCopy.kt
   FUN GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:copy visibility:public modality:FINAL returnType:published.Contract
     VALUE_PARAMETER kind:ExtensionReceiver name:<this> index:0 type:published.Contract
@@ -289,8 +288,8 @@ FILE fqName:published fileName:published/ContractCopy.kt
       EXPRESSION_BODY
         CONST Null type=@[ExtensionFunctionType] kotlin.Function2<published.Contract, kotlin.String, kotlin.String>? value=null
     BLOCK_BODY
-      VAR IR_TEMPORARY_VARIABLE name:tmp_0 type:published.ContractContract [val]
-        CALL 'public abstract fun contract (): published.ContractContract declared in published.Contract' type=published.ContractContract origin=null
+      VAR IR_TEMPORARY_VARIABLE name:tmp_0 type:published.Contract.Contract [val]
+        CALL 'public abstract fun contract (): published.Contract.Contract declared in published.Contract' type=published.Contract.Contract origin=null
           ARG <this>: GET_VAR '<this>: published.Contract declared in published.copy' type=published.Contract origin=null
       RETURN type=kotlin.Nothing from='public final fun copy (<this>: published.Contract, name: @[ExtensionFunctionType] kotlin.Function1<published.Contract, kotlin.String>?, text: @[ExtensionFunctionType] kotlin.Function2<published.Contract, kotlin.String, kotlin.String>?): published.Contract declared in published'
         CALL 'public final fun Contract (name: @[ExtensionFunctionType] kotlin.Function1<published.Contract, kotlin.String>, text: @[ExtensionFunctionType] kotlin.Function2<published.Contract, kotlin.String, kotlin.String>?): published.Contract declared in published' type=published.Contract origin=null
@@ -299,8 +298,8 @@ FILE fqName:published fileName:published/ContractCopy.kt
               if: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
                 ARG arg0: GET_VAR 'name: @[ExtensionFunctionType] kotlin.Function1<published.Contract, kotlin.String>? declared in published.copy' type=@[ExtensionFunctionType] kotlin.Function1<published.Contract, kotlin.String>? origin=null
                 ARG arg1: CONST Null type=kotlin.Nothing? value=null
-              then: CALL 'public final fun <get-name> (): @[ExtensionFunctionType] kotlin.Function1<published.Contract, kotlin.String> declared in published.ContractContract' type=@[ExtensionFunctionType] kotlin.Function1<published.Contract, kotlin.String> origin=null
-                ARG <this>: GET_VAR 'val tmp_0: published.ContractContract declared in published.copy' type=published.ContractContract origin=null
+              then: CALL 'public final fun <get-name> (): @[ExtensionFunctionType] kotlin.Function1<published.Contract, kotlin.String> declared in published.Contract.Contract' type=@[ExtensionFunctionType] kotlin.Function1<published.Contract, kotlin.String> origin=null
+                ARG <this>: GET_VAR 'val tmp_0: published.Contract.Contract declared in published.copy' type=published.Contract.Contract origin=null
             BRANCH
               if: CONST Boolean type=kotlin.Boolean value=true
               then: TYPE_OP type=@[ExtensionFunctionType] kotlin.Function1<published.Contract, kotlin.String> origin=IMPLICIT_CAST typeOperand=@[ExtensionFunctionType] kotlin.Function1<published.Contract, kotlin.String>
@@ -310,8 +309,8 @@ FILE fqName:published fileName:published/ContractCopy.kt
               if: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
                 ARG arg0: GET_VAR 'text: @[ExtensionFunctionType] kotlin.Function2<published.Contract, kotlin.String, kotlin.String>? declared in published.copy' type=@[ExtensionFunctionType] kotlin.Function2<published.Contract, kotlin.String, kotlin.String>? origin=null
                 ARG arg1: CONST Null type=kotlin.Nothing? value=null
-              then: CALL 'public final fun <get-text> (): @[ExtensionFunctionType] kotlin.Function2<published.Contract, kotlin.String, kotlin.String>? declared in published.ContractContract' type=@[ExtensionFunctionType] kotlin.Function2<published.Contract, kotlin.String, kotlin.String>? origin=null
-                ARG <this>: GET_VAR 'val tmp_0: published.ContractContract declared in published.copy' type=published.ContractContract origin=null
+              then: CALL 'public final fun <get-text> (): @[ExtensionFunctionType] kotlin.Function2<published.Contract, kotlin.String, kotlin.String>? declared in published.Contract.Contract' type=@[ExtensionFunctionType] kotlin.Function2<published.Contract, kotlin.String, kotlin.String>? origin=null
+                ARG <this>: GET_VAR 'val tmp_0: published.Contract.Contract declared in published.copy' type=published.Contract.Contract origin=null
             BRANCH
               if: CONST Boolean type=kotlin.Boolean value=true
               then: TYPE_OP type=@[ExtensionFunctionType] kotlin.Function2<published.Contract, kotlin.String, kotlin.String>? origin=IMPLICIT_CAST typeOperand=@[ExtensionFunctionType] kotlin.Function2<published.Contract, kotlin.String, kotlin.String>?
@@ -381,18 +380,18 @@ FILE fqName:usage fileName:/usage.kt
               VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:kotlin.Any
               overridden:
                 public open fun toString (): kotlin.String declared in published.Contract
-            FUN name:contract visibility:public modality:OPEN returnType:published.ContractContract
+            FUN name:contract visibility:public modality:OPEN returnType:published.Contract.Contract
               VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:usage.box.<no name provided>
               overridden:
-                public abstract fun contract (): published.ContractContract declared in published.Contract
+                public abstract fun contract (): published.Contract.Contract declared in published.Contract
               BLOCK_BODY
-                RETURN type=kotlin.Nothing from='public open fun contract (): published.ContractContract declared in usage.box.<no name provided>'
-                  CONSTRUCTOR_CALL 'public constructor <init> (name: @[ExtensionFunctionType] kotlin.Function1<published.Contract, kotlin.String>, text: @[ExtensionFunctionType] kotlin.Function2<published.Contract, kotlin.String, kotlin.String>?) declared in published.ContractContract' type=published.ContractContract origin=null
+                RETURN type=kotlin.Nothing from='public open fun contract (): published.Contract.Contract declared in usage.box.<no name provided>'
+                  CONSTRUCTOR_CALL 'public constructor <init> (name: @[ExtensionFunctionType] kotlin.Function1<published.Contract, kotlin.String>, text: @[ExtensionFunctionType] kotlin.Function2<published.Contract, kotlin.String, kotlin.String>?) declared in published.Contract.Contract' type=published.Contract.Contract origin=null
                     ARG name: FUN_EXPR type=@[ExtensionFunctionType] kotlin.Function1<published.Contract, kotlin.String> origin=LAMBDA
                       FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.String
-                        VALUE_PARAMETER kind:ExtensionReceiver name:$this$ContractContract index:0 type:published.Contract
+                        VALUE_PARAMETER kind:ExtensionReceiver name:$this$Contract index:0 type:published.Contract
                         BLOCK_BODY
-                          RETURN type=kotlin.Nothing from='local final fun <anonymous> ($this$ContractContract: published.Contract): kotlin.String declared in usage.box.<no name provided>.contract'
+                          RETURN type=kotlin.Nothing from='local final fun <anonymous> ($this$Contract: published.Contract): kotlin.String declared in usage.box.<no name provided>.contract'
                             CONST String type=kotlin.String value="manual"
             FUN name:name visibility:public modality:OPEN returnType:kotlin.String
               VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:usage.box.<no name provided>
