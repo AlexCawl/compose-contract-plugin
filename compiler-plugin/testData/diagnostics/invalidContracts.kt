@@ -9,7 +9,7 @@ class NotAnInterface
 
 <!UNSUPPORTED!>@GenerateContract<!>
 interface Generic<T> {
-    val value: T
+    fun value(): T
 }
 
 <!UNSUPPORTED!>@GenerateContract<!>
@@ -17,8 +17,13 @@ interface Mutable {
     var value: Int
 }
 
-interface Base {
+<!UNSUPPORTED!>@GenerateContract<!>
+interface Property {
     val value: Int
+}
+
+interface Base {
+    fun value(): Int
 }
 
 <!UNSUPPORTED!>@GenerateContract<!>
@@ -30,29 +35,40 @@ interface Overloaded {
     fun value(input: Int): Int
 }
 
-@GenerateContract
-interface ForwardDefault {
-    fun first(): Int = <!UNSUPPORTED!>second()<!>
-    fun second(): Int = 1
+<!UNSUPPORTED!>@GenerateContract<!>
+interface Reserved {
+    fun contract(): Int
 }
 
-@GenerateContract
-interface RecursiveDefault {
-    fun first(): Int = <!UNSUPPORTED!>first()<!>
+<!UNSUPPORTED!>@GenerateContract<!>
+interface GetterCollision {
+    fun foo(): Int
+    fun Foo(): Int
 }
 
-@GenerateContract
-interface StandaloneThis {
-    fun identity(): Any = <!UNSUPPORTED!>this<!>
-}
+<!UNSUPPORTED!>@GenerateContract<!>
+interface ContainerCollision { fun value(): Int }
+class ContainerCollisionContract
+
+<!UNSUPPORTED!>@GenerateContract<!>
+interface ImplementationCollision { fun value(): Int }
+class ImplementationCollisionImpl
+
+<!UNSUPPORTED!>@GenerateContract<!>
+interface ConstructorFacadeCollision { fun value(): Int }
+class ConstructorFacadeCollisionConstructorKt
+
+<!UNSUPPORTED!>@GenerateContract<!>
+interface CopyFacadeCollision { fun value(): Int }
+class CopyFacadeCollisionCopyKt
 
 @GenerateContract
-interface PropertyReference {
-    val value: Int
-    fun reference(): () -> Int = <!UNSUPPORTED!>::value<!>
+interface Required {
+    fun value(): Int
+    fun optional(): Int = 0
 }
 
-@GenerateContract
-interface DefaultArgumentReceiver {
-    fun identity(value: Any = <!UNSUPPORTED!>this<!>): Any = value
+fun missing() {
+    <!NO_VALUE_FOR_PARAMETER!>Required<!>()
+    <!NO_VALUE_FOR_PARAMETER!>RequiredContract<!>()
 }

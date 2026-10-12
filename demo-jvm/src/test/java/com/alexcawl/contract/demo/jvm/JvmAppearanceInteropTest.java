@@ -1,20 +1,16 @@
 package com.alexcawl.contract.demo.jvm;
 
 import org.junit.Test;
-
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 public class JvmAppearanceInteropTest {
     @Test
-    public void generatedOverloadsAreCallableFromJava() {
-        JvmAppearance original = JvmAppearanceContractKt.JvmAppearance(24);
-        JvmAppearance unchanged = JvmAppearanceContractKt.copy(original);
-        JvmAppearance copied = JvmAppearanceContractKt.copy(original, 48);
-
-        assertTrue(original instanceof JvmAppearanceImpl);
-        assertEquals(24, unchanged.getWidth());
-        assertEquals(48, copied.getWidth());
-        assertEquals("width:24", copied.label("width:"));
+    public void currentFactoriesAndCopyAreCallableFromJava() {
+        JvmAppearance original = JvmAppearanceConstructorKt.JvmAppearance(self -> 24, null);
+        JvmAppearance unchanged = JvmAppearanceCopyKt.copy(original, null, null);
+        JvmAppearance copied = JvmAppearanceCopyKt.copy(original, self -> 48, null);
+        assertEquals(24, unchanged.width());
+        assertEquals(48, copied.width());
+        assertEquals("width:48", copied.label("width:"));
     }
 }

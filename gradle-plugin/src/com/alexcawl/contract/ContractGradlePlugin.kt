@@ -1,6 +1,5 @@
 package com.alexcawl.contract
 
-import org.gradle.api.Project
 import org.gradle.api.provider.Provider
 import org.jetbrains.kotlin.gradle.plugin.KotlinCompilation
 import org.jetbrains.kotlin.gradle.plugin.KotlinCompilerPluginSupportPlugin
@@ -10,8 +9,6 @@ import org.jetbrains.kotlin.gradle.plugin.SubpluginOption
 
 @Suppress("unused") // Used via reflection.
 class ContractGradlePlugin : KotlinCompilerPluginSupportPlugin {
-    override fun apply(target: Project) = Unit
-
     override fun isApplicable(kotlinCompilation: KotlinCompilation<*>): Boolean =
         kotlinCompilation.platformType == KotlinPlatformType.jvm ||
             kotlinCompilation.platformType == KotlinPlatformType.androidJvm

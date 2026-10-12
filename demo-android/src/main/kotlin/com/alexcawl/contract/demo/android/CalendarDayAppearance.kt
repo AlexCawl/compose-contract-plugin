@@ -20,7 +20,8 @@ interface CalendarDayAppearance {
 
     companion object {
         val default: CalendarDayAppearance
-            @Composable get() {
+            @Composable
+            get() {
                 val colors = MaterialTheme.colorScheme
                 val shape = MaterialTheme.shapes.small
                 return remember(colors, shape) {
@@ -34,7 +35,8 @@ interface CalendarDayAppearance {
             }
 
         val weekend: CalendarDayAppearance
-            @Composable get() {
+            @Composable
+            get() {
                 val appearance = default
                 val colors = MaterialTheme.colorScheme
                 return remember(appearance, colors) {

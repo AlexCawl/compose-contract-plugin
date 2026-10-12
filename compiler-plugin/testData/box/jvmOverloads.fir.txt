@@ -2,54 +2,104 @@ FILE: jvmOverloads.kt
     package interop
 
     @R|com/alexcawl/contract/GenerateContract|() public abstract interface JavaContract : R|kotlin/Any| {
-        public abstract val value: R|kotlin/Int|
-            public get(): R|kotlin/Int|
+        public abstract fun value(): R|kotlin/Int|
 
         public open fun format(prefix: R|kotlin/String|): R|kotlin/String| {
-            ^format R|<local>/prefix|.R|kotlin/String.plus|(this@R|interop/JavaContract|.R|interop/JavaContract.value|)
+            ^format R|<local>/prefix|.R|kotlin/String.plus|(this@R|interop/JavaContract|.R|interop/JavaContract.value|())
         }
+
+        public abstract fun contract(): R|interop/JavaContractContract|
 
     }
     public final fun box(): R|kotlin/String| {
-        lval facade: R|java/lang/Class<*>!| = Q|java/lang/Class|.R|java/lang/Class.forName*s|(String(interop.JavaContractContractKt))
-        lval factory: R|java/lang/reflect/Method!| = R|<local>/facade|.R|SubstitutionOverride<java/lang/Class.getMethod: R|java/lang/reflect/Method!|>|(String(JavaContract), vararg(<getClass>(Q|kotlin/Int|).R|kotlin/jvm/javaPrimitiveType|<R|kotlin/Int|>))
-        lval contract: R|interop/JavaContract| = (R|<local>/factory|.R|java/lang/reflect/Method.invoke|(Null(null), vararg(Int(7))) as R|interop/JavaContract|)
-        R|kotlin/check|(==(R|<local>/contract|.R|interop/JavaContract.format|(String(java:)), String(java:7)))
-        lval copy: R|java/lang/reflect/Method!| = R|<local>/facade|.R|SubstitutionOverride<java/lang/Class.getMethod: R|java/lang/reflect/Method!|>|(String(copy), vararg(<getClass>(Q|interop/JavaContract|).R|kotlin/jvm/java|<R|interop/JavaContract|>))
-        lval copied: R|interop/JavaContract| = (R|<local>/copy|.R|java/lang/reflect/Method.invoke|(Null(null), vararg(R|<local>/contract|)) as R|interop/JavaContract|)
-        R|kotlin/check|(==(R|<local>/copied|.R|interop/JavaContract.value|, Int(7)))
-        R|kotlin/check|(==(R|<local>/copied|.R|interop/JavaContract.format|(String(copy:)), String(copy:7)))
-        R|kotlin/check|(==(R|<local>/facade|.R|java/lang/Class.methods|.R|kotlin/collections/count|<R|java/lang/reflect/Method!|>(<L> = count@fun <anonymous>(it: R|java/lang/reflect/Method!|): R|kotlin/Boolean| <inline=Inline, kind=UNKNOWN>  {
+        lval constructor: R|java/lang/Class<*>!| = Q|java/lang/Class|.R|java/lang/Class.forName*s|(String(interop.JavaContractConstructorKt))
+        lval copy: R|java/lang/Class<*>!| = Q|java/lang/Class|.R|java/lang/Class.forName*s|(String(interop.JavaContractCopyKt))
+        lval factoryMethods: R|kotlin/collections/List<java/lang/reflect/Method!>| = R|<local>/constructor|.R|java/lang/Class.declaredMethods|.R|kotlin/collections/filter|<R|java/lang/reflect/Method!|>(<L> = filter@fun <anonymous>(it: R|java/lang/reflect/Method!|): R|kotlin/Boolean| <inline=Inline, kind=UNKNOWN>  {
             ^ ==(R|<local>/it|.R|java/lang/reflect/Method.name|, String(JavaContract))
         }
-        ), Int(2)))
-        R|kotlin/check|(==(R|<local>/facade|.R|java/lang/Class.methods|.R|kotlin/collections/count|<R|java/lang/reflect/Method!|>(<L> = count@fun <anonymous>(it: R|java/lang/reflect/Method!|): R|kotlin/Boolean| <inline=Inline, kind=UNKNOWN>  {
+        )
+        R|kotlin/check|(==(R|<local>/factoryMethods|.R|SubstitutionOverride<kotlin/collections/List.size: R|kotlin/Int|>|, Int(2)))
+        R|kotlin/check|(R|<local>/factoryMethods|.R|kotlin/collections/single|<R|java/lang/reflect/Method!|>(<L> = single@fun <anonymous>(it: R|java/lang/reflect/Method!|): R|kotlin/Boolean| <inline=Inline, kind=UNKNOWN>  {
+            ^ ==(R|<local>/it|.R|java/lang/reflect/Method.parameterCount|, Int(1))
+        }
+        ).R|java/lang/reflect/Method.isSynthetic|)
+        R|kotlin/check|(R|<local>/factoryMethods|.R|kotlin/collections/single|<R|java/lang/reflect/Method!|>(<L> = single@fun <anonymous>(it: R|java/lang/reflect/Method!|): R|kotlin/Boolean| <inline=Inline, kind=UNKNOWN>  {
+            ^ ==(R|<local>/it|.R|java/lang/reflect/Method.parameterCount|, Int(2))
+        }
+        ).R|java/lang/reflect/Method.isSynthetic|.R|kotlin/Boolean.not|())
+        lval copyMethods: R|kotlin/collections/List<java/lang/reflect/Method!>| = R|<local>/copy|.R|java/lang/Class.declaredMethods|.R|kotlin/collections/filter|<R|java/lang/reflect/Method!|>(<L> = filter@fun <anonymous>(it: R|java/lang/reflect/Method!|): R|kotlin/Boolean| <inline=Inline, kind=UNKNOWN>  {
             ^ ==(R|<local>/it|.R|java/lang/reflect/Method.name|, String(copy))
         }
-        ), Int(3)))
+        )
+        R|kotlin/check|(==(R|<local>/copyMethods|.R|SubstitutionOverride<kotlin/collections/List.size: R|kotlin/Int|>|, Int(2)))
+        R|kotlin/check|(R|<local>/copyMethods|.R|kotlin/collections/single|<R|java/lang/reflect/Method!|>(<L> = single@fun <anonymous>(it: R|java/lang/reflect/Method!|): R|kotlin/Boolean| <inline=Inline, kind=UNKNOWN>  {
+            ^ ==(R|<local>/it|.R|java/lang/reflect/Method.parameterCount|, Int(2))
+        }
+        ).R|java/lang/reflect/Method.isSynthetic|)
+        R|kotlin/check|(R|<local>/copyMethods|.R|kotlin/collections/single|<R|java/lang/reflect/Method!|>(<L> = single@fun <anonymous>(it: R|java/lang/reflect/Method!|): R|kotlin/Boolean| <inline=Inline, kind=UNKNOWN>  {
+            ^ ==(R|<local>/it|.R|java/lang/reflect/Method.parameterCount|, Int(3))
+        }
+        ).R|java/lang/reflect/Method.isSynthetic|.R|kotlin/Boolean.not|())
+        R|kotlin/check|(<getClass>(Q|interop/JavaContractContract|).R|kotlin/jvm/java|<R|interop/JavaContractContract|>.R|java/lang/Class.declaredConstructors|.R|kotlin/collections/single|<R|java/lang/reflect/Constructor<*>!|>(<L> = single@fun <anonymous>(it: R|java/lang/reflect/Constructor<*>!|): R|kotlin/Boolean| <inline=Inline, kind=UNKNOWN>  {
+            ^ ==(R|<local>/it|.R|java/lang/reflect/Constructor.parameterCount|, Int(1))
+        }
+        ).R|java/lang/reflect/Constructor.isSynthetic|)
+        lval contract: R|interop/JavaContract| = R|interop/JavaContract|(JavaContract@fun R|interop/JavaContract|.<anonymous>(): R|kotlin/Int| <inline=NoInline>  {
+            ^ Int(7)
+        }
+        )
+        R|kotlin/check|(==(R|<local>/contract|.R|interop/JavaContract.format|(String(java:)), String(java:7)))
+        R|kotlin/check|(==(R|<local>/contract|.R|interop/copy|(copy@fun R|interop/JavaContract|.<anonymous>(): R|kotlin/Int| <inline=NoInline>  {
+            ^ Int(9)
+        }
+        ).R|interop/JavaContract.format|(String(copy:)), String(copy:9)))
         ^box String(OK)
     }
 FILE: interop/JavaContractImpl.kt
     package interop
 
-    public final class JavaContractImpl : R|interop/JavaContract| {
+    private final class JavaContractImpl : R|interop/JavaContract| {
         public final override fun equals(other: R|kotlin/Any?|): R|kotlin/Boolean|
 
         public final override fun hashCode(): R|kotlin/Int|
 
-        public final override val value: R|kotlin/Int|
-            public get(): R|kotlin/Int|
+        public final override fun contract(): R|interop/JavaContractContract|
+
+        public final override fun value(): R|kotlin/Int|
+
+        private final val $contract$value: R|interop/JavaContract.() -> kotlin/Int|
+            private get(): R|interop/JavaContract.() -> kotlin/Int|
 
         public final override fun format(prefix: R|kotlin/String|): R|kotlin/String|
 
-        private final val $contract$format: R|(kotlin/String) -> kotlin/String|
-            private get(): R|(kotlin/String) -> kotlin/String|
+        private final val $contract$format: R|(interop/JavaContract.(kotlin/String) -> kotlin/String)?|
+            private get(): R|(interop/JavaContract.(kotlin/String) -> kotlin/String)?|
 
-        public constructor(value: R|kotlin/Int|, format: R|(kotlin/String) -> kotlin/String|): R|interop/JavaContractImpl|
+        public constructor(value: R|interop/JavaContract.() -> kotlin/Int|, format: R|(interop/JavaContract.(kotlin/String) -> kotlin/String)?|): R|interop/JavaContractImpl|
 
     }
 FILE: interop/JavaContractContract.kt
     package interop
 
-    @R|kotlin/jvm/JvmOverloads|() public final fun JavaContract(value: R|kotlin/Int|, format: R|(kotlin/String) -> kotlin/String| = throw R|kotlin/Throwable.Throwable|(String(Stub for declaration generated by Plugin[Key]))): R|interop/JavaContract|
-    @R|kotlin/jvm/JvmOverloads|() public final fun R|interop/JavaContract|.copy(value: R|kotlin/Int| = throw R|kotlin/Throwable.Throwable|(String(Stub for declaration generated by Plugin[Key])), format: R|(kotlin/String) -> kotlin/String| = throw R|kotlin/Throwable.Throwable|(String(Stub for declaration generated by Plugin[Key]))): R|interop/JavaContract|
+    public final class JavaContractContract : R|kotlin/Any| {
+        public final val value: R|interop/JavaContract.() -> kotlin/Int|
+            public get(): R|interop/JavaContract.() -> kotlin/Int|
+
+        public final val format: R|(interop/JavaContract.(kotlin/String) -> kotlin/String)?|
+            public get(): R|(interop/JavaContract.(kotlin/String) -> kotlin/String)?|
+
+        @R|kotlin/Deprecated|(message = String(Binary compatibility), level = R|kotlin/DeprecationLevel.HIDDEN|) public constructor(value: R|interop/JavaContract.() -> kotlin/Int|): R|interop/JavaContractContract|
+
+        public constructor(value: R|interop/JavaContract.() -> kotlin/Int|, format: R|(interop/JavaContract.(kotlin/String) -> kotlin/String)?| = throw R|kotlin/Throwable.Throwable|(String(Stub for declaration generated by Plugin[Contract]))): R|interop/JavaContractContract|
+
+    }
+FILE: interop/JavaContractConstructor.kt
+    package interop
+
+    @R|kotlin/Deprecated|(message = String(Binary compatibility), level = R|kotlin/DeprecationLevel.HIDDEN|) public final fun JavaContract(value: R|interop/JavaContract.() -> kotlin/Int|): R|interop/JavaContract|
+    public final fun JavaContract(value: R|interop/JavaContract.() -> kotlin/Int|, format: R|(interop/JavaContract.(kotlin/String) -> kotlin/String)?| = throw R|kotlin/Throwable.Throwable|(String(Stub for declaration generated by Plugin[Contract]))): R|interop/JavaContract|
+FILE: interop/JavaContractCopy.kt
+    package interop
+
+    @R|kotlin/Deprecated|(message = String(Binary compatibility), level = R|kotlin/DeprecationLevel.HIDDEN|) public final fun R|interop/JavaContract|.copy(value: R|(interop/JavaContract.() -> kotlin/Int)?| = throw R|kotlin/Throwable.Throwable|(String(Stub for declaration generated by Plugin[Contract]))): R|interop/JavaContract|
+    public final fun R|interop/JavaContract|.copy(value: R|(interop/JavaContract.() -> kotlin/Int)?| = throw R|kotlin/Throwable.Throwable|(String(Stub for declaration generated by Plugin[Contract])), format: R|(interop/JavaContract.(kotlin/String) -> kotlin/String)?| = throw R|kotlin/Throwable.Throwable|(String(Stub for declaration generated by Plugin[Contract]))): R|interop/JavaContract|

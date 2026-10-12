@@ -16,6 +16,8 @@ FILE fqName:interop fileName:/jvmOverloads.kt
       VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:kotlin.Any
       overridden:
         public open fun toString (): kotlin.String declared in kotlin.Any
+    FUN GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:contract visibility:public modality:ABSTRACT returnType:interop.JavaContractContract
+      VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:interop.JavaContract
     FUN name:format visibility:public modality:OPEN returnType:kotlin.String
       VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:interop.JavaContract
       VALUE_PARAMETER kind:Regular name:prefix index:1 type:kotlin.String
@@ -23,186 +25,225 @@ FILE fqName:interop fileName:/jvmOverloads.kt
         RETURN type=kotlin.Nothing from='public open fun format (prefix: kotlin.String): kotlin.String declared in interop.JavaContract'
           CALL 'public final fun plus (other: kotlin.Any?): kotlin.String declared in kotlin.String' type=kotlin.String origin=PLUS
             ARG <this>: GET_VAR 'prefix: kotlin.String declared in interop.JavaContract.format' type=kotlin.String origin=null
-            ARG other: CALL 'public abstract fun <get-value> (): kotlin.Int declared in interop.JavaContract' type=kotlin.Int origin=GET_PROPERTY
+            ARG other: CALL 'public abstract fun value (): kotlin.Int declared in interop.JavaContract' type=kotlin.Int origin=null
               ARG <this>: GET_VAR '<this>: interop.JavaContract declared in interop.JavaContract.format' type=interop.JavaContract origin=IMPLICIT_ARGUMENT
-    PROPERTY name:value visibility:public modality:ABSTRACT [val]
-      FUN DEFAULT_PROPERTY_ACCESSOR name:<get-value> visibility:public modality:ABSTRACT returnType:kotlin.Int
-        VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:interop.JavaContract
-        correspondingProperty: PROPERTY name:value visibility:public modality:ABSTRACT [val]
+    FUN name:value visibility:public modality:ABSTRACT returnType:kotlin.Int
+      VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:interop.JavaContract
   FUN name:box visibility:public modality:FINAL returnType:kotlin.String
     BLOCK_BODY
-      VAR name:facade type:@[FlexibleNullability] java.lang.Class<*>? [val]
+      VAR name:constructor type:@[FlexibleNullability] java.lang.Class<*>? [val]
         CALL 'public open fun forName (p0: @[FlexibleNullability] kotlin.String?): @[FlexibleNullability] java.lang.Class<*>? declared in java.lang.Class' type=@[FlexibleNullability] java.lang.Class<*>? origin=null
-          ARG p0: CONST String type=kotlin.String value="interop.JavaContractContractKt"
-      VAR name:factory type:@[FlexibleNullability] java.lang.reflect.Method? [val]
-        CALL 'public open fun getMethod (p0: @[FlexibleNullability] kotlin.String?, vararg p1: @[FlexibleNullability] java.lang.Class<*>?): @[FlexibleNullability] java.lang.reflect.Method? declared in java.lang.Class' type=@[FlexibleNullability] java.lang.reflect.Method? origin=null
-          ARG <this>: TYPE_OP type=java.lang.Class<*> origin=IMPLICIT_NOTNULL typeOperand=java.lang.Class<*>
-            GET_VAR 'val facade: @[FlexibleNullability] java.lang.Class<*>? declared in interop.box' type=@[FlexibleNullability] java.lang.Class<*>? origin=null
-          ARG p0: CONST String type=kotlin.String value="JavaContract"
-          ARG p1: VARARG type=@[FlexibleNullability] @[FlexibleArrayElementVariance] kotlin.Array<out @[FlexibleNullability] java.lang.Class<*>?>? varargElementType=@[FlexibleNullability] java.lang.Class<*>?
-            CALL 'public final fun <get-javaPrimitiveType> <T> (<this>: kotlin.reflect.KClass<T of kotlin.jvm.<get-javaPrimitiveType>>): java.lang.Class<T of kotlin.jvm.<get-javaPrimitiveType>>? declared in kotlin.jvm' type=java.lang.Class<kotlin.Int>? origin=GET_PROPERTY
-              TYPE_ARG T: kotlin.Int
-              ARG <this>: CLASS_REFERENCE 'CLASS IR_EXTERNAL_DECLARATION_STUB CLASS name:Int modality:FINAL visibility:public superTypes:[kotlin.Number; kotlin.Comparable<kotlin.Int>; java.io.Serializable]' type=kotlin.reflect.KClass<kotlin.Int>
-      VAR name:contract type:interop.JavaContract [val]
-        TYPE_OP type=interop.JavaContract origin=CAST typeOperand=interop.JavaContract
-          CALL 'public open fun invoke (p0: @[FlexibleNullability] kotlin.Any?, vararg p1: @[FlexibleNullability] kotlin.Any?): @[FlexibleNullability] kotlin.Any? declared in java.lang.reflect.Method' type=@[FlexibleNullability] kotlin.Any? origin=null
+          ARG p0: CONST String type=kotlin.String value="interop.JavaContractConstructorKt"
+      VAR name:copy type:@[FlexibleNullability] java.lang.Class<*>? [val]
+        CALL 'public open fun forName (p0: @[FlexibleNullability] kotlin.String?): @[FlexibleNullability] java.lang.Class<*>? declared in java.lang.Class' type=@[FlexibleNullability] java.lang.Class<*>? origin=null
+          ARG p0: CONST String type=kotlin.String value="interop.JavaContractCopyKt"
+      VAR name:factoryMethods type:kotlin.collections.List<@[FlexibleNullability] java.lang.reflect.Method?> [val]
+        CALL 'public final fun filter <T> (<this>: kotlin.Array<out T of kotlin.collections.filter>, predicate: kotlin.Function1<T of kotlin.collections.filter, kotlin.Boolean>): kotlin.collections.List<T of kotlin.collections.filter> declared in kotlin.collections' type=kotlin.collections.List<@[FlexibleNullability] java.lang.reflect.Method?> origin=null
+          TYPE_ARG T: @[FlexibleNullability] java.lang.reflect.Method?
+          ARG <this>: TYPE_OP type=@[FlexibleArrayElementVariance] kotlin.Array<out @[FlexibleNullability] java.lang.reflect.Method?> origin=IMPLICIT_NOTNULL typeOperand=@[FlexibleArrayElementVariance] kotlin.Array<out @[FlexibleNullability] java.lang.reflect.Method?>
+            CALL 'public open fun getDeclaredMethods (): @[FlexibleNullability] @[FlexibleArrayElementVariance] kotlin.Array<out @[FlexibleNullability] java.lang.reflect.Method?>? declared in java.lang.Class' type=@[FlexibleNullability] @[FlexibleArrayElementVariance] kotlin.Array<out @[FlexibleNullability] java.lang.reflect.Method?>? origin=GET_PROPERTY
+              ARG <this>: TYPE_OP type=java.lang.Class<*> origin=IMPLICIT_NOTNULL typeOperand=java.lang.Class<*>
+                GET_VAR 'val constructor: @[FlexibleNullability] java.lang.Class<*>? declared in interop.box' type=@[FlexibleNullability] java.lang.Class<*>? origin=null
+          ARG predicate: FUN_EXPR type=kotlin.Function1<@[FlexibleNullability] java.lang.reflect.Method?, kotlin.Boolean> origin=LAMBDA
+            FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Boolean
+              VALUE_PARAMETER kind:Regular name:it index:0 type:@[FlexibleNullability] java.lang.reflect.Method?
+              BLOCK_BODY
+                RETURN type=kotlin.Nothing from='local final fun <anonymous> (it: @[FlexibleNullability] java.lang.reflect.Method?): kotlin.Boolean declared in interop.box'
+                  CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+                    ARG arg0: CALL 'public open fun getName (): @[FlexibleNullability] kotlin.String? declared in java.lang.reflect.Method' type=@[FlexibleNullability] kotlin.String? origin=GET_PROPERTY
+                      ARG <this>: TYPE_OP type=java.lang.reflect.Method origin=IMPLICIT_NOTNULL typeOperand=java.lang.reflect.Method
+                        GET_VAR 'it: @[FlexibleNullability] java.lang.reflect.Method? declared in interop.box.<anonymous>' type=@[FlexibleNullability] java.lang.reflect.Method? origin=null
+                    ARG arg1: CONST String type=kotlin.String value="JavaContract"
+      CALL 'public final fun check (value: kotlin.Boolean): kotlin.Unit declared in kotlin' type=kotlin.Unit origin=null
+        ARG value: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+          ARG arg0: CALL 'public abstract fun <get-size> (): kotlin.Int declared in kotlin.collections.List' type=kotlin.Int origin=GET_PROPERTY
+            ARG <this>: GET_VAR 'val factoryMethods: kotlin.collections.List<@[FlexibleNullability] java.lang.reflect.Method?> declared in interop.box' type=kotlin.collections.List<@[FlexibleNullability] java.lang.reflect.Method?> origin=null
+          ARG arg1: CONST Int type=kotlin.Int value=2
+      CALL 'public final fun check (value: kotlin.Boolean): kotlin.Unit declared in kotlin' type=kotlin.Unit origin=null
+        ARG value: CALL 'public open fun isSynthetic (): kotlin.Boolean declared in java.lang.reflect.Method' type=kotlin.Boolean origin=GET_PROPERTY
+          ARG <this>: TYPE_OP type=java.lang.reflect.Method origin=IMPLICIT_NOTNULL typeOperand=java.lang.reflect.Method
+            CALL 'public final fun single <T> (<this>: kotlin.collections.Iterable<T of kotlin.collections.single>, predicate: kotlin.Function1<T of kotlin.collections.single, kotlin.Boolean>): T of kotlin.collections.single declared in kotlin.collections' type=@[FlexibleNullability] java.lang.reflect.Method? origin=null
+              TYPE_ARG T: @[FlexibleNullability] java.lang.reflect.Method?
+              ARG <this>: GET_VAR 'val factoryMethods: kotlin.collections.List<@[FlexibleNullability] java.lang.reflect.Method?> declared in interop.box' type=kotlin.collections.List<@[FlexibleNullability] java.lang.reflect.Method?> origin=null
+              ARG predicate: FUN_EXPR type=kotlin.Function1<@[FlexibleNullability] java.lang.reflect.Method?, kotlin.Boolean> origin=LAMBDA
+                FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Boolean
+                  VALUE_PARAMETER kind:Regular name:it index:0 type:@[FlexibleNullability] java.lang.reflect.Method?
+                  BLOCK_BODY
+                    RETURN type=kotlin.Nothing from='local final fun <anonymous> (it: @[FlexibleNullability] java.lang.reflect.Method?): kotlin.Boolean declared in interop.box'
+                      CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+                        ARG arg0: CALL 'public open fun getParameterCount (): kotlin.Int declared in java.lang.reflect.Method' type=kotlin.Int origin=GET_PROPERTY
+                          ARG <this>: TYPE_OP type=java.lang.reflect.Method origin=IMPLICIT_NOTNULL typeOperand=java.lang.reflect.Method
+                            GET_VAR 'it: @[FlexibleNullability] java.lang.reflect.Method? declared in interop.box.<anonymous>' type=@[FlexibleNullability] java.lang.reflect.Method? origin=null
+                        ARG arg1: CONST Int type=kotlin.Int value=1
+      CALL 'public final fun check (value: kotlin.Boolean): kotlin.Unit declared in kotlin' type=kotlin.Unit origin=null
+        ARG value: CALL 'public final fun not (): kotlin.Boolean declared in kotlin.Boolean' type=kotlin.Boolean origin=null
+          ARG <this>: CALL 'public open fun isSynthetic (): kotlin.Boolean declared in java.lang.reflect.Method' type=kotlin.Boolean origin=GET_PROPERTY
             ARG <this>: TYPE_OP type=java.lang.reflect.Method origin=IMPLICIT_NOTNULL typeOperand=java.lang.reflect.Method
-              GET_VAR 'val factory: @[FlexibleNullability] java.lang.reflect.Method? declared in interop.box' type=@[FlexibleNullability] java.lang.reflect.Method? origin=null
-            ARG p0: CONST Null type=kotlin.Nothing? value=null
-            ARG p1: VARARG type=@[FlexibleNullability] @[FlexibleArrayElementVariance] kotlin.Array<out @[FlexibleNullability] kotlin.Any?>? varargElementType=@[FlexibleNullability] kotlin.Any?
-              CONST Int type=kotlin.Int value=7
+              CALL 'public final fun single <T> (<this>: kotlin.collections.Iterable<T of kotlin.collections.single>, predicate: kotlin.Function1<T of kotlin.collections.single, kotlin.Boolean>): T of kotlin.collections.single declared in kotlin.collections' type=@[FlexibleNullability] java.lang.reflect.Method? origin=null
+                TYPE_ARG T: @[FlexibleNullability] java.lang.reflect.Method?
+                ARG <this>: GET_VAR 'val factoryMethods: kotlin.collections.List<@[FlexibleNullability] java.lang.reflect.Method?> declared in interop.box' type=kotlin.collections.List<@[FlexibleNullability] java.lang.reflect.Method?> origin=null
+                ARG predicate: FUN_EXPR type=kotlin.Function1<@[FlexibleNullability] java.lang.reflect.Method?, kotlin.Boolean> origin=LAMBDA
+                  FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Boolean
+                    VALUE_PARAMETER kind:Regular name:it index:0 type:@[FlexibleNullability] java.lang.reflect.Method?
+                    BLOCK_BODY
+                      RETURN type=kotlin.Nothing from='local final fun <anonymous> (it: @[FlexibleNullability] java.lang.reflect.Method?): kotlin.Boolean declared in interop.box'
+                        CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+                          ARG arg0: CALL 'public open fun getParameterCount (): kotlin.Int declared in java.lang.reflect.Method' type=kotlin.Int origin=GET_PROPERTY
+                            ARG <this>: TYPE_OP type=java.lang.reflect.Method origin=IMPLICIT_NOTNULL typeOperand=java.lang.reflect.Method
+                              GET_VAR 'it: @[FlexibleNullability] java.lang.reflect.Method? declared in interop.box.<anonymous>' type=@[FlexibleNullability] java.lang.reflect.Method? origin=null
+                          ARG arg1: CONST Int type=kotlin.Int value=2
+      VAR name:copyMethods type:kotlin.collections.List<@[FlexibleNullability] java.lang.reflect.Method?> [val]
+        CALL 'public final fun filter <T> (<this>: kotlin.Array<out T of kotlin.collections.filter>, predicate: kotlin.Function1<T of kotlin.collections.filter, kotlin.Boolean>): kotlin.collections.List<T of kotlin.collections.filter> declared in kotlin.collections' type=kotlin.collections.List<@[FlexibleNullability] java.lang.reflect.Method?> origin=null
+          TYPE_ARG T: @[FlexibleNullability] java.lang.reflect.Method?
+          ARG <this>: TYPE_OP type=@[FlexibleArrayElementVariance] kotlin.Array<out @[FlexibleNullability] java.lang.reflect.Method?> origin=IMPLICIT_NOTNULL typeOperand=@[FlexibleArrayElementVariance] kotlin.Array<out @[FlexibleNullability] java.lang.reflect.Method?>
+            CALL 'public open fun getDeclaredMethods (): @[FlexibleNullability] @[FlexibleArrayElementVariance] kotlin.Array<out @[FlexibleNullability] java.lang.reflect.Method?>? declared in java.lang.Class' type=@[FlexibleNullability] @[FlexibleArrayElementVariance] kotlin.Array<out @[FlexibleNullability] java.lang.reflect.Method?>? origin=GET_PROPERTY
+              ARG <this>: TYPE_OP type=java.lang.Class<*> origin=IMPLICIT_NOTNULL typeOperand=java.lang.Class<*>
+                GET_VAR 'val copy: @[FlexibleNullability] java.lang.Class<*>? declared in interop.box' type=@[FlexibleNullability] java.lang.Class<*>? origin=null
+          ARG predicate: FUN_EXPR type=kotlin.Function1<@[FlexibleNullability] java.lang.reflect.Method?, kotlin.Boolean> origin=LAMBDA
+            FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Boolean
+              VALUE_PARAMETER kind:Regular name:it index:0 type:@[FlexibleNullability] java.lang.reflect.Method?
+              BLOCK_BODY
+                RETURN type=kotlin.Nothing from='local final fun <anonymous> (it: @[FlexibleNullability] java.lang.reflect.Method?): kotlin.Boolean declared in interop.box'
+                  CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+                    ARG arg0: CALL 'public open fun getName (): @[FlexibleNullability] kotlin.String? declared in java.lang.reflect.Method' type=@[FlexibleNullability] kotlin.String? origin=GET_PROPERTY
+                      ARG <this>: TYPE_OP type=java.lang.reflect.Method origin=IMPLICIT_NOTNULL typeOperand=java.lang.reflect.Method
+                        GET_VAR 'it: @[FlexibleNullability] java.lang.reflect.Method? declared in interop.box.<anonymous>' type=@[FlexibleNullability] java.lang.reflect.Method? origin=null
+                    ARG arg1: CONST String type=kotlin.String value="copy"
+      CALL 'public final fun check (value: kotlin.Boolean): kotlin.Unit declared in kotlin' type=kotlin.Unit origin=null
+        ARG value: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+          ARG arg0: CALL 'public abstract fun <get-size> (): kotlin.Int declared in kotlin.collections.List' type=kotlin.Int origin=GET_PROPERTY
+            ARG <this>: GET_VAR 'val copyMethods: kotlin.collections.List<@[FlexibleNullability] java.lang.reflect.Method?> declared in interop.box' type=kotlin.collections.List<@[FlexibleNullability] java.lang.reflect.Method?> origin=null
+          ARG arg1: CONST Int type=kotlin.Int value=2
+      CALL 'public final fun check (value: kotlin.Boolean): kotlin.Unit declared in kotlin' type=kotlin.Unit origin=null
+        ARG value: CALL 'public open fun isSynthetic (): kotlin.Boolean declared in java.lang.reflect.Method' type=kotlin.Boolean origin=GET_PROPERTY
+          ARG <this>: TYPE_OP type=java.lang.reflect.Method origin=IMPLICIT_NOTNULL typeOperand=java.lang.reflect.Method
+            CALL 'public final fun single <T> (<this>: kotlin.collections.Iterable<T of kotlin.collections.single>, predicate: kotlin.Function1<T of kotlin.collections.single, kotlin.Boolean>): T of kotlin.collections.single declared in kotlin.collections' type=@[FlexibleNullability] java.lang.reflect.Method? origin=null
+              TYPE_ARG T: @[FlexibleNullability] java.lang.reflect.Method?
+              ARG <this>: GET_VAR 'val copyMethods: kotlin.collections.List<@[FlexibleNullability] java.lang.reflect.Method?> declared in interop.box' type=kotlin.collections.List<@[FlexibleNullability] java.lang.reflect.Method?> origin=null
+              ARG predicate: FUN_EXPR type=kotlin.Function1<@[FlexibleNullability] java.lang.reflect.Method?, kotlin.Boolean> origin=LAMBDA
+                FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Boolean
+                  VALUE_PARAMETER kind:Regular name:it index:0 type:@[FlexibleNullability] java.lang.reflect.Method?
+                  BLOCK_BODY
+                    RETURN type=kotlin.Nothing from='local final fun <anonymous> (it: @[FlexibleNullability] java.lang.reflect.Method?): kotlin.Boolean declared in interop.box'
+                      CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+                        ARG arg0: CALL 'public open fun getParameterCount (): kotlin.Int declared in java.lang.reflect.Method' type=kotlin.Int origin=GET_PROPERTY
+                          ARG <this>: TYPE_OP type=java.lang.reflect.Method origin=IMPLICIT_NOTNULL typeOperand=java.lang.reflect.Method
+                            GET_VAR 'it: @[FlexibleNullability] java.lang.reflect.Method? declared in interop.box.<anonymous>' type=@[FlexibleNullability] java.lang.reflect.Method? origin=null
+                        ARG arg1: CONST Int type=kotlin.Int value=2
+      CALL 'public final fun check (value: kotlin.Boolean): kotlin.Unit declared in kotlin' type=kotlin.Unit origin=null
+        ARG value: CALL 'public final fun not (): kotlin.Boolean declared in kotlin.Boolean' type=kotlin.Boolean origin=null
+          ARG <this>: CALL 'public open fun isSynthetic (): kotlin.Boolean declared in java.lang.reflect.Method' type=kotlin.Boolean origin=GET_PROPERTY
+            ARG <this>: TYPE_OP type=java.lang.reflect.Method origin=IMPLICIT_NOTNULL typeOperand=java.lang.reflect.Method
+              CALL 'public final fun single <T> (<this>: kotlin.collections.Iterable<T of kotlin.collections.single>, predicate: kotlin.Function1<T of kotlin.collections.single, kotlin.Boolean>): T of kotlin.collections.single declared in kotlin.collections' type=@[FlexibleNullability] java.lang.reflect.Method? origin=null
+                TYPE_ARG T: @[FlexibleNullability] java.lang.reflect.Method?
+                ARG <this>: GET_VAR 'val copyMethods: kotlin.collections.List<@[FlexibleNullability] java.lang.reflect.Method?> declared in interop.box' type=kotlin.collections.List<@[FlexibleNullability] java.lang.reflect.Method?> origin=null
+                ARG predicate: FUN_EXPR type=kotlin.Function1<@[FlexibleNullability] java.lang.reflect.Method?, kotlin.Boolean> origin=LAMBDA
+                  FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Boolean
+                    VALUE_PARAMETER kind:Regular name:it index:0 type:@[FlexibleNullability] java.lang.reflect.Method?
+                    BLOCK_BODY
+                      RETURN type=kotlin.Nothing from='local final fun <anonymous> (it: @[FlexibleNullability] java.lang.reflect.Method?): kotlin.Boolean declared in interop.box'
+                        CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+                          ARG arg0: CALL 'public open fun getParameterCount (): kotlin.Int declared in java.lang.reflect.Method' type=kotlin.Int origin=GET_PROPERTY
+                            ARG <this>: TYPE_OP type=java.lang.reflect.Method origin=IMPLICIT_NOTNULL typeOperand=java.lang.reflect.Method
+                              GET_VAR 'it: @[FlexibleNullability] java.lang.reflect.Method? declared in interop.box.<anonymous>' type=@[FlexibleNullability] java.lang.reflect.Method? origin=null
+                          ARG arg1: CONST Int type=kotlin.Int value=3
+      CALL 'public final fun check (value: kotlin.Boolean): kotlin.Unit declared in kotlin' type=kotlin.Unit origin=null
+        ARG value: CALL 'public open fun isSynthetic (): kotlin.Boolean declared in java.lang.reflect.Constructor' type=kotlin.Boolean origin=GET_PROPERTY
+          ARG <this>: TYPE_OP type=java.lang.reflect.Constructor<*> origin=IMPLICIT_NOTNULL typeOperand=java.lang.reflect.Constructor<*>
+            CALL 'public final fun single <T> (<this>: kotlin.Array<out T of kotlin.collections.single>, predicate: kotlin.Function1<T of kotlin.collections.single, kotlin.Boolean>): T of kotlin.collections.single declared in kotlin.collections' type=@[FlexibleNullability] java.lang.reflect.Constructor<*>? origin=null
+              TYPE_ARG T: @[FlexibleNullability] java.lang.reflect.Constructor<*>?
+              ARG <this>: TYPE_OP type=@[FlexibleArrayElementVariance] kotlin.Array<out @[FlexibleNullability] java.lang.reflect.Constructor<*>?> origin=IMPLICIT_NOTNULL typeOperand=@[FlexibleArrayElementVariance] kotlin.Array<out @[FlexibleNullability] java.lang.reflect.Constructor<*>?>
+                CALL 'public open fun getDeclaredConstructors (): @[FlexibleNullability] @[FlexibleArrayElementVariance] kotlin.Array<out @[FlexibleNullability] java.lang.reflect.Constructor<*>?>? declared in java.lang.Class' type=@[FlexibleNullability] @[FlexibleArrayElementVariance] kotlin.Array<out @[FlexibleNullability] java.lang.reflect.Constructor<*>?>? origin=GET_PROPERTY
+                  ARG <this>: CALL 'public final fun <get-java> <T> (<this>: kotlin.reflect.KClass<T of kotlin.jvm.<get-java>>): java.lang.Class<T of kotlin.jvm.<get-java>> declared in kotlin.jvm' type=java.lang.Class<interop.JavaContractContract> origin=GET_PROPERTY
+                    TYPE_ARG T: interop.JavaContractContract
+                    ARG <this>: CLASS_REFERENCE 'CLASS GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] CLASS name:JavaContractContract modality:FINAL visibility:public superTypes:[kotlin.Any]' type=kotlin.reflect.KClass<interop.JavaContractContract>
+              ARG predicate: FUN_EXPR type=kotlin.Function1<@[FlexibleNullability] java.lang.reflect.Constructor<*>?, kotlin.Boolean> origin=LAMBDA
+                FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Boolean
+                  VALUE_PARAMETER kind:Regular name:it index:0 type:@[FlexibleNullability] java.lang.reflect.Constructor<*>?
+                  BLOCK_BODY
+                    RETURN type=kotlin.Nothing from='local final fun <anonymous> (it: @[FlexibleNullability] java.lang.reflect.Constructor<*>?): kotlin.Boolean declared in interop.box'
+                      CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+                        ARG arg0: CALL 'public open fun getParameterCount (): kotlin.Int declared in java.lang.reflect.Constructor' type=kotlin.Int origin=GET_PROPERTY
+                          ARG <this>: TYPE_OP type=java.lang.reflect.Constructor<*> origin=IMPLICIT_NOTNULL typeOperand=java.lang.reflect.Constructor<*>
+                            GET_VAR 'it: @[FlexibleNullability] java.lang.reflect.Constructor<*>? declared in interop.box.<anonymous>' type=@[FlexibleNullability] java.lang.reflect.Constructor<*>? origin=null
+                        ARG arg1: CONST Int type=kotlin.Int value=1
+      VAR name:contract type:interop.JavaContract [val]
+        CALL 'public final fun JavaContract (value: @[ExtensionFunctionType] kotlin.Function1<interop.JavaContract, kotlin.Int>, format: @[ExtensionFunctionType] kotlin.Function2<interop.JavaContract, kotlin.String, kotlin.String>?): interop.JavaContract declared in interop' type=interop.JavaContract origin=null
+          ARG value: FUN_EXPR type=@[ExtensionFunctionType] kotlin.Function1<interop.JavaContract, kotlin.Int> origin=LAMBDA
+            FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Int
+              VALUE_PARAMETER kind:ExtensionReceiver name:$this$JavaContract index:0 type:interop.JavaContract
+              BLOCK_BODY
+                RETURN type=kotlin.Nothing from='local final fun <anonymous> ($this$JavaContract: interop.JavaContract): kotlin.Int declared in interop.box'
+                  CONST Int type=kotlin.Int value=7
       CALL 'public final fun check (value: kotlin.Boolean): kotlin.Unit declared in kotlin' type=kotlin.Unit origin=null
         ARG value: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
           ARG arg0: CALL 'public open fun format (prefix: kotlin.String): kotlin.String declared in interop.JavaContract' type=kotlin.String origin=null
             ARG <this>: GET_VAR 'val contract: interop.JavaContract declared in interop.box' type=interop.JavaContract origin=null
             ARG prefix: CONST String type=kotlin.String value="java:"
           ARG arg1: CONST String type=kotlin.String value="java:7"
-      VAR name:copy type:@[FlexibleNullability] java.lang.reflect.Method? [val]
-        CALL 'public open fun getMethod (p0: @[FlexibleNullability] kotlin.String?, vararg p1: @[FlexibleNullability] java.lang.Class<*>?): @[FlexibleNullability] java.lang.reflect.Method? declared in java.lang.Class' type=@[FlexibleNullability] java.lang.reflect.Method? origin=null
-          ARG <this>: TYPE_OP type=java.lang.Class<*> origin=IMPLICIT_NOTNULL typeOperand=java.lang.Class<*>
-            GET_VAR 'val facade: @[FlexibleNullability] java.lang.Class<*>? declared in interop.box' type=@[FlexibleNullability] java.lang.Class<*>? origin=null
-          ARG p0: CONST String type=kotlin.String value="copy"
-          ARG p1: VARARG type=@[FlexibleNullability] @[FlexibleArrayElementVariance] kotlin.Array<out @[FlexibleNullability] java.lang.Class<*>?>? varargElementType=@[FlexibleNullability] java.lang.Class<*>?
-            CALL 'public final fun <get-java> <T> (<this>: kotlin.reflect.KClass<T of kotlin.jvm.<get-java>>): java.lang.Class<T of kotlin.jvm.<get-java>> declared in kotlin.jvm' type=java.lang.Class<interop.JavaContract> origin=GET_PROPERTY
-              TYPE_ARG T: interop.JavaContract
-              ARG <this>: CLASS_REFERENCE 'CLASS INTERFACE name:JavaContract modality:ABSTRACT visibility:public superTypes:[kotlin.Any]' type=kotlin.reflect.KClass<interop.JavaContract>
-      VAR name:copied type:interop.JavaContract [val]
-        TYPE_OP type=interop.JavaContract origin=CAST typeOperand=interop.JavaContract
-          CALL 'public open fun invoke (p0: @[FlexibleNullability] kotlin.Any?, vararg p1: @[FlexibleNullability] kotlin.Any?): @[FlexibleNullability] kotlin.Any? declared in java.lang.reflect.Method' type=@[FlexibleNullability] kotlin.Any? origin=null
-            ARG <this>: TYPE_OP type=java.lang.reflect.Method origin=IMPLICIT_NOTNULL typeOperand=java.lang.reflect.Method
-              GET_VAR 'val copy: @[FlexibleNullability] java.lang.reflect.Method? declared in interop.box' type=@[FlexibleNullability] java.lang.reflect.Method? origin=null
-            ARG p0: CONST Null type=kotlin.Nothing? value=null
-            ARG p1: VARARG type=@[FlexibleNullability] @[FlexibleArrayElementVariance] kotlin.Array<out @[FlexibleNullability] kotlin.Any?>? varargElementType=@[FlexibleNullability] kotlin.Any?
-              GET_VAR 'val contract: interop.JavaContract declared in interop.box' type=interop.JavaContract origin=null
-      CALL 'public final fun check (value: kotlin.Boolean): kotlin.Unit declared in kotlin' type=kotlin.Unit origin=null
-        ARG value: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
-          ARG arg0: CALL 'public abstract fun <get-value> (): kotlin.Int declared in interop.JavaContract' type=kotlin.Int origin=GET_PROPERTY
-            ARG <this>: GET_VAR 'val copied: interop.JavaContract declared in interop.box' type=interop.JavaContract origin=null
-          ARG arg1: CONST Int type=kotlin.Int value=7
       CALL 'public final fun check (value: kotlin.Boolean): kotlin.Unit declared in kotlin' type=kotlin.Unit origin=null
         ARG value: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
           ARG arg0: CALL 'public open fun format (prefix: kotlin.String): kotlin.String declared in interop.JavaContract' type=kotlin.String origin=null
-            ARG <this>: GET_VAR 'val copied: interop.JavaContract declared in interop.box' type=interop.JavaContract origin=null
+            ARG <this>: CALL 'public final fun copy (<this>: interop.JavaContract, value: @[ExtensionFunctionType] kotlin.Function1<interop.JavaContract, kotlin.Int>?, format: @[ExtensionFunctionType] kotlin.Function2<interop.JavaContract, kotlin.String, kotlin.String>?): interop.JavaContract declared in interop' type=interop.JavaContract origin=null
+              ARG <this>: GET_VAR 'val contract: interop.JavaContract declared in interop.box' type=interop.JavaContract origin=null
+              ARG value: FUN_EXPR type=@[ExtensionFunctionType] kotlin.Function1<interop.JavaContract, kotlin.Int> origin=LAMBDA
+                FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Int
+                  VALUE_PARAMETER kind:ExtensionReceiver name:$this$copy index:0 type:interop.JavaContract
+                  BLOCK_BODY
+                    RETURN type=kotlin.Nothing from='local final fun <anonymous> ($this$copy: interop.JavaContract): kotlin.Int declared in interop.box'
+                      CONST Int type=kotlin.Int value=9
             ARG prefix: CONST String type=kotlin.String value="copy:"
-          ARG arg1: CONST String type=kotlin.String value="copy:7"
-      CALL 'public final fun check (value: kotlin.Boolean): kotlin.Unit declared in kotlin' type=kotlin.Unit origin=null
-        ARG value: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
-          ARG arg0: CALL 'public final fun count <T> (<this>: kotlin.Array<out T of kotlin.collections.count>, predicate: kotlin.Function1<T of kotlin.collections.count, kotlin.Boolean>): kotlin.Int declared in kotlin.collections' type=kotlin.Int origin=null
-            TYPE_ARG T: @[FlexibleNullability] java.lang.reflect.Method?
-            ARG <this>: TYPE_OP type=@[FlexibleArrayElementVariance] kotlin.Array<out @[FlexibleNullability] java.lang.reflect.Method?> origin=IMPLICIT_NOTNULL typeOperand=@[FlexibleArrayElementVariance] kotlin.Array<out @[FlexibleNullability] java.lang.reflect.Method?>
-              CALL 'public open fun getMethods (): @[FlexibleNullability] @[FlexibleArrayElementVariance] kotlin.Array<out @[FlexibleNullability] java.lang.reflect.Method?>? declared in java.lang.Class' type=@[FlexibleNullability] @[FlexibleArrayElementVariance] kotlin.Array<out @[FlexibleNullability] java.lang.reflect.Method?>? origin=GET_PROPERTY
-                ARG <this>: TYPE_OP type=java.lang.Class<*> origin=IMPLICIT_NOTNULL typeOperand=java.lang.Class<*>
-                  GET_VAR 'val facade: @[FlexibleNullability] java.lang.Class<*>? declared in interop.box' type=@[FlexibleNullability] java.lang.Class<*>? origin=null
-            ARG predicate: FUN_EXPR type=kotlin.Function1<@[FlexibleNullability] java.lang.reflect.Method?, kotlin.Boolean> origin=LAMBDA
-              FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Boolean
-                VALUE_PARAMETER kind:Regular name:it index:0 type:@[FlexibleNullability] java.lang.reflect.Method?
-                BLOCK_BODY
-                  RETURN type=kotlin.Nothing from='local final fun <anonymous> (it: @[FlexibleNullability] java.lang.reflect.Method?): kotlin.Boolean declared in interop.box'
-                    CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
-                      ARG arg0: CALL 'public open fun getName (): @[FlexibleNullability] kotlin.String? declared in java.lang.reflect.Method' type=@[FlexibleNullability] kotlin.String? origin=GET_PROPERTY
-                        ARG <this>: TYPE_OP type=java.lang.reflect.Method origin=IMPLICIT_NOTNULL typeOperand=java.lang.reflect.Method
-                          GET_VAR 'it: @[FlexibleNullability] java.lang.reflect.Method? declared in interop.box.<anonymous>' type=@[FlexibleNullability] java.lang.reflect.Method? origin=null
-                      ARG arg1: CONST String type=kotlin.String value="JavaContract"
-          ARG arg1: CONST Int type=kotlin.Int value=2
-      CALL 'public final fun check (value: kotlin.Boolean): kotlin.Unit declared in kotlin' type=kotlin.Unit origin=null
-        ARG value: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
-          ARG arg0: CALL 'public final fun count <T> (<this>: kotlin.Array<out T of kotlin.collections.count>, predicate: kotlin.Function1<T of kotlin.collections.count, kotlin.Boolean>): kotlin.Int declared in kotlin.collections' type=kotlin.Int origin=null
-            TYPE_ARG T: @[FlexibleNullability] java.lang.reflect.Method?
-            ARG <this>: TYPE_OP type=@[FlexibleArrayElementVariance] kotlin.Array<out @[FlexibleNullability] java.lang.reflect.Method?> origin=IMPLICIT_NOTNULL typeOperand=@[FlexibleArrayElementVariance] kotlin.Array<out @[FlexibleNullability] java.lang.reflect.Method?>
-              CALL 'public open fun getMethods (): @[FlexibleNullability] @[FlexibleArrayElementVariance] kotlin.Array<out @[FlexibleNullability] java.lang.reflect.Method?>? declared in java.lang.Class' type=@[FlexibleNullability] @[FlexibleArrayElementVariance] kotlin.Array<out @[FlexibleNullability] java.lang.reflect.Method?>? origin=GET_PROPERTY
-                ARG <this>: TYPE_OP type=java.lang.Class<*> origin=IMPLICIT_NOTNULL typeOperand=java.lang.Class<*>
-                  GET_VAR 'val facade: @[FlexibleNullability] java.lang.Class<*>? declared in interop.box' type=@[FlexibleNullability] java.lang.Class<*>? origin=null
-            ARG predicate: FUN_EXPR type=kotlin.Function1<@[FlexibleNullability] java.lang.reflect.Method?, kotlin.Boolean> origin=LAMBDA
-              FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Boolean
-                VALUE_PARAMETER kind:Regular name:it index:0 type:@[FlexibleNullability] java.lang.reflect.Method?
-                BLOCK_BODY
-                  RETURN type=kotlin.Nothing from='local final fun <anonymous> (it: @[FlexibleNullability] java.lang.reflect.Method?): kotlin.Boolean declared in interop.box'
-                    CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
-                      ARG arg0: CALL 'public open fun getName (): @[FlexibleNullability] kotlin.String? declared in java.lang.reflect.Method' type=@[FlexibleNullability] kotlin.String? origin=GET_PROPERTY
-                        ARG <this>: TYPE_OP type=java.lang.reflect.Method origin=IMPLICIT_NOTNULL typeOperand=java.lang.reflect.Method
-                          GET_VAR 'it: @[FlexibleNullability] java.lang.reflect.Method? declared in interop.box.<anonymous>' type=@[FlexibleNullability] java.lang.reflect.Method? origin=null
-                      ARG arg1: CONST String type=kotlin.String value="copy"
-          ARG arg1: CONST Int type=kotlin.Int value=3
+          ARG arg1: CONST String type=kotlin.String value="copy:9"
       RETURN type=kotlin.Nothing from='public final fun box (): kotlin.String declared in interop'
         CONST String type=kotlin.String value="OK"
-FILE fqName:interop fileName:interop/JavaContractContract.kt
-  FUN GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:JavaContract visibility:public modality:FINAL returnType:interop.JavaContract
-    VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:value index:0 type:kotlin.Int
-    VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:format index:1 type:kotlin.Function1<kotlin.String, kotlin.String>
-      EXPRESSION_BODY
-        FUN_EXPR type=kotlin.Function1<kotlin.String, kotlin.String> origin=LAMBDA
-          FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.String
-            VALUE_PARAMETER kind:Regular name:prefix index:0 type:kotlin.String
-            BLOCK_BODY
-              RETURN type=kotlin.Nothing from='local final fun <anonymous> (prefix: kotlin.String): kotlin.String declared in interop.JavaContract'
-                CALL 'public final fun plus (other: kotlin.Any?): kotlin.String declared in kotlin.String' type=kotlin.String origin=PLUS
-                  ARG <this>: GET_VAR 'prefix: kotlin.String declared in interop.JavaContract.<anonymous>' type=kotlin.String origin=null
-                  ARG other: GET_VAR 'value: kotlin.Int declared in interop.JavaContract' type=kotlin.Int origin=null
-    annotations:
-      JvmOverloads
-    BLOCK_BODY
-      RETURN type=kotlin.Nothing from='public final fun JavaContract (value: kotlin.Int, format: kotlin.Function1<kotlin.String, kotlin.String>): interop.JavaContract declared in interop'
-        CONSTRUCTOR_CALL 'public constructor <init> (value: kotlin.Int, format: kotlin.Function1<kotlin.String, kotlin.String>) declared in interop.JavaContractImpl' type=interop.JavaContractImpl origin=null
-          ARG value: GET_VAR 'value: kotlin.Int declared in interop.JavaContract' type=kotlin.Int origin=null
-          ARG format: GET_VAR 'format: kotlin.Function1<kotlin.String, kotlin.String> declared in interop.JavaContract' type=kotlin.Function1<kotlin.String, kotlin.String> origin=null
-  FUN GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:copy visibility:public modality:FINAL returnType:interop.JavaContract
-    VALUE_PARAMETER kind:ExtensionReceiver name:<this> index:0 type:interop.JavaContract
-    VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:value index:1 type:kotlin.Int
-      EXPRESSION_BODY
-        CALL 'public abstract fun <get-value> (): kotlin.Int declared in interop.JavaContract' type=kotlin.Int origin=null
-          ARG <this>: GET_VAR '<this>: interop.JavaContract declared in interop.copy' type=interop.JavaContract origin=null
-    VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:format index:2 type:kotlin.Function1<kotlin.String, kotlin.String>
-      EXPRESSION_BODY
-        FUNCTION_REFERENCE 'public open fun format (prefix: kotlin.String): kotlin.String declared in interop.JavaContract' type=kotlin.Function1<kotlin.String, kotlin.String> origin=null reflectionTarget=<same>
-          ARG <this>: GET_VAR '<this>: interop.JavaContract declared in interop.copy' type=interop.JavaContract origin=null
-    annotations:
-      JvmOverloads
-    BLOCK_BODY
-      RETURN type=kotlin.Nothing from='public final fun copy (<this>: interop.JavaContract, value: kotlin.Int, format: kotlin.Function1<kotlin.String, kotlin.String>): interop.JavaContract declared in interop'
-        CONSTRUCTOR_CALL 'public constructor <init> (value: kotlin.Int, format: kotlin.Function1<kotlin.String, kotlin.String>) declared in interop.JavaContractImpl' type=interop.JavaContractImpl origin=null
-          ARG value: GET_VAR 'value: kotlin.Int declared in interop.copy' type=kotlin.Int origin=null
-          ARG format: GET_VAR 'format: kotlin.Function1<kotlin.String, kotlin.String> declared in interop.copy' type=kotlin.Function1<kotlin.String, kotlin.String> origin=null
-FILE fqName:interop fileName:interop/JavaContractImpl.kt
-  CLASS GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] CLASS name:JavaContractImpl modality:FINAL visibility:public superTypes:[interop.JavaContract]
+FILE fqName:interop fileName:interop/JavaContractConstructor.kt
+  CLASS GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] CLASS name:JavaContractImpl modality:FINAL visibility:private superTypes:[interop.JavaContract]
     thisReceiver: VALUE_PARAMETER INSTANCE_RECEIVER kind:DispatchReceiver name:<this> type:interop.JavaContractImpl
-    PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:value visibility:public modality:FINAL [val]
-      overridden:
-        public abstract value: kotlin.Int declared in interop.JavaContract
-      FIELD PROPERTY_BACKING_FIELD name:value type:kotlin.Int visibility:private [final]
-      FUN DEFAULT_PROPERTY_ACCESSOR name:<get-value> visibility:public modality:FINAL returnType:kotlin.Int
+    PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:$contract$value visibility:private modality:FINAL [val]
+      FIELD PROPERTY_BACKING_FIELD name:$contract$value type:@[ExtensionFunctionType] kotlin.Function1<interop.JavaContract, kotlin.Int> visibility:private [final]
+      FUN DEFAULT_PROPERTY_ACCESSOR name:<get-$contract$value> visibility:private modality:FINAL returnType:@[ExtensionFunctionType] kotlin.Function1<interop.JavaContract, kotlin.Int>
         VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:interop.JavaContractImpl
-        correspondingProperty: PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:value visibility:public modality:FINAL [val]
-        overridden:
-          public abstract fun <get-value> (): kotlin.Int declared in interop.JavaContract
+        correspondingProperty: PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:$contract$value visibility:private modality:FINAL [val]
         BLOCK_BODY
-          RETURN type=kotlin.Nothing from='public final fun <get-value> (): kotlin.Int declared in interop.JavaContractImpl'
-            GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:value type:kotlin.Int visibility:private [final]' type=kotlin.Int origin=null
-              receiver: GET_VAR '<this>: interop.JavaContractImpl declared in interop.JavaContractImpl.<get-value>' type=interop.JavaContractImpl origin=null
+          RETURN type=kotlin.Nothing from='private final fun <get-$contract$value> (): @[ExtensionFunctionType] kotlin.Function1<interop.JavaContract, kotlin.Int> declared in interop.JavaContractImpl'
+            GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$value type:@[ExtensionFunctionType] kotlin.Function1<interop.JavaContract, kotlin.Int> visibility:private [final]' type=@[ExtensionFunctionType] kotlin.Function1<interop.JavaContract, kotlin.Int> origin=null
+              receiver: GET_VAR '<this>: interop.JavaContractImpl declared in interop.JavaContractImpl.<get-$contract$value>' type=interop.JavaContractImpl origin=null
     PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:$contract$format visibility:private modality:FINAL [val]
-      FIELD PROPERTY_BACKING_FIELD name:$contract$format type:kotlin.Function1<kotlin.String, kotlin.String> visibility:private [final]
-      FUN DEFAULT_PROPERTY_ACCESSOR name:<get-$contract$format> visibility:private modality:FINAL returnType:kotlin.Function1<kotlin.String, kotlin.String>
+      FIELD PROPERTY_BACKING_FIELD name:$contract$format type:@[ExtensionFunctionType] kotlin.Function2<interop.JavaContract, kotlin.String, kotlin.String>? visibility:private [final]
+      FUN DEFAULT_PROPERTY_ACCESSOR name:<get-$contract$format> visibility:private modality:FINAL returnType:@[ExtensionFunctionType] kotlin.Function2<interop.JavaContract, kotlin.String, kotlin.String>?
         VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:interop.JavaContractImpl
         correspondingProperty: PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:$contract$format visibility:private modality:FINAL [val]
         BLOCK_BODY
-          RETURN type=kotlin.Nothing from='private final fun <get-$contract$format> (): kotlin.Function1<kotlin.String, kotlin.String> declared in interop.JavaContractImpl'
-            GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$format type:kotlin.Function1<kotlin.String, kotlin.String> visibility:private [final]' type=kotlin.Function1<kotlin.String, kotlin.String> origin=null
+          RETURN type=kotlin.Nothing from='private final fun <get-$contract$format> (): @[ExtensionFunctionType] kotlin.Function2<interop.JavaContract, kotlin.String, kotlin.String>? declared in interop.JavaContractImpl'
+            GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$format type:@[ExtensionFunctionType] kotlin.Function2<interop.JavaContract, kotlin.String, kotlin.String>? visibility:private [final]' type=@[ExtensionFunctionType] kotlin.Function2<interop.JavaContract, kotlin.String, kotlin.String>? origin=null
               receiver: GET_VAR '<this>: interop.JavaContractImpl declared in interop.JavaContractImpl.<get-$contract$format>' type=interop.JavaContractImpl origin=null
     CONSTRUCTOR GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] visibility:public returnType:interop.JavaContractImpl [primary]
-      VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:value index:0 type:kotlin.Int
-      VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:format index:1 type:kotlin.Function1<kotlin.String, kotlin.String>
+      VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:value index:0 type:@[ExtensionFunctionType] kotlin.Function1<interop.JavaContract, kotlin.Int>
+      VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:format index:1 type:@[ExtensionFunctionType] kotlin.Function2<interop.JavaContract, kotlin.String, kotlin.String>?
       BLOCK_BODY
         DELEGATING_CONSTRUCTOR_CALL 'public constructor <init> () declared in kotlin.Any'
-        SET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:value type:kotlin.Int visibility:private [final]' type=kotlin.Unit origin=null
+        SET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$value type:@[ExtensionFunctionType] kotlin.Function1<interop.JavaContract, kotlin.Int> visibility:private [final]' type=kotlin.Unit origin=null
           receiver: GET_VAR '<this>: interop.JavaContractImpl declared in interop.JavaContractImpl' type=interop.JavaContractImpl origin=null
-          value: GET_VAR 'value: kotlin.Int declared in interop.JavaContractImpl.<init>' type=kotlin.Int origin=null
-        SET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$format type:kotlin.Function1<kotlin.String, kotlin.String> visibility:private [final]' type=kotlin.Unit origin=null
+          value: GET_VAR 'value: @[ExtensionFunctionType] kotlin.Function1<interop.JavaContract, kotlin.Int> declared in interop.JavaContractImpl.<init>' type=@[ExtensionFunctionType] kotlin.Function1<interop.JavaContract, kotlin.Int> origin=null
+        SET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$format type:@[ExtensionFunctionType] kotlin.Function2<interop.JavaContract, kotlin.String, kotlin.String>? visibility:private [final]' type=kotlin.Unit origin=null
           receiver: GET_VAR '<this>: interop.JavaContractImpl declared in interop.JavaContractImpl' type=interop.JavaContractImpl origin=null
-          value: GET_VAR 'format: kotlin.Function1<kotlin.String, kotlin.String> declared in interop.JavaContractImpl.<init>' type=kotlin.Function1<kotlin.String, kotlin.String> origin=null
-        INSTANCE_INITIALIZER_CALL classDescriptor='CLASS GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] CLASS name:JavaContractImpl modality:FINAL visibility:public superTypes:[interop.JavaContract]' type=kotlin.Unit
+          value: GET_VAR 'format: @[ExtensionFunctionType] kotlin.Function2<interop.JavaContract, kotlin.String, kotlin.String>? declared in interop.JavaContractImpl.<init>' type=@[ExtensionFunctionType] kotlin.Function2<interop.JavaContract, kotlin.String, kotlin.String>? origin=null
+        INSTANCE_INITIALIZER_CALL classDescriptor='CLASS GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] CLASS name:JavaContractImpl modality:FINAL visibility:private superTypes:[interop.JavaContract]' type=kotlin.Unit
     FUN FAKE_OVERRIDE name:toString visibility:public modality:OPEN returnType:kotlin.String [fake_override]
       VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:kotlin.Any
       overridden:
         public open fun toString (): kotlin.String declared in interop.JavaContract
+    FUN GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:contract visibility:public modality:FINAL returnType:interop.JavaContractContract
+      VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:interop.JavaContractImpl
+      overridden:
+        public abstract fun contract (): interop.JavaContractContract declared in interop.JavaContract
+      BLOCK_BODY
+        RETURN type=kotlin.Nothing from='public final fun contract (): interop.JavaContractContract declared in interop.JavaContractImpl'
+          CONSTRUCTOR_CALL 'public constructor <init> (value: @[ExtensionFunctionType] kotlin.Function1<interop.JavaContract, kotlin.Int>, format: @[ExtensionFunctionType] kotlin.Function2<interop.JavaContract, kotlin.String, kotlin.String>?) declared in interop.JavaContractContract' type=interop.JavaContractContract origin=null
+            ARG value: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$value type:@[ExtensionFunctionType] kotlin.Function1<interop.JavaContract, kotlin.Int> visibility:private [final]' type=@[ExtensionFunctionType] kotlin.Function1<interop.JavaContract, kotlin.Int> origin=null
+              receiver: GET_VAR '<this>: interop.JavaContractImpl declared in interop.JavaContractImpl.contract' type=interop.JavaContractImpl origin=null
+            ARG format: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$format type:@[ExtensionFunctionType] kotlin.Function2<interop.JavaContract, kotlin.String, kotlin.String>? visibility:private [final]' type=@[ExtensionFunctionType] kotlin.Function2<interop.JavaContract, kotlin.String, kotlin.String>? origin=null
+              receiver: GET_VAR '<this>: interop.JavaContractImpl declared in interop.JavaContractImpl.contract' type=interop.JavaContractImpl origin=null
     FUN GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:equals visibility:public modality:FINAL returnType:kotlin.Boolean
       VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:interop.JavaContractImpl
       VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:other index:1 type:kotlin.Any?
@@ -230,10 +271,10 @@ FILE fqName:interop fileName:interop/JavaContractImpl.kt
             if: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
               ARG arg0: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
                 ARG arg0: TYPE_OP type=kotlin.Any? origin=IMPLICIT_CAST typeOperand=kotlin.Any?
-                  GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:value type:kotlin.Int visibility:private [final]' type=kotlin.Int origin=null
+                  GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$value type:@[ExtensionFunctionType] kotlin.Function1<interop.JavaContract, kotlin.Int> visibility:private [final]' type=@[ExtensionFunctionType] kotlin.Function1<interop.JavaContract, kotlin.Int> origin=null
                     receiver: GET_VAR '<this>: interop.JavaContractImpl declared in interop.JavaContractImpl.equals' type=interop.JavaContractImpl origin=null
                 ARG arg1: TYPE_OP type=kotlin.Any? origin=IMPLICIT_CAST typeOperand=kotlin.Any?
-                  GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:value type:kotlin.Int visibility:private [final]' type=kotlin.Int origin=null
+                  GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$value type:@[ExtensionFunctionType] kotlin.Function1<interop.JavaContract, kotlin.Int> visibility:private [final]' type=@[ExtensionFunctionType] kotlin.Function1<interop.JavaContract, kotlin.Int> origin=null
                     receiver: GET_VAR 'val tmp_0: interop.JavaContractImpl declared in interop.JavaContractImpl.equals' type=interop.JavaContractImpl origin=null
               ARG arg1: CONST Boolean type=kotlin.Boolean value=false
             then: RETURN type=kotlin.Nothing from='public final fun equals (other: kotlin.Any?): kotlin.Boolean declared in interop.JavaContractImpl'
@@ -243,10 +284,10 @@ FILE fqName:interop fileName:interop/JavaContractImpl.kt
             if: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
               ARG arg0: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
                 ARG arg0: TYPE_OP type=kotlin.Any? origin=IMPLICIT_CAST typeOperand=kotlin.Any?
-                  GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$format type:kotlin.Function1<kotlin.String, kotlin.String> visibility:private [final]' type=kotlin.Function1<kotlin.String, kotlin.String> origin=null
+                  GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$format type:@[ExtensionFunctionType] kotlin.Function2<interop.JavaContract, kotlin.String, kotlin.String>? visibility:private [final]' type=@[ExtensionFunctionType] kotlin.Function2<interop.JavaContract, kotlin.String, kotlin.String>? origin=null
                     receiver: GET_VAR '<this>: interop.JavaContractImpl declared in interop.JavaContractImpl.equals' type=interop.JavaContractImpl origin=null
                 ARG arg1: TYPE_OP type=kotlin.Any? origin=IMPLICIT_CAST typeOperand=kotlin.Any?
-                  GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$format type:kotlin.Function1<kotlin.String, kotlin.String> visibility:private [final]' type=kotlin.Function1<kotlin.String, kotlin.String> origin=null
+                  GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$format type:@[ExtensionFunctionType] kotlin.Function2<interop.JavaContract, kotlin.String, kotlin.String>? visibility:private [final]' type=@[ExtensionFunctionType] kotlin.Function2<interop.JavaContract, kotlin.String, kotlin.String>? origin=null
                     receiver: GET_VAR 'val tmp_0: interop.JavaContractImpl declared in interop.JavaContractImpl.equals' type=interop.JavaContractImpl origin=null
               ARG arg1: CONST Boolean type=kotlin.Boolean value=false
             then: RETURN type=kotlin.Nothing from='public final fun equals (other: kotlin.Any?): kotlin.Boolean declared in interop.JavaContractImpl'
@@ -260,10 +301,23 @@ FILE fqName:interop fileName:interop/JavaContractImpl.kt
         public open fun format (prefix: kotlin.String): kotlin.String declared in interop.JavaContract
       BLOCK_BODY
         RETURN type=kotlin.Nothing from='public final fun format (prefix: kotlin.String): kotlin.String declared in interop.JavaContractImpl'
-          CALL 'public abstract fun invoke (p1: P1 of kotlin.Function1): R of kotlin.Function1 declared in kotlin.Function1' type=kotlin.String origin=null
-            ARG <this>: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$format type:kotlin.Function1<kotlin.String, kotlin.String> visibility:private [final]' type=kotlin.Function1<kotlin.String, kotlin.String> origin=null
-              receiver: GET_VAR '<this>: interop.JavaContractImpl declared in interop.JavaContractImpl.format' type=interop.JavaContractImpl origin=null
-            ARG p1: GET_VAR 'prefix: kotlin.String declared in interop.JavaContractImpl.format' type=kotlin.String origin=null
+          WHEN type=kotlin.String origin=null
+            BRANCH
+              if: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+                ARG arg0: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$format type:@[ExtensionFunctionType] kotlin.Function2<interop.JavaContract, kotlin.String, kotlin.String>? visibility:private [final]' type=@[ExtensionFunctionType] kotlin.Function2<interop.JavaContract, kotlin.String, kotlin.String>? origin=null
+                  receiver: GET_VAR '<this>: interop.JavaContractImpl declared in interop.JavaContractImpl.format' type=interop.JavaContractImpl origin=null
+                ARG arg1: CONST Null type=kotlin.Nothing? value=null
+              then: CALL 'public open fun format (prefix: kotlin.String): kotlin.String declared in interop.JavaContract' superQualifier='CLASS INTERFACE name:JavaContract modality:ABSTRACT visibility:public superTypes:[kotlin.Any]' type=kotlin.String origin=null
+                ARG <this>: GET_VAR '<this>: interop.JavaContractImpl declared in interop.JavaContractImpl.format' type=interop.JavaContractImpl origin=null
+                ARG prefix: GET_VAR 'prefix: kotlin.String declared in interop.JavaContractImpl.format' type=kotlin.String origin=null
+            BRANCH
+              if: CONST Boolean type=kotlin.Boolean value=true
+              then: CALL 'public abstract fun invoke (p1: P1 of kotlin.Function2, p2: P2 of kotlin.Function2): R of kotlin.Function2 declared in kotlin.Function2' type=kotlin.String origin=null
+                ARG <this>: TYPE_OP type=@[ExtensionFunctionType] kotlin.Function2<interop.JavaContract, kotlin.String, kotlin.String> origin=IMPLICIT_CAST typeOperand=@[ExtensionFunctionType] kotlin.Function2<interop.JavaContract, kotlin.String, kotlin.String>
+                  GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$format type:@[ExtensionFunctionType] kotlin.Function2<interop.JavaContract, kotlin.String, kotlin.String>? visibility:private [final]' type=@[ExtensionFunctionType] kotlin.Function2<interop.JavaContract, kotlin.String, kotlin.String>? origin=null
+                    receiver: GET_VAR '<this>: interop.JavaContractImpl declared in interop.JavaContractImpl.format' type=interop.JavaContractImpl origin=null
+                ARG p1: GET_VAR '<this>: interop.JavaContractImpl declared in interop.JavaContractImpl.format' type=interop.JavaContractImpl origin=null
+                ARG p2: GET_VAR 'prefix: kotlin.String declared in interop.JavaContractImpl.format' type=kotlin.String origin=null
     FUN GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:hashCode visibility:public modality:FINAL returnType:kotlin.Int
       VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:interop.JavaContractImpl
       overridden:
@@ -277,9 +331,155 @@ FILE fqName:interop fileName:interop/JavaContractImpl.kt
                   ARG <this>: CONST Int type=kotlin.Int value=0
                   ARG other: CONST Int type=kotlin.Int value=31
                 ARG other: CALL 'public open fun hashCode (): kotlin.Int declared in kotlin.Any' type=kotlin.Int origin=null
-                  ARG <this>: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:value type:kotlin.Int visibility:private [final]' type=kotlin.Int origin=null
+                  ARG <this>: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$value type:@[ExtensionFunctionType] kotlin.Function1<interop.JavaContract, kotlin.Int> visibility:private [final]' type=@[ExtensionFunctionType] kotlin.Function1<interop.JavaContract, kotlin.Int> origin=null
                     receiver: GET_VAR '<this>: interop.JavaContractImpl declared in interop.JavaContractImpl.hashCode' type=interop.JavaContractImpl origin=null
               ARG other: CONST Int type=kotlin.Int value=31
-            ARG other: CALL 'public open fun hashCode (): kotlin.Int declared in kotlin.Any' type=kotlin.Int origin=null
-              ARG <this>: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$format type:kotlin.Function1<kotlin.String, kotlin.String> visibility:private [final]' type=kotlin.Function1<kotlin.String, kotlin.String> origin=null
-                receiver: GET_VAR '<this>: interop.JavaContractImpl declared in interop.JavaContractImpl.hashCode' type=interop.JavaContractImpl origin=null
+            ARG other: WHEN type=kotlin.Int origin=null
+              BRANCH
+                if: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+                  ARG arg0: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$format type:@[ExtensionFunctionType] kotlin.Function2<interop.JavaContract, kotlin.String, kotlin.String>? visibility:private [final]' type=@[ExtensionFunctionType] kotlin.Function2<interop.JavaContract, kotlin.String, kotlin.String>? origin=null
+                    receiver: GET_VAR '<this>: interop.JavaContractImpl declared in interop.JavaContractImpl.hashCode' type=interop.JavaContractImpl origin=null
+                  ARG arg1: CONST Null type=kotlin.Nothing? value=null
+                then: CONST Int type=kotlin.Int value=0
+              BRANCH
+                if: CONST Boolean type=kotlin.Boolean value=true
+                then: CALL 'public open fun hashCode (): kotlin.Int declared in kotlin.Any' type=kotlin.Int origin=null
+                  ARG <this>: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$format type:@[ExtensionFunctionType] kotlin.Function2<interop.JavaContract, kotlin.String, kotlin.String>? visibility:private [final]' type=@[ExtensionFunctionType] kotlin.Function2<interop.JavaContract, kotlin.String, kotlin.String>? origin=null
+                    receiver: GET_VAR '<this>: interop.JavaContractImpl declared in interop.JavaContractImpl.hashCode' type=interop.JavaContractImpl origin=null
+    FUN GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:value visibility:public modality:FINAL returnType:kotlin.Int
+      VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:interop.JavaContractImpl
+      overridden:
+        public abstract fun value (): kotlin.Int declared in interop.JavaContract
+      BLOCK_BODY
+        RETURN type=kotlin.Nothing from='public final fun value (): kotlin.Int declared in interop.JavaContractImpl'
+          CALL 'public abstract fun invoke (p1: P1 of kotlin.Function1): R of kotlin.Function1 declared in kotlin.Function1' type=kotlin.Int origin=null
+            ARG <this>: TYPE_OP type=@[ExtensionFunctionType] kotlin.Function1<interop.JavaContract, kotlin.Int> origin=IMPLICIT_CAST typeOperand=@[ExtensionFunctionType] kotlin.Function1<interop.JavaContract, kotlin.Int>
+              GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$value type:@[ExtensionFunctionType] kotlin.Function1<interop.JavaContract, kotlin.Int> visibility:private [final]' type=@[ExtensionFunctionType] kotlin.Function1<interop.JavaContract, kotlin.Int> origin=null
+                receiver: GET_VAR '<this>: interop.JavaContractImpl declared in interop.JavaContractImpl.value' type=interop.JavaContractImpl origin=null
+            ARG p1: GET_VAR '<this>: interop.JavaContractImpl declared in interop.JavaContractImpl.value' type=interop.JavaContractImpl origin=null
+  FUN GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:JavaContract visibility:public modality:FINAL returnType:interop.JavaContract
+    VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:value index:0 type:@[ExtensionFunctionType] kotlin.Function1<interop.JavaContract, kotlin.Int>
+    annotations:
+      Deprecated(message = "Binary compatibility", replaceWith = <null>, level = DeprecationLevel.HIDDEN)
+    BLOCK_BODY
+      RETURN type=kotlin.Nothing from='public final fun JavaContract (value: @[ExtensionFunctionType] kotlin.Function1<interop.JavaContract, kotlin.Int>): interop.JavaContract declared in interop'
+        CALL 'public final fun JavaContract (value: @[ExtensionFunctionType] kotlin.Function1<interop.JavaContract, kotlin.Int>, format: @[ExtensionFunctionType] kotlin.Function2<interop.JavaContract, kotlin.String, kotlin.String>?): interop.JavaContract declared in interop' type=interop.JavaContract origin=null
+          ARG value: GET_VAR 'value: @[ExtensionFunctionType] kotlin.Function1<interop.JavaContract, kotlin.Int> declared in interop.JavaContract' type=@[ExtensionFunctionType] kotlin.Function1<interop.JavaContract, kotlin.Int> origin=null
+          ARG format: CONST Null type=@[ExtensionFunctionType] kotlin.Function2<interop.JavaContract, kotlin.String, kotlin.String>? value=null
+  FUN GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:JavaContract visibility:public modality:FINAL returnType:interop.JavaContract
+    VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:value index:0 type:@[ExtensionFunctionType] kotlin.Function1<interop.JavaContract, kotlin.Int>
+    VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:format index:1 type:@[ExtensionFunctionType] kotlin.Function2<interop.JavaContract, kotlin.String, kotlin.String>?
+      EXPRESSION_BODY
+        CONST Null type=@[ExtensionFunctionType] kotlin.Function2<interop.JavaContract, kotlin.String, kotlin.String>? value=null
+    BLOCK_BODY
+      RETURN type=kotlin.Nothing from='public final fun JavaContract (value: @[ExtensionFunctionType] kotlin.Function1<interop.JavaContract, kotlin.Int>, format: @[ExtensionFunctionType] kotlin.Function2<interop.JavaContract, kotlin.String, kotlin.String>?): interop.JavaContract declared in interop'
+        CONSTRUCTOR_CALL 'public constructor <init> (value: @[ExtensionFunctionType] kotlin.Function1<interop.JavaContract, kotlin.Int>, format: @[ExtensionFunctionType] kotlin.Function2<interop.JavaContract, kotlin.String, kotlin.String>?) declared in interop.JavaContractImpl' type=interop.JavaContractImpl origin=null
+          ARG value: GET_VAR 'value: @[ExtensionFunctionType] kotlin.Function1<interop.JavaContract, kotlin.Int> declared in interop.JavaContract' type=@[ExtensionFunctionType] kotlin.Function1<interop.JavaContract, kotlin.Int> origin=null
+          ARG format: GET_VAR 'format: @[ExtensionFunctionType] kotlin.Function2<interop.JavaContract, kotlin.String, kotlin.String>? declared in interop.JavaContract' type=@[ExtensionFunctionType] kotlin.Function2<interop.JavaContract, kotlin.String, kotlin.String>? origin=null
+FILE fqName:interop fileName:interop/JavaContractContract.kt
+  CLASS GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] CLASS name:JavaContractContract modality:FINAL visibility:public superTypes:[kotlin.Any]
+    thisReceiver: VALUE_PARAMETER INSTANCE_RECEIVER kind:DispatchReceiver name:<this> type:interop.JavaContractContract
+    PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:value visibility:public modality:FINAL [val]
+      FIELD PROPERTY_BACKING_FIELD name:value type:@[ExtensionFunctionType] kotlin.Function1<interop.JavaContract, kotlin.Int> visibility:private [final]
+      FUN DEFAULT_PROPERTY_ACCESSOR name:<get-value> visibility:public modality:FINAL returnType:@[ExtensionFunctionType] kotlin.Function1<interop.JavaContract, kotlin.Int>
+        VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:interop.JavaContractContract
+        correspondingProperty: PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:value visibility:public modality:FINAL [val]
+        BLOCK_BODY
+          RETURN type=kotlin.Nothing from='public final fun <get-value> (): @[ExtensionFunctionType] kotlin.Function1<interop.JavaContract, kotlin.Int> declared in interop.JavaContractContract'
+            GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:value type:@[ExtensionFunctionType] kotlin.Function1<interop.JavaContract, kotlin.Int> visibility:private [final]' type=@[ExtensionFunctionType] kotlin.Function1<interop.JavaContract, kotlin.Int> origin=null
+              receiver: GET_VAR '<this>: interop.JavaContractContract declared in interop.JavaContractContract.<get-value>' type=interop.JavaContractContract origin=null
+    PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:format visibility:public modality:FINAL [val]
+      FIELD PROPERTY_BACKING_FIELD name:format type:@[ExtensionFunctionType] kotlin.Function2<interop.JavaContract, kotlin.String, kotlin.String>? visibility:private [final]
+      FUN DEFAULT_PROPERTY_ACCESSOR name:<get-format> visibility:public modality:FINAL returnType:@[ExtensionFunctionType] kotlin.Function2<interop.JavaContract, kotlin.String, kotlin.String>?
+        VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:interop.JavaContractContract
+        correspondingProperty: PROPERTY GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:format visibility:public modality:FINAL [val]
+        BLOCK_BODY
+          RETURN type=kotlin.Nothing from='public final fun <get-format> (): @[ExtensionFunctionType] kotlin.Function2<interop.JavaContract, kotlin.String, kotlin.String>? declared in interop.JavaContractContract'
+            GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:format type:@[ExtensionFunctionType] kotlin.Function2<interop.JavaContract, kotlin.String, kotlin.String>? visibility:private [final]' type=@[ExtensionFunctionType] kotlin.Function2<interop.JavaContract, kotlin.String, kotlin.String>? origin=null
+              receiver: GET_VAR '<this>: interop.JavaContractContract declared in interop.JavaContractContract.<get-format>' type=interop.JavaContractContract origin=null
+    CONSTRUCTOR GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] visibility:public returnType:interop.JavaContractContract
+      VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:value index:0 type:@[ExtensionFunctionType] kotlin.Function1<interop.JavaContract, kotlin.Int>
+      annotations:
+        Deprecated(message = "Binary compatibility", replaceWith = <null>, level = DeprecationLevel.HIDDEN)
+      BLOCK_BODY
+        DELEGATING_CONSTRUCTOR_CALL 'public constructor <init> (value: @[ExtensionFunctionType] kotlin.Function1<interop.JavaContract, kotlin.Int>, format: @[ExtensionFunctionType] kotlin.Function2<interop.JavaContract, kotlin.String, kotlin.String>?) declared in interop.JavaContractContract'
+          ARG value: GET_VAR 'value: @[ExtensionFunctionType] kotlin.Function1<interop.JavaContract, kotlin.Int> declared in interop.JavaContractContract.<init>' type=@[ExtensionFunctionType] kotlin.Function1<interop.JavaContract, kotlin.Int> origin=null
+          ARG format: CONST Null type=@[ExtensionFunctionType] kotlin.Function2<interop.JavaContract, kotlin.String, kotlin.String>? value=null
+    CONSTRUCTOR GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] visibility:public returnType:interop.JavaContractContract [primary]
+      VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:value index:0 type:@[ExtensionFunctionType] kotlin.Function1<interop.JavaContract, kotlin.Int>
+      VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:format index:1 type:@[ExtensionFunctionType] kotlin.Function2<interop.JavaContract, kotlin.String, kotlin.String>?
+        EXPRESSION_BODY
+          CONST Null type=@[ExtensionFunctionType] kotlin.Function2<interop.JavaContract, kotlin.String, kotlin.String>? value=null
+      BLOCK_BODY
+        DELEGATING_CONSTRUCTOR_CALL 'public constructor <init> () declared in kotlin.Any'
+        SET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:value type:@[ExtensionFunctionType] kotlin.Function1<interop.JavaContract, kotlin.Int> visibility:private [final]' type=kotlin.Unit origin=null
+          receiver: GET_VAR '<this>: interop.JavaContractContract declared in interop.JavaContractContract' type=interop.JavaContractContract origin=null
+          value: GET_VAR 'value: @[ExtensionFunctionType] kotlin.Function1<interop.JavaContract, kotlin.Int> declared in interop.JavaContractContract.<init>' type=@[ExtensionFunctionType] kotlin.Function1<interop.JavaContract, kotlin.Int> origin=null
+        SET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:format type:@[ExtensionFunctionType] kotlin.Function2<interop.JavaContract, kotlin.String, kotlin.String>? visibility:private [final]' type=kotlin.Unit origin=null
+          receiver: GET_VAR '<this>: interop.JavaContractContract declared in interop.JavaContractContract' type=interop.JavaContractContract origin=null
+          value: GET_VAR 'format: @[ExtensionFunctionType] kotlin.Function2<interop.JavaContract, kotlin.String, kotlin.String>? declared in interop.JavaContractContract.<init>' type=@[ExtensionFunctionType] kotlin.Function2<interop.JavaContract, kotlin.String, kotlin.String>? origin=null
+        INSTANCE_INITIALIZER_CALL classDescriptor='CLASS GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] CLASS name:JavaContractContract modality:FINAL visibility:public superTypes:[kotlin.Any]' type=kotlin.Unit
+    FUN FAKE_OVERRIDE name:equals visibility:public modality:OPEN returnType:kotlin.Boolean [fake_override,operator]
+      VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:kotlin.Any
+      VALUE_PARAMETER kind:Regular name:other index:1 type:kotlin.Any?
+      overridden:
+        public open fun equals (other: kotlin.Any?): kotlin.Boolean declared in kotlin.Any
+    FUN FAKE_OVERRIDE name:hashCode visibility:public modality:OPEN returnType:kotlin.Int [fake_override]
+      VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:kotlin.Any
+      overridden:
+        public open fun hashCode (): kotlin.Int declared in kotlin.Any
+    FUN FAKE_OVERRIDE name:toString visibility:public modality:OPEN returnType:kotlin.String [fake_override]
+      VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:kotlin.Any
+      overridden:
+        public open fun toString (): kotlin.String declared in kotlin.Any
+FILE fqName:interop fileName:interop/JavaContractCopy.kt
+  FUN GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:copy visibility:public modality:FINAL returnType:interop.JavaContract
+    VALUE_PARAMETER kind:ExtensionReceiver name:<this> index:0 type:interop.JavaContract
+    VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:value index:1 type:@[ExtensionFunctionType] kotlin.Function1<interop.JavaContract, kotlin.Int>?
+      EXPRESSION_BODY
+        CONST Null type=@[ExtensionFunctionType] kotlin.Function1<interop.JavaContract, kotlin.Int>? value=null
+    annotations:
+      Deprecated(message = "Binary compatibility", replaceWith = <null>, level = DeprecationLevel.HIDDEN)
+    BLOCK_BODY
+      RETURN type=kotlin.Nothing from='public final fun copy (<this>: interop.JavaContract, value: @[ExtensionFunctionType] kotlin.Function1<interop.JavaContract, kotlin.Int>?): interop.JavaContract declared in interop'
+        CALL 'public final fun copy (<this>: interop.JavaContract, value: @[ExtensionFunctionType] kotlin.Function1<interop.JavaContract, kotlin.Int>?, format: @[ExtensionFunctionType] kotlin.Function2<interop.JavaContract, kotlin.String, kotlin.String>?): interop.JavaContract declared in interop' type=interop.JavaContract origin=null
+          ARG <this>: GET_VAR '<this>: interop.JavaContract declared in interop.copy' type=interop.JavaContract origin=null
+          ARG value: GET_VAR 'value: @[ExtensionFunctionType] kotlin.Function1<interop.JavaContract, kotlin.Int>? declared in interop.copy' type=@[ExtensionFunctionType] kotlin.Function1<interop.JavaContract, kotlin.Int>? origin=null
+          ARG format: CONST Null type=@[ExtensionFunctionType] kotlin.Function2<interop.JavaContract, kotlin.String, kotlin.String>? value=null
+  FUN GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:copy visibility:public modality:FINAL returnType:interop.JavaContract
+    VALUE_PARAMETER kind:ExtensionReceiver name:<this> index:0 type:interop.JavaContract
+    VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:value index:1 type:@[ExtensionFunctionType] kotlin.Function1<interop.JavaContract, kotlin.Int>?
+      EXPRESSION_BODY
+        CONST Null type=@[ExtensionFunctionType] kotlin.Function1<interop.JavaContract, kotlin.Int>? value=null
+    VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:format index:2 type:@[ExtensionFunctionType] kotlin.Function2<interop.JavaContract, kotlin.String, kotlin.String>?
+      EXPRESSION_BODY
+        CONST Null type=@[ExtensionFunctionType] kotlin.Function2<interop.JavaContract, kotlin.String, kotlin.String>? value=null
+    BLOCK_BODY
+      VAR IR_TEMPORARY_VARIABLE name:tmp_0 type:interop.JavaContractContract [val]
+        CALL 'public abstract fun contract (): interop.JavaContractContract declared in interop.JavaContract' type=interop.JavaContractContract origin=null
+          ARG <this>: GET_VAR '<this>: interop.JavaContract declared in interop.copy' type=interop.JavaContract origin=null
+      RETURN type=kotlin.Nothing from='public final fun copy (<this>: interop.JavaContract, value: @[ExtensionFunctionType] kotlin.Function1<interop.JavaContract, kotlin.Int>?, format: @[ExtensionFunctionType] kotlin.Function2<interop.JavaContract, kotlin.String, kotlin.String>?): interop.JavaContract declared in interop'
+        CALL 'public final fun JavaContract (value: @[ExtensionFunctionType] kotlin.Function1<interop.JavaContract, kotlin.Int>, format: @[ExtensionFunctionType] kotlin.Function2<interop.JavaContract, kotlin.String, kotlin.String>?): interop.JavaContract declared in interop' type=interop.JavaContract origin=null
+          ARG value: WHEN type=@[ExtensionFunctionType] kotlin.Function1<interop.JavaContract, kotlin.Int> origin=null
+            BRANCH
+              if: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+                ARG arg0: GET_VAR 'value: @[ExtensionFunctionType] kotlin.Function1<interop.JavaContract, kotlin.Int>? declared in interop.copy' type=@[ExtensionFunctionType] kotlin.Function1<interop.JavaContract, kotlin.Int>? origin=null
+                ARG arg1: CONST Null type=kotlin.Nothing? value=null
+              then: CALL 'public final fun <get-value> (): @[ExtensionFunctionType] kotlin.Function1<interop.JavaContract, kotlin.Int> declared in interop.JavaContractContract' type=@[ExtensionFunctionType] kotlin.Function1<interop.JavaContract, kotlin.Int> origin=null
+                ARG <this>: GET_VAR 'val tmp_0: interop.JavaContractContract declared in interop.copy' type=interop.JavaContractContract origin=null
+            BRANCH
+              if: CONST Boolean type=kotlin.Boolean value=true
+              then: TYPE_OP type=@[ExtensionFunctionType] kotlin.Function1<interop.JavaContract, kotlin.Int> origin=IMPLICIT_CAST typeOperand=@[ExtensionFunctionType] kotlin.Function1<interop.JavaContract, kotlin.Int>
+                GET_VAR 'value: @[ExtensionFunctionType] kotlin.Function1<interop.JavaContract, kotlin.Int>? declared in interop.copy' type=@[ExtensionFunctionType] kotlin.Function1<interop.JavaContract, kotlin.Int>? origin=null
+          ARG format: WHEN type=@[ExtensionFunctionType] kotlin.Function2<interop.JavaContract, kotlin.String, kotlin.String>? origin=null
+            BRANCH
+              if: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+                ARG arg0: GET_VAR 'format: @[ExtensionFunctionType] kotlin.Function2<interop.JavaContract, kotlin.String, kotlin.String>? declared in interop.copy' type=@[ExtensionFunctionType] kotlin.Function2<interop.JavaContract, kotlin.String, kotlin.String>? origin=null
+                ARG arg1: CONST Null type=kotlin.Nothing? value=null
+              then: CALL 'public final fun <get-format> (): @[ExtensionFunctionType] kotlin.Function2<interop.JavaContract, kotlin.String, kotlin.String>? declared in interop.JavaContractContract' type=@[ExtensionFunctionType] kotlin.Function2<interop.JavaContract, kotlin.String, kotlin.String>? origin=null
+                ARG <this>: GET_VAR 'val tmp_0: interop.JavaContractContract declared in interop.copy' type=interop.JavaContractContract origin=null
+            BRANCH
+              if: CONST Boolean type=kotlin.Boolean value=true
+              then: TYPE_OP type=@[ExtensionFunctionType] kotlin.Function2<interop.JavaContract, kotlin.String, kotlin.String>? origin=IMPLICIT_CAST typeOperand=@[ExtensionFunctionType] kotlin.Function2<interop.JavaContract, kotlin.String, kotlin.String>?
+                GET_VAR 'format: @[ExtensionFunctionType] kotlin.Function2<interop.JavaContract, kotlin.String, kotlin.String>? declared in interop.copy' type=@[ExtensionFunctionType] kotlin.Function2<interop.JavaContract, kotlin.String, kotlin.String>? origin=null
+FILE fqName:interop fileName:interop/JavaContractImpl.kt

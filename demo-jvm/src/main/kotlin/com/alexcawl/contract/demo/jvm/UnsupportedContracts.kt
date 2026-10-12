@@ -28,16 +28,16 @@ import com.alexcawl.contract.GenerateContract
 
 // Generic declarations are unsupported; parameterized member types are supported.
 // @GenerateContract
-// interface GenericAppearance<T> { val token: T }
+// interface GenericAppearance<T> { fun token(): T }
 // @GenerateContract
 // interface GenericMethod { fun <T> token(value: T): T }
 
 // Inheritance is unsupported even when the parent is not generic or annotated.
-// interface BaseAppearance { val width: Int }
+// interface BaseAppearance { fun width(): Int }
 // @GenerateContract
 // interface InheritedAppearance : BaseAppearance
 
-// Each property and method needs its own name, regardless of JVM signatures.
+// Each method needs its own callback name, regardless of JVM signatures.
 // @GenerateContract
 // interface OverloadedAppearance {
 //     fun color(): Long
@@ -45,21 +45,23 @@ import com.alexcawl.contract.GenerateContract
 // }
 // @GenerateContract
 // interface CollidingAppearance {
-//     val width: Int
-//     fun width(): Int
+//     fun color(): Int
+//     fun Color(): Int // Both container getters would have the JVM name getColor.
 // }
 
-// equals, hashCode, and copy are reserved for generated declarations.
+// equals, hashCode, copy, and contract are reserved for generated declarations.
 // @GenerateContract
 // interface ReservedAppearance {
 //     override fun equals(other: Any?): Boolean
 //     override fun hashCode(): Int
 //     fun copy(): ReservedAppearance
+//     fun contract(): Any
 // }
 
-// Each member below is independently unsupported: var, suspend, extension, context, private, composable.
+// Each member below is independently unsupported: properties, suspend, extension, context, private, composable.
 // @GenerateContract
 // interface UnsupportedMembers {
+//     val height: Int
 //     var width: Int
 //     suspend fun measure(): Int
 //     fun String.decorate(): String
@@ -73,39 +75,9 @@ import com.alexcawl.contract.GenerateContract
 //     val label: String
 // }
 
-// A default body cannot call a later method. Put dependencies first, as in DefaultAppearance.
-// @GenerateContract
-// interface ForwardAppearance {
-//     fun first(): Int = second()
-//     fun second(): Int = 1
-// }
-
-// Recursive default bodies cannot become independent factory callbacks.
-// @GenerateContract
-// interface RecursiveAppearance {
-//     fun inset(depth: Int): Int = if (depth == 0) 0 else inset(depth - 1)
-// }
-// @GenerateContract
-// interface MutuallyRecursiveAppearance {
-//     fun first(): Int = second()
-//     fun second(): Int = first()
-// }
-
-// Property reads through this are supported; standalone this and property references are not.
-// @GenerateContract
-// interface ReceiverAppearance {
-//     val width: Int
-//     fun identity(): Any = this
-//     fun reference(): () -> Int = this::width
-//     fun argument(value: Any = this): Any = value
-//     fun referenceArgument(value: () -> Int = ::width): Int = value()
-// }
-
-// Supplying a callback does not bypass validation of an unsupported default body.
-// val forward = ForwardAppearance(first = { 1 })
-
-// A getter does not become a factory default: spacing remains required.
-// val missingSpacing = DefaultAppearance(prefix = "day:", token = { "#$it" })
+// Required callbacks must be supplied to both the factory and the callback container.
+// val missingPrefix = DefaultAppearance(token = { "#$it" })
+// val missingToken = DefaultAppearanceContract(prefix = { "day:" })
 
 // SlotLimitAppearance keeps its forbidden 128th Long parameter commented beside the working 127-parameter method.
 // Default-argument masks, receivers, and markers also consume slots in generated JVM helpers.

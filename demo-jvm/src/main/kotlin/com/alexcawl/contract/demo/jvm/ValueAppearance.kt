@@ -7,22 +7,22 @@ value class Pixels(val value: Int)
 
 @GenerateContract
 interface ValueAppearance {
-    val emphasized: Boolean
-    val byteToken: Byte
-    val shortToken: Short
-    val width: Int
-    val color: Long
-    val marker: Char
-    val opacity: Float
-    val scale: Double
-    val label: String?
-    val lineHeight: Pixels
-    val optionalInset: Pixels?
-    val decorations: Map<String, List<String?>>
-    val stops: IntArray
-    val labels: Array<String?>
-    val transform: (String) -> String
-    val fallback: ValueAppearance?
+    fun emphasized(): Boolean
+    fun byteToken(): Byte
+    fun shortToken(): Short
+    fun width(): Int
+    fun color(): Long
+    fun marker(): Char
+    fun opacity(): Float
+    fun scale(): Double
+    fun label(): String?
+    fun lineHeight(): Pixels
+    fun optionalInset(): Pixels?
+    fun decorations(): Map<String, List<String?>>
+    fun stops(): IntArray
+    fun labels(): Array<String?>
+    fun transform(): (String) -> String
+    fun fallback(): ValueAppearance?
 }
 
 @GenerateContract
@@ -30,5 +30,5 @@ interface EmptyAppearance
 
 @GenerateContract
 internal interface InternalAppearance {
-    val inset: Int
+    fun inset(): Int
 }

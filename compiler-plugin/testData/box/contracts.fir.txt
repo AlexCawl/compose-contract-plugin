@@ -2,153 +2,314 @@ FILE: contracts.kt
     package sample
 
     @R|com/alexcawl/contract/GenerateContract|() public abstract interface Appearance : R|kotlin/Any| {
-        public abstract val width: R|kotlin/Int|
-            public get(): R|kotlin/Int|
+        public abstract fun a(): R|kotlin/Int|
 
-        public abstract val label: R|kotlin/String?|
-            public get(): R|kotlin/String?|
+        public abstract fun b(f: R|kotlin/Boolean|): R|kotlin/Int|
 
-        public abstract fun onClick(value: R|kotlin/Int|): R|kotlin/String|
+        public open fun c(f: R|kotlin/Boolean|): R|kotlin/Int| {
+            ^c when () {
+                R|<local>/f| ->  {
+                    Int(1)
+                }
+                else ->  {
+                    Int(2)
+                }
+            }
 
-        public open fun describe(prefix: R|kotlin/String|): R|kotlin/String| {
-            ^describe <strcat>(R|<local>/prefix|, this@R|sample/Appearance|.R|sample/Appearance.label|, String(:), this@R|sample/Appearance|.R|sample/Appearance.width|)
         }
 
-    }
-    @R|com/alexcawl/contract/GenerateContract|() public abstract interface Size : R|kotlin/Any| {
-        public abstract val width: R|kotlin/Int|
-            public get(): R|kotlin/Int|
+        public open fun d(): R|kotlin/Int| {
+            ^d Int(4)
+        }
 
-        public abstract val height: R|kotlin/Int|
-            public get(): R|kotlin/Int|
+        public open fun e(f: R|kotlin/Boolean|): R|kotlin/Int| {
+            ^e this@R|sample/Appearance|.R|sample/Appearance.c|(R|<local>/f|).R|kotlin/Int.times|(this@R|sample/Appearance|.R|sample/Appearance.d|())
+        }
+
+        public abstract fun contract(): R|sample/AppearanceContract|
 
     }
     @R|com/alexcawl/contract/GenerateContract|() public abstract interface Empty : R|kotlin/Any| {
+        public abstract fun contract(): R|sample/EmptyContract|
+
+    }
+    @R|com/alexcawl/contract/GenerateContract|() public abstract interface Optional : R|kotlin/Any| {
+        public open fun answer(): R|kotlin/Int| {
+            ^answer Int(42)
+        }
+
+        public abstract fun contract(): R|sample/OptionalContract|
+
     }
     public final fun box(): R|kotlin/String| {
-        lval click: R|(kotlin/Int) -> kotlin/String| = fun <anonymous>(it: R|kotlin/Int|): R|kotlin/String| <inline=NoInline>  {
-            ^ <strcat>(String(click:), R|<local>/it|)
+        lval first: R|sample/Appearance.() -> kotlin/Int| = fun R|sample/Appearance|.<anonymous>(): R|kotlin/Int| <inline=NoInline>  {
+            ^ Int(1)
         }
 
-        lval description: R|(kotlin/String) -> kotlin/String| = fun <anonymous>(it: R|kotlin/String|): R|kotlin/String| <inline=NoInline>  {
-            ^ <strcat>(String(description:), R|<local>/it|)
+        lval second: R|sample/Appearance.(kotlin/Boolean) -> kotlin/Int| = fun R|sample/Appearance|.<anonymous>(it: R|kotlin/Boolean|): R|kotlin/Int| <inline=NoInline>  {
+            ^ when () {
+                R|<local>/it| ->  {
+                    this@R|special/anonymous|.R|sample/Appearance.a|()
+                }
+                else ->  {
+                    Int(2)
+                }
+            }
+
         }
 
-        lval a: R|sample/Appearance| = R|sample/Appearance|(Int(10), Null(null), R|<local>/click|, R|<local>/description|)
-        lval b: R|sample/AppearanceImpl| = R|sample/AppearanceImpl|(Int(10), Null(null), R|<local>/click|, R|<local>/description|)
-        R|kotlin/check|(==(R|<local>/a|, R|<local>/b|))
-        R|kotlin/check|(==(R|<local>/a|.R|kotlin/Any.hashCode|(), R|<local>/b|.R|sample/AppearanceImpl.hashCode|()))
-        R|kotlin/check|(!=(R|<local>/a|, R|sample/Appearance|(Int(11), Null(null), R|<local>/click|, R|<local>/description|)))
-        R|kotlin/check|(!=(R|<local>/a|, R|sample/Appearance|(Int(10), String(label), R|<local>/click|, R|<local>/description|)))
-        R|kotlin/check|(!=(R|<local>/a|, R|sample/Appearance|(Int(10), Null(null), Appearance@fun <anonymous>(it: R|kotlin/Int|): R|kotlin/String| <inline=NoInline>  {
-            ^ <strcat>(String(other:), R|<local>/it|)
+        lval original: R|sample/Appearance| = R|sample/Appearance|(R|<local>/first|, R|<local>/second|)
+        R|kotlin/check|(==(R|<local>/original|.R|sample/Appearance.e|(Boolean(true)), Int(4)))
+        lval copied: R|sample/Appearance| = R|<local>/original|.R|sample/copy|(copy@fun R|sample/Appearance|.<anonymous>(): R|kotlin/Int| <inline=NoInline>  {
+            ^ Int(7)
         }
-        , R|<local>/description|)))
-        R|kotlin/check|(R|<local>/a|.R|kotlin/Any.equals|(Null(null)).R|kotlin/Boolean.not|())
-        R|kotlin/check|(R|<local>/a|.R|kotlin/Any.equals|(String(other)).R|kotlin/Boolean.not|())
-        R|kotlin/check|(==(R|<local>/a|.R|sample/Appearance.onClick|(Int(2)), String(click:2)))
-        R|kotlin/check|(==(R|<local>/a|.R|sample/Appearance.describe|(String(test)), String(description:test)))
-        lval defaults: R|sample/Appearance| = R|sample/Appearance|(Int(20), String(name), R|<local>/click|)
-        R|kotlin/check|(==(R|<local>/defaults|.R|sample/Appearance.describe|(String(test:)), String(test:name:20)))
-        lval copy: R|sample/Appearance| = R|<local>/defaults|.R|sample/copy|(Int(30))
-        R|kotlin/check|(==(R|<local>/copy|.R|sample/Appearance.width|, Int(30)))
-        R|kotlin/check|(==(R|<local>/copy|.R|sample/Appearance.label|, String(name)))
-        R|kotlin/check|(==(R|<local>/copy|.R|sample/Appearance.onClick|(Int(3)), String(click:3)))
-        R|kotlin/check|(==(R|<local>/copy|.R|sample/Appearance.describe|(String(copy:)), String(copy:name:20)))
-        R|kotlin/check|(!=(R|<local>/copy|, R|<local>/defaults|))
-        R|kotlin/check|(==(R|<local>/a|.R|sample/copy|(R|<local>/click|, R|<local>/description|), R|<local>/a|))
-        lval custom: R|sample/<anonymous>| = object : R|sample/Appearance| {
+        , copy@fun R|sample/Appearance|.<anonymous>(it: R|kotlin/Boolean|): R|kotlin/Int| <inline=NoInline>  {
+            ^ Int(3)
+        }
+        )
+        R|kotlin/check|(==(R|<local>/copied|.R|sample/Appearance.b|(Boolean(true)), Int(7)))
+        R|kotlin/check|(==(R|<local>/copied|.R|sample/Appearance.e|(Boolean(true)), Int(12)))
+        R|kotlin/check|(==(R|<local>/copied|.R|sample/copy|(copy@fun R|sample/Appearance|.<anonymous>(): R|kotlin/Int| <inline=NoInline>  {
+            ^ Int(5)
+        }
+        ).R|sample/Appearance.e|(Boolean(true)), Int(15)))
+        lval dependent: R|sample/Appearance| = R|<local>/original|.R|sample/copy|(copy@fun R|sample/Appearance|.<anonymous>(selected: R|kotlin/Boolean|): R|kotlin/Int| <inline=NoInline>  {
+            ^ this@R|special/anonymous|.R|sample/Appearance.c|(R|<local>/selected|).R|kotlin/Int.times|(this@R|special/anonymous|.R|sample/Appearance.d|())
+        }
+        )
+        R|kotlin/check|(==(R|<local>/dependent|.R|sample/copy|(copy@fun R|sample/Appearance|.<anonymous>(it: R|kotlin/Boolean|): R|kotlin/Int| <inline=NoInline>  {
+            ^ Int(3)
+        }
+        ).R|sample/Appearance.e|(Boolean(true)), Int(12)))
+        R|kotlin/check|(==(R|<local>/copied|.R|sample/copy|(Null(null)).R|sample/Appearance.e|(Boolean(true)), Int(12)))
+        lval equal: R|sample/Appearance| = R|<local>/original|.R|sample/copy|()
+        R|kotlin/check|(!==(R|<local>/original|, R|<local>/equal|))
+        R|kotlin/check|(==(R|<local>/original|, R|<local>/equal|))
+        R|kotlin/check|(==(R|<local>/original|.R|kotlin/Any.hashCode|(), R|<local>/equal|.R|kotlin/Any.hashCode|()))
+        R|kotlin/check|(==(R|<local>/original|, R|sample/Appearance|(R|<local>/first|, R|<local>/second|)))
+        R|kotlin/check|(!=(R|<local>/original|, R|<local>/copied|))
+        R|kotlin/check|(R|<local>/original|.R|kotlin/Any.equals|(Null(null)).R|kotlin/Boolean.not|())
+        R|kotlin/check|(R|<local>/original|.R|kotlin/Any.equals|(String(other)).R|kotlin/Boolean.not|())
+        R|kotlin/check|(!==(R|<local>/original|.R|sample/Appearance.contract|(), R|<local>/original|.R|sample/Appearance.contract|()))
+        R|kotlin/check|(<getClass>(Q|sample/AppearanceContract|).R|kotlin/jvm/java|<R|sample/AppearanceContract|>.R|java/lang/Class.declaredMethods|.R|kotlin/collections/none|<R|java/lang/reflect/Method!|>(<L> = none@fun <anonymous>(it: R|java/lang/reflect/Method!|): R|kotlin/Boolean| <inline=Inline, kind=UNKNOWN>  {
+            ^ ==(R|<local>/it|.R|java/lang/reflect/Method.name|, String(equals)) || ==(R|<local>/it|.R|java/lang/reflect/Method.name|, String(hashCode))
+        }
+        ))
+        lvar reads: R|kotlin/Int| = Int(0)
+        lval manual: R|sample/<anonymous>| = object : R|sample/Appearance| {
             private constructor(): R|sample/<anonymous>| {
                 super<R|kotlin/Any|>()
             }
 
-            public open override val width: R|kotlin/Int| = Int(5)
-                public get(): R|kotlin/Int|
+            public open override fun a(): R|kotlin/Int| {
+                ^a Int(5)
+            }
 
-            public open override val label: R|kotlin/String| = String(custom)
-                public get(): R|kotlin/String|
+            public open override fun b(f: R|kotlin/Boolean|): R|kotlin/Int| {
+                ^b when () {
+                    R|<local>/f| ->  {
+                        this@R|sample/<anonymous>|.R|sample/<anonymous>.a|()
+                    }
+                    else ->  {
+                        Int(0)
+                    }
+                }
 
-            public open override fun onClick(value: R|kotlin/Int|): R|kotlin/String| {
-                ^onClick <strcat>(this@R|sample/<anonymous>|.R|sample/<anonymous>.label|, String(:), R|<local>/value|)
+            }
+
+            public open override fun contract(): R|sample/AppearanceContract| {
+                 {
+                    lval <unary>: R|kotlin/Int| = R|<local>/reads|
+                    R|<local>/reads| = R|<local>/<unary>|.R|kotlin/Int.inc|()
+                    R|<local>/<unary>|
+                }
+
+                ^contract R|sample/AppearanceContract|(AppearanceContract@fun R|sample/Appearance|.<anonymous>(): R|kotlin/Int| <inline=NoInline>  {
+                    ^ Int(5)
+                }
+                , AppearanceContract@fun R|sample/Appearance|.<anonymous>(selected: R|kotlin/Boolean|): R|kotlin/Int| <inline=NoInline>  {
+                    ^ when () {
+                        R|<local>/selected| ->  {
+                            this@R|special/anonymous|.R|sample/Appearance.a|()
+                        }
+                        else ->  {
+                            Int(0)
+                        }
+                    }
+
+                }
+                )
             }
 
         }
 
-        R|kotlin/check|(==(R|<local>/custom|.R|sample/copy|().R|sample/Appearance.describe|(String(test:)), String(test:custom:5)))
-        lval size: R|sample/Size| = R|sample/Size|(Int(1), Int(2))
-        R|kotlin/check|(==(R|<local>/size|.R|sample/copy|(), R|<local>/size|))
-        R|kotlin/check|(==(R|<local>/size|.R|sample/copy|(Int(3)), R|sample/SizeImpl|(Int(1), Int(3))))
-        R|kotlin/check|(==(R|sample/Empty|(), R|sample/EmptyImpl|()))
-        R|kotlin/check|(==(R|sample/Empty|().R|kotlin/Any.hashCode|(), R|sample/EmptyImpl|().R|sample/EmptyImpl.hashCode|()))
+        R|kotlin/check|(==(R|<local>/manual|.R|sample/copy|(copy@fun R|sample/Appearance|.<anonymous>(): R|kotlin/Int| <inline=NoInline>  {
+            ^ Int(9)
+        }
+        ).R|sample/Appearance.b|(Boolean(true)), Int(9)))
+        R|kotlin/check|(==(R|<local>/reads|, Int(1)))
+        lvar seen: R|sample/Appearance?| = Null(null)
+        lval observing: R|sample/Appearance| = R|<local>/original|.R|sample/copy|(copy@fun R|sample/Appearance|.<anonymous>(): R|kotlin/Int| <inline=NoInline>  {
+            R|<local>/seen| = this@R|special/anonymous|
+            ^ Int(1)
+        }
+        ).R|sample/copy|()
+        R|<local>/observing|.R|sample/Appearance.a|()
+        R|kotlin/check|(===(R|<local>/seen|, R|<local>/observing|))
+        R|kotlin/check|(==(R|sample/Empty|(), R|sample/Empty|().R|sample/copy|()))
+        R|kotlin/check|(==(R|sample/Empty|().R|kotlin/Any.hashCode|(), R|sample/Empty|().R|sample/copy|().R|kotlin/Any.hashCode|()))
+        R|kotlin/check|(==(R|sample/Optional|().R|sample/Optional.answer|(), Int(42)))
+        R|kotlin/check|(==(R|sample/Optional|().R|sample/copy|(copy@fun R|sample/Optional|.<anonymous>(): R|kotlin/Int| <inline=NoInline>  {
+            ^ Int(7)
+        }
+        ).R|sample/Optional.answer|(), Int(7)))
         ^box String(OK)
     }
 FILE: sample/AppearanceImpl.kt
     package sample
 
-    public final class AppearanceImpl : R|sample/Appearance| {
+    private final class AppearanceImpl : R|sample/Appearance| {
         public final override fun equals(other: R|kotlin/Any?|): R|kotlin/Boolean|
 
         public final override fun hashCode(): R|kotlin/Int|
 
-        public final override val width: R|kotlin/Int|
-            public get(): R|kotlin/Int|
+        public final override fun contract(): R|sample/AppearanceContract|
 
-        public final override val label: R|kotlin/String?|
-            public get(): R|kotlin/String?|
+        public final override fun a(): R|kotlin/Int|
 
-        public final override fun onClick(value: R|kotlin/Int|): R|kotlin/String|
+        private final val $contract$a: R|sample/Appearance.() -> kotlin/Int|
+            private get(): R|sample/Appearance.() -> kotlin/Int|
 
-        private final val $contract$onClick: R|(kotlin/Int) -> kotlin/String|
-            private get(): R|(kotlin/Int) -> kotlin/String|
+        public final override fun b(f: R|kotlin/Boolean|): R|kotlin/Int|
 
-        public final override fun describe(prefix: R|kotlin/String|): R|kotlin/String|
+        private final val $contract$b: R|sample/Appearance.(kotlin/Boolean) -> kotlin/Int|
+            private get(): R|sample/Appearance.(kotlin/Boolean) -> kotlin/Int|
 
-        private final val $contract$describe: R|(kotlin/String) -> kotlin/String|
-            private get(): R|(kotlin/String) -> kotlin/String|
+        public final override fun c(f: R|kotlin/Boolean|): R|kotlin/Int|
 
-        public constructor(width: R|kotlin/Int|, label: R|kotlin/String?|, onClick: R|(kotlin/Int) -> kotlin/String|, describe: R|(kotlin/String) -> kotlin/String|): R|sample/AppearanceImpl|
+        private final val $contract$c: R|(sample/Appearance.(kotlin/Boolean) -> kotlin/Int)?|
+            private get(): R|(sample/Appearance.(kotlin/Boolean) -> kotlin/Int)?|
 
-    }
-FILE: sample/SizeImpl.kt
-    package sample
+        public final override fun d(): R|kotlin/Int|
 
-    public final class SizeImpl : R|sample/Size| {
-        public final override fun equals(other: R|kotlin/Any?|): R|kotlin/Boolean|
+        private final val $contract$d: R|(sample/Appearance.() -> kotlin/Int)?|
+            private get(): R|(sample/Appearance.() -> kotlin/Int)?|
 
-        public final override fun hashCode(): R|kotlin/Int|
+        public final override fun e(f: R|kotlin/Boolean|): R|kotlin/Int|
 
-        public final override val width: R|kotlin/Int|
-            public get(): R|kotlin/Int|
+        private final val $contract$e: R|(sample/Appearance.(kotlin/Boolean) -> kotlin/Int)?|
+            private get(): R|(sample/Appearance.(kotlin/Boolean) -> kotlin/Int)?|
 
-        public final override val height: R|kotlin/Int|
-            public get(): R|kotlin/Int|
-
-        public constructor(width: R|kotlin/Int|, height: R|kotlin/Int|): R|sample/SizeImpl|
-
-    }
-FILE: sample/EmptyImpl.kt
-    package sample
-
-    public final class EmptyImpl : R|sample/Empty| {
-        public final override fun equals(other: R|kotlin/Any?|): R|kotlin/Boolean|
-
-        public final override fun hashCode(): R|kotlin/Int|
-
-        public constructor(): R|sample/EmptyImpl|
+        public constructor(a: R|sample/Appearance.() -> kotlin/Int|, b: R|sample/Appearance.(kotlin/Boolean) -> kotlin/Int|, c: R|(sample/Appearance.(kotlin/Boolean) -> kotlin/Int)?|, d: R|(sample/Appearance.() -> kotlin/Int)?|, e: R|(sample/Appearance.(kotlin/Boolean) -> kotlin/Int)?|): R|sample/AppearanceImpl|
 
     }
 FILE: sample/AppearanceContract.kt
     package sample
 
-    @R|kotlin/jvm/JvmOverloads|() public final fun Appearance(width: R|kotlin/Int|, label: R|kotlin/String?|, onClick: R|(kotlin/Int) -> kotlin/String|, describe: R|(kotlin/String) -> kotlin/String| = throw R|kotlin/Throwable.Throwable|(String(Stub for declaration generated by Plugin[Key]))): R|sample/Appearance|
-    @R|kotlin/jvm/JvmOverloads|() public final fun R|sample/Appearance|.copy(width: R|kotlin/Int| = throw R|kotlin/Throwable.Throwable|(String(Stub for declaration generated by Plugin[Key])), label: R|kotlin/String?| = throw R|kotlin/Throwable.Throwable|(String(Stub for declaration generated by Plugin[Key])), onClick: R|(kotlin/Int) -> kotlin/String| = throw R|kotlin/Throwable.Throwable|(String(Stub for declaration generated by Plugin[Key])), describe: R|(kotlin/String) -> kotlin/String| = throw R|kotlin/Throwable.Throwable|(String(Stub for declaration generated by Plugin[Key]))): R|sample/Appearance|
-FILE: sample/SizeContract.kt
+    public final class AppearanceContract : R|kotlin/Any| {
+        public final val a: R|sample/Appearance.() -> kotlin/Int|
+            public get(): R|sample/Appearance.() -> kotlin/Int|
+
+        public final val b: R|sample/Appearance.(kotlin/Boolean) -> kotlin/Int|
+            public get(): R|sample/Appearance.(kotlin/Boolean) -> kotlin/Int|
+
+        public final val c: R|(sample/Appearance.(kotlin/Boolean) -> kotlin/Int)?|
+            public get(): R|(sample/Appearance.(kotlin/Boolean) -> kotlin/Int)?|
+
+        public final val d: R|(sample/Appearance.() -> kotlin/Int)?|
+            public get(): R|(sample/Appearance.() -> kotlin/Int)?|
+
+        public final val e: R|(sample/Appearance.(kotlin/Boolean) -> kotlin/Int)?|
+            public get(): R|(sample/Appearance.(kotlin/Boolean) -> kotlin/Int)?|
+
+        @R|kotlin/Deprecated|(message = String(Binary compatibility), level = R|kotlin/DeprecationLevel.HIDDEN|) public constructor(a: R|sample/Appearance.() -> kotlin/Int|, b: R|sample/Appearance.(kotlin/Boolean) -> kotlin/Int|): R|sample/AppearanceContract|
+
+        @R|kotlin/Deprecated|(message = String(Binary compatibility), level = R|kotlin/DeprecationLevel.HIDDEN|) public constructor(a: R|sample/Appearance.() -> kotlin/Int|, b: R|sample/Appearance.(kotlin/Boolean) -> kotlin/Int|, c: R|(sample/Appearance.(kotlin/Boolean) -> kotlin/Int)?| = throw R|kotlin/Throwable.Throwable|(String(Stub for declaration generated by Plugin[Contract]))): R|sample/AppearanceContract|
+
+        @R|kotlin/Deprecated|(message = String(Binary compatibility), level = R|kotlin/DeprecationLevel.HIDDEN|) public constructor(a: R|sample/Appearance.() -> kotlin/Int|, b: R|sample/Appearance.(kotlin/Boolean) -> kotlin/Int|, c: R|(sample/Appearance.(kotlin/Boolean) -> kotlin/Int)?| = throw R|kotlin/Throwable.Throwable|(String(Stub for declaration generated by Plugin[Contract])), d: R|(sample/Appearance.() -> kotlin/Int)?| = throw R|kotlin/Throwable.Throwable|(String(Stub for declaration generated by Plugin[Contract]))): R|sample/AppearanceContract|
+
+        public constructor(a: R|sample/Appearance.() -> kotlin/Int|, b: R|sample/Appearance.(kotlin/Boolean) -> kotlin/Int|, c: R|(sample/Appearance.(kotlin/Boolean) -> kotlin/Int)?| = throw R|kotlin/Throwable.Throwable|(String(Stub for declaration generated by Plugin[Contract])), d: R|(sample/Appearance.() -> kotlin/Int)?| = throw R|kotlin/Throwable.Throwable|(String(Stub for declaration generated by Plugin[Contract])), e: R|(sample/Appearance.(kotlin/Boolean) -> kotlin/Int)?| = throw R|kotlin/Throwable.Throwable|(String(Stub for declaration generated by Plugin[Contract]))): R|sample/AppearanceContract|
+
+    }
+FILE: sample/EmptyImpl.kt
     package sample
 
-    @R|kotlin/jvm/JvmOverloads|() public final fun R|sample/Size|.copy(width: R|kotlin/Int| = throw R|kotlin/Throwable.Throwable|(String(Stub for declaration generated by Plugin[Key])), height: R|kotlin/Int| = throw R|kotlin/Throwable.Throwable|(String(Stub for declaration generated by Plugin[Key]))): R|sample/Size|
-    @R|kotlin/jvm/JvmOverloads|() public final fun Size(width: R|kotlin/Int|, height: R|kotlin/Int|): R|sample/Size|
+    private final class EmptyImpl : R|sample/Empty| {
+        public final override fun equals(other: R|kotlin/Any?|): R|kotlin/Boolean|
+
+        public final override fun hashCode(): R|kotlin/Int|
+
+        public final override fun contract(): R|sample/EmptyContract|
+
+        public constructor(): R|sample/EmptyImpl|
+
+    }
 FILE: sample/EmptyContract.kt
     package sample
 
-    @R|kotlin/jvm/JvmOverloads|() public final fun R|sample/Empty|.copy(): R|sample/Empty|
-    @R|kotlin/jvm/JvmOverloads|() public final fun Empty(): R|sample/Empty|
+    public final class EmptyContract : R|kotlin/Any| {
+        public constructor(): R|sample/EmptyContract|
+
+    }
+FILE: sample/OptionalImpl.kt
+    package sample
+
+    private final class OptionalImpl : R|sample/Optional| {
+        public final override fun equals(other: R|kotlin/Any?|): R|kotlin/Boolean|
+
+        public final override fun hashCode(): R|kotlin/Int|
+
+        public final override fun contract(): R|sample/OptionalContract|
+
+        public final override fun answer(): R|kotlin/Int|
+
+        private final val $contract$answer: R|(sample/Optional.() -> kotlin/Int)?|
+            private get(): R|(sample/Optional.() -> kotlin/Int)?|
+
+        public constructor(answer: R|(sample/Optional.() -> kotlin/Int)?|): R|sample/OptionalImpl|
+
+    }
+FILE: sample/OptionalContract.kt
+    package sample
+
+    public final class OptionalContract : R|kotlin/Any| {
+        public final val answer: R|(sample/Optional.() -> kotlin/Int)?|
+            public get(): R|(sample/Optional.() -> kotlin/Int)?|
+
+        @R|kotlin/Deprecated|(message = String(Binary compatibility), level = R|kotlin/DeprecationLevel.HIDDEN|) public constructor(): R|sample/OptionalContract|
+
+        public constructor(answer: R|(sample/Optional.() -> kotlin/Int)?| = throw R|kotlin/Throwable.Throwable|(String(Stub for declaration generated by Plugin[Contract]))): R|sample/OptionalContract|
+
+    }
+FILE: sample/AppearanceConstructor.kt
+    package sample
+
+    @R|kotlin/Deprecated|(message = String(Binary compatibility), level = R|kotlin/DeprecationLevel.HIDDEN|) public final fun Appearance(a: R|sample/Appearance.() -> kotlin/Int|, b: R|sample/Appearance.(kotlin/Boolean) -> kotlin/Int|): R|sample/Appearance|
+    @R|kotlin/Deprecated|(message = String(Binary compatibility), level = R|kotlin/DeprecationLevel.HIDDEN|) public final fun Appearance(a: R|sample/Appearance.() -> kotlin/Int|, b: R|sample/Appearance.(kotlin/Boolean) -> kotlin/Int|, c: R|(sample/Appearance.(kotlin/Boolean) -> kotlin/Int)?| = throw R|kotlin/Throwable.Throwable|(String(Stub for declaration generated by Plugin[Contract]))): R|sample/Appearance|
+    @R|kotlin/Deprecated|(message = String(Binary compatibility), level = R|kotlin/DeprecationLevel.HIDDEN|) public final fun Appearance(a: R|sample/Appearance.() -> kotlin/Int|, b: R|sample/Appearance.(kotlin/Boolean) -> kotlin/Int|, c: R|(sample/Appearance.(kotlin/Boolean) -> kotlin/Int)?| = throw R|kotlin/Throwable.Throwable|(String(Stub for declaration generated by Plugin[Contract])), d: R|(sample/Appearance.() -> kotlin/Int)?| = throw R|kotlin/Throwable.Throwable|(String(Stub for declaration generated by Plugin[Contract]))): R|sample/Appearance|
+    public final fun Appearance(a: R|sample/Appearance.() -> kotlin/Int|, b: R|sample/Appearance.(kotlin/Boolean) -> kotlin/Int|, c: R|(sample/Appearance.(kotlin/Boolean) -> kotlin/Int)?| = throw R|kotlin/Throwable.Throwable|(String(Stub for declaration generated by Plugin[Contract])), d: R|(sample/Appearance.() -> kotlin/Int)?| = throw R|kotlin/Throwable.Throwable|(String(Stub for declaration generated by Plugin[Contract])), e: R|(sample/Appearance.(kotlin/Boolean) -> kotlin/Int)?| = throw R|kotlin/Throwable.Throwable|(String(Stub for declaration generated by Plugin[Contract]))): R|sample/Appearance|
+FILE: sample/AppearanceCopy.kt
+    package sample
+
+    @R|kotlin/Deprecated|(message = String(Binary compatibility), level = R|kotlin/DeprecationLevel.HIDDEN|) public final fun R|sample/Appearance|.copy(a: R|(sample/Appearance.() -> kotlin/Int)?| = throw R|kotlin/Throwable.Throwable|(String(Stub for declaration generated by Plugin[Contract])), b: R|(sample/Appearance.(kotlin/Boolean) -> kotlin/Int)?| = throw R|kotlin/Throwable.Throwable|(String(Stub for declaration generated by Plugin[Contract]))): R|sample/Appearance|
+    @R|kotlin/Deprecated|(message = String(Binary compatibility), level = R|kotlin/DeprecationLevel.HIDDEN|) public final fun R|sample/Appearance|.copy(a: R|(sample/Appearance.() -> kotlin/Int)?| = throw R|kotlin/Throwable.Throwable|(String(Stub for declaration generated by Plugin[Contract])), b: R|(sample/Appearance.(kotlin/Boolean) -> kotlin/Int)?| = throw R|kotlin/Throwable.Throwable|(String(Stub for declaration generated by Plugin[Contract])), c: R|(sample/Appearance.(kotlin/Boolean) -> kotlin/Int)?| = throw R|kotlin/Throwable.Throwable|(String(Stub for declaration generated by Plugin[Contract]))): R|sample/Appearance|
+    @R|kotlin/Deprecated|(message = String(Binary compatibility), level = R|kotlin/DeprecationLevel.HIDDEN|) public final fun R|sample/Appearance|.copy(a: R|(sample/Appearance.() -> kotlin/Int)?| = throw R|kotlin/Throwable.Throwable|(String(Stub for declaration generated by Plugin[Contract])), b: R|(sample/Appearance.(kotlin/Boolean) -> kotlin/Int)?| = throw R|kotlin/Throwable.Throwable|(String(Stub for declaration generated by Plugin[Contract])), c: R|(sample/Appearance.(kotlin/Boolean) -> kotlin/Int)?| = throw R|kotlin/Throwable.Throwable|(String(Stub for declaration generated by Plugin[Contract])), d: R|(sample/Appearance.() -> kotlin/Int)?| = throw R|kotlin/Throwable.Throwable|(String(Stub for declaration generated by Plugin[Contract]))): R|sample/Appearance|
+    public final fun R|sample/Appearance|.copy(a: R|(sample/Appearance.() -> kotlin/Int)?| = throw R|kotlin/Throwable.Throwable|(String(Stub for declaration generated by Plugin[Contract])), b: R|(sample/Appearance.(kotlin/Boolean) -> kotlin/Int)?| = throw R|kotlin/Throwable.Throwable|(String(Stub for declaration generated by Plugin[Contract])), c: R|(sample/Appearance.(kotlin/Boolean) -> kotlin/Int)?| = throw R|kotlin/Throwable.Throwable|(String(Stub for declaration generated by Plugin[Contract])), d: R|(sample/Appearance.() -> kotlin/Int)?| = throw R|kotlin/Throwable.Throwable|(String(Stub for declaration generated by Plugin[Contract])), e: R|(sample/Appearance.(kotlin/Boolean) -> kotlin/Int)?| = throw R|kotlin/Throwable.Throwable|(String(Stub for declaration generated by Plugin[Contract]))): R|sample/Appearance|
+FILE: sample/EmptyCopy.kt
+    package sample
+
+    public final fun R|sample/Empty|.copy(): R|sample/Empty|
+FILE: sample/OptionalCopy.kt
+    package sample
+
+    @R|kotlin/Deprecated|(message = String(Binary compatibility), level = R|kotlin/DeprecationLevel.HIDDEN|) public final fun R|sample/Optional|.copy(): R|sample/Optional|
+    public final fun R|sample/Optional|.copy(answer: R|(sample/Optional.() -> kotlin/Int)?| = throw R|kotlin/Throwable.Throwable|(String(Stub for declaration generated by Plugin[Contract]))): R|sample/Optional|
+FILE: sample/EmptyConstructor.kt
+    package sample
+
+    public final fun Empty(): R|sample/Empty|
+FILE: sample/OptionalConstructor.kt
+    package sample
+
+    @R|kotlin/Deprecated|(message = String(Binary compatibility), level = R|kotlin/DeprecationLevel.HIDDEN|) public final fun Optional(): R|sample/Optional|
+    public final fun Optional(answer: R|(sample/Optional.() -> kotlin/Int)?| = throw R|kotlin/Throwable.Throwable|(String(Stub for declaration generated by Plugin[Contract]))): R|sample/Optional|

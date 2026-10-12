@@ -6,54 +6,61 @@ import com.alexcawl.contract.GenerateContract
 
 @GenerateContract
 interface Appearance {
-    val width: Int
-    val label: String?
-    fun onClick(value: Int): String
-    fun describe(prefix: String): String = "$prefix$label:$width"
-}
-
-@GenerateContract
-interface Size {
-    val width: Int
-    val height: Int
+    fun a(): Int
+    fun b(f: Boolean): Int
+    fun c(f: Boolean): Int = if (f) 1 else 2
+    fun d(): Int = 4
+    fun e(f: Boolean): Int = c(f) * d()
 }
 
 @GenerateContract
 interface Empty
 
+@GenerateContract
+interface Optional {
+    fun answer(): Int = 42
+}
+
 fun box(): String {
-    val click: (Int) -> String = { "click:$it" }
-    val description: (String) -> String = { "description:$it" }
-    val a = Appearance(10, null, click, description)
-    val b = AppearanceImpl(10, null, click, description)
-    check(a == b)
-    check(a.hashCode() == b.hashCode())
-    check(a != Appearance(11, null, click, description))
-    check(a != Appearance(10, "label", click, description))
-    check(a != Appearance(10, null, { "other:$it" }, description))
-    check(!a.equals(null))
-    check(!a.equals("other"))
-    check(a.onClick(2) == "click:2")
-    check(a.describe("test") == "description:test")
-    val defaults = Appearance(20, "name", click)
-    check(defaults.describe("test:") == "test:name:20")
-    val copy = defaults.copy(width = 30)
-    check(copy.width == 30)
-    check(copy.label == "name")
-    check(copy.onClick(3) == "click:3")
-    check(copy.describe("copy:") == "copy:name:20")
-    check(copy != defaults)
-    check(a.copy(onClick = click, describe = description) == a)
-    val custom = object : Appearance {
-        override val width = 5
-        override val label = "custom"
-        override fun onClick(value: Int): String = "$label:$value"
+    val first: Appearance.() -> Int = { 1 }
+    val second: Appearance.(Boolean) -> Int = { if (it) a() else 2 }
+    val original = Appearance(a = first, b = second)
+    check(original.e(true) == 4)
+    val copied = original.copy(a = { 7 }, c = { 3 })
+    check(copied.b(true) == 7)
+    check(copied.e(true) == 12)
+    check(copied.copy(d = { 5 }).e(true) == 15)
+    val dependent = original.copy(e = { selected -> c(selected) * d() })
+    check(dependent.copy(c = { 3 }).e(true) == 12)
+    check(copied.copy(c = null).e(true) == 12)
+    val equal = original.copy()
+    check(original !== equal)
+    check(original == equal)
+    check(original.hashCode() == equal.hashCode())
+    check(original == Appearance(first, second))
+    check(original != copied)
+    check(!original.equals(null))
+    check(!original.equals("other"))
+    check(original.contract() !== original.contract())
+    check(AppearanceContract::class.java.declaredMethods.none { it.name == "equals" || it.name == "hashCode" })
+    var reads = 0
+    val manual = object : Appearance {
+        override fun a() = 5
+        override fun b(f: Boolean) = if (f) a() else 0
+        override fun contract(): AppearanceContract {
+            reads++
+            return AppearanceContract(a = { 5 }, b = { selected -> if (selected) a() else 0 })
+        }
     }
-    check(custom.copy().describe("test:") == "test:custom:5")
-    val size = Size(width = 1, height = 2)
-    check(size.copy() == size)
-    check(size.copy(height = 3) == SizeImpl(1, 3))
-    check(Empty() == EmptyImpl())
-    check(Empty().hashCode() == EmptyImpl().hashCode())
+    check(manual.copy(a = { 9 }).b(true) == 9)
+    check(reads == 1)
+    var seen: Appearance? = null
+    val observing = original.copy(a = { seen = this; 1 }).copy()
+    observing.a()
+    check(seen === observing)
+    check(Empty() == Empty().copy())
+    check(Empty().hashCode() == Empty().copy().hashCode())
+    check(Optional().answer() == 42)
+    check(Optional().copy(answer = { 7 }).answer() == 7)
     return "OK"
 }

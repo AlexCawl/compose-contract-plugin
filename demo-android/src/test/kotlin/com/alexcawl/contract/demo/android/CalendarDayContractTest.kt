@@ -11,14 +11,14 @@ class CalendarDayContractTest {
     @Test
     fun defaultSizeAndCopyPreserveUnchangedDimensions() {
         val original = CalendarDaySize.default
-        val copied = original.copy(minWidth = 64.dp)
+        val copied = original.copy(minWidth = { 64.dp })
 
-        assertEquals(48.dp, original.minWidth)
-        assertEquals(48.dp, original.minHeight)
-        assertEquals(PaddingValues(8.dp), original.contentPadding)
-        assertEquals(64.dp, copied.minWidth)
-        assertEquals(original.minHeight, copied.minHeight)
-        assertEquals(original.contentPadding, copied.contentPadding)
+        assertEquals(48.dp, original.minWidth())
+        assertEquals(48.dp, original.minHeight())
+        assertEquals(PaddingValues(8.dp), original.contentPadding())
+        assertEquals(64.dp, copied.minWidth())
+        assertEquals(original.minHeight(), copied.minHeight())
+        assertEquals(original.contentPadding(), copied.contentPadding())
         assertEquals(original, original.copy())
     }
 

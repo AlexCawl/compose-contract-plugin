@@ -8,8 +8,8 @@ import com.alexcawl.contract.GenerateContract
 
 @GenerateContract
 interface Contract {
-    val name: String
-    fun text(prefix: String): String = prefix + name
+    fun name(): String
+    fun text(prefix: String): String = prefix + name()
 }
 
 // MODULE: main(lib)
@@ -17,14 +17,18 @@ interface Contract {
 package usage
 
 import published.Contract
-import published.ContractImpl
+import published.ContractContract
 import published.copy
 
 fun box(): String {
-    val contract = Contract("name")
-    check(contract is ContractImpl)
+    val contract: Contract = Contract(name = { "name" })
     check(contract.text("factory:") == "factory:name")
     check(contract.copy().text("copy:") == "copy:name")
-    check(contract.copy(name = "changed").name == "changed")
+    check(contract.copy(name = { "changed" }).text("copy:") == "copy:changed")
+    val manual = object : Contract {
+        override fun name() = "manual"
+        override fun contract() = ContractContract(name = { "manual" })
+    }
+    check(manual.copy(name = { "changed" }).text("manual:") == "manual:changed")
     return "OK"
 }

@@ -4,140 +4,140 @@ import com.alexcawl.contract.GenerateContract
 
 @GenerateContract
 interface WidePalette {
-    val tone01: Int
-    val tone02: Int
-    val tone03: Int
-    val tone04: Int
-    val tone05: Int
-    val tone06: Int
-    val tone07: Int
-    val tone08: Int
-    val tone09: Int
-    val tone10: Int
-    val tone11: Int
-    val tone12: Int
-    val tone13: Int
-    val tone14: Int
-    val tone15: Int
-    val tone16: Int
-    val tone17: Int
-    val tone18: Int
-    val tone19: Int
-    val tone20: Int
-    val tone21: Int
-    val tone22: Int
-    val tone23: Int
-    val tone24: Int
-    val tone25: Int
-    val tone26: Int
-    val tone27: Int
-    val tone28: Int
-    val tone29: Int
-    val tone30: Int
-    val tone31: Int
-    val tone32: Int
-    val tone33: Int
-    val tone34: Int
-    val tone35: Int
-    val tone36: Int
-    val tone37: Int
-    val tone38: Int
-    val tone39: Int
-    val tone40: Int
-    val tone41: Int
-    val tone42: Int
-    val tone43: Int
-    val tone44: Int
-    val tone45: Int
-    val tone46: Int
-    val tone47: Int
-    val tone48: Int
-    val tone49: Int
-    val tone50: Int
-    val tone51: Int
-    val tone52: Int
-    val tone53: Int
-    val tone54: Int
-    val tone55: Int
-    val tone56: Int
-    val tone57: Int
-    val tone58: Int
-    val tone59: Int
-    val tone60: Int
-    val tone61: Int
-    val tone62: Int
-    val tone63: Int
-    val tone64: Int
-    val tone65: Int
+    fun tone01(): Int
+    fun tone02(): Int
+    fun tone03(): Int
+    fun tone04(): Int
+    fun tone05(): Int
+    fun tone06(): Int
+    fun tone07(): Int
+    fun tone08(): Int
+    fun tone09(): Int
+    fun tone10(): Int
+    fun tone11(): Int
+    fun tone12(): Int
+    fun tone13(): Int
+    fun tone14(): Int
+    fun tone15(): Int
+    fun tone16(): Int
+    fun tone17(): Int
+    fun tone18(): Int
+    fun tone19(): Int
+    fun tone20(): Int
+    fun tone21(): Int
+    fun tone22(): Int
+    fun tone23(): Int
+    fun tone24(): Int
+    fun tone25(): Int
+    fun tone26(): Int
+    fun tone27(): Int
+    fun tone28(): Int
+    fun tone29(): Int
+    fun tone30(): Int
+    fun tone31(): Int
+    fun tone32(): Int
+    fun tone33(): Int
+    fun tone34(): Int
+    fun tone35(): Int
+    fun tone36(): Int
+    fun tone37(): Int
+    fun tone38(): Int
+    fun tone39(): Int
+    fun tone40(): Int
+    fun tone41(): Int
+    fun tone42(): Int
+    fun tone43(): Int
+    fun tone44(): Int
+    fun tone45(): Int
+    fun tone46(): Int
+    fun tone47(): Int
+    fun tone48(): Int
+    fun tone49(): Int
+    fun tone50(): Int
+    fun tone51(): Int
+    fun tone52(): Int
+    fun tone53(): Int
+    fun tone54(): Int
+    fun tone55(): Int
+    fun tone56(): Int
+    fun tone57(): Int
+    fun tone58(): Int
+    fun tone59(): Int
+    fun tone60(): Int
+    fun tone61(): Int
+    fun tone62(): Int
+    fun tone63(): Int
+    fun tone64(): Int
+    fun tone65(): Int
 
     companion object {
-        // 65 properties exercise three default-argument masks in the generated copy.
+        // 65 callbacks exercise three default-argument masks in the generated copy.
         val default: WidePalette = WidePalette(
-            tone01 = 1,
-            tone02 = 2,
-            tone03 = 3,
-            tone04 = 4,
-            tone05 = 5,
-            tone06 = 6,
-            tone07 = 7,
-            tone08 = 8,
-            tone09 = 9,
-            tone10 = 10,
-            tone11 = 11,
-            tone12 = 12,
-            tone13 = 13,
-            tone14 = 14,
-            tone15 = 15,
-            tone16 = 16,
-            tone17 = 17,
-            tone18 = 18,
-            tone19 = 19,
-            tone20 = 20,
-            tone21 = 21,
-            tone22 = 22,
-            tone23 = 23,
-            tone24 = 24,
-            tone25 = 25,
-            tone26 = 26,
-            tone27 = 27,
-            tone28 = 28,
-            tone29 = 29,
-            tone30 = 30,
-            tone31 = 31,
-            tone32 = 32,
-            tone33 = 33,
-            tone34 = 34,
-            tone35 = 35,
-            tone36 = 36,
-            tone37 = 37,
-            tone38 = 38,
-            tone39 = 39,
-            tone40 = 40,
-            tone41 = 41,
-            tone42 = 42,
-            tone43 = 43,
-            tone44 = 44,
-            tone45 = 45,
-            tone46 = 46,
-            tone47 = 47,
-            tone48 = 48,
-            tone49 = 49,
-            tone50 = 50,
-            tone51 = 51,
-            tone52 = 52,
-            tone53 = 53,
-            tone54 = 54,
-            tone55 = 55,
-            tone56 = 56,
-            tone57 = 57,
-            tone58 = 58,
-            tone59 = 59,
-            tone60 = 60,
-            tone61 = 61,
-            tone62 = 62,
-            tone63 = 63,
-            tone64 = 64,
-            tone65 = 65,
+            tone01 = { 1 },
+            tone02 = { 2 },
+            tone03 = { 3 },
+            tone04 = { 4 },
+            tone05 = { 5 },
+            tone06 = { 6 },
+            tone07 = { 7 },
+            tone08 = { 8 },
+            tone09 = { 9 },
+            tone10 = { 10 },
+            tone11 = { 11 },
+            tone12 = { 12 },
+            tone13 = { 13 },
+            tone14 = { 14 },
+            tone15 = { 15 },
+            tone16 = { 16 },
+            tone17 = { 17 },
+            tone18 = { 18 },
+            tone19 = { 19 },
+            tone20 = { 20 },
+            tone21 = { 21 },
+            tone22 = { 22 },
+            tone23 = { 23 },
+            tone24 = { 24 },
+            tone25 = { 25 },
+            tone26 = { 26 },
+            tone27 = { 27 },
+            tone28 = { 28 },
+            tone29 = { 29 },
+            tone30 = { 30 },
+            tone31 = { 31 },
+            tone32 = { 32 },
+            tone33 = { 33 },
+            tone34 = { 34 },
+            tone35 = { 35 },
+            tone36 = { 36 },
+            tone37 = { 37 },
+            tone38 = { 38 },
+            tone39 = { 39 },
+            tone40 = { 40 },
+            tone41 = { 41 },
+            tone42 = { 42 },
+            tone43 = { 43 },
+            tone44 = { 44 },
+            tone45 = { 45 },
+            tone46 = { 46 },
+            tone47 = { 47 },
+            tone48 = { 48 },
+            tone49 = { 49 },
+            tone50 = { 50 },
+            tone51 = { 51 },
+            tone52 = { 52 },
+            tone53 = { 53 },
+            tone54 = { 54 },
+            tone55 = { 55 },
+            tone56 = { 56 },
+            tone57 = { 57 },
+            tone58 = { 58 },
+            tone59 = { 59 },
+            tone60 = { 60 },
+            tone61 = { 61 },
+            tone62 = { 62 },
+            tone63 = { 63 },
+            tone64 = { 64 },
+            tone65 = { 65 },
         )
     }
 }

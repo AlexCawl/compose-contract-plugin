@@ -2,26 +2,17 @@ package com.alexcawl.contract.ir
 
 import com.alexcawl.contract.fir.ContractDeclarationGenerator
 import com.alexcawl.contract.fir.callbackName
+import com.alexcawl.contract.fir.generateContractId
 import org.jetbrains.kotlin.backend.common.extensions.IrGenerationExtension
 import org.jetbrains.kotlin.backend.common.extensions.IrPluginContext
 import org.jetbrains.kotlin.backend.common.lower.DeclarationIrBuilder
-import org.jetbrains.kotlin.descriptors.DescriptorVisibilities
-import org.jetbrains.kotlin.descriptors.Modality
-import org.jetbrains.kotlin.ir.IrElement
 import org.jetbrains.kotlin.ir.builders.*
 import org.jetbrains.kotlin.ir.declarations.*
 import org.jetbrains.kotlin.ir.expressions.*
-import org.jetbrains.kotlin.ir.expressions.impl.*
-import org.jetbrains.kotlin.ir.symbols.IrValueSymbol
-import org.jetbrains.kotlin.ir.types.*
+import org.jetbrains.kotlin.ir.expressions.impl.IrInstanceInitializerCallImpl
 import org.jetbrains.kotlin.ir.util.isNullable
+import org.jetbrains.kotlin.ir.types.*
 import org.jetbrains.kotlin.ir.util.*
-import org.jetbrains.kotlin.ir.visitors.IrElementTransformerVoid
-import org.jetbrains.kotlin.ir.visitors.transformChildrenVoid
-import org.jetbrains.kotlin.ir.visitors.IrVisitorVoid
-import org.jetbrains.kotlin.ir.visitors.acceptVoid
-import org.jetbrains.kotlin.ir.visitors.acceptChildrenVoid
-import org.jetbrains.kotlin.name.SpecialNames
 
 class ContractIrGenerationExtension : IrGenerationExtension {
     override fun generate(moduleFragment: IrModuleFragment, pluginContext: IrPluginContext) {
@@ -36,51 +27,79 @@ private class ContractBodyGenerator(private val context: IrPluginContext) {
     private fun IrDeclaration.isGenerated(): Boolean =
         (origin as? IrDeclarationOrigin.GeneratedByPlugin)?.pluginKey == ContractDeclarationGenerator.Key
 
-    private fun IrClass.members(): List<IrDeclarationWithName> =
-        declarations.filterIsInstance<IrProperty>().filterNot { it.isFakeOverride } +
-            declarations.filterIsInstance<IrSimpleFunction>().filterNot { it.isFakeOverride }
-
-    private fun fields(implementation: IrClass, contract: IrClass): List<IrField> = contract.members().map { member ->
-        implementation.properties.single {
-            it.name == if (member is IrSimpleFunction) callbackName(member.name) else member.name
-        }.backingField!!
-    }
+    private fun IrFunction.regularParameters(): List<IrValueParameter> = parameters.filter { it.kind == IrParameterKind.Regular }
 
     fun generate(module: IrModuleFragment) {
         val declarations = module.files.flatMap { it.declarations }
-        val implementations = declarations.filterIsInstance<IrClass>().filter { it.isGenerated() }
-            .associateBy { it.superTypes.single().classOrNull!!.owner }
-        for ((contract, implementation) in implementations) generateImplementation(contract, implementation)
-        for (function in declarations.filterIsInstance<IrSimpleFunction>().filter { it.isGenerated() }) {
-            val contract = function.returnType.classOrNull!!.owner
-            generateFactory(function, contract, implementations.getValue(contract))
+        val classes = declarations.filterIsInstance<IrClass>()
+        val functions = declarations.filterIsInstance<IrSimpleFunction>().filter { it.isGenerated() }
+        for (contract in classes.filter { it.hasAnnotation(generateContractId.asSingleFqName()) }) {
+            val generated = classes.filter { it.isGenerated() && it.packageFqName == contract.packageFqName }
+            val implementation = generated.single { it.name.asString() == "${contract.name}Impl" }
+            val container = generated.single { it.name.asString() == "${contract.name}Contract" }
+            val methods = contract.declarations.filterIsInstance<IrSimpleFunction>().filterNot { it.isGenerated() || it.isFakeOverride }
+            val factories = functions.filter { it.returnType.classOrNull == contract.symbol && it.parameters.none { p -> p.kind == IrParameterKind.ExtensionReceiver } }
+            val copies = functions.filter { it.returnType.classOrNull == contract.symbol && it.parameters.any { p -> p.kind == IrParameterKind.ExtensionReceiver } }
+            val factory = factories.single { it.regularParameters().size == methods.size }
+            val copy = copies.single { it.regularParameters().size == methods.size }
+            val factoryFile = factory.parent as IrFile
+            implementation.file.declarations.remove(implementation)
+            implementation.parent = factoryFile
+            factoryFile.declarations.add(implementation)
+            generateStorage(container, methods, implementation = false)
+            generateStorage(implementation, methods, implementation = true)
+            generateImplementation(contract, implementation, container, methods)
+            factories.forEach { generateFactory(it, factory, implementation) }
+            copies.forEach { generateCopy(it, copy, factory, contract, container, methods) }
         }
     }
 
-    private fun generateImplementation(contract: IrClass, implementation: IrClass) {
-        val fields = fields(implementation, contract)
-        val constructor = implementation.primaryConstructor!!
-        val constructorBuilder = DeclarationIrBuilder(context, constructor.symbol)
-        constructor.body = constructorBuilder.irBlockBody {
-            +irDelegatingConstructorCall(builtIns.anyClass.owner.constructors.single())
-            fields.zip(constructor.parameters).forEach { (field, parameter) ->
-                +irSetField(irGet(implementation.thisReceiver!!), field, irGet(parameter))
+    private fun fields(owner: IrClass, methods: List<IrSimpleFunction>, implementation: Boolean): List<IrField> =
+        methods.map { method -> owner.properties.single {
+            it.name == if (implementation) callbackName(method.name) else method.name
+        }.backingField!! }
+
+    private fun generateStorage(owner: IrClass, methods: List<IrSimpleFunction>, implementation: Boolean) {
+        val fields = fields(owner, methods, implementation)
+        val primary = owner.primaryConstructor!!
+        for (constructor in owner.constructors) {
+            val parameters = constructor.regularParameters()
+            parameters.filter { it.defaultValue != null }.forEach {
+                it.defaultValue = context.irFactory.createExpressionBody(DeclarationIrBuilder(context, constructor.symbol).irNull(it.type))
             }
-            +IrInstanceInitializerCallImpl(startOffset, endOffset, implementation.symbol, builtIns.unitType)
+            constructor.body = DeclarationIrBuilder(context, constructor.symbol).irBlockBody {
+                if (constructor == primary) {
+                    +irDelegatingConstructorCall(builtIns.anyClass.owner.constructors.single())
+                    fields.zip(parameters).forEach { (field, parameter) ->
+                        +irSetField(irGet(owner.thisReceiver!!), field, irGet(parameter))
+                    }
+                    +IrInstanceInitializerCallImpl(startOffset, endOffset, owner.symbol, builtIns.unitType)
+                } else {
+                    +irDelegatingConstructorCall(primary).apply {
+                        primary.regularParameters().forEachIndexed { index, parameter ->
+                            arguments[index] = parameters.getOrNull(index)?.let { irGet(it) } ?: irNull(parameter.type)
+                        }
+                    }
+                }
+            }
         }
-        for (property in implementation.properties.filter { it.isGenerated() }) {
+        for (property in owner.properties.filter { it.isGenerated() }) {
             val getter = property.getter!!
             getter.body = DeclarationIrBuilder(context, getter.symbol).irBlockBody {
                 +irReturn(irGetField(irGet(getter.dispatchReceiverParameter!!), property.backingField!!))
             }
         }
+    }
+
+    private fun generateImplementation(contract: IrClass, implementation: IrClass, container: IrClass, methods: List<IrSimpleFunction>) {
+        val fields = fields(implementation, methods, implementation = true)
         for (function in implementation.functions.filter { it.isGenerated() && it.correspondingPropertySymbol == null }) {
             val builder = DeclarationIrBuilder(context, function.symbol)
             function.body = builder.irBlockBody {
                 val receiver = function.dispatchReceiverParameter!!
                 when (function.name.asString()) {
                     "equals" -> {
-                        val other = function.parameters.last()
+                        val other = function.regularParameters().single()
                         +irIfThenReturnTrue(irEqeqeq(irGet(receiver), irGet(other)))
                         +irIfThenReturnFalse(irNotIs(irGet(other), implementation.defaultType))
                         val typedOther = irTemporary(irAs(irGet(other), implementation.defaultType))
@@ -100,148 +119,94 @@ private class ContractBodyGenerator(private val context: IrPluginContext) {
                             val nullableHash = if (field.type.isNullable()) {
                                 irIfThenElse(builtIns.intType, irEqualsNull(irGetField(irGet(receiver), field)), irInt(0), hash)
                             } else hash
-                            result = irCallOp(
-                                builtIns.intPlusSymbol, builtIns.intType,
-                                irCallOp(builtIns.intTimesSymbol, builtIns.intType, result, irInt(31)), nullableHash,
-                            )
+                            result = irCallOp(builtIns.intPlusSymbol, builtIns.intType,
+                                irCallOp(builtIns.intTimesSymbol, builtIns.intType, result, irInt(31)), nullableHash)
                         }
                         +irReturn(result)
                     }
+                    "contract" -> +irReturn(irCallConstructor(container.primaryConstructor!!.symbol, emptyList()).apply {
+                        fields.forEachIndexed { index, field -> arguments[index] = irGetField(irGet(receiver), field) }
+                    })
                     else -> {
-                        val index = contract.members().indexOfFirst { it.name == function.name }
+                        val index = methods.indexOfFirst { it.name == function.name }
+                        val method = methods[index]
                         val field = fields[index]
-                        val parameters = function.parameters.filter { it.kind == IrParameterKind.Regular }
-                        +irReturn(invokeLambda(
-                            builder, irGetField(irGet(receiver), field), field.type,
-                            parameters.map { irGet(it) }, function.returnType,
-                        ))
+                        val callback = irGetField(irGet(receiver), field)
+                        val invoke = invokeLambda(builder, irImplicitCast(callback, field.type.makeNotNull()), field.type.makeNotNull(),
+                            listOf(irGet(receiver)) + function.regularParameters().map { irGet(it) }, function.returnType)
+                        +irReturn(if (field.type.isNullable()) {
+                            val fallback = irCall(method.symbol).apply {
+                                superQualifierSymbol = contract.symbol
+                                arguments[0] = irGet(receiver)
+                                function.regularParameters().forEachIndexed { i, parameter -> arguments[i + 1] = irGet(parameter) }
+                            }
+                            irIfThenElse(function.returnType, irEqualsNull(irGetField(irGet(receiver), field)), fallback, invoke)
+                        } else invoke)
                     }
                 }
             }
         }
     }
 
-    private fun invokeLambda(
-        builder: DeclarationIrBuilder,
-        lambda: IrExpression,
-        lambdaType: IrType,
-        arguments: List<IrExpression>,
-        returnType: IrType,
-    ): IrExpression = builder.irCall(
-        lambdaType.classOrNull!!.owner.functions.single { it.name.asString() == "invoke" }.symbol,
-        returnType,
+    private fun invokeLambda(builder: DeclarationIrBuilder, lambda: IrExpression, type: IrType,
+                             arguments: List<IrExpression>, returnType: IrType): IrExpression = builder.irCall(
+        type.classOrNull!!.owner.functions.single { it.name.asString() == "invoke" }.symbol, returnType,
     ).apply {
         this.arguments[0] = lambda
         arguments.forEachIndexed { index, argument -> this.arguments[index + 1] = argument }
     }
 
-    private fun generateFactory(function: IrSimpleFunction, contract: IrClass, implementation: IrClass) {
+    private fun defaults(function: IrSimpleFunction) {
         val builder = DeclarationIrBuilder(context, function.symbol)
-        val parameters = function.parameters.filter { it.kind == IrParameterKind.Regular }
-        val receiver = function.parameters.firstOrNull { it.kind == IrParameterKind.ExtensionReceiver }
-        for ((member, parameter) in contract.members().zip(parameters)) {
-            if (receiver != null) {
-                val expression = when (member) {
-                    is IrProperty -> builder.irCall(member.getter!!).apply { arguments[0] = builder.irGet(receiver) }
-                    is IrSimpleFunction -> IrFunctionReferenceImpl(
-                        function.startOffset, function.endOffset, parameter.type, member.symbol, typeArgumentsCount = 0,
-                    ).apply { arguments[0] = builder.irGet(receiver) }
-                    else -> error("Unexpected contract member")
-                }
-                parameter.defaultValue = context.irFactory.createExpressionBody(expression)
-            } else if (member is IrSimpleFunction && member.body != null) {
-                parameter.defaultValue = context.irFactory.createExpressionBody(defaultLambda(function, member, parameter, contract, parameters))
-            }
+        function.regularParameters().filter { it.defaultValue != null }.forEach {
+            it.defaultValue = context.irFactory.createExpressionBody(builder.irNull(it.type))
         }
-        function.body = builder.irBlockBody {
-            +irReturn(irCallConstructor(implementation.primaryConstructor!!.symbol, emptyList()).apply {
-                parameters.forEachIndexed { index, parameter -> arguments[index] = irGet(parameter) }
+    }
+
+    private fun generateFactory(function: IrSimpleFunction, latest: IrSimpleFunction, implementation: IrClass) {
+        defaults(function)
+        val parameters = function.regularParameters()
+        function.body = DeclarationIrBuilder(context, function.symbol).irBlockBody {
+            +irReturn(if (function == latest) {
+                irCallConstructor(implementation.primaryConstructor!!.symbol, emptyList()).apply {
+                    parameters.forEachIndexed { index, parameter -> arguments[index] = irGet(parameter) }
+                }
+            } else {
+                irCall(latest).apply {
+                    latest.regularParameters().forEachIndexed { index, parameter ->
+                        arguments[index] = parameters.getOrNull(index)?.let { irGet(it) } ?: irNull(parameter.type)
+                    }
+                }
             })
         }
     }
 
-    private fun defaultLambda(
-        factory: IrSimpleFunction,
-        method: IrSimpleFunction,
-        parameter: IrValueParameter,
-        contract: IrClass,
-        parameters: List<IrValueParameter>,
-    ): IrExpression {
-        val lambda = method.deepCopyWithSymbols(factory).apply {
-            name = SpecialNames.ANONYMOUS
-            visibility = DescriptorVisibilities.LOCAL
-            origin = IrDeclarationOrigin.LOCAL_FUNCTION_FOR_LAMBDA
-            modality = Modality.FINAL
-            metadata = null
-            overriddenSymbols = emptyList()
-            annotations = emptyList()
-        }
-        val receiver = lambda.dispatchReceiverParameter!!
-        lambda.parameters = lambda.parameters.filter { it.kind == IrParameterKind.Regular }.onEach {
-            it.defaultValue = null
-            it.varargElementType = null
-        }
-        val builder = DeclarationIrBuilder(context, lambda.symbol)
-        val members = contract.members()
-        lambda.body!!.transformChildrenVoid(object : IrElementTransformerVoid() {
-            private fun IrExpression?.isThis(): Boolean = this is IrGetValue &&
-                (symbol == receiver.symbol || symbol.owner is IrValueParameter &&
-                    (symbol.owner as IrValueParameter).kind == IrParameterKind.DispatchReceiver &&
-                    (symbol.owner.parent as? IrSimpleFunction)?.parent == contract)
-
-            override fun visitCall(expression: IrCall): IrExpression {
-                if (!expression.dispatchReceiver.isThis()) return super.visitCall(expression)
-                val memberIndex = members.indexOfFirst {
-                    when (it) {
-                        is IrProperty -> it.getter?.symbol == expression.symbol
-                        is IrSimpleFunction -> it.symbol == expression.symbol
-                        else -> false
+    private fun generateCopy(function: IrSimpleFunction, latest: IrSimpleFunction, factory: IrSimpleFunction,
+                             contract: IrClass, container: IrClass, methods: List<IrSimpleFunction>) {
+        defaults(function)
+        val parameters = function.regularParameters()
+        val receiver = function.parameters.single { it.kind == IrParameterKind.ExtensionReceiver }
+        function.body = DeclarationIrBuilder(context, function.symbol).irBlockBody {
+            if (function != latest) {
+                +irReturn(irCall(latest).apply {
+                    arguments[0] = irGet(receiver)
+                    latest.regularParameters().forEachIndexed { index, parameter ->
+                        arguments[index + 1] = parameters.getOrNull(index)?.let { irGet(it) } ?: irNull(parameter.type)
                     }
-                }
-                check(memberIndex >= 0) { "Unsupported receiver use in default method ${method.name}" }
-                val captured = parameters[memberIndex]
-                if (members[memberIndex] is IrProperty) return builder.irGet(captured)
-                val transformer = this
-                return builder.irBlock(resultType = expression.type) {
-                    val arguments = mutableMapOf<IrValueSymbol, IrVariable>()
-                    for ((index, targetParameter) in expression.symbol.owner.parameters.withIndex()) {
-                        if (targetParameter.kind != IrParameterKind.Regular) continue
-                        val argument = expression.arguments[index]?.transform(transformer, null)
-                            ?: targetParameter.defaultValue!!.expression.deepCopyWithSymbols(lambda).transform(
-                                object : IrElementTransformerVoid() {
-                                    override fun visitGetValue(expression: IrGetValue): IrExpression =
-                                        arguments[expression.symbol]?.let { builder.irGet(it) } ?: expression
-                                }, null,
-                            ).transform(transformer, null)
-                        arguments[targetParameter.symbol] = irTemporary(argument)
+                })
+            } else {
+                val original = irTemporary(irCall(contract.functions.single { it.name.asString() == "contract" }).apply {
+                    arguments[0] = irGet(receiver)
+                }, "original")
+                +irReturn(irCall(factory).apply {
+                    parameters.forEachIndexed { index, parameter ->
+                        val getter = container.properties.single { it.name == methods[index].name }.getter!!
+                        val old = irCall(getter).apply { arguments[0] = irGet(original) }
+                        arguments[index] = irIfThenElse(factory.regularParameters()[index].type,
+                            irEqualsNull(irGet(parameter)), old, irImplicitCast(irGet(parameter), factory.regularParameters()[index].type))
                     }
-                    +invokeLambda(
-                        builder, builder.irGet(captured), captured.type,
-                        arguments.values.map { builder.irGet(it) }, expression.type,
-                    )
-                }
+                })
             }
-
-            override fun visitFunctionReference(expression: IrFunctionReference): IrExpression {
-                if (!expression.dispatchReceiver.isThis()) return super.visitFunctionReference(expression)
-                val memberIndex = members.indexOfFirst { it is IrSimpleFunction && it.symbol == expression.symbol }
-                check(memberIndex >= 0) { "Unsupported callable reference in default method ${method.name}" }
-                val captured = parameters[memberIndex]
-                val invoke = captured.type.classOrNull!!.owner.functions.single { it.name.asString() == "invoke" }
-                // shortcut: references reflect callback.invoke; generate adapters if method reflection identity is required.
-                return IrFunctionReferenceImpl(
-                    -1, -1, expression.type, invoke.symbol, typeArgumentsCount = 0,
-                ).apply { arguments[0] = builder.irGet(captured) }
-            }
-        })
-        // The copied body belongs to a generated file without source line information.
-        lambda.acceptVoid(object : IrVisitorVoid() {
-            override fun visitElement(element: IrElement) {
-                element.startOffset = -1
-                element.endOffset = -1
-                element.acceptChildrenVoid(this)
-            }
-        })
-        return IrFunctionExpressionImpl(factory.startOffset, factory.endOffset, parameter.type, lambda, IrStatementOrigin.LAMBDA)
+        }
     }
 }

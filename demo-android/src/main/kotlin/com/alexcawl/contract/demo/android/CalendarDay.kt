@@ -20,10 +20,10 @@ fun CalendarDay(
     Box(
         modifier = modifier
             .background(color = appearance.backgroundColor(isSelected), shape = appearance.backgroundShape(isSelected))
-            .defaultMinSize(minWidth = size.minWidth, minHeight = size.minHeight)
+            .defaultMinSize(minWidth = size.minWidth(), minHeight = size.minHeight())
             .clip(shape = appearance.foregroundShape(isSelected))
             .background(color = appearance.foregroundColor(isSelected))
-            .padding(paddingValues = size.contentPadding),
+            .padding(paddingValues = size.contentPadding()),
         contentAlignment = Alignment.Center,
     ) {
         content()

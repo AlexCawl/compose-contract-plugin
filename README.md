@@ -13,46 +13,123 @@ import com.alexcawl.contract.GenerateContract
 
 @GenerateContract
 interface Appearance {
-    val width: Int
-    val label: String?
+    fun width(): Int
+    fun label(): String?
     fun foregroundColor(isSelected: Boolean): Long
-    fun describe(prefix: String): String = "$prefix$label:$width"
+    fun describe(prefix: String): String = "$prefix${label()}:${width()}"
 }
 
 val appearance: Appearance = Appearance(
-    width = 24,
-    label = "Button",
+    width = { 24 },
+    label = { "Button" },
     foregroundColor = { selected -> if (selected) 0xFF6750A4 else 0xFFF3EDF7 },
 )
-val wider: Appearance = appearance.copy(width = 48)
+val wider: Appearance = appearance.copy(width = { 48 })
+check(wider.describe("") == "Button:48")
+check(appearance.copy() == appearance)
 ```
 
-Generation happens in the compiler; it does not write Kotlin source files. The declarations
-are available in Kotlin source and in compiled dependencies. All three declarations live
-in the same package as the interface:
+Contract members are methods. Each factory argument is a typed callback with the contract
+as its receiver, for example `Appearance.() -> Int` or `Appearance.(Boolean) -> Long`.
+Abstract methods require arguments at compile time. Methods with bodies accept nullable
+callbacks with default `null`; an absent callback invokes the original interface default.
+The callback itself is tested for absence, so a callback returning `null` remains an override.
 
-* `AppearanceImpl(width, label, foregroundColor, describe)` implements the interface, stores its
-  values and callbacks, and overrides `equals` and `hashCode`.
-* `Appearance(width, label, foregroundColor, describe = { prefix -> "$prefix$label:$width" })`
-  returns `Appearance`, constructing `AppearanceImpl`. Default method bodies become
-  default callback arguments. Properties remain required, including properties with getters.
-* `Appearance.copy(width = this.width, label = this.label, foregroundColor = this::foregroundColor,
-  describe = this::describe)` returns a new `AppearanceImpl` through the interface type.
+Callbacks execute with the current generated instance as `this`. Copying preserves the
+callbacks and changes their receiver to the new instance. Interface default bodies remain
+in the interface and use normal virtual dispatch, including forward references, recursion,
+`this`, callable references, varargs, and method parameter defaults. A callback that explicitly
+captures another object still retains that capture.
 
-Parameters are ordered by properties first, then methods, preserving declaration order
-within each group. Methods with parameters become corresponding function types; a `vararg`
-parameter becomes an array parameter in the callback. Both top-level functions have
-`@JvmOverloads`. Their Java facade is `AppearanceContractKt`.
-The generated implementation and functions preserve the interface's public/internal visibility.
+Generation happens in the compiler; physical Kotlin files are not written. The generated
+API lives in the interface's package:
 
-`equals` compares only instances of the same generated implementation and includes every
-value and callback using ordinary Kotlin equality. `hashCode` uses the same fields.
-Arrays retain referential equality. Separate lambdas with identical code usually differ.
+* `AppearanceContract` is a final class with typed immutable callback properties. Its
+  constructor follows source method order. Required callbacks are non-null; default method
+  callbacks are nullable with default `null`. It uses ordinary reference equality.
+* A private `AppearanceImpl` stores callbacks directly. Only this class gets generated
+  `equals` and `hashCode`, comparing callbacks with ordinary Kotlin equality. Distinct lambdas
+  usually differ even when their bodies match. Results returned by callbacks are not compared.
+* `Appearance(...)` returns `Appearance` and creates the private implementation. Its synthetic
+  file and JVM facade are `AppearanceConstructor.kt` and `AppearanceConstructorKt`.
+* `Appearance.copy(...)` returns `Appearance`. All callback arguments are nullable with default
+  `null`, meaning preserve the previous callback. Its file and facade are `AppearanceCopy.kt`
+  and `AppearanceCopyKt`. It calls `contract()` once, merges overrides, and invokes the factory.
+* The interface gains `fun contract(): AppearanceContract`. The generated implementation
+  constructs a fresh container on each call; it does not store or cache one.
 
-`copy` works with any implementation of the interface. Its default method references are
-bound to the original receiver: `wider.describe("")` above still uses width `24`.
-Override the callback explicitly to change this behavior. A copy containing method references
-can compare unequal to its source, even when all property values are unchanged.
+All constructors, factories, and copy functions use the original method order. Container and
+function visibility follows the public/internal interface. There is no member `copy`.
+An unchanged copy has equal callbacks and the same hash, with distinct object identity.
+Resetting a callback to its interface default is not supported by `copy`.
+
+Manual implementations provide `contract()` themselves, defining the callbacks to transfer:
+
+```kotlin
+class ManualAppearance : Appearance {
+    override fun width() = 24
+    override fun label() = "Manual"
+    override fun foregroundColor(isSelected: Boolean) = 0xFF6750A4
+    override fun contract() = AppearanceContract(
+        width = { 24 },
+        label = { "Manual" },
+        foregroundColor = { 0xFF6750A4 },
+    )
+}
+
+val copied: Appearance = ManualAppearance().copy(width = { 48 })
+```
+
+Copying a manual implementation creates the generated implementation. The plugin neither
+casts the source to `AppearanceImpl` nor infers callbacks from a manual method's body.
+
+## Evolving published contracts
+
+After the initial migration, existing methods must retain their names, order, types,
+parameter names, default argument availability, and JVM owners. Add methods **only at the end,
+with default bodies**. Adding a required method cannot preserve existing creation calls.
+
+For methods `a, b` without bodies followed by default methods `c, d, e`, the plugin generates
+parameter prefixes `ab`, `abc`, `abcd`, and `abcde` for the container constructor, factory,
+and copy extension. The full signature is the current source API. Shorter signatures carry
+`@Deprecated(level = HIDDEN)` and retain their default arguments. Standard Kotlin lowering
+produces their old `$default` methods and constructor mask overloads. Every hidden overload
+delegates directly to the current signature, supplying `null` for the missing tail.
+`@JvmOverloads`, `@JvmSynthetic`, and `@IntroducedAt` are not used.
+
+The same prefix lengths apply to all three APIs, starting after the last required method;
+fully default contracts include the empty prefix. Generation needs no version history.
+Old copies retain new callbacks already present on their source object.
+
+The plugin does not set, override, or validate `JvmDefaultMode`. Unless configured by the
+producer, Kotlin uses its default (`ENABLE` in Kotlin 2.4.20). Consumers of the compiled
+library need no compiler plugin. The selected mode affects compatibility:
+
+* `ENABLE` generates JVM default methods and `DefaultImpls` compatibility helpers. Old manual
+  Kotlin and Java implementations can inherit newly added default methods.
+* `NO_COMPATIBILITY` generates JVM default methods without `DefaultImpls`. New default methods
+  can still be inherited, but switching from `ENABLE` can break binaries using the old helpers.
+* `DISABLE` moves default bodies into static `DefaultImpls` methods; the interface methods
+  are abstract on the JVM. Generated implementations and copies work, but old manual
+  implementations do not acquire newly added methods. Calling such a method on an old
+  implementation can throw `AbstractMethodError`; those implementations must be recompiled.
+  Java implementations must provide these methods explicitly.
+
+Keep the JVM mode unchanged after publication. Hidden factory and copy overloads preserve
+their signatures but cannot supply missing methods on old implementation classes. See
+[Kotlin's JVM default modes](https://kotlinlang.org/docs/java-to-kotlin-interop.html#compatibility-modes-for-default-methods).
+
+The plugin does not register ABI validation tasks or manage compatibility baselines.
+Configure API validation in the consuming project and ensure the validator reads compiled
+outputs, including generated classes. API snapshots do not replace running old clients
+against new binaries, including hidden overloads and default helpers.
+
+This change requires one rebuild of existing contracts and consumers. Subsequent guarantees
+cover old JVM binaries and named Kotlin source calls under the append-only rule, subject to
+the JVM mode limitations above. New Java source uses the current full signature and may need
+additional explicit `null` arguments.
+Callable reference arity, positional calls, and trailing lambda binding are not guaranteed
+across contract evolution. Hidden JVM bridges remain callable by already compiled clients.
 
 ## Connect GitHub Packages
 
@@ -177,7 +254,7 @@ No additional IDE plugin is required. Enable loading external compiler plugins i
 3. Build the compiler plugin with `./gradlew :compiler-plugin:jar` from this checkout.
 4. Sync the consuming project with Gradle and restart Studio to reload the plugin JAR.
 
-The editor should resolve the generated factory, implementation, and `copy` extension,
+The editor should resolve the generated factory, callback container, and `copy` extension,
 including inferred types and named-argument completion. Gradle remains responsible for
 building and running the application with Kotlin 2.4.20. Rebuild the JAR, sync, and restart
 Studio after changing the compiler plugin itself; editing a contract should update analysis
@@ -192,205 +269,26 @@ parameters are compared using `equals` ([Compose documentation](https://develope
 
 When your interface and **all** its implementations satisfy the Compose stability contract,
 annotate the interface with `androidx.compose.runtime.Stable`. The plugin does not add this
-annotation automatically: a `val` can still hold mutable data, and custom implementations
+annotation automatically: callbacks can capture mutable data, and custom implementations
 must satisfy the same promise. Contract members themselves must not be `@Composable`.
 
 ## Current supported scope
 
-Contracts are public or internal top-level interfaces with distinct public `val`/`fun` names.
-Member types can be nullable or parameterized, such as `List<String>`.
-Generic interfaces/methods, inheritance, overloads, `var`, suspend/extension/context members,
-and sealed/expect/external contracts are rejected with compiler diagnostics.
-`equals`, `hashCode`, and `copy` are reserved member names.
+Contracts are public or internal top-level interfaces with distinct public `fun` names.
+Member types can be nullable or parameterized, such as `List<String>`. Generic interfaces
+and methods, interface inheritance, properties (`val` and `var`), overloads, suspend,
+extension/context/Composable methods, private members, and sealed/expect/external contracts
+are rejected with compiler diagnostics. `equals`, `hashCode`, `copy`, and `contract` are reserved.
+Generated class names and callback getter JVM signatures must not collide.
 
-Default bodies can use properties, earlier methods, local variables, control flow, and other
-ordinary Kotlin code. Because the bodies move to factory default arguments, they cannot use
-standalone `this`, property references such as `this::width`, recursively call themselves,
-or access later methods. Declare such methods abstract and supply callbacks explicitly,
-or move their behavior outside the contract. Supplying a callback does not bypass validation
-of an unsupported default body. A reference to an earlier contract method in a default
-body delegates to the supplied callback's `invoke`; its reflection identity is not preserved.
+A method's `vararg` becomes an array parameter in its callback. High arity callbacks are
+supported within JVM parameter-slot limits. Generated default helpers also require slots for
+masks, receivers, and markers; the maximum is not 255 contract methods.
 
-### Unsupported declaration examples
-
-These snippets intentionally fail plugin validation. Import
-`com.alexcawl.contract.GenerateContract`; the Compose example also imports
-`androidx.compose.runtime.Composable`.
-The JVM demo keeps these restrictions as [commented Kotlin source examples](demo-jvm/src/main/kotlin/com/alexcawl/contract/demo/jvm/UnsupportedContracts.kt)
-so the application still compiles.
-
-The annotation only supports top-level public/internal interfaces:
-
-```kotlin
-@GenerateContract
-class NotAnInterface // Classes and objects are not contracts.
-
-class Components {
-    @GenerateContract
-    interface Nested // Nested contracts are not supported.
-}
-
-@GenerateContract
-private interface Hidden // Use public or internal visibility.
-
-@GenerateContract
-sealed interface Closed // Sealed contracts are not supported.
-```
-
-Generic declarations and inheritance are not supported. Parameterized member types
-such as `val items: List<String>` are supported.
-
-```kotlin
-@GenerateContract
-interface GenericContract<T> { // Generic interface.
-    val value: T
-}
-
-@GenerateContract
-interface GenericMethod {
-    fun <T> identity(value: T): T // Generic method.
-}
-
-interface HasWidth {
-    val width: Int
-}
-
-@GenerateContract
-interface InheritedSize : HasWidth // Even non-generic inheritance is unsupported.
-```
-
-Every property and method needs a distinct name, including methods with different signatures:
-
-```kotlin
-@GenerateContract
-interface Overloaded {
-    fun format(): String
-    fun format(value: Int): String // Two callbacks would both be named format.
-}
-
-@GenerateContract
-interface SameMemberName {
-    val width: Int
-    fun width(): Int // A property and a method cannot share a callback parameter name.
-}
-
-@GenerateContract
-interface ReservedNames {
-    override fun equals(other: Any?): Boolean // Reserved for generated equality.
-    override fun hashCode(): Int // Reserved for generated hashing.
-    fun copy(): ReservedNames // Reserved for the generated copy extension.
-}
-```
-
-Mutable properties, suspend functions, member extensions, context members, non-public
-members, and composable members are unsupported. Each member below illustrates a separate
-restriction; making the other members valid does not remove that restriction.
-
-```kotlin
-@GenerateContract
-interface UnsupportedMembers {
-    var width: Int // Use val.
-
-    suspend fun load(): String // Suspend callbacks are unsupported.
-
-    fun String.decorate(): String // Member extension.
-
-    context(prefix: String)
-    fun describe(): String // Context parameter.
-
-    private fun helper(): Int = 1 // Contract members must be public.
-
-    @Composable
-    fun render() // Composable method.
-
-    @get:Composable
-    val content: String // Composable getter.
-}
-```
-
-### Unsupported default expressions
-
-A default body cannot call a method declared later, even if that method has a default body:
-
-```kotlin
-@GenerateContract
-interface ForwardCall {
-    fun first(): Int = second() // Unsupported: second is declared later.
-    fun second(): Int = 1
-}
-```
-
-Reordering the methods makes this example supported:
-
-```kotlin
-@GenerateContract
-interface OrderedCall {
-    fun second(): Int = 1
-    fun first(): Int = second() // Supported: second is an earlier callback parameter.
-}
-```
-
-Direct and mutual recursion are unsupported:
-
-```kotlin
-@GenerateContract
-interface Recursive {
-    fun count(value: Int): Int =
-        if (value == 0) 0 else count(value - 1) // Self-reference.
-}
-
-@GenerateContract
-interface MutualRecursion {
-    fun first(): Int = second() // Forward reference.
-    fun second(): Int = first()
-}
-```
-
-Reading a property through `this` is supported. Using the contract instance itself or
-creating a reference to its property is unsupported. The same restrictions apply to
-method parameter default expressions:
-
-```kotlin
-@GenerateContract
-interface ReceiverExamples {
-    val width: Int
-
-    fun doubled(): Int = this.width * 2 // Supported: captures width.
-    fun identity(): Any = this // Unsupported: requires the contract instance.
-    fun widthReference(): () -> Int = this::width // Unsupported property reference.
-    fun argument(value: Any = this): Any = value // Unsupported parameter default.
-}
-```
-
-### Behavior that is not generated automatically
-
-Property getter bodies do not become factory defaults:
-
-```kotlin
-@GenerateContract
-interface DefaultWidth {
-    val width: Int get() = 24
-}
-
-val missing = DefaultWidth() // Error: width is required.
-val supplied = DefaultWidth(width = 48) // Supported; width is 48.
-```
-
-`copy` does not rebind methods to the new instance or guarantee equality with its source:
-
-```kotlin
-// Uses Appearance from the Usage example.
-val original = Appearance(width = 24, label = "Button", foregroundColor = { 0xFF6750A4 })
-val changed = original.copy(width = 48)
-
-check(changed.width == 48)
-check(changed.describe("") == "Button:24") // describe is bound to original.
-// original.copy() can compare unequal to original because callbacks are method references.
-```
-
-The plugin does not infer equivalent lambda bodies, add Compose stability annotations,
-or preserve reflection identity when rewriting references to earlier methods in default bodies.
-`@JvmOverloads` generates Java overloads for the factory and copy extension.
+Interface bodies keep ordinary Kotlin semantics. The plugin does not infer equivalent lambda
+bodies, add Compose stability annotations, or make arbitrary captures immutable. See the
+[commented invalid declarations](demo-jvm/src/main/kotlin/com/alexcawl/contract/demo/jvm/UnsupportedContracts.kt)
+for unsupported examples.
 
 ## Demos
 
@@ -408,12 +306,11 @@ The repository includes two independent applications:
 The JVM catalogue covers:
 
 * [Compound values](demo-jvm/src/main/kotlin/com/alexcawl/contract/demo/jvm/ValueAppearance.kt):
-  primitives, nullable and inline values, nested collections, arrays, function properties,
-  an empty contract, and an internal contract. Arrays and functions retain ordinary Kotlin equality.
+  primitives, nullable and inline results, nested collections, arrays, returned functions,
+  an empty contract, and an internal contract. Equality compares the stored callbacks.
 * [Default methods](demo-jvm/src/main/kotlin/com/alexcawl/contract/demo/jvm/DefaultAppearance.kt):
-  earlier callbacks and callable references, parameter defaults, named argument evaluation,
-  varargs, and returned functions. A property getter still requires a factory argument.
-  Copied methods remain bound to the original instance.
+  callback dependencies and callable references, parameter defaults, named argument evaluation,
+  varargs, and returned functions. Copied methods execute on the copied instance.
 * [65-field palette](demo-jvm/src/main/kotlin/com/alexcawl/contract/demo/jvm/WidePalette.kt):
   generated copy defaults cross the 32/33 and 64/65 parameter boundaries.
 * [High arity and JVM slots](demo-jvm/src/main/kotlin/com/alexcawl/contract/demo/jvm/ArityAppearance.kt):
@@ -422,14 +319,15 @@ The JVM catalogue covers:
   including `this`; the forbidden 128th parameter stays commented. Generated default helpers
   also need slots for masks, receivers, and markers, so 255 slots does not mean 255 contract fields.
 * [Java interoperability](demo-jvm/src/test/java/com/alexcawl/contract/demo/jvm/JvmAppearanceInteropTest.java):
-  direct calls to generated factory and copy overloads from Java.
+  direct calls to current generated factory and copy signatures from Java.
 * [Unsupported constructs](demo-jvm/src/main/kotlin/com/alexcawl/contract/demo/jvm/UnsupportedContracts.kt):
-  commented examples explain declaration, member, name, and default-expression restrictions.
+  commented examples explain declaration, member, and generated-name restrictions.
   Composable examples require no Compose dependency while commented.
 
 Both demos load `compiler-plugin` through `kotlinCompilerPluginClasspath` and depend directly
-on `plugin-annotations`, so no local Maven publication is needed. The Android demo orders
-the contract compiler plugin before Compose. It uses AGP 9.4.1 with built-in Kotlin support;
+on `plugin-annotations`, so no local Maven publication is needed. They use Kotlin's default
+JVM mode. The Android demo orders the contract compiler plugin before Compose.
+It uses AGP 9.4.1 with built-in Kotlin support;
 the root Kotlin plugin declaration selects Kotlin 2.4.20 for all modules.
 
 Use JDK 21. Install Android SDK Platform 36 and Build Tools 36.0.0, then set `ANDROID_HOME`
@@ -456,7 +354,8 @@ Use JDK 21, Android SDK Platform 36, and the Gradle 9.6.1 wrapper:
 Compiler fixtures and FIR/IR expectations live in `compiler-plugin/testData`.
 JUnit suites are generated into `compiler-plugin/build/test-gen`; do not commit them.
 JVM box tests cover generation, default bodies, copy semantics, equality/hashCode,
-JVM overloads, and consumption from another module. Diagnostics tests cover rejected contracts.
+hidden overloads, and consumption from another module without the plugin. Diagnostics tests
+cover rejected contracts.
 
 After an intentional annotation API change, run `./gradlew :plugin-annotations:updateKotlinAbi`
 and review `plugin-annotations/api`. The build and tests require no JS or Native tooling.

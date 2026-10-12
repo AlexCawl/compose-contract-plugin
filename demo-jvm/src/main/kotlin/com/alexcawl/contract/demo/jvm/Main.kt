@@ -2,29 +2,29 @@ package com.alexcawl.contract.demo.jvm
 
 fun main() {
     val values = ValueAppearance(
-        emphasized = true,
-        byteToken = 1,
-        shortToken = 2,
-        width = 48,
-        color = 0xFF6750A4,
-        marker = '*',
-        opacity = 0.8f,
-        scale = 1.0,
-        label = null,
-        lineHeight = Pixels(24),
-        optionalInset = null,
-        decorations = mapOf("weekend" to listOf("accent", null)),
-        stops = intArrayOf(0, 50, 100),
-        labels = arrayOf("weekday", null),
-        transform = { it.uppercase() },
-        fallback = null,
+        emphasized = { true },
+        byteToken = { 1 },
+        shortToken = { 2 },
+        width = { 48 },
+        color = { 0xFF6750A4 },
+        marker = { '*' },
+        opacity = { 0.8f },
+        scale = { 1.0 },
+        label = { null },
+        lineHeight = { Pixels(24) },
+        optionalInset = { null },
+        decorations = { mapOf("weekend" to listOf("accent", null)) },
+        stops = { intArrayOf(0, 50, 100) },
+        labels = { arrayOf("weekday", null) },
+        transform = { { it.uppercase() } },
+        fallback = { null },
     )
-    println("Value class: ${values.lineHeight}")
-    println("Function property: ${values.transform("day")}")
+    println("Value class: ${values.lineHeight()}")
+    println("Returned function: ${values.transform()("day")}")
     println("Value copy equality: ${values == values.copy()}")
-    println("New array equality: ${values == values.copy(stops = values.stops.copyOf())}")
+    println("New array equality: ${values == values.copy(stops = { values.stops().copyOf() })}")
 
-    val appearance = DefaultAppearance(prefix = "day:", spacing = 8, token = { "#$it" })
+    val appearance = DefaultAppearance(prefix = { "day:" }, spacing = { 8 }, token = { "#$it" })
     println("Default method: ${appearance.label(2)}")
     println("Earlier method reference: ${appearance.references(3)}")
     println("Default parameters: ${appearance.fromParameters()}")
@@ -32,13 +32,13 @@ fun main() {
     println("Vararg spacing: ${appearance.spacingSum(1, 2, 3)}")
     println("Returned function: ${appearance.decorator()(4)}")
 
-    val copied = appearance.copy(prefix = "week:", spacing = 16)
-    println("Copied properties: ${copied.prefix}, ${copied.spacing}")
-    // copy preserves callbacks bound to the original contract.
+    val copied = appearance.copy(prefix = { "week:" }, spacing = { 16 })
+    println("Copied values: ${copied.prefix()}, ${copied.spacing()}")
+    // Copied callbacks and default bodies use the new contract instance.
     println("Copied method: ${copied.label(2)}")
-    println("Empty contract equality: ${EmptyAppearance() == EmptyAppearanceImpl()}")
-    println("Internal contract: ${InternalAppearance(inset = 4).copy(inset = 8).inset}")
-    println("65-field copy: ${WidePalette.default.copy(tone33 = 133, tone65 = 165).tone65}")
+    println("Empty contract equality: ${EmptyAppearance() == EmptyAppearance()}")
+    println("Internal contract: ${InternalAppearance(inset = { 4 }).copy(inset = { 8 }).inset()}")
+    println("65-field copy: ${WidePalette.default.copy(tone33 = { 133 }, tone65 = { 165 }).tone65()}")
     val highArityWidth = HighArityAppearance().measure(
         1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23,
     )

@@ -6,20 +6,24 @@ import com.alexcawl.contract.GenerateContract
 
 @GenerateContract
 interface JavaContract {
-    val value: Int
-    fun format(prefix: String): String = prefix + value
+    fun value(): Int
+    fun format(prefix: String): String = prefix + value()
 }
 
 fun box(): String {
-    val facade = Class.forName("interop.JavaContractContractKt")
-    val factory = facade.getMethod("JavaContract", Int::class.javaPrimitiveType)
-    val contract = factory.invoke(null, 7) as JavaContract
+    val constructor = Class.forName("interop.JavaContractConstructorKt")
+    val copy = Class.forName("interop.JavaContractCopyKt")
+    val factoryMethods = constructor.declaredMethods.filter { it.name == "JavaContract" }
+    check(factoryMethods.size == 2)
+    check(factoryMethods.single { it.parameterCount == 1 }.isSynthetic)
+    check(!factoryMethods.single { it.parameterCount == 2 }.isSynthetic)
+    val copyMethods = copy.declaredMethods.filter { it.name == "copy" }
+    check(copyMethods.size == 2)
+    check(copyMethods.single { it.parameterCount == 2 }.isSynthetic)
+    check(!copyMethods.single { it.parameterCount == 3 }.isSynthetic)
+    check(JavaContractContract::class.java.declaredConstructors.single { it.parameterCount == 1 }.isSynthetic)
+    val contract = JavaContract(value = { 7 })
     check(contract.format("java:") == "java:7")
-    val copy = facade.getMethod("copy", JavaContract::class.java)
-    val copied = copy.invoke(null, contract) as JavaContract
-    check(copied.value == 7)
-    check(copied.format("copy:") == "copy:7")
-    check(facade.methods.count { it.name == "JavaContract" } == 2)
-    check(facade.methods.count { it.name == "copy" } == 3)
+    check(contract.copy(value = { 9 }).format("copy:") == "copy:9")
     return "OK"
 }

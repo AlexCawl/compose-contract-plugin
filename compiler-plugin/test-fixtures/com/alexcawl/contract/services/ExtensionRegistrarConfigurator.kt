@@ -19,6 +19,9 @@ private class ExtensionRegistrarConfigurator(testServices: TestServices) : Envir
         module: TestModule,
         configuration: CompilerConfiguration
     ) {
-        with(registrar) { registerExtensions(configuration) }
+        // Consumer modules must resolve generated declarations from library metadata without the plugin.
+        if (module.files.any { "@GenerateContract" in it.originalContent }) {
+            with(registrar) { registerExtensions(configuration) }
+        }
     }
 }
