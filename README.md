@@ -295,9 +295,10 @@ for unsupported examples.
 The repository includes two independent applications:
 
 * `demo-android` shows a selectable week built with [CalendarDay](demo-android/src/main/kotlin/com/alexcawl/contract/demo/android/CalendarDay.kt).
-  Size and appearance are separate contracts. Companion defaults use 48 dp minimum dimensions,
+  Size and appearance are separate contracts. `CalendarDaySizePreset` and `CalendarDayAppearancePreset`
+  expose presets as `val` properties with `@Composable` getters. Defaults use 48 dp minimum dimensions,
   8 dp padding, and the current Material 3 colors and shapes. The weekend appearance uses
-  `CalendarDayAppearance.default.copy(foregroundColor = ...)`. The screen owns selection with
+  `CalendarDayAppearancePreset.default.copy(foregroundColor = ...)`. The screen owns selection with
   `rememberSaveable` and `Modifier.selectable`, and pairs text colors with `contentColorFor`.
   Both system themes and light/dark Previews are included; the week scrolls on narrow screens.
 * `demo-jvm` is a runnable catalogue of presentation contracts at the supported boundaries.

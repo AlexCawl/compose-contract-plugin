@@ -35,8 +35,8 @@ import androidx.compose.ui.unit.dp
 fun CalendarWeek(modifier: Modifier = Modifier) {
     var selectedDay by rememberSaveable { mutableIntStateOf(0) }
     val weekdays = stringArrayResource(R.array.weekdays)
-    val appearance = CalendarDayAppearance.default
-    val weekend = CalendarDayAppearance.weekend
+    val appearance = CalendarDayAppearancePreset.default
+    val weekend = CalendarDayAppearancePreset.weekend
 
     Column(modifier = modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(16.dp)) {
         Text(stringResource(R.string.calendar_title), style = MaterialTheme.typography.headlineSmall)

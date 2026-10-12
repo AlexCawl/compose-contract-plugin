@@ -11,8 +11,8 @@ import androidx.compose.ui.draw.clip
 
 @Composable
 fun CalendarDay(
-    size: CalendarDaySize = CalendarDaySize.default,
-    appearance: CalendarDayAppearance = CalendarDayAppearance.default,
+    size: CalendarDaySize = CalendarDaySizePreset.default,
+    appearance: CalendarDayAppearance = CalendarDayAppearancePreset.default,
     isSelected: Boolean,
     modifier: Modifier = Modifier,
     content: @Composable () -> Unit,
