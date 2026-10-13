@@ -1,4 +1,4 @@
-package com.alexcawl.contract.demo
+package com.alexcawl.contract.demo.unsupported
 
 import com.alexcawl.contract.GenerateContract
 

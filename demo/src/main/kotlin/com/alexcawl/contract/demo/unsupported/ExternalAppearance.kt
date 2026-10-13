@@ -1,4 +1,4 @@
-package com.alexcawl.contract.demo
+package com.alexcawl.contract.demo.unsupported
 
 import com.alexcawl.contract.GenerateContract
 
@@ -6,4 +6,4 @@ import com.alexcawl.contract.GenerateContract
 
 // Only public/internal top-level interfaces can be annotated.
 // @GenerateContract
-// sealed interface SealedAppearance
+// external interface ExternalAppearance

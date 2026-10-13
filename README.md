@@ -320,15 +320,16 @@ masks, receivers, and markers; the maximum is not 255 contract methods.
 
 Interface bodies keep ordinary Kotlin semantics. The plugin does not infer equivalent lambda
 bodies, add Compose stability annotations, or make arbitrary captures immutable. See the
-[commented invalid declarations](demo/src/main/kotlin/com/alexcawl/contract/demo/UnsupportedMembers.kt)
+[commented invalid declarations](demo/src/main/kotlin/com/alexcawl/contract/demo/unsupported/UnsupportedMembers.kt)
 for unsupported examples.
 
 ## Demo
 
-`demo` is a runnable JVM catalogue of presentation contracts at the supported boundaries.
-Each contract has its own file in the main source set, including forbidden declarations
-left commented so the catalogue compiles. Kotlin tests and Java interoperability tests
-exercise the generated API.
+`demo` is a JVM library of presentation contracts at the supported boundaries.
+Each contract has its own file in the main source set. Unsupported declarations stay
+commented in `com.alexcawl.contract.demo.unsupported` so the catalogue compiles.
+Instance creation and execution scenarios live in JUnit 4 tests, with one test class per
+supported contract. Kotlin tests exercise the generated API.
 
 The catalogue covers:
 
@@ -350,13 +351,11 @@ The catalogue covers:
   [JVM limit of 255 parameter slots](https://docs.oracle.com/javase/specs/jvms/se7/html/jvms-4.html#jvms-4.3.3),
   including `this`; the forbidden 128th parameter stays commented. Generated default helpers
   also need slots for masks, receivers, and markers, so 255 slots does not mean 255 contract fields.
-* [Java interoperability](demo/src/test/java/com/alexcawl/contract/demo/JvmAppearanceInteropTest.java):
-  direct calls to current generated factory and copy signatures from Java.
 * Commented unsupported constructs, each in its own file: for example,
-  [generic contracts](demo/src/main/kotlin/com/alexcawl/contract/demo/GenericAppearance.kt),
-  [inheritance](demo/src/main/kotlin/com/alexcawl/contract/demo/InheritedAppearance.kt),
-  [overloads](demo/src/main/kotlin/com/alexcawl/contract/demo/OverloadedAppearance.kt),
-  and [unsupported members](demo/src/main/kotlin/com/alexcawl/contract/demo/UnsupportedMembers.kt).
+  [generic contracts](demo/src/main/kotlin/com/alexcawl/contract/demo/unsupported/GenericAppearance.kt),
+  [inheritance](demo/src/main/kotlin/com/alexcawl/contract/demo/unsupported/InheritedAppearance.kt),
+  [overloads](demo/src/main/kotlin/com/alexcawl/contract/demo/unsupported/OverloadedAppearance.kt),
+  and [unsupported members](demo/src/main/kotlin/com/alexcawl/contract/demo/unsupported/UnsupportedMembers.kt).
   Composable examples require no Compose dependency while commented.
 
 `demo` loads `compiler-plugin` through `kotlinCompilerPluginClasspath` and depends directly
@@ -365,7 +364,7 @@ on `plugin-annotations`, so no local Maven publication is needed.
 Use JDK 21:
 
 ```shell
-./gradlew :demo:run :demo:test
+./gradlew :demo:build
 ```
 
 ## Development

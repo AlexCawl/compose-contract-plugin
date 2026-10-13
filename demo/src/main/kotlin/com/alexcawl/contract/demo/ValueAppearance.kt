@@ -21,3 +21,6 @@ interface ValueAppearance {
     fun transform(): (String) -> String
     fun fallback(): ValueAppearance?
 }
+
+@JvmInline
+value class Pixels(val value: Int)

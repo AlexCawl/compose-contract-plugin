@@ -1,4 +1,4 @@
-package com.alexcawl.contract.demo
+package com.alexcawl.contract.demo.unsupported
 
 import com.alexcawl.contract.GenerateContract
 
@@ -6,4 +6,4 @@ import com.alexcawl.contract.GenerateContract
 
 // Generic declarations are unsupported; parameterized member types are supported.
 // @GenerateContract
-// interface GenericMethod { fun <T> token(value: T): T }
+// interface GenericAppearance<T> { fun token(): T }
