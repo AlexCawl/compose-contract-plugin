@@ -320,64 +320,57 @@ masks, receivers, and markers; the maximum is not 255 contract methods.
 
 Interface bodies keep ordinary Kotlin semantics. The plugin does not infer equivalent lambda
 bodies, add Compose stability annotations, or make arbitrary captures immutable. See the
-[commented invalid declarations](demo-jvm/src/main/kotlin/com/alexcawl/contract/demo/jvm/UnsupportedContracts.kt)
+[commented invalid declarations](demo/src/main/kotlin/com/alexcawl/contract/demo/UnsupportedMembers.kt)
 for unsupported examples.
 
-## Demos
+## Demo
 
-The repository includes two independent applications:
+`demo` is a runnable JVM catalogue of presentation contracts at the supported boundaries.
+Each contract has its own file in the main source set, including forbidden declarations
+left commented so the catalogue compiles. Kotlin tests and Java interoperability tests
+exercise the generated API.
 
-* `demo-android` shows a selectable week built with [CalendarDay](demo-android/src/main/kotlin/com/alexcawl/contract/demo/android/CalendarDay.kt).
-  Size and appearance are separate contracts. `CalendarDaySizePreset` and `CalendarDayAppearancePreset`
-  expose presets as `val` properties with `@Composable` getters. Defaults use 48 dp minimum dimensions,
-  8 dp padding, and the current Material 3 colors and shapes. The weekend appearance uses
-  `CalendarDayAppearancePreset.default.copy(foregroundColor = ...)`. The screen owns selection with
-  `rememberSaveable` and `Modifier.selectable`, and pairs text colors with `contentColorFor`.
-  Both system themes and light/dark Previews are included; the week scrolls on narrow screens.
-* `demo-jvm` is a runnable catalogue of presentation contracts at the supported boundaries.
-  It includes working examples, tests, and forbidden declarations left commented in source.
+The catalogue covers:
 
-The JVM catalogue covers:
-
-* [Compound values](demo-jvm/src/main/kotlin/com/alexcawl/contract/demo/jvm/ValueAppearance.kt):
-  primitives, nullable and inline results, nested collections, arrays, returned functions,
-  an empty contract, and an internal contract. Equality compares the stored callbacks.
-* [Default methods](demo-jvm/src/main/kotlin/com/alexcawl/contract/demo/jvm/DefaultAppearance.kt):
+* [Compound values](demo/src/main/kotlin/com/alexcawl/contract/demo/ValueAppearance.kt):
+  primitives, nullable and inline results, nested collections, arrays, and returned functions.
+  Equality compares the stored callbacks.
+* [Empty contracts](demo/src/main/kotlin/com/alexcawl/contract/demo/EmptyAppearance.kt)
+  and [internal contracts](demo/src/main/kotlin/com/alexcawl/contract/demo/InternalAppearance.kt).
+* [Default methods](demo/src/main/kotlin/com/alexcawl/contract/demo/DefaultAppearance.kt):
   callback dependencies and callable references, parameter defaults, named argument evaluation,
   varargs, and returned functions. Copied methods execute on the copied instance.
-* [65-field palette](demo-jvm/src/main/kotlin/com/alexcawl/contract/demo/jvm/WidePalette.kt):
+  Missing required callbacks are shown in commented calls alongside the contract.
+* [65-field palette](demo/src/main/kotlin/com/alexcawl/contract/demo/WidePalette.kt):
   generated copy defaults cross the 32/33 and 64/65 parameter boundaries.
-* [High arity and JVM slots](demo-jvm/src/main/kotlin/com/alexcawl/contract/demo/jvm/ArityAppearance.kt):
-  a 23-argument method and a method with 127 `Long` parameters. The latter reaches the
+* [High arity](demo/src/main/kotlin/com/alexcawl/contract/demo/HighArityAppearance.kt):
+  a 23-argument method.
+* [JVM slots](demo/src/main/kotlin/com/alexcawl/contract/demo/SlotLimitAppearance.kt):
+  a method with 127 `Long` parameters reaches the
   [JVM limit of 255 parameter slots](https://docs.oracle.com/javase/specs/jvms/se7/html/jvms-4.html#jvms-4.3.3),
   including `this`; the forbidden 128th parameter stays commented. Generated default helpers
   also need slots for masks, receivers, and markers, so 255 slots does not mean 255 contract fields.
-* [Java interoperability](demo-jvm/src/test/java/com/alexcawl/contract/demo/jvm/JvmAppearanceInteropTest.java):
+* [Java interoperability](demo/src/test/java/com/alexcawl/contract/demo/JvmAppearanceInteropTest.java):
   direct calls to current generated factory and copy signatures from Java.
-* [Unsupported constructs](demo-jvm/src/main/kotlin/com/alexcawl/contract/demo/jvm/UnsupportedContracts.kt):
-  commented examples explain declaration, member, and generated-name restrictions.
+* Commented unsupported constructs, each in its own file: for example,
+  [generic contracts](demo/src/main/kotlin/com/alexcawl/contract/demo/GenericAppearance.kt),
+  [inheritance](demo/src/main/kotlin/com/alexcawl/contract/demo/InheritedAppearance.kt),
+  [overloads](demo/src/main/kotlin/com/alexcawl/contract/demo/OverloadedAppearance.kt),
+  and [unsupported members](demo/src/main/kotlin/com/alexcawl/contract/demo/UnsupportedMembers.kt).
   Composable examples require no Compose dependency while commented.
 
-Both demos load `compiler-plugin` through `kotlinCompilerPluginClasspath` and depend directly
-on `plugin-annotations`, so no local Maven publication is needed. They use Kotlin's default
-JVM mode. The Android demo orders the contract compiler plugin before Compose.
-It uses AGP 9.4.1 with built-in Kotlin support;
-the root Kotlin plugin declaration selects Kotlin 2.4.20 for all modules.
+`demo` loads `compiler-plugin` through `kotlinCompilerPluginClasspath` and depends directly
+on `plugin-annotations`, so no local Maven publication is needed.
 
-Use JDK 21. Install Android SDK Platform 36 and Build Tools 36.0.0, then set `ANDROID_HOME`
-or create an ignored `local.properties` with `sdk.dir=/path/to/android/sdk`.
+Use JDK 21:
 
 ```shell
-./gradlew :demo-jvm:run :demo-jvm:test
-./gradlew :demo-android:assembleDebug :demo-android:testDebugUnitTest :demo-android:lintDebug
+./gradlew :demo:run :demo:test
 ```
-
-The debug APK is written to `demo-android/build/outputs/apk/debug/demo-android-debug.apk`.
-Run `demo-android` from Android Studio on an emulator or device with API 23 or higher.
 
 ## Development
 
-Use JDK 21, Android SDK Platform 36, and the Gradle 9.6.1 wrapper:
+Use JDK 21 and the Gradle 9.6.1 wrapper. Building this repository does not require an Android SDK:
 
 ```shell
 ./gradlew :compiler-plugin:test
