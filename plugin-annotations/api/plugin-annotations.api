@@ -1,3 +1,7 @@
 public abstract interface annotation class com/alexcawl/contract/GenerateContract : java/lang/annotation/Annotation {
 }
 
+public abstract interface annotation class com/alexcawl/contract/IntroducedAtContract : java/lang/annotation/Annotation {
+	public abstract fun version ()I
+}
+

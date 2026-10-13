@@ -38,11 +38,13 @@ private class ContractBodyGenerator(private val context: IrPluginContext) {
             val generated = classes.filter { it.isGenerated() && it.packageFqName == contract.packageFqName }
             val implementation = generated.single { it.name.asString() == "${contract.name}Impl" }
             val container = contract.declarations.filterIsInstance<IrClass>().single { it.isGenerated() && it.name == containerName }
-            val methods = contract.declarations.filterIsInstance<IrSimpleFunction>().filterNot { it.isGenerated() || it.isFakeOverride }
+            val sourceMethods = contract.declarations.filterIsInstance<IrSimpleFunction>().filterNot { it.isGenerated() || it.isFakeOverride }
             val factories = functions.filter { it.returnType.classOrNull == contract.symbol && it.parameters.none { p -> p.kind == IrParameterKind.ExtensionReceiver } }
             val copies = functions.filter { it.returnType.classOrNull == contract.symbol && it.parameters.any { p -> p.kind == IrParameterKind.ExtensionReceiver } }
-            val factory = factories.single { it.regularParameters().size == methods.size }
-            val copy = copies.single { it.regularParameters().size == methods.size }
+            val factory = factories.single { it.regularParameters().size == sourceMethods.size }
+            val copy = copies.single { it.regularParameters().size == sourceMethods.size }
+            val methodsByName = sourceMethods.associateBy { it.name }
+            val methods = factory.regularParameters().map { methodsByName.getValue(it.name) }
             val factoryFile = factory.parent as IrFile
             implementation.file.declarations.remove(implementation)
             implementation.parent = factoryFile
@@ -78,7 +80,8 @@ private class ContractBodyGenerator(private val context: IrPluginContext) {
                 } else {
                     +irDelegatingConstructorCall(primary).apply {
                         primary.regularParameters().forEachIndexed { index, parameter ->
-                            arguments[index] = parameters.getOrNull(index)?.let { irGet(it) } ?: irNull(parameter.type)
+                            arguments[index] = parameters.firstOrNull { it.name == parameter.name }?.let { irGet(it) }
+                                ?: irNull(parameter.type)
                         }
                     }
                 }
@@ -175,7 +178,8 @@ private class ContractBodyGenerator(private val context: IrPluginContext) {
             } else {
                 irCall(latest).apply {
                     latest.regularParameters().forEachIndexed { index, parameter ->
-                        arguments[index] = parameters.getOrNull(index)?.let { irGet(it) } ?: irNull(parameter.type)
+                        arguments[index] = parameters.firstOrNull { it.name == parameter.name }?.let { irGet(it) }
+                            ?: irNull(parameter.type)
                     }
                 }
             })
@@ -192,7 +196,8 @@ private class ContractBodyGenerator(private val context: IrPluginContext) {
                 +irReturn(irCall(latest).apply {
                     arguments[0] = irGet(receiver)
                     latest.regularParameters().forEachIndexed { index, parameter ->
-                        arguments[index + 1] = parameters.getOrNull(index)?.let { irGet(it) } ?: irNull(parameter.type)
+                        arguments[index + 1] = parameters.firstOrNull { it.name == parameter.name }?.let { irGet(it) }
+                            ?: irNull(parameter.type)
                     }
                 })
             } else {

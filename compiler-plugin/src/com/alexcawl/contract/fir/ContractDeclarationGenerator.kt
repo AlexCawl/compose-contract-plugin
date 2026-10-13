@@ -15,6 +15,8 @@ import org.jetbrains.kotlin.fir.declarations.*
 import org.jetbrains.kotlin.fir.declarations.utils.*
 import org.jetbrains.kotlin.fir.extensions.*
 import org.jetbrains.kotlin.fir.extensions.predicate.LookupPredicate
+import org.jetbrains.kotlin.fir.expressions.FirAnnotation
+import org.jetbrains.kotlin.fir.expressions.FirLiteralExpression
 import org.jetbrains.kotlin.fir.expressions.builder.*
 import org.jetbrains.kotlin.fir.plugin.*
 import org.jetbrains.kotlin.fir.references.builder.buildResolvedNamedReference
@@ -27,6 +29,7 @@ import org.jetbrains.kotlin.name.*
 import org.jetbrains.kotlin.types.ConstantValueKind
 
 internal val generateContractId = ClassId.topLevel(FqName("com.alexcawl.contract.GenerateContract"))
+internal val introducedAtContractId = ClassId.topLevel(FqName("com.alexcawl.contract.IntroducedAtContract"))
 internal val contractPredicate = LookupPredicate.create { annotated(generateContractId.asSingleFqName()) }
 internal val copyName = Name.identifier("copy")
 internal val contractName = Name.identifier("contract")
@@ -44,9 +47,18 @@ internal fun FirRegularClass.sourceMembers(): List<FirCallableDeclaration> =
     }
 
 internal fun FirRegularClass.contractMembers(): List<FirNamedFunction> = sourceMembers().filterIsInstance<FirNamedFunction>()
-internal fun FirRegularClass.prefixLengths(): IntRange {
-    val methods = contractMembers()
-    return (methods.indexOfLast { it.body == null } + 1)..methods.size
+internal fun FirAnnotation.contractVersion(session: FirSession): Int? =
+    findArgumentByName(Name.identifier("version"))?.evaluateAs<FirLiteralExpression>(session)?.value as? Int
+
+internal fun FirRegularClass.versionMembers(session: FirSession): List<List<FirNamedFunction>> {
+    val methods = contractMembers().map { method ->
+        val version = method.symbol.getAnnotationWithResolvedArgumentsByClassId(introducedAtContractId, session)
+            ?.contractVersion(session) ?: 0
+        method to version.coerceAtLeast(0)
+    }.sortedBy { it.second }
+    return (listOf(0) + methods.map { it.second }).distinct().sortedDescending().map { version ->
+        methods.filter { it.second <= version }.map { it.first }
+    }
 }
 
 internal fun FirRegularClass.unsupportedContractReason(): String? = when {
@@ -173,15 +185,15 @@ class ContractDeclarationGenerator(session: FirSession) : FirDeclarationGenerati
         val contract = contractFor(context.owner) ?: return emptyList()
         val methods = contract.fir.contractMembers()
         val implementation = context.owner.classId == implementationId(contract.classId)
-        val lengths = if (implementation) listOf(methods.size) else contract.fir.prefixLengths().toList()
-        return lengths.map { length ->
-            createConstructor(context.owner, Key, isPrimary = length == methods.size) {
+        val versions = contract.fir.versionMembers(session)
+        return (if (implementation) versions.take(1) else versions).map { members ->
+            createConstructor(context.owner, Key, isPrimary = members.size == methods.size) {
                 visibility = contract.fir.status.visibility
-                for (member in methods.take(length)) {
+                for (member in members) {
                     valueParameter(member.name, callbackType(contract, member, member.body != null),
                         hasDefaultValue = !implementation && member.body != null)
                 }
-            }.also { if (length != methods.size) hide(it) }.symbol
+            }.also { if (members.size != methods.size) hide(it) }.symbol
         }
     }
 
@@ -210,16 +222,16 @@ class ContractDeclarationGenerator(session: FirSession) : FirDeclarationGenerati
                     if (callableId.callableName == copyName) add(true)
                 }
                 roles.flatMap { copy ->
-                    contract.fir.prefixLengths().map { length ->
+                    contract.fir.versionMembers(session).map { members ->
                         createTopLevelFunction(Key, callableId, contract.defaultType(),
                             containingFileName = "${contract.name}${if (copy) "Copy" else "Constructor"}") {
                             visibility = contract.fir.status.visibility
                             if (copy) extensionReceiverType(contract.defaultType())
-                            for (member in methods.take(length)) {
+                            for (member in members) {
                                 valueParameter(member.name, callbackType(contract, member, copy || member.body != null),
                                     hasDefaultValue = copy || member.body != null)
                             }
-                        }.also { if (length != methods.size) hide(it) }.symbol
+                        }.also { if (members.size != methods.size) hide(it) }.symbol
                     }
                 }
             }

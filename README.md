@@ -45,8 +45,9 @@ Generation happens in the compiler; physical Kotlin files are not written. The g
 API includes a nested callback container and package-level factory and copy functions:
 
 * `Appearance.Contract` is a final class nested in the interface, with typed immutable callback
-  properties. Its constructor follows source method order. Required callbacks are non-null; default method
-  callbacks are nullable with default `null`. It uses ordinary reference equality.
+  properties. Its constructor orders callbacks by introduction version, then source order within
+  each version. Required callbacks are non-null; default method callbacks are nullable with
+  default `null`. It uses ordinary reference equality.
 * A private `AppearanceImpl` stores callbacks directly. Only this class gets generated
   `equals` and `hashCode`, comparing callbacks with ordinary Kotlin equality. Distinct lambdas
   usually differ even when their bodies match. Results returned by callbacks are not compared.
@@ -58,8 +59,9 @@ API includes a nested callback container and package-level factory and copy func
 * The interface gains `fun contract(): Appearance.Contract`. The generated implementation
   constructs a fresh container on each call; it does not store or cache one.
 
-All constructors, factories, and copy functions use the original method order. Container and
-function visibility follows the public/internal interface. There is no member `copy`.
+Container constructors, factories, copy functions, and private implementation constructors order
+parameters by introduction version, preserving source order within each version. Container
+and function visibility follows the public/internal interface. There is no member `copy`.
 An unchanged copy has equal callbacks and the same hash, with distinct object identity.
 Resetting a callback to its interface default is not supported by `copy`.
 
@@ -90,21 +92,44 @@ Moving `AppearanceContract` to `Appearance.Contract` changes its JVM name to
 generated. Update explicit container references and rebuild contract libraries and consumers;
 there is no compatibility alias or bridge for the old container API.
 
-After the initial migration, existing methods must retain their names, order, types,
-parameter names, default argument availability, and JVM owners. Add methods **only at the end,
-with default bodies**. Adding a required method cannot preserve existing creation calls.
+Mark newly added default methods with `@IntroducedAtContract(version: Int)` from
+`com.alexcawl.contract`. Methods without the annotation belong to the initial version, `0`.
+Explicit versions must be positive; gaps are allowed. Methods with the same version are
+introduced together. Every annotated method must have a body. The annotation is only valid
+on members of a `@GenerateContract` interface.
 
-For methods `a, b` without bodies followed by default methods `c, d, e`, the plugin generates
-parameter prefixes `ab`, `abc`, `abcd`, and `abcde` for the container constructor, factory,
-and copy extension. The full signature is the current source API. Shorter signatures carry
+The plugin generates a container constructor, factory, and copy extension for the initial
+version and each distinct annotated version. For initial methods `a, b`, methods `c, d`
+annotated with version `1`, and method `e` annotated with version `3`, the signatures are
+generated newest first: `abcde`, `abcd`, and `ab` (versions `3`, `1`, and `0`). The current
+container constructor is primary; older constructors are secondary. Factories and copy
+extensions follow the same descending version order. There is no intermediate `abc` signature.
+This parameter order also applies to interleaved source methods such as `e, a, c, b, d`.
+
+Methods may appear in any source order. A signature for version `v` contains methods with
+version at most `v`, ordered by ascending version and then source order within each version.
+Without annotations, only the full signature is generated. If all methods are versioned,
+the initial signature is empty.
+Ordinary Kotlin lowering may additionally generate a no-argument container constructor
+when all current callbacks have defaults.
+
+The full signature is the current source API. Older signatures carry
 `@Deprecated(level = HIDDEN)` and retain their default arguments. Standard Kotlin lowering
-produces their old `$default` methods and constructor mask overloads. Every hidden overload
-delegates directly to the current signature, supplying `null` for the missing tail.
-`@JvmOverloads`, `@JvmSynthetic`, and `@IntroducedAt` are not used.
+produces their old `$default` methods and constructor mask overloads. Hidden overloads delegate
+directly to the current signature, matching callbacks by name and supplying `null` for missing
+callbacks. Old copies retain new callbacks already present on their source object.
+`kotlin.IntroducedAt` and `@JvmOverloads` are not used.
 
-The same prefix lengths apply to all three APIs, starting after the last required method;
-fully default contracts include the empty prefix. Generation needs no version history.
-Old copies retain new callbacks already present on their source object.
+After publication, preserve each version's method set and relative method order, along with
+names, types, parameter names, default argument availability, and JVM owners. New methods may
+be inserted anywhere in the interface; give them default bodies and a version greater than
+every published version. Their callbacks are appended to generated signatures, preserving
+ordinary positional calls with arguments inside parentheses and named Kotlin calls.
+Adding a required method cannot preserve existing creation calls. Switching from the former
+all-prefix generator can break existing binaries: overloads outside the declared version
+boundaries are no longer generated. Compatibility applies between releases using the new scheme.
+Switching from source-ordered parameters to version-ordered parameters also changes previously
+generated mixed-version signatures. Rebuild those contract libraries and their clients.
 
 The plugin does not set, override, or validate `JvmDefaultMode`. Unless configured by the
 producer, Kotlin uses its default (`ENABLE` in Kotlin 2.4.20). Consumers of the compiled
@@ -130,11 +155,12 @@ outputs, including generated classes. API snapshots do not replace running old c
 against new binaries, including hidden overloads and default helpers.
 
 This change requires one rebuild of existing contracts and consumers. Subsequent guarantees
-cover old JVM binaries and named Kotlin source calls under the append-only rule, subject to
-the JVM mode limitations above. New Java source uses the current full signature and may need
+cover old JVM binaries, ordinary positional Kotlin calls, and named Kotlin source calls under
+the versioning rules above, subject to the JVM mode limitations above. New Java source uses
+the current full signature and may need
 additional explicit `null` arguments.
-Callable reference arity, positional calls, and trailing lambda binding are not guaranteed
-across contract evolution. Hidden JVM bridges remain callable by already compiled clients.
+Callable reference arity and trailing lambda binding are not guaranteed across contract
+evolution. Hidden JVM bridges remain callable by already compiled clients.
 
 ## Connect GitHub Packages
 
@@ -362,8 +388,10 @@ Use JDK 21, Android SDK Platform 36, and the Gradle 9.6.1 wrapper:
 Compiler fixtures and FIR/IR expectations live in `compiler-plugin/testData`.
 JUnit suites are generated into `compiler-plugin/build/test-gen`; do not commit them.
 JVM box tests cover generation, default bodies, copy semantics, equality/hashCode,
-hidden overloads, and consumption from another module without the plugin. Diagnostics tests
-cover rejected contracts.
+versioned hidden overloads, and consumption from another module without the plugin.
+Compatibility tests run old clients against new libraries and recompile their positional and
+named calls without the plugin, including default-argument masks across the 32/33 and 64/65
+boundaries. Diagnostics tests cover rejected contracts and versions.
 
 After an intentional annotation API change, run `./gradlew :plugin-annotations:updateKotlinAbi`
 and review `plugin-annotations/api`. The build and tests require no JS or Native tooling.

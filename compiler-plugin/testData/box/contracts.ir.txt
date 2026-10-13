@@ -69,51 +69,6 @@ FILE fqName:sample fileName:/contracts.kt
             RETURN type=kotlin.Nothing from='public final fun <get-e> (): @[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int>? declared in sample.Appearance.Contract'
               GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:e type:@[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int>? visibility:private [final]' type=@[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int>? origin=null
                 receiver: GET_VAR '<this>: sample.Appearance.Contract declared in sample.Appearance.Contract.<get-e>' type=sample.Appearance.Contract origin=null
-      CONSTRUCTOR GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] visibility:public returnType:sample.Appearance.Contract
-        VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:a index:0 type:@[ExtensionFunctionType] kotlin.Function1<sample.Appearance, kotlin.Int>
-        VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:b index:1 type:@[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int>
-        annotations:
-          Deprecated(message = "Binary compatibility", replaceWith = <null>, level = DeprecationLevel.HIDDEN)
-        BLOCK_BODY
-          DELEGATING_CONSTRUCTOR_CALL 'public constructor <init> (a: @[ExtensionFunctionType] kotlin.Function1<sample.Appearance, kotlin.Int>, b: @[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int>, c: @[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int>?, d: @[ExtensionFunctionType] kotlin.Function1<sample.Appearance, kotlin.Int>?, e: @[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int>?) declared in sample.Appearance.Contract'
-            ARG a: GET_VAR 'a: @[ExtensionFunctionType] kotlin.Function1<sample.Appearance, kotlin.Int> declared in sample.Appearance.Contract.<init>' type=@[ExtensionFunctionType] kotlin.Function1<sample.Appearance, kotlin.Int> origin=null
-            ARG b: GET_VAR 'b: @[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int> declared in sample.Appearance.Contract.<init>' type=@[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int> origin=null
-            ARG c: CONST Null type=@[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int>? value=null
-            ARG d: CONST Null type=@[ExtensionFunctionType] kotlin.Function1<sample.Appearance, kotlin.Int>? value=null
-            ARG e: CONST Null type=@[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int>? value=null
-      CONSTRUCTOR GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] visibility:public returnType:sample.Appearance.Contract
-        VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:a index:0 type:@[ExtensionFunctionType] kotlin.Function1<sample.Appearance, kotlin.Int>
-        VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:b index:1 type:@[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int>
-        VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:c index:2 type:@[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int>?
-          EXPRESSION_BODY
-            CONST Null type=@[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int>? value=null
-        annotations:
-          Deprecated(message = "Binary compatibility", replaceWith = <null>, level = DeprecationLevel.HIDDEN)
-        BLOCK_BODY
-          DELEGATING_CONSTRUCTOR_CALL 'public constructor <init> (a: @[ExtensionFunctionType] kotlin.Function1<sample.Appearance, kotlin.Int>, b: @[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int>, c: @[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int>?, d: @[ExtensionFunctionType] kotlin.Function1<sample.Appearance, kotlin.Int>?, e: @[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int>?) declared in sample.Appearance.Contract'
-            ARG a: GET_VAR 'a: @[ExtensionFunctionType] kotlin.Function1<sample.Appearance, kotlin.Int> declared in sample.Appearance.Contract.<init>' type=@[ExtensionFunctionType] kotlin.Function1<sample.Appearance, kotlin.Int> origin=null
-            ARG b: GET_VAR 'b: @[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int> declared in sample.Appearance.Contract.<init>' type=@[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int> origin=null
-            ARG c: GET_VAR 'c: @[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int>? declared in sample.Appearance.Contract.<init>' type=@[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int>? origin=null
-            ARG d: CONST Null type=@[ExtensionFunctionType] kotlin.Function1<sample.Appearance, kotlin.Int>? value=null
-            ARG e: CONST Null type=@[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int>? value=null
-      CONSTRUCTOR GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] visibility:public returnType:sample.Appearance.Contract
-        VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:a index:0 type:@[ExtensionFunctionType] kotlin.Function1<sample.Appearance, kotlin.Int>
-        VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:b index:1 type:@[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int>
-        VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:c index:2 type:@[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int>?
-          EXPRESSION_BODY
-            CONST Null type=@[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int>? value=null
-        VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:d index:3 type:@[ExtensionFunctionType] kotlin.Function1<sample.Appearance, kotlin.Int>?
-          EXPRESSION_BODY
-            CONST Null type=@[ExtensionFunctionType] kotlin.Function1<sample.Appearance, kotlin.Int>? value=null
-        annotations:
-          Deprecated(message = "Binary compatibility", replaceWith = <null>, level = DeprecationLevel.HIDDEN)
-        BLOCK_BODY
-          DELEGATING_CONSTRUCTOR_CALL 'public constructor <init> (a: @[ExtensionFunctionType] kotlin.Function1<sample.Appearance, kotlin.Int>, b: @[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int>, c: @[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int>?, d: @[ExtensionFunctionType] kotlin.Function1<sample.Appearance, kotlin.Int>?, e: @[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int>?) declared in sample.Appearance.Contract'
-            ARG a: GET_VAR 'a: @[ExtensionFunctionType] kotlin.Function1<sample.Appearance, kotlin.Int> declared in sample.Appearance.Contract.<init>' type=@[ExtensionFunctionType] kotlin.Function1<sample.Appearance, kotlin.Int> origin=null
-            ARG b: GET_VAR 'b: @[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int> declared in sample.Appearance.Contract.<init>' type=@[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int> origin=null
-            ARG c: GET_VAR 'c: @[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int>? declared in sample.Appearance.Contract.<init>' type=@[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int>? origin=null
-            ARG d: GET_VAR 'd: @[ExtensionFunctionType] kotlin.Function1<sample.Appearance, kotlin.Int>? declared in sample.Appearance.Contract.<init>' type=@[ExtensionFunctionType] kotlin.Function1<sample.Appearance, kotlin.Int>? origin=null
-            ARG e: CONST Null type=@[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int>? value=null
       CONSTRUCTOR GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] visibility:public returnType:sample.Appearance.Contract [primary]
         VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:a index:0 type:@[ExtensionFunctionType] kotlin.Function1<sample.Appearance, kotlin.Int>
         VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:b index:1 type:@[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int>
@@ -258,12 +213,6 @@ FILE fqName:sample fileName:/contracts.kt
             RETURN type=kotlin.Nothing from='public final fun <get-answer> (): @[ExtensionFunctionType] kotlin.Function1<sample.Optional, kotlin.Int>? declared in sample.Optional.Contract'
               GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:answer type:@[ExtensionFunctionType] kotlin.Function1<sample.Optional, kotlin.Int>? visibility:private [final]' type=@[ExtensionFunctionType] kotlin.Function1<sample.Optional, kotlin.Int>? origin=null
                 receiver: GET_VAR '<this>: sample.Optional.Contract declared in sample.Optional.Contract.<get-answer>' type=sample.Optional.Contract origin=null
-      CONSTRUCTOR GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] visibility:public returnType:sample.Optional.Contract
-        annotations:
-          Deprecated(message = "Binary compatibility", replaceWith = <null>, level = DeprecationLevel.HIDDEN)
-        BLOCK_BODY
-          DELEGATING_CONSTRUCTOR_CALL 'public constructor <init> (answer: @[ExtensionFunctionType] kotlin.Function1<sample.Optional, kotlin.Int>?) declared in sample.Optional.Contract'
-            ARG answer: CONST Null type=@[ExtensionFunctionType] kotlin.Function1<sample.Optional, kotlin.Int>? value=null
       CONSTRUCTOR GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] visibility:public returnType:sample.Optional.Contract [primary]
         VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:answer index:0 type:@[ExtensionFunctionType] kotlin.Function1<sample.Optional, kotlin.Int>?
           EXPRESSION_BODY
@@ -1094,54 +1043,6 @@ FILE fqName:sample fileName:sample/AppearanceConstructor.kt
   FUN GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:Appearance visibility:public modality:FINAL returnType:sample.Appearance
     VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:a index:0 type:@[ExtensionFunctionType] kotlin.Function1<sample.Appearance, kotlin.Int>
     VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:b index:1 type:@[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int>
-    annotations:
-      Deprecated(message = "Binary compatibility", replaceWith = <null>, level = DeprecationLevel.HIDDEN)
-    BLOCK_BODY
-      RETURN type=kotlin.Nothing from='public final fun Appearance (a: @[ExtensionFunctionType] kotlin.Function1<sample.Appearance, kotlin.Int>, b: @[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int>): sample.Appearance declared in sample'
-        CALL 'public final fun Appearance (a: @[ExtensionFunctionType] kotlin.Function1<sample.Appearance, kotlin.Int>, b: @[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int>, c: @[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int>?, d: @[ExtensionFunctionType] kotlin.Function1<sample.Appearance, kotlin.Int>?, e: @[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int>?): sample.Appearance declared in sample' type=sample.Appearance origin=null
-          ARG a: GET_VAR 'a: @[ExtensionFunctionType] kotlin.Function1<sample.Appearance, kotlin.Int> declared in sample.Appearance' type=@[ExtensionFunctionType] kotlin.Function1<sample.Appearance, kotlin.Int> origin=null
-          ARG b: GET_VAR 'b: @[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int> declared in sample.Appearance' type=@[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int> origin=null
-          ARG c: CONST Null type=@[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int>? value=null
-          ARG d: CONST Null type=@[ExtensionFunctionType] kotlin.Function1<sample.Appearance, kotlin.Int>? value=null
-          ARG e: CONST Null type=@[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int>? value=null
-  FUN GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:Appearance visibility:public modality:FINAL returnType:sample.Appearance
-    VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:a index:0 type:@[ExtensionFunctionType] kotlin.Function1<sample.Appearance, kotlin.Int>
-    VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:b index:1 type:@[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int>
-    VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:c index:2 type:@[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int>?
-      EXPRESSION_BODY
-        CONST Null type=@[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int>? value=null
-    annotations:
-      Deprecated(message = "Binary compatibility", replaceWith = <null>, level = DeprecationLevel.HIDDEN)
-    BLOCK_BODY
-      RETURN type=kotlin.Nothing from='public final fun Appearance (a: @[ExtensionFunctionType] kotlin.Function1<sample.Appearance, kotlin.Int>, b: @[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int>, c: @[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int>?): sample.Appearance declared in sample'
-        CALL 'public final fun Appearance (a: @[ExtensionFunctionType] kotlin.Function1<sample.Appearance, kotlin.Int>, b: @[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int>, c: @[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int>?, d: @[ExtensionFunctionType] kotlin.Function1<sample.Appearance, kotlin.Int>?, e: @[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int>?): sample.Appearance declared in sample' type=sample.Appearance origin=null
-          ARG a: GET_VAR 'a: @[ExtensionFunctionType] kotlin.Function1<sample.Appearance, kotlin.Int> declared in sample.Appearance' type=@[ExtensionFunctionType] kotlin.Function1<sample.Appearance, kotlin.Int> origin=null
-          ARG b: GET_VAR 'b: @[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int> declared in sample.Appearance' type=@[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int> origin=null
-          ARG c: GET_VAR 'c: @[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int>? declared in sample.Appearance' type=@[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int>? origin=null
-          ARG d: CONST Null type=@[ExtensionFunctionType] kotlin.Function1<sample.Appearance, kotlin.Int>? value=null
-          ARG e: CONST Null type=@[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int>? value=null
-  FUN GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:Appearance visibility:public modality:FINAL returnType:sample.Appearance
-    VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:a index:0 type:@[ExtensionFunctionType] kotlin.Function1<sample.Appearance, kotlin.Int>
-    VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:b index:1 type:@[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int>
-    VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:c index:2 type:@[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int>?
-      EXPRESSION_BODY
-        CONST Null type=@[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int>? value=null
-    VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:d index:3 type:@[ExtensionFunctionType] kotlin.Function1<sample.Appearance, kotlin.Int>?
-      EXPRESSION_BODY
-        CONST Null type=@[ExtensionFunctionType] kotlin.Function1<sample.Appearance, kotlin.Int>? value=null
-    annotations:
-      Deprecated(message = "Binary compatibility", replaceWith = <null>, level = DeprecationLevel.HIDDEN)
-    BLOCK_BODY
-      RETURN type=kotlin.Nothing from='public final fun Appearance (a: @[ExtensionFunctionType] kotlin.Function1<sample.Appearance, kotlin.Int>, b: @[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int>, c: @[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int>?, d: @[ExtensionFunctionType] kotlin.Function1<sample.Appearance, kotlin.Int>?): sample.Appearance declared in sample'
-        CALL 'public final fun Appearance (a: @[ExtensionFunctionType] kotlin.Function1<sample.Appearance, kotlin.Int>, b: @[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int>, c: @[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int>?, d: @[ExtensionFunctionType] kotlin.Function1<sample.Appearance, kotlin.Int>?, e: @[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int>?): sample.Appearance declared in sample' type=sample.Appearance origin=null
-          ARG a: GET_VAR 'a: @[ExtensionFunctionType] kotlin.Function1<sample.Appearance, kotlin.Int> declared in sample.Appearance' type=@[ExtensionFunctionType] kotlin.Function1<sample.Appearance, kotlin.Int> origin=null
-          ARG b: GET_VAR 'b: @[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int> declared in sample.Appearance' type=@[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int> origin=null
-          ARG c: GET_VAR 'c: @[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int>? declared in sample.Appearance' type=@[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int>? origin=null
-          ARG d: GET_VAR 'd: @[ExtensionFunctionType] kotlin.Function1<sample.Appearance, kotlin.Int>? declared in sample.Appearance' type=@[ExtensionFunctionType] kotlin.Function1<sample.Appearance, kotlin.Int>? origin=null
-          ARG e: CONST Null type=@[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int>? value=null
-  FUN GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:Appearance visibility:public modality:FINAL returnType:sample.Appearance
-    VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:a index:0 type:@[ExtensionFunctionType] kotlin.Function1<sample.Appearance, kotlin.Int>
-    VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:b index:1 type:@[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int>
     VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:c index:2 type:@[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int>?
       EXPRESSION_BODY
         CONST Null type=@[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int>? value=null
@@ -1160,72 +1061,6 @@ FILE fqName:sample fileName:sample/AppearanceConstructor.kt
           ARG d: GET_VAR 'd: @[ExtensionFunctionType] kotlin.Function1<sample.Appearance, kotlin.Int>? declared in sample.Appearance' type=@[ExtensionFunctionType] kotlin.Function1<sample.Appearance, kotlin.Int>? origin=null
           ARG e: GET_VAR 'e: @[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int>? declared in sample.Appearance' type=@[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int>? origin=null
 FILE fqName:sample fileName:sample/AppearanceCopy.kt
-  FUN GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:copy visibility:public modality:FINAL returnType:sample.Appearance
-    VALUE_PARAMETER kind:ExtensionReceiver name:<this> index:0 type:sample.Appearance
-    VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:a index:1 type:@[ExtensionFunctionType] kotlin.Function1<sample.Appearance, kotlin.Int>?
-      EXPRESSION_BODY
-        CONST Null type=@[ExtensionFunctionType] kotlin.Function1<sample.Appearance, kotlin.Int>? value=null
-    VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:b index:2 type:@[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int>?
-      EXPRESSION_BODY
-        CONST Null type=@[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int>? value=null
-    annotations:
-      Deprecated(message = "Binary compatibility", replaceWith = <null>, level = DeprecationLevel.HIDDEN)
-    BLOCK_BODY
-      RETURN type=kotlin.Nothing from='public final fun copy (<this>: sample.Appearance, a: @[ExtensionFunctionType] kotlin.Function1<sample.Appearance, kotlin.Int>?, b: @[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int>?): sample.Appearance declared in sample'
-        CALL 'public final fun copy (<this>: sample.Appearance, a: @[ExtensionFunctionType] kotlin.Function1<sample.Appearance, kotlin.Int>?, b: @[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int>?, c: @[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int>?, d: @[ExtensionFunctionType] kotlin.Function1<sample.Appearance, kotlin.Int>?, e: @[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int>?): sample.Appearance declared in sample' type=sample.Appearance origin=null
-          ARG <this>: GET_VAR '<this>: sample.Appearance declared in sample.copy' type=sample.Appearance origin=null
-          ARG a: GET_VAR 'a: @[ExtensionFunctionType] kotlin.Function1<sample.Appearance, kotlin.Int>? declared in sample.copy' type=@[ExtensionFunctionType] kotlin.Function1<sample.Appearance, kotlin.Int>? origin=null
-          ARG b: GET_VAR 'b: @[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int>? declared in sample.copy' type=@[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int>? origin=null
-          ARG c: CONST Null type=@[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int>? value=null
-          ARG d: CONST Null type=@[ExtensionFunctionType] kotlin.Function1<sample.Appearance, kotlin.Int>? value=null
-          ARG e: CONST Null type=@[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int>? value=null
-  FUN GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:copy visibility:public modality:FINAL returnType:sample.Appearance
-    VALUE_PARAMETER kind:ExtensionReceiver name:<this> index:0 type:sample.Appearance
-    VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:a index:1 type:@[ExtensionFunctionType] kotlin.Function1<sample.Appearance, kotlin.Int>?
-      EXPRESSION_BODY
-        CONST Null type=@[ExtensionFunctionType] kotlin.Function1<sample.Appearance, kotlin.Int>? value=null
-    VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:b index:2 type:@[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int>?
-      EXPRESSION_BODY
-        CONST Null type=@[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int>? value=null
-    VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:c index:3 type:@[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int>?
-      EXPRESSION_BODY
-        CONST Null type=@[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int>? value=null
-    annotations:
-      Deprecated(message = "Binary compatibility", replaceWith = <null>, level = DeprecationLevel.HIDDEN)
-    BLOCK_BODY
-      RETURN type=kotlin.Nothing from='public final fun copy (<this>: sample.Appearance, a: @[ExtensionFunctionType] kotlin.Function1<sample.Appearance, kotlin.Int>?, b: @[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int>?, c: @[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int>?): sample.Appearance declared in sample'
-        CALL 'public final fun copy (<this>: sample.Appearance, a: @[ExtensionFunctionType] kotlin.Function1<sample.Appearance, kotlin.Int>?, b: @[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int>?, c: @[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int>?, d: @[ExtensionFunctionType] kotlin.Function1<sample.Appearance, kotlin.Int>?, e: @[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int>?): sample.Appearance declared in sample' type=sample.Appearance origin=null
-          ARG <this>: GET_VAR '<this>: sample.Appearance declared in sample.copy' type=sample.Appearance origin=null
-          ARG a: GET_VAR 'a: @[ExtensionFunctionType] kotlin.Function1<sample.Appearance, kotlin.Int>? declared in sample.copy' type=@[ExtensionFunctionType] kotlin.Function1<sample.Appearance, kotlin.Int>? origin=null
-          ARG b: GET_VAR 'b: @[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int>? declared in sample.copy' type=@[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int>? origin=null
-          ARG c: GET_VAR 'c: @[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int>? declared in sample.copy' type=@[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int>? origin=null
-          ARG d: CONST Null type=@[ExtensionFunctionType] kotlin.Function1<sample.Appearance, kotlin.Int>? value=null
-          ARG e: CONST Null type=@[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int>? value=null
-  FUN GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:copy visibility:public modality:FINAL returnType:sample.Appearance
-    VALUE_PARAMETER kind:ExtensionReceiver name:<this> index:0 type:sample.Appearance
-    VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:a index:1 type:@[ExtensionFunctionType] kotlin.Function1<sample.Appearance, kotlin.Int>?
-      EXPRESSION_BODY
-        CONST Null type=@[ExtensionFunctionType] kotlin.Function1<sample.Appearance, kotlin.Int>? value=null
-    VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:b index:2 type:@[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int>?
-      EXPRESSION_BODY
-        CONST Null type=@[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int>? value=null
-    VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:c index:3 type:@[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int>?
-      EXPRESSION_BODY
-        CONST Null type=@[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int>? value=null
-    VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:d index:4 type:@[ExtensionFunctionType] kotlin.Function1<sample.Appearance, kotlin.Int>?
-      EXPRESSION_BODY
-        CONST Null type=@[ExtensionFunctionType] kotlin.Function1<sample.Appearance, kotlin.Int>? value=null
-    annotations:
-      Deprecated(message = "Binary compatibility", replaceWith = <null>, level = DeprecationLevel.HIDDEN)
-    BLOCK_BODY
-      RETURN type=kotlin.Nothing from='public final fun copy (<this>: sample.Appearance, a: @[ExtensionFunctionType] kotlin.Function1<sample.Appearance, kotlin.Int>?, b: @[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int>?, c: @[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int>?, d: @[ExtensionFunctionType] kotlin.Function1<sample.Appearance, kotlin.Int>?): sample.Appearance declared in sample'
-        CALL 'public final fun copy (<this>: sample.Appearance, a: @[ExtensionFunctionType] kotlin.Function1<sample.Appearance, kotlin.Int>?, b: @[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int>?, c: @[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int>?, d: @[ExtensionFunctionType] kotlin.Function1<sample.Appearance, kotlin.Int>?, e: @[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int>?): sample.Appearance declared in sample' type=sample.Appearance origin=null
-          ARG <this>: GET_VAR '<this>: sample.Appearance declared in sample.copy' type=sample.Appearance origin=null
-          ARG a: GET_VAR 'a: @[ExtensionFunctionType] kotlin.Function1<sample.Appearance, kotlin.Int>? declared in sample.copy' type=@[ExtensionFunctionType] kotlin.Function1<sample.Appearance, kotlin.Int>? origin=null
-          ARG b: GET_VAR 'b: @[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int>? declared in sample.copy' type=@[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int>? origin=null
-          ARG c: GET_VAR 'c: @[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int>? declared in sample.copy' type=@[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int>? origin=null
-          ARG d: GET_VAR 'd: @[ExtensionFunctionType] kotlin.Function1<sample.Appearance, kotlin.Int>? declared in sample.copy' type=@[ExtensionFunctionType] kotlin.Function1<sample.Appearance, kotlin.Int>? origin=null
-          ARG e: CONST Null type=@[ExtensionFunctionType] kotlin.Function2<sample.Appearance, kotlin.Boolean, kotlin.Int>? value=null
   FUN GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:copy visibility:public modality:FINAL returnType:sample.Appearance
     VALUE_PARAMETER kind:ExtensionReceiver name:<this> index:0 type:sample.Appearance
     VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:a index:1 type:@[ExtensionFunctionType] kotlin.Function1<sample.Appearance, kotlin.Int>?
@@ -1482,13 +1317,6 @@ FILE fqName:sample fileName:sample/OptionalConstructor.kt
                   ARG <this>: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:$contract$answer type:@[ExtensionFunctionType] kotlin.Function1<sample.Optional, kotlin.Int>? visibility:private [final]' type=@[ExtensionFunctionType] kotlin.Function1<sample.Optional, kotlin.Int>? origin=null
                     receiver: GET_VAR '<this>: sample.OptionalImpl declared in sample.OptionalImpl.hashCode' type=sample.OptionalImpl origin=null
   FUN GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:Optional visibility:public modality:FINAL returnType:sample.Optional
-    annotations:
-      Deprecated(message = "Binary compatibility", replaceWith = <null>, level = DeprecationLevel.HIDDEN)
-    BLOCK_BODY
-      RETURN type=kotlin.Nothing from='public final fun Optional (): sample.Optional declared in sample'
-        CALL 'public final fun Optional (answer: @[ExtensionFunctionType] kotlin.Function1<sample.Optional, kotlin.Int>?): sample.Optional declared in sample' type=sample.Optional origin=null
-          ARG answer: CONST Null type=@[ExtensionFunctionType] kotlin.Function1<sample.Optional, kotlin.Int>? value=null
-  FUN GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:Optional visibility:public modality:FINAL returnType:sample.Optional
     VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:answer index:0 type:@[ExtensionFunctionType] kotlin.Function1<sample.Optional, kotlin.Int>?
       EXPRESSION_BODY
         CONST Null type=@[ExtensionFunctionType] kotlin.Function1<sample.Optional, kotlin.Int>? value=null
@@ -1497,15 +1325,6 @@ FILE fqName:sample fileName:sample/OptionalConstructor.kt
         CONSTRUCTOR_CALL 'public constructor <init> (answer: @[ExtensionFunctionType] kotlin.Function1<sample.Optional, kotlin.Int>?) declared in sample.OptionalImpl' type=sample.OptionalImpl origin=null
           ARG answer: GET_VAR 'answer: @[ExtensionFunctionType] kotlin.Function1<sample.Optional, kotlin.Int>? declared in sample.Optional' type=@[ExtensionFunctionType] kotlin.Function1<sample.Optional, kotlin.Int>? origin=null
 FILE fqName:sample fileName:sample/OptionalCopy.kt
-  FUN GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:copy visibility:public modality:FINAL returnType:sample.Optional
-    VALUE_PARAMETER kind:ExtensionReceiver name:<this> index:0 type:sample.Optional
-    annotations:
-      Deprecated(message = "Binary compatibility", replaceWith = <null>, level = DeprecationLevel.HIDDEN)
-    BLOCK_BODY
-      RETURN type=kotlin.Nothing from='public final fun copy (<this>: sample.Optional): sample.Optional declared in sample'
-        CALL 'public final fun copy (<this>: sample.Optional, answer: @[ExtensionFunctionType] kotlin.Function1<sample.Optional, kotlin.Int>?): sample.Optional declared in sample' type=sample.Optional origin=null
-          ARG <this>: GET_VAR '<this>: sample.Optional declared in sample.copy' type=sample.Optional origin=null
-          ARG answer: CONST Null type=@[ExtensionFunctionType] kotlin.Function1<sample.Optional, kotlin.Int>? value=null
   FUN GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:copy visibility:public modality:FINAL returnType:sample.Optional
     VALUE_PARAMETER kind:ExtensionReceiver name:<this> index:0 type:sample.Optional
     VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:answer index:1 type:@[ExtensionFunctionType] kotlin.Function1<sample.Optional, kotlin.Int>?

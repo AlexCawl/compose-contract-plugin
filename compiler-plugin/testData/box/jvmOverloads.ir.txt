@@ -76,6 +76,8 @@ FILE fqName:interop fileName:/jvmOverloads.kt
     FUN name:format visibility:public modality:OPEN returnType:kotlin.String
       VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:interop.JavaContract
       VALUE_PARAMETER kind:Regular name:prefix index:1 type:kotlin.String
+      annotations:
+        IntroducedAtContract(version = 1)
       BLOCK_BODY
         RETURN type=kotlin.Nothing from='public open fun format (prefix: kotlin.String): kotlin.String declared in interop.JavaContract'
           CALL 'public final fun plus (other: kotlin.Any?): kotlin.String declared in kotlin.String' type=kotlin.String origin=PLUS

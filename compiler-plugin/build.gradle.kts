@@ -78,6 +78,7 @@ buildConfig {
 }
 
 tasks.test {
+    dependsOn(tasks.jar)
     dependsOn(testArtifacts)
     dependsOn(annotationsJvmRuntimeClasspath)
 
@@ -85,6 +86,7 @@ tasks.test {
     workingDir = rootDir
 
     systemProperty("annotationsRuntime.jvm.classpath", annotationsJvmRuntimeClasspath.get().asPath)
+    systemProperty("contractPlugin.jar", tasks.jar.get().archiveFile.get().asFile.absolutePath)
 
     // Properties required to run the internal test framework.
     setLibraryProperty("org.jetbrains.kotlin.test.kotlin-stdlib", "kotlin-stdlib")

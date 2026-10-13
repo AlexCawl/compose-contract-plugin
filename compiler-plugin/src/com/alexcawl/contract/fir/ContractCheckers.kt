@@ -4,15 +4,18 @@ package com.alexcawl.contract.fir
 
 import org.jetbrains.kotlin.diagnostics.DiagnosticReporter
 import org.jetbrains.kotlin.diagnostics.reportOn
+import org.jetbrains.kotlin.descriptors.ClassKind
 import org.jetbrains.kotlin.fir.FirSession
 import org.jetbrains.kotlin.fir.analysis.checkers.MppCheckerKind
 import org.jetbrains.kotlin.fir.analysis.checkers.context.CheckerContext
 import org.jetbrains.kotlin.fir.analysis.checkers.declaration.DeclarationCheckers
+import org.jetbrains.kotlin.fir.analysis.checkers.declaration.FirNamedFunctionChecker
 import org.jetbrains.kotlin.fir.analysis.checkers.declaration.FirRegularClassChecker
 import org.jetbrains.kotlin.fir.analysis.diagnostics.FirErrors
 import org.jetbrains.kotlin.fir.analysis.extensions.FirAdditionalCheckersExtension
 import org.jetbrains.kotlin.fir.declarations.*
 import org.jetbrains.kotlin.fir.resolve.providers.symbolProvider
+import org.jetbrains.kotlin.fir.symbols.impl.FirRegularClassSymbol
 import org.jetbrains.kotlin.fir.types.*
 import org.jetbrains.kotlin.load.java.JvmAbi
 import org.jetbrains.kotlin.name.ClassId
@@ -22,6 +25,28 @@ import org.jetbrains.kotlin.name.Name
 class ContractCheckers(session: FirSession) : FirAdditionalCheckersExtension(session) {
     override val declarationCheckers: DeclarationCheckers = object : DeclarationCheckers() {
         override val regularClassCheckers = setOf(ContractChecker)
+        override val namedFunctionCheckers = setOf(IntroducedAtContractChecker)
+    }
+}
+
+private object IntroducedAtContractChecker : FirNamedFunctionChecker(MppCheckerKind.Common) {
+    context(context: CheckerContext, reporter: DiagnosticReporter)
+    override fun check(declaration: FirNamedFunction) {
+        val annotation = declaration.getAnnotationByClassId(introducedAtContractId, context.session) ?: return
+        val owner = (context.containingDeclarations.lastOrNull() as? FirRegularClassSymbol)?.fir
+        if (owner?.classKind != ClassKind.INTERFACE || !owner.hasAnnotation(generateContractId, context.session)) {
+            reporter.reportOn(
+                annotation.source, FirErrors.UNSUPPORTED,
+                "@IntroducedAtContract requires a member of a @GenerateContract interface",
+            )
+        }
+        val version = annotation.contractVersion(context.session)
+        if (version != null && version <= 0) {
+            reporter.reportOn(annotation.source, FirErrors.UNSUPPORTED, "Contract versions must be positive")
+        }
+        if (declaration.body == null) {
+            reporter.reportOn(annotation.source, FirErrors.UNSUPPORTED, "Versioned contract members must have a default body")
+        }
     }
 }
 

@@ -1,15 +1,19 @@
 package com.alexcawl.contract.demo.jvm
 
 import com.alexcawl.contract.GenerateContract
+import com.alexcawl.contract.IntroducedAtContract
 
 @GenerateContract
 interface DefaultAppearance {
     fun token(index: Int): String
     fun prefix(): String
     // An omitted callback invokes this interface default on the current instance.
+    @IntroducedAtContract(1)
     fun spacing(): Int = 8
 
+    @IntroducedAtContract(1)
     fun label(index: Int = prefix().length): String = this.prefix() + token(index)
+    @IntroducedAtContract(2)
     fun summary(): String = label()
     fun parameters(first: Int = prefix().length, second: Int = first + 1): String = "$first:$second"
     fun fromParameters(): String = parameters()

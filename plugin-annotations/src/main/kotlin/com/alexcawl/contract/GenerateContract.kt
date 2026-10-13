@@ -18,6 +18,7 @@ package com.alexcawl.contract
  * @GenerateContract
  * interface Appearance {
  *     fun width(): Int
+ *     @IntroducedAtContract(1)
  *     fun label(prefix: String): String = "$prefix${width()}"
  * }
  * ```
@@ -42,8 +43,9 @@ package com.alexcawl.contract
  *
  * The following is a readable Kotlin equivalent of the generated declarations for the example.
  * The original interface keeps its default body and gains `contract()` and `Appearance.Contract`.
- * Constructor parameters and immutable properties are generated separately; the assignments
- * below represent field initialization performed by the generated constructor.
+ * Constructor parameters use the original method names. Immutable callback properties are
+ * generated separately; the assignments below represent field initialization performed by
+ * the generated constructor.
  *
  * The factory and private implementation belong to `AppearanceConstructor.kt`
  * (`AppearanceConstructorKt` on the JVM). The copy extensions belong to `AppearanceCopy.kt`
@@ -53,6 +55,7 @@ package com.alexcawl.contract
  * ```kotlin
  * interface Appearance {
  *     fun width(): Int
+ *     @IntroducedAtContract(1)
  *     fun label(prefix: String): String = "$prefix${width()}"
  *
  *     fun contract(): Appearance.Contract
@@ -125,6 +128,9 @@ package com.alexcawl.contract
  * return types. The container constructor, factory, and copy extension follow the interface's
  * public or internal visibility. The private implementation stores callbacks directly;
  * `contract()` creates a fresh container on every call and does not cache it.
+ * Generated constructor, factory, and copy parameters are ordered by introduction version,
+ * preserving source order within each version. The private implementation constructor uses
+ * the same order.
  *
  * Only the generated implementation receives value equality and hashing. Callbacks are compared
  * using their own `equals` and `hashCode`; callback results are never evaluated for comparison.
@@ -149,19 +155,35 @@ package com.alexcawl.contract
  *
  * ## Evolving a published contract
  *
- * Hidden overloads preserve each parameter prefix from the last required callback to the full
- * signature. In this example, the one-argument container constructor, factory, and copy extension
- * are hidden from new Kotlin source by `DeprecationLevel.HIDDEN`. They delegate to the current
- * full signatures with `null` for missing trailing callbacks. Kotlin lowering retains the
- * corresponding default-argument helpers for already compiled callers. Fully default contracts
- * also receive an empty prefix; an empty interface is supported.
+ * Mark new default methods with [IntroducedAtContract], using a positive integer version.
+ * Unannotated methods belong to the initial version, `0`. Methods may appear in any source order;
+ * gaps between versions are allowed, and methods with the same version are introduced together.
+ * A signature for version `v` includes all methods introduced at or before `v`, ordered by
+ * ascending version and then source order within each version.
+ * Overloads are generated newest first: the current primary container constructor precedes
+ * older secondary constructors. Factories and copy extensions follow the same descending order.
+ * Without version annotations, only the full signature is generated. If every method is versioned,
+ * the initial signature is empty; an empty interface is also supported.
  *
- * Preserve existing function order, names, types, parameter names, parameter default availability,
- * and JVM owners. Append new functions only at the end and give them default bodies. Keep the
- * producer's JVM default mode unchanged; this plugin does not configure it. With `DISABLE`, old
+ * In this example, the initial one-argument container constructor, factory, and copy extension
+ * are hidden from new Kotlin source by `DeprecationLevel.HIDDEN`. Older signatures retain default
+ * arguments and delegate to the current full signature with `null` for missing callbacks. Kotlin
+ * lowering retains the corresponding default-argument helpers for already compiled callers.
+ * Old copies preserve newer callbacks already present on the source object.
+ *
+ * Preserve each published version's function set and relative function order, along with names,
+ * types, parameter names, parameter default availability, and JVM owners. New functions may be
+ * inserted anywhere but must have default bodies and a version greater than every published
+ * version. Their callbacks are appended, preserving ordinary positional calls inside parentheses
+ * and named Kotlin calls. Keep the producer's JVM default mode unchanged; this plugin does not
+ * configure it. With `DISABLE`, old
  * manual implementations cannot inherit newly added default functions and must be recompiled.
  * New Java source uses current full signatures and may need explicit `null` arguments. Callable
- * reference arity, positional calls, and trailing-lambda binding are not compatibility guarantees.
+ * reference arity and trailing-lambda binding are not compatibility guarantees.
+ * Switching from the former all-prefix generator can break binaries: signatures outside the
+ * declared version boundaries are no longer generated.
+ * Switching from source-ordered to version-ordered parameters also requires rebuilding libraries
+ * with mixed-version signatures and their clients.
  *
  * ## Supported declarations
  *

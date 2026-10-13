@@ -127,22 +127,6 @@ FILE fqName:values fileName:/valueEquality.kt
             RETURN type=kotlin.Nothing from='public final fun <get-float> (): @[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Float>? declared in values.Values.Contract'
               GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:float type:@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Float>? visibility:private [final]' type=@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Float>? origin=null
                 receiver: GET_VAR '<this>: values.Values.Contract declared in values.Values.Contract.<get-float>' type=values.Values.Contract origin=null
-      CONSTRUCTOR GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] visibility:public returnType:values.Values.Contract
-        VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:lineHeight index:0 type:@[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels>
-        VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:nullable index:1 type:@[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels?>
-        VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:list index:2 type:@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.collections.List<kotlin.String>>
-        VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:array index:3 type:@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.IntArray>
-        VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:transform index:4 type:@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Function1<kotlin.String, kotlin.String>>
-        annotations:
-          Deprecated(message = "Binary compatibility", replaceWith = <null>, level = DeprecationLevel.HIDDEN)
-        BLOCK_BODY
-          DELEGATING_CONSTRUCTOR_CALL 'public constructor <init> (lineHeight: @[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels>, nullable: @[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels?>, list: @[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.collections.List<kotlin.String>>, array: @[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.IntArray>, transform: @[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Function1<kotlin.String, kotlin.String>>, float: @[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Float>?) declared in values.Values.Contract'
-            ARG lineHeight: GET_VAR 'lineHeight: @[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels> declared in values.Values.Contract.<init>' type=@[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels> origin=null
-            ARG nullable: GET_VAR 'nullable: @[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels?> declared in values.Values.Contract.<init>' type=@[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels?> origin=null
-            ARG list: GET_VAR 'list: @[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.collections.List<kotlin.String>> declared in values.Values.Contract.<init>' type=@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.collections.List<kotlin.String>> origin=null
-            ARG array: GET_VAR 'array: @[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.IntArray> declared in values.Values.Contract.<init>' type=@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.IntArray> origin=null
-            ARG transform: GET_VAR 'transform: @[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Function1<kotlin.String, kotlin.String>> declared in values.Values.Contract.<init>' type=@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Function1<kotlin.String, kotlin.String>> origin=null
-            ARG float: CONST Null type=@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Float>? value=null
       CONSTRUCTOR GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] visibility:public returnType:values.Values.Contract [primary]
         VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:lineHeight index:0 type:@[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels>
         VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:nullable index:1 type:@[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels?>
@@ -695,23 +679,6 @@ FILE fqName:values fileName:values/ValuesConstructor.kt
     VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:list index:2 type:@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.collections.List<kotlin.String>>
     VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:array index:3 type:@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.IntArray>
     VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:transform index:4 type:@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Function1<kotlin.String, kotlin.String>>
-    annotations:
-      Deprecated(message = "Binary compatibility", replaceWith = <null>, level = DeprecationLevel.HIDDEN)
-    BLOCK_BODY
-      RETURN type=kotlin.Nothing from='public final fun Values (lineHeight: @[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels>, nullable: @[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels?>, list: @[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.collections.List<kotlin.String>>, array: @[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.IntArray>, transform: @[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Function1<kotlin.String, kotlin.String>>): values.Values declared in values'
-        CALL 'public final fun Values (lineHeight: @[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels>, nullable: @[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels?>, list: @[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.collections.List<kotlin.String>>, array: @[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.IntArray>, transform: @[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Function1<kotlin.String, kotlin.String>>, float: @[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Float>?): values.Values declared in values' type=values.Values origin=null
-          ARG lineHeight: GET_VAR 'lineHeight: @[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels> declared in values.Values' type=@[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels> origin=null
-          ARG nullable: GET_VAR 'nullable: @[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels?> declared in values.Values' type=@[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels?> origin=null
-          ARG list: GET_VAR 'list: @[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.collections.List<kotlin.String>> declared in values.Values' type=@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.collections.List<kotlin.String>> origin=null
-          ARG array: GET_VAR 'array: @[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.IntArray> declared in values.Values' type=@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.IntArray> origin=null
-          ARG transform: GET_VAR 'transform: @[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Function1<kotlin.String, kotlin.String>> declared in values.Values' type=@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Function1<kotlin.String, kotlin.String>> origin=null
-          ARG float: CONST Null type=@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Float>? value=null
-  FUN GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:Values visibility:public modality:FINAL returnType:values.Values
-    VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:lineHeight index:0 type:@[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels>
-    VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:nullable index:1 type:@[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels?>
-    VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:list index:2 type:@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.collections.List<kotlin.String>>
-    VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:array index:3 type:@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.IntArray>
-    VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:transform index:4 type:@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Function1<kotlin.String, kotlin.String>>
     VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:float index:5 type:@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Float>?
       EXPRESSION_BODY
         CONST Null type=@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Float>? value=null
@@ -725,35 +692,6 @@ FILE fqName:values fileName:values/ValuesConstructor.kt
           ARG transform: GET_VAR 'transform: @[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Function1<kotlin.String, kotlin.String>> declared in values.Values' type=@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Function1<kotlin.String, kotlin.String>> origin=null
           ARG float: GET_VAR 'float: @[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Float>? declared in values.Values' type=@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Float>? origin=null
 FILE fqName:values fileName:values/ValuesCopy.kt
-  FUN GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:copy visibility:public modality:FINAL returnType:values.Values
-    VALUE_PARAMETER kind:ExtensionReceiver name:<this> index:0 type:values.Values
-    VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:lineHeight index:1 type:@[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels>?
-      EXPRESSION_BODY
-        CONST Null type=@[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels>? value=null
-    VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:nullable index:2 type:@[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels?>?
-      EXPRESSION_BODY
-        CONST Null type=@[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels?>? value=null
-    VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:list index:3 type:@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.collections.List<kotlin.String>>?
-      EXPRESSION_BODY
-        CONST Null type=@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.collections.List<kotlin.String>>? value=null
-    VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:array index:4 type:@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.IntArray>?
-      EXPRESSION_BODY
-        CONST Null type=@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.IntArray>? value=null
-    VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:transform index:5 type:@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Function1<kotlin.String, kotlin.String>>?
-      EXPRESSION_BODY
-        CONST Null type=@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Function1<kotlin.String, kotlin.String>>? value=null
-    annotations:
-      Deprecated(message = "Binary compatibility", replaceWith = <null>, level = DeprecationLevel.HIDDEN)
-    BLOCK_BODY
-      RETURN type=kotlin.Nothing from='public final fun copy (<this>: values.Values, lineHeight: @[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels>?, nullable: @[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels?>?, list: @[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.collections.List<kotlin.String>>?, array: @[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.IntArray>?, transform: @[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Function1<kotlin.String, kotlin.String>>?): values.Values declared in values'
-        CALL 'public final fun copy (<this>: values.Values, lineHeight: @[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels>?, nullable: @[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels?>?, list: @[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.collections.List<kotlin.String>>?, array: @[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.IntArray>?, transform: @[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Function1<kotlin.String, kotlin.String>>?, float: @[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Float>?): values.Values declared in values' type=values.Values origin=null
-          ARG <this>: GET_VAR '<this>: values.Values declared in values.copy' type=values.Values origin=null
-          ARG lineHeight: GET_VAR 'lineHeight: @[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels>? declared in values.copy' type=@[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels>? origin=null
-          ARG nullable: GET_VAR 'nullable: @[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels?>? declared in values.copy' type=@[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels?>? origin=null
-          ARG list: GET_VAR 'list: @[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.collections.List<kotlin.String>>? declared in values.copy' type=@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.collections.List<kotlin.String>>? origin=null
-          ARG array: GET_VAR 'array: @[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.IntArray>? declared in values.copy' type=@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.IntArray>? origin=null
-          ARG transform: GET_VAR 'transform: @[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Function1<kotlin.String, kotlin.String>>? declared in values.copy' type=@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Function1<kotlin.String, kotlin.String>>? origin=null
-          ARG float: CONST Null type=@[ExtensionFunctionType] kotlin.Function1<values.Values, kotlin.Float>? value=null
   FUN GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] name:copy visibility:public modality:FINAL returnType:values.Values
     VALUE_PARAMETER kind:ExtensionReceiver name:<this> index:0 type:values.Values
     VALUE_PARAMETER GENERATED[com.alexcawl.contract.fir.ContractDeclarationGenerator.Key] kind:Regular name:lineHeight index:1 type:@[ExtensionFunctionType] kotlin.Function1<values.Values, values.Pixels>?

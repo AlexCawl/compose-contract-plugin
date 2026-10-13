@@ -3,10 +3,12 @@
 package interop
 
 import com.alexcawl.contract.GenerateContract
+import com.alexcawl.contract.IntroducedAtContract
 
 @GenerateContract
 interface JavaContract {
     fun value(): Int
+    @IntroducedAtContract(1)
     fun format(prefix: String): String = prefix + value()
 }
 
