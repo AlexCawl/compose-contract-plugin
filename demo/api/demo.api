@@ -1,0 +1,353 @@
+public abstract interface class com/alexcawl/contract/demo/DefaultAppearance {
+	public abstract fun contract ()Lcom/alexcawl/contract/demo/DefaultAppearance$Contract;
+	public fun decorator ()Lkotlin/jvm/functions/Function1;
+	public fun fromParameters ()Ljava/lang/String;
+	public fun join ([Ljava/lang/String;)Ljava/lang/String;
+	public fun label (I)Ljava/lang/String;
+	public static synthetic fun label$default (Lcom/alexcawl/contract/demo/DefaultAppearance;IILjava/lang/Object;)Ljava/lang/String;
+	public fun namedOrder ()Ljava/lang/String;
+	public fun order (II)Ljava/lang/String;
+	public fun parameters (II)Ljava/lang/String;
+	public static synthetic fun parameters$default (Lcom/alexcawl/contract/demo/DefaultAppearance;IIILjava/lang/Object;)Ljava/lang/String;
+	public abstract fun prefix ()Ljava/lang/String;
+	public fun references (I)Ljava/lang/String;
+	public fun spacing ()I
+	public fun spacingSum ([I)I
+	public fun summary ()Ljava/lang/String;
+	public abstract fun token (I)Ljava/lang/String;
+}
+
+public final class com/alexcawl/contract/demo/DefaultAppearance$Contract {
+	public synthetic fun <init> (Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function3;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function3;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;)V
+	public synthetic fun <init> (Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function3;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function3;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function3;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function3;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function2;)V
+	public synthetic fun <init> (Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function3;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function3;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function2;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function3;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function3;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;)V
+	public synthetic fun <init> (Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function3;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function3;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getDecorator ()Lkotlin/jvm/functions/Function1;
+	public final fun getFromParameters ()Lkotlin/jvm/functions/Function1;
+	public final fun getJoin ()Lkotlin/jvm/functions/Function2;
+	public final fun getLabel ()Lkotlin/jvm/functions/Function2;
+	public final fun getNamedOrder ()Lkotlin/jvm/functions/Function1;
+	public final fun getOrder ()Lkotlin/jvm/functions/Function3;
+	public final fun getParameters ()Lkotlin/jvm/functions/Function3;
+	public final fun getPrefix ()Lkotlin/jvm/functions/Function1;
+	public final fun getReferences ()Lkotlin/jvm/functions/Function2;
+	public final fun getSpacing ()Lkotlin/jvm/functions/Function1;
+	public final fun getSpacingSum ()Lkotlin/jvm/functions/Function2;
+	public final fun getSummary ()Lkotlin/jvm/functions/Function1;
+	public final fun getToken ()Lkotlin/jvm/functions/Function2;
+}
+
+public final class com/alexcawl/contract/demo/DefaultAppearance$DefaultImpls {
+	public static fun decorator (Lcom/alexcawl/contract/demo/DefaultAppearance;)Lkotlin/jvm/functions/Function1;
+	public static fun fromParameters (Lcom/alexcawl/contract/demo/DefaultAppearance;)Ljava/lang/String;
+	public static fun join (Lcom/alexcawl/contract/demo/DefaultAppearance;[Ljava/lang/String;)Ljava/lang/String;
+	public static fun label (Lcom/alexcawl/contract/demo/DefaultAppearance;I)Ljava/lang/String;
+	public static synthetic fun label$default (Lcom/alexcawl/contract/demo/DefaultAppearance;IILjava/lang/Object;)Ljava/lang/String;
+	public static fun namedOrder (Lcom/alexcawl/contract/demo/DefaultAppearance;)Ljava/lang/String;
+	public static fun order (Lcom/alexcawl/contract/demo/DefaultAppearance;II)Ljava/lang/String;
+	public static fun parameters (Lcom/alexcawl/contract/demo/DefaultAppearance;II)Ljava/lang/String;
+	public static synthetic fun parameters$default (Lcom/alexcawl/contract/demo/DefaultAppearance;IIILjava/lang/Object;)Ljava/lang/String;
+	public static fun references (Lcom/alexcawl/contract/demo/DefaultAppearance;I)Ljava/lang/String;
+	public static fun spacing (Lcom/alexcawl/contract/demo/DefaultAppearance;)I
+	public static fun spacingSum (Lcom/alexcawl/contract/demo/DefaultAppearance;[I)I
+	public static fun summary (Lcom/alexcawl/contract/demo/DefaultAppearance;)Ljava/lang/String;
+}
+
+public final class com/alexcawl/contract/demo/DefaultAppearanceConstructorKt {
+	public static final synthetic fun DefaultAppearance (Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function3;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function3;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;)Lcom/alexcawl/contract/demo/DefaultAppearance;
+	public static final synthetic fun DefaultAppearance (Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function3;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function3;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function2;)Lcom/alexcawl/contract/demo/DefaultAppearance;
+	public static final fun DefaultAppearance (Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function3;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function3;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;)Lcom/alexcawl/contract/demo/DefaultAppearance;
+	public static synthetic fun DefaultAppearance$default (Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function3;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function3;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lcom/alexcawl/contract/demo/DefaultAppearance;
+	public static synthetic fun DefaultAppearance$default (Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function3;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function3;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function2;ILjava/lang/Object;)Lcom/alexcawl/contract/demo/DefaultAppearance;
+	public static synthetic fun DefaultAppearance$default (Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function3;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function3;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lcom/alexcawl/contract/demo/DefaultAppearance;
+}
+
+public final class com/alexcawl/contract/demo/DefaultAppearanceCopyKt {
+	public static final synthetic fun copy (Lcom/alexcawl/contract/demo/DefaultAppearance;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function3;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function3;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;)Lcom/alexcawl/contract/demo/DefaultAppearance;
+	public static final synthetic fun copy (Lcom/alexcawl/contract/demo/DefaultAppearance;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function3;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function3;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function2;)Lcom/alexcawl/contract/demo/DefaultAppearance;
+	public static final fun copy (Lcom/alexcawl/contract/demo/DefaultAppearance;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function3;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function3;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;)Lcom/alexcawl/contract/demo/DefaultAppearance;
+	public static synthetic fun copy$default (Lcom/alexcawl/contract/demo/DefaultAppearance;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function3;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function3;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lcom/alexcawl/contract/demo/DefaultAppearance;
+	public static synthetic fun copy$default (Lcom/alexcawl/contract/demo/DefaultAppearance;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function3;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function3;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function2;ILjava/lang/Object;)Lcom/alexcawl/contract/demo/DefaultAppearance;
+	public static synthetic fun copy$default (Lcom/alexcawl/contract/demo/DefaultAppearance;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function3;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function3;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lcom/alexcawl/contract/demo/DefaultAppearance;
+}
+
+public abstract interface class com/alexcawl/contract/demo/EmptyAppearance {
+	public abstract fun contract ()Lcom/alexcawl/contract/demo/EmptyAppearance$Contract;
+}
+
+public final class com/alexcawl/contract/demo/EmptyAppearance$Contract {
+	public fun <init> ()V
+}
+
+public final class com/alexcawl/contract/demo/EmptyAppearanceConstructorKt {
+	public static final fun EmptyAppearance ()Lcom/alexcawl/contract/demo/EmptyAppearance;
+}
+
+public final class com/alexcawl/contract/demo/EmptyAppearanceCopyKt {
+	public static final fun copy (Lcom/alexcawl/contract/demo/EmptyAppearance;)Lcom/alexcawl/contract/demo/EmptyAppearance;
+}
+
+public abstract interface class com/alexcawl/contract/demo/HighArityAppearance {
+	public abstract fun contract ()Lcom/alexcawl/contract/demo/HighArityAppearance$Contract;
+	public fun measure (IIIIIIIIIIIIIIIIIIIIIII)I
+}
+
+public final class com/alexcawl/contract/demo/HighArityAppearance$Contract {
+	public fun <init> ()V
+	public fun <init> (Lkotlin/jvm/functions/FunctionN;)V
+	public synthetic fun <init> (Lkotlin/jvm/functions/FunctionN;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getMeasure ()Lkotlin/jvm/functions/FunctionN;
+}
+
+public final class com/alexcawl/contract/demo/HighArityAppearance$DefaultImpls {
+	public static fun measure (Lcom/alexcawl/contract/demo/HighArityAppearance;IIIIIIIIIIIIIIIIIIIIIII)I
+}
+
+public final class com/alexcawl/contract/demo/HighArityAppearanceConstructorKt {
+	public static final fun HighArityAppearance (Lkotlin/jvm/functions/FunctionN;)Lcom/alexcawl/contract/demo/HighArityAppearance;
+	public static synthetic fun HighArityAppearance$default (Lkotlin/jvm/functions/FunctionN;ILjava/lang/Object;)Lcom/alexcawl/contract/demo/HighArityAppearance;
+}
+
+public final class com/alexcawl/contract/demo/HighArityAppearanceCopyKt {
+	public static final fun copy (Lcom/alexcawl/contract/demo/HighArityAppearance;Lkotlin/jvm/functions/FunctionN;)Lcom/alexcawl/contract/demo/HighArityAppearance;
+	public static synthetic fun copy$default (Lcom/alexcawl/contract/demo/HighArityAppearance;Lkotlin/jvm/functions/FunctionN;ILjava/lang/Object;)Lcom/alexcawl/contract/demo/HighArityAppearance;
+}
+
+public final class com/alexcawl/contract/demo/Pixels {
+	public static final synthetic fun box-impl (I)Lcom/alexcawl/contract/demo/Pixels;
+	public static fun constructor-impl (I)I
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (ILjava/lang/Object;)Z
+	public static final fun equals-impl0 (II)Z
+	public final fun getValue ()I
+	public fun hashCode ()I
+	public static fun hashCode-impl (I)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (I)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()I
+}
+
+public abstract interface class com/alexcawl/contract/demo/SlotLimitAppearance {
+	public abstract fun contract ()Lcom/alexcawl/contract/demo/SlotLimitAppearance$Contract;
+	public fun measure (JJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJ)J
+}
+
+public final class com/alexcawl/contract/demo/SlotLimitAppearance$Contract {
+	public fun <init> ()V
+	public fun <init> (Lkotlin/jvm/functions/FunctionN;)V
+	public synthetic fun <init> (Lkotlin/jvm/functions/FunctionN;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getMeasure ()Lkotlin/jvm/functions/FunctionN;
+}
+
+public final class com/alexcawl/contract/demo/SlotLimitAppearance$DefaultImpls {
+	public static fun measure (Lcom/alexcawl/contract/demo/SlotLimitAppearance;JJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJ)J
+}
+
+public final class com/alexcawl/contract/demo/SlotLimitAppearanceConstructorKt {
+	public static final fun SlotLimitAppearance (Lkotlin/jvm/functions/FunctionN;)Lcom/alexcawl/contract/demo/SlotLimitAppearance;
+	public static synthetic fun SlotLimitAppearance$default (Lkotlin/jvm/functions/FunctionN;ILjava/lang/Object;)Lcom/alexcawl/contract/demo/SlotLimitAppearance;
+}
+
+public final class com/alexcawl/contract/demo/SlotLimitAppearanceCopyKt {
+	public static final fun copy (Lcom/alexcawl/contract/demo/SlotLimitAppearance;Lkotlin/jvm/functions/FunctionN;)Lcom/alexcawl/contract/demo/SlotLimitAppearance;
+	public static synthetic fun copy$default (Lcom/alexcawl/contract/demo/SlotLimitAppearance;Lkotlin/jvm/functions/FunctionN;ILjava/lang/Object;)Lcom/alexcawl/contract/demo/SlotLimitAppearance;
+}
+
+public abstract interface class com/alexcawl/contract/demo/ValueAppearance {
+	public abstract fun byteToken ()B
+	public abstract fun color ()J
+	public abstract fun contract ()Lcom/alexcawl/contract/demo/ValueAppearance$Contract;
+	public abstract fun decorations ()Ljava/util/Map;
+	public abstract fun emphasized ()Z
+	public abstract fun fallback ()Lcom/alexcawl/contract/demo/ValueAppearance;
+	public abstract fun label ()Ljava/lang/String;
+	public abstract fun labels ()[Ljava/lang/String;
+	public abstract fun lineHeight-IAspu6U ()I
+	public abstract fun marker ()C
+	public abstract fun opacity ()F
+	public abstract fun optionalInset-N23gdrQ ()Lcom/alexcawl/contract/demo/Pixels;
+	public abstract fun scale ()D
+	public abstract fun shortToken ()S
+	public abstract fun stops ()[I
+	public abstract fun transform ()Lkotlin/jvm/functions/Function1;
+	public abstract fun width ()I
+}
+
+public final class com/alexcawl/contract/demo/ValueAppearance$Contract {
+	public fun <init> (Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;)V
+	public final fun getByteToken ()Lkotlin/jvm/functions/Function1;
+	public final fun getColor ()Lkotlin/jvm/functions/Function1;
+	public final fun getDecorations ()Lkotlin/jvm/functions/Function1;
+	public final fun getEmphasized ()Lkotlin/jvm/functions/Function1;
+	public final fun getFallback ()Lkotlin/jvm/functions/Function1;
+	public final fun getLabel ()Lkotlin/jvm/functions/Function1;
+	public final fun getLabels ()Lkotlin/jvm/functions/Function1;
+	public final fun getLineHeight ()Lkotlin/jvm/functions/Function1;
+	public final fun getMarker ()Lkotlin/jvm/functions/Function1;
+	public final fun getOpacity ()Lkotlin/jvm/functions/Function1;
+	public final fun getOptionalInset ()Lkotlin/jvm/functions/Function1;
+	public final fun getScale ()Lkotlin/jvm/functions/Function1;
+	public final fun getShortToken ()Lkotlin/jvm/functions/Function1;
+	public final fun getStops ()Lkotlin/jvm/functions/Function1;
+	public final fun getTransform ()Lkotlin/jvm/functions/Function1;
+	public final fun getWidth ()Lkotlin/jvm/functions/Function1;
+}
+
+public final class com/alexcawl/contract/demo/ValueAppearanceConstructorKt {
+	public static final fun ValueAppearance (Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;)Lcom/alexcawl/contract/demo/ValueAppearance;
+}
+
+public final class com/alexcawl/contract/demo/ValueAppearanceCopyKt {
+	public static final fun copy (Lcom/alexcawl/contract/demo/ValueAppearance;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;)Lcom/alexcawl/contract/demo/ValueAppearance;
+	public static synthetic fun copy$default (Lcom/alexcawl/contract/demo/ValueAppearance;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lcom/alexcawl/contract/demo/ValueAppearance;
+}
+
+public abstract interface class com/alexcawl/contract/demo/WidePalette {
+	public abstract fun contract ()Lcom/alexcawl/contract/demo/WidePalette$Contract;
+	public abstract fun tone01 ()I
+	public abstract fun tone02 ()I
+	public abstract fun tone03 ()I
+	public abstract fun tone04 ()I
+	public abstract fun tone05 ()I
+	public abstract fun tone06 ()I
+	public abstract fun tone07 ()I
+	public abstract fun tone08 ()I
+	public abstract fun tone09 ()I
+	public abstract fun tone10 ()I
+	public abstract fun tone11 ()I
+	public abstract fun tone12 ()I
+	public abstract fun tone13 ()I
+	public abstract fun tone14 ()I
+	public abstract fun tone15 ()I
+	public abstract fun tone16 ()I
+	public abstract fun tone17 ()I
+	public abstract fun tone18 ()I
+	public abstract fun tone19 ()I
+	public abstract fun tone20 ()I
+	public abstract fun tone21 ()I
+	public abstract fun tone22 ()I
+	public abstract fun tone23 ()I
+	public abstract fun tone24 ()I
+	public abstract fun tone25 ()I
+	public abstract fun tone26 ()I
+	public abstract fun tone27 ()I
+	public abstract fun tone28 ()I
+	public abstract fun tone29 ()I
+	public abstract fun tone30 ()I
+	public abstract fun tone31 ()I
+	public abstract fun tone32 ()I
+	public abstract fun tone33 ()I
+	public abstract fun tone34 ()I
+	public abstract fun tone35 ()I
+	public abstract fun tone36 ()I
+	public abstract fun tone37 ()I
+	public abstract fun tone38 ()I
+	public abstract fun tone39 ()I
+	public abstract fun tone40 ()I
+	public abstract fun tone41 ()I
+	public abstract fun tone42 ()I
+	public abstract fun tone43 ()I
+	public abstract fun tone44 ()I
+	public abstract fun tone45 ()I
+	public abstract fun tone46 ()I
+	public abstract fun tone47 ()I
+	public abstract fun tone48 ()I
+	public abstract fun tone49 ()I
+	public abstract fun tone50 ()I
+	public abstract fun tone51 ()I
+	public abstract fun tone52 ()I
+	public abstract fun tone53 ()I
+	public abstract fun tone54 ()I
+	public abstract fun tone55 ()I
+	public abstract fun tone56 ()I
+	public abstract fun tone57 ()I
+	public abstract fun tone58 ()I
+	public abstract fun tone59 ()I
+	public abstract fun tone60 ()I
+	public abstract fun tone61 ()I
+	public abstract fun tone62 ()I
+	public abstract fun tone63 ()I
+	public abstract fun tone64 ()I
+	public abstract fun tone65 ()I
+}
+
+public final class com/alexcawl/contract/demo/WidePalette$Contract {
+	public fun <init> (Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;)V
+	public final fun getTone01 ()Lkotlin/jvm/functions/Function1;
+	public final fun getTone02 ()Lkotlin/jvm/functions/Function1;
+	public final fun getTone03 ()Lkotlin/jvm/functions/Function1;
+	public final fun getTone04 ()Lkotlin/jvm/functions/Function1;
+	public final fun getTone05 ()Lkotlin/jvm/functions/Function1;
+	public final fun getTone06 ()Lkotlin/jvm/functions/Function1;
+	public final fun getTone07 ()Lkotlin/jvm/functions/Function1;
+	public final fun getTone08 ()Lkotlin/jvm/functions/Function1;
+	public final fun getTone09 ()Lkotlin/jvm/functions/Function1;
+	public final fun getTone10 ()Lkotlin/jvm/functions/Function1;
+	public final fun getTone11 ()Lkotlin/jvm/functions/Function1;
+	public final fun getTone12 ()Lkotlin/jvm/functions/Function1;
+	public final fun getTone13 ()Lkotlin/jvm/functions/Function1;
+	public final fun getTone14 ()Lkotlin/jvm/functions/Function1;
+	public final fun getTone15 ()Lkotlin/jvm/functions/Function1;
+	public final fun getTone16 ()Lkotlin/jvm/functions/Function1;
+	public final fun getTone17 ()Lkotlin/jvm/functions/Function1;
+	public final fun getTone18 ()Lkotlin/jvm/functions/Function1;
+	public final fun getTone19 ()Lkotlin/jvm/functions/Function1;
+	public final fun getTone20 ()Lkotlin/jvm/functions/Function1;
+	public final fun getTone21 ()Lkotlin/jvm/functions/Function1;
+	public final fun getTone22 ()Lkotlin/jvm/functions/Function1;
+	public final fun getTone23 ()Lkotlin/jvm/functions/Function1;
+	public final fun getTone24 ()Lkotlin/jvm/functions/Function1;
+	public final fun getTone25 ()Lkotlin/jvm/functions/Function1;
+	public final fun getTone26 ()Lkotlin/jvm/functions/Function1;
+	public final fun getTone27 ()Lkotlin/jvm/functions/Function1;
+	public final fun getTone28 ()Lkotlin/jvm/functions/Function1;
+	public final fun getTone29 ()Lkotlin/jvm/functions/Function1;
+	public final fun getTone30 ()Lkotlin/jvm/functions/Function1;
+	public final fun getTone31 ()Lkotlin/jvm/functions/Function1;
+	public final fun getTone32 ()Lkotlin/jvm/functions/Function1;
+	public final fun getTone33 ()Lkotlin/jvm/functions/Function1;
+	public final fun getTone34 ()Lkotlin/jvm/functions/Function1;
+	public final fun getTone35 ()Lkotlin/jvm/functions/Function1;
+	public final fun getTone36 ()Lkotlin/jvm/functions/Function1;
+	public final fun getTone37 ()Lkotlin/jvm/functions/Function1;
+	public final fun getTone38 ()Lkotlin/jvm/functions/Function1;
+	public final fun getTone39 ()Lkotlin/jvm/functions/Function1;
+	public final fun getTone40 ()Lkotlin/jvm/functions/Function1;
+	public final fun getTone41 ()Lkotlin/jvm/functions/Function1;
+	public final fun getTone42 ()Lkotlin/jvm/functions/Function1;
+	public final fun getTone43 ()Lkotlin/jvm/functions/Function1;
+	public final fun getTone44 ()Lkotlin/jvm/functions/Function1;
+	public final fun getTone45 ()Lkotlin/jvm/functions/Function1;
+	public final fun getTone46 ()Lkotlin/jvm/functions/Function1;
+	public final fun getTone47 ()Lkotlin/jvm/functions/Function1;
+	public final fun getTone48 ()Lkotlin/jvm/functions/Function1;
+	public final fun getTone49 ()Lkotlin/jvm/functions/Function1;
+	public final fun getTone50 ()Lkotlin/jvm/functions/Function1;
+	public final fun getTone51 ()Lkotlin/jvm/functions/Function1;
+	public final fun getTone52 ()Lkotlin/jvm/functions/Function1;
+	public final fun getTone53 ()Lkotlin/jvm/functions/Function1;
+	public final fun getTone54 ()Lkotlin/jvm/functions/Function1;
+	public final fun getTone55 ()Lkotlin/jvm/functions/Function1;
+	public final fun getTone56 ()Lkotlin/jvm/functions/Function1;
+	public final fun getTone57 ()Lkotlin/jvm/functions/Function1;
+	public final fun getTone58 ()Lkotlin/jvm/functions/Function1;
+	public final fun getTone59 ()Lkotlin/jvm/functions/Function1;
+	public final fun getTone60 ()Lkotlin/jvm/functions/Function1;
+	public final fun getTone61 ()Lkotlin/jvm/functions/Function1;
+	public final fun getTone62 ()Lkotlin/jvm/functions/Function1;
+	public final fun getTone63 ()Lkotlin/jvm/functions/Function1;
+	public final fun getTone64 ()Lkotlin/jvm/functions/Function1;
+	public final fun getTone65 ()Lkotlin/jvm/functions/Function1;
+}
+
+public final class com/alexcawl/contract/demo/WidePaletteConstructorKt {
+	public static final fun WidePalette (Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;)Lcom/alexcawl/contract/demo/WidePalette;
+}
+
+public final class com/alexcawl/contract/demo/WidePaletteCopyKt {
+	public static final fun copy (Lcom/alexcawl/contract/demo/WidePalette;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;)Lcom/alexcawl/contract/demo/WidePalette;
+	public static synthetic fun copy$default (Lcom/alexcawl/contract/demo/WidePalette;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;IIILjava/lang/Object;)Lcom/alexcawl/contract/demo/WidePalette;
+}
+

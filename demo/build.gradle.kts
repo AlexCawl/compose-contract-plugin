@@ -5,6 +5,9 @@ plugins {
 
 kotlin {
     jvmToolchain(21)
+
+    @OptIn(org.jetbrains.kotlin.gradle.dsl.abi.ExperimentalAbiValidation::class)
+    abiValidation()
 }
 
 dependencies {
