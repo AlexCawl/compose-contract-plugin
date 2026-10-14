@@ -38,7 +38,7 @@ gradlePlugin {
     plugins {
         create("ContractPlugin") {
             id = rootProject.group.toString()
-            displayName = "Compose Contract"
+            displayName = "Contract Plugin"
             description = "Generates value implementations, factories, and copy extensions for contracts"
             implementationClass = "com.alexcawl.contract.ContractGradlePlugin"
         }

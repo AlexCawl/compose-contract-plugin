@@ -4,7 +4,7 @@ package com.alexcawl.contract
  * Generates a callback-based value implementation, a nested callback container, a factory,
  * and a copy extension for an interface.
  *
- * Requires the Compose Contract compiler plugin on Kotlin/JVM or Android JVM, including
+ * Requires Contract Plugin on Kotlin/JVM or Android JVM, including
  * those targets in Kotlin Multiplatform projects. Declarations are generated in the compiler;
  * no physical Kotlin source files are written. Consumers of a compiled contract library
  * do not need the compiler plugin.

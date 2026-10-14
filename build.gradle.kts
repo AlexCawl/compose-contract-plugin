@@ -20,7 +20,7 @@ subprojects {
             repositories {
                 maven {
                     name = "GitHubPackages"
-                    url = uri("https://maven.pkg.github.com/alexcawl/compose-contract-plugin")
+                    url = uri("https://maven.pkg.github.com/alexcawl/contract-plugin")
                     credentials {
                         username = providers.environmentVariable("GITHUB_ACTOR").orNull
                         password = providers.environmentVariable("GITHUB_TOKEN").orNull

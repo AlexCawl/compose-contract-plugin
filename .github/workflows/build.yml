@@ -1,31 +1,21 @@
-on:
-  pull_request: {}
-  push:
-    branches:
-      - master
+name: Build
 
-env:
-  GRADLE_OPTS: "-Dorg.gradle.jvmargs=-Xmx4g -Dorg.gradle.daemon=false -Dkotlin.incremental=false"
+on:
+  pull_request:
+  push:
+    branches: [master]
 
 jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
       contents: read
-      checks: write
 
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-java@v4
         with:
-          distribution: 'zulu'
+          distribution: zulu
           java-version: 21
-
       - uses: gradle/actions/setup-gradle@v4
       - run: ./gradlew build --continue
-
-      - uses: mikepenz/action-junit-report@v5
-        if: success() || failure()
-        with:
-          report_paths: '**/build/test-results/**/TEST-*.xml'
-          annotate_only: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name != github.repository }}
